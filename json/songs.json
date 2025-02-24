@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Some",
+        "artist": "Steve Lacy",
+        "defTimeSigNumer" :"4",
+        "defTimeSigDenom" :"4",
+        "defKeySig": "C+",
+        "tempo": "105",
+        "genre": "Indie",
+        "duration": "1:58",
+        "measureList" : "Measure"
+    },
+    {
+        "id": 2,
+        "title": "Smoke on the Water",
+        "artist": "Deep Purple",
+        "defTimeSigNumer" :"4",
+        "defTimeSigDenom" :"4",
+        "defKeySig": "G-",
+        "tempo": "114",
+        "genre": "Classic Rock",
+        "duration": "5:42",
+        "measureList" : "Measure"
+    }
+]
