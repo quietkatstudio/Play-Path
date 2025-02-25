@@ -13,14 +13,14 @@
     },
     {
         "id": 2,
-        "title": "Smoke on the Water",
-        "artist": "Deep Purple",
+        "title": "Dull",
+        "artist": "Microwave",
         "defTimeSigNumer" :"4",
         "defTimeSigDenom" :"4",
-        "defKeySig": "G-",
-        "tempo": "114",
-        "genre": "Classic Rock",
-        "duration": "5:42",
+        "defKeySig": "E+",
+        "tempo": "147",
+        "genre": "Midwest Emo",
+        "duration": "3:28",
         "measureList" : "Measure"
     }
 ]
