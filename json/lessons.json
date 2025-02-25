@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "title": "Chords",
+        "description": "This lesson is about Chords",
+        "question": "This is the content of lesson 1",
+        "song" : "Some",
+        "flashcards": "Chords"
+    },
+    {
+        "id": 2,
+        "title": "Key Signatures",
+        "description": "This lesson is about Key Signatures",
+        "question": "What is this key sign",
+        "song" : "Dull",
+        "flashcards": "Key Signatures"
+    }
+]
