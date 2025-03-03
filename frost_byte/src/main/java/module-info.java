@@ -7,4 +7,7 @@ module com.frost_byte{
 
     opens com.frost_byte to javafx.fxml;
     exports com.frost_byte;
+
+    opens com.model to javafx.fxml;
+    exports com.model;
 }
