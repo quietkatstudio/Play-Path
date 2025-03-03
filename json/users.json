@@ -1,0 +1,38 @@
+[
+    {
+        "id": "565095e6-cfed-48b5-b9ec-c1d39216041c",
+        "type":"teacher",
+        "firstName":"Amy",
+        "lastName":"Smith",
+        "email":"asmith@gmail.com",
+        "username" : "asmith",
+        "password" : "password"
+    },
+    {
+        "id": "9979ac8c-e91f-4206-b021-f430438b3626",
+        "type": "student",
+        "firstName":"Lucy",
+        "lastName":"Smith",
+        "email": "lsmith@gmail.com",
+        "username" : "lsmith",
+        "password" : "password"
+    },
+    {
+        "id": "c4177832-3755-4d93-95c0-42ad60338432",
+        "type": "student",
+        "firstName":"Carrie",
+        "lastName":"Smith",
+        "email": "csmith@gmail.com",
+        "username" : "csmith",
+        "password" : "password"
+    },
+    {
+        "id": "7cfa48df-3e46-42e1-baa4-5945045d7a6e",
+        "type": "teacher",
+        "firstName":"Seth",
+        "lastName":"Smith",
+        "email": "ssmith@gmail.com",
+        "username" : "MusicMan",
+        "password" : "password"
+    }
+]

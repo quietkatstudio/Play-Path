@@ -1,0 +1,1 @@
+A music app consisting of both a learning program in which an individual, or a teacher and student learn music from various lessons and modules, and the function to create new music via an in app music making program
