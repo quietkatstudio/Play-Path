@@ -36,4 +36,25 @@ public class User {
     private void login() {
 
     }
+
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public Object getFirstName() {
+        return this.firstName;
+    }
+
+    public Object getID() {
+        return this.id;
+    }
+
 }

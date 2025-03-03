@@ -1,22 +1,45 @@
 package com.model;
+
 import java.util.ArrayList;
 
 public class UserList {
-    private ArrayList<User> users;
-    private UserList userList;
-    UserList(){
 
+    private static UserList userList = new UserList();
+    private ArrayList<User> users = new ArrayList<>();
+
+    private UserList() {
+        users = DataLoader.getUsers();
     }
-    public UserList getIntance(){
+
+    public static UserList getInstance() {
         return userList;
     }
-    public void addUser(String firstName, String lastName){
+
+    public void addUser(String firstName, String lastName) {
 
     }
-    public User getUser(String UserName){
-        return userList.getUser(UserName);
+
+    /**
+     * This method iterates through the userlist and returns the User with the
+     * matching UserName
+     * 
+     * @param UserName
+     * @return
+     */
+    public User getUser(String UserName) {
+        for (User user : users) {
+            if (user.getUserName().equals(UserName)) {
+                return user;
+            }
+        }
+        return null;
     }
-    public void saveUser(){
-        
+
+    public void saveUser() {
+        DataWriter.saveUsers();
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
     }
 }
