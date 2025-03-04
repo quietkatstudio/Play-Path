@@ -1,26 +1,28 @@
 [
     {
         "id": "06291898-1e24-4642-a839-fff93478bfdc",
-        "title": "Some",
-        "artist": "Steve Lacy",
-        "genre": "Indie",
-        "duration": "1:58",
-        "tempo": "105",
-        "defTimeSigNumer" :"4",
-        "defTimeSigDenom" :"4",
-        "defKeySig": "C+",
-        "measureList" : "Test"
+        "title": "Step to the Rear (Beginning)",
+        "artist": "Gordon (Dick) Goodwin",
+        "genre": "Fight Song",
+        "duration": "0:05",
+        "tempo": "120",
+        "defTimeSigNumer" :"2",
+        "defTimeSigDenom" :"2",
+        "defKeySig": "Ab",
+        "measureList" : ["Ab2q G2q", "A2q A2q", "Bb2q Rt Bb2s Rs Eb2is", "Rq Eb2q"]
     },
+
     {
-        "id": "81f114ad-aa25-4110-9bcf-e8b05a506cc5",
-        "title": "Dull",
-        "artist": "Microwave",
-        "genre": "Midwest Emo",
-        "duration": "3:28",
-        "tempo": "147",
+        "id": "84211187-74fe-4d27-90e4-f852e6595928",
+        "title": "Cruel Angel's Thesis (Beginning)",
+        "artist": "Yoko Takahashi",
+        "genre": "Indie",
+        "duration": "0:16",
+        "tempo": "80",
         "defTimeSigNumer" :"4",
         "defTimeSigDenom" :"4",
-        "defKeySig": "E+",
-        "measureList" : "Measure"
+        "defKeySig": "Eb",
+        "measureList" : ["C3q E3bq F3is E3bis F3i", "F3q Bb3i Ab3i G3s F3i G3is Ri",  "G3q Bb3q C4is F3is Eb3i", "Bb3q G3i Bb3i Bb3is C4w"]
+
     }
 ]
