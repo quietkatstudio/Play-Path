@@ -130,5 +130,8 @@ public class User {
     public Object getID() {
         return this.id;
     }
+    public String toString(){
+        return "username: "+ userName + ", first name: " + firstName + ", last name: " + lastName;
+    }
 
 }
