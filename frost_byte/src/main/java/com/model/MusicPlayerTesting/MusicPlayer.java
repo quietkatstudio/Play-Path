@@ -15,7 +15,7 @@ public class MusicPlayer {
     Pattern song = new Pattern();
 
     
-
+    // Doesn't work the tempo is extremely slow and I can't figure out why or how to fix it -Ryan
     public static void Midi() {
         Pattern cruel = new Pattern();
         try{
@@ -108,23 +108,9 @@ public class MusicPlayer {
             }
         }
     
-        public void playSteptotheRear() {
-            try {
-                song.setInstrument("Tuba");
-                song.setTempo(120);
-                song.add("Ab2q G2q | A2q A2q | Bb2q Rt Bb2s Rs Eb2is | Rq Eb2q ");
-                Player player = new Player();
-                player.play(song);
-            }
-            catch(Exception e) {
-                System.out.println("Error: " + e);
-            }
-        }
-    
         public static void main(String[] args) {
             MusicPlayer player = new MusicPlayer();
             player.playCruelAngel();
-            //player.playSteptotheRear();
             //Midi();
     }
 }
