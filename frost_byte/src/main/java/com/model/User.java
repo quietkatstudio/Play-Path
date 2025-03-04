@@ -130,8 +130,13 @@ public class User {
     public Object getID() {
         return this.id;
     }
+
+    /**
+     * Returns a string of the user
+     * @return the username, first name, last name
+     */
     public String toString(){
-        return "username: "+ userName + ", first name: " + firstName + ", last name: " + lastName;
+        return "username: "+ userName + ", first name: " + firstName + ", last name: " + lastName + ", password: " + password;
     }
 
 }
