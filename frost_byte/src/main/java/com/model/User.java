@@ -131,6 +131,22 @@ public class User {
         return this.id;
     }
 
+      /**
+     * The getter method for the users password
+     * @return the users password
+     */
+    public Object getPassword() {
+        return this.password;
+    }
+
+      /**
+     * The getter method for the users isTeacher
+     * @return the users isTeacher
+     */
+    public Object getIsTeacher() {
+        return this.isTeacher;
+    }
+
     /**
      * Returns a string of the user
      * @return the username, first name, last name
