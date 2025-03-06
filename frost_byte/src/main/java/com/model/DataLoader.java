@@ -3,10 +3,10 @@ package com.model;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
-import org.json.simple.parser.JSONParser;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
+import org.json.simple.parser.JSONParser;
 
 /**
  * Data Loader Class. This class extends the DataConstants and reads through
@@ -29,8 +29,10 @@ public class DataLoader extends DataConstants {
                 String firstName = (String) personJSON.get(USER_FIRST_NAME);
                 String lastName = (String) personJSON.get(USER_LAST_NAME);
                 String email = (String) personJSON.get(USER_EMAIL);
-
-                users.add(new User(id, userName, firstName, lastName, email, ));
+                String password = (String) personJSON.get(USER_PASSWORD);
+                boolean isteacher = (Boolean) personJSON.get(USER_IS_TEACHER);
+                
+                users.add(new User(id, userName, firstName, lastName, email, isteacher, password));
             }
 
             return users;
