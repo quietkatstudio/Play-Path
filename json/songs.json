@@ -9,7 +9,7 @@
         "defTimeSigNumer" :"2",
         "defTimeSigDenom" :"2",
         "defKeySig": "Ab",
-        "measureList" : [
+        "measureList" :  [ 
                             {
                                 "pitch": "A",
                                 "accidental": "flat",
@@ -99,7 +99,161 @@
         "defTimeSigNumer" :"4",
         "defTimeSigDenom" :"4",
         "defKeySig": "Eb",
-        "measureList" : ["C3q E3bq F3is E3bis F3i", "F3q Bb3i Ab3i G3s F3i G3is Ri",  "G3q Bb3q C4is F3is Eb3i", "Bb3q G3i Bb3i Bb3is C4w"]
+        "measureList" : [
+                            {
+                                "pitch": "C",
+                                "accidental": "natural",
+                                "octave": "3",
+                                "length": "quarter"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "quarter + eighth"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "A",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "sixteenth"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth + sixteenth"
+                            },
+
+                            {
+                                "pitch" : "R",
+                                "accidental" : "natural",
+                                "octave" : "R",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "C",
+                                "accidental" : "natural",
+                                "octave" : "4",
+                                "length" : "eighth+sixteenth"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth+sixteenth"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth + sixteenth"
+                            },
+
+                            {
+                                "pitch" : "C",
+                                "accidental" : "natural",
+                                "octave" : "4",
+                                "length" : "whole"
+                            }
+                        ]
 
     }
 ]
