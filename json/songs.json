@@ -9,7 +9,84 @@
         "defTimeSigNumer" :"2",
         "defTimeSigDenom" :"2",
         "defKeySig": "Ab",
-        "measureList" : ["Ab2q G2q", "A2q A2q", "Bb2q Rt Bb2s Rs Eb2is", "Rq Eb2q"]
+        "measureList" : [
+                            {
+                                "pitch": "A",
+                                "accidental": "flat",
+                                "octave": "2",
+                                "length": "quarter"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "2",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "A",
+                                "accidental" : "natural",
+                                "octave" : "2",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "A",
+                                "accidental" : "natural",
+                                "octave" : "2",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "2",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "R",
+                                "accidental" : "natural",
+                                "octave" : "R",
+                                "length" : "thirty-second"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "2",
+                                "length" : "sixteenth"
+                            },
+
+                            {
+                                "pitch" : "R",
+                                "accidental" : "natural",
+                                "octave" : "R",
+                                "length" : "sixteenth"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "2",
+                                "length" : "eight + sixteenth"
+                            },
+
+                            {
+                                "pitch" : "R",
+                                "accidental" : "natural",
+                                "octave" : "R",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "2",
+                                "length" : "quarter"
+                            }
+                        ]
     },
 
     {
