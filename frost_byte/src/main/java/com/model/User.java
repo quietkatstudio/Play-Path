@@ -56,12 +56,20 @@ public class User {
         return this.email;
     }
 
-    public Object getFirstName() {
+    public String getFirstName() {
         return this.firstName;
     }
 
-    public Object getID() {
+    public UUID getID() {
         return this.id;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public boolean getIsTeacher() {
+        return this.isTeacher;
     }
 
 }
