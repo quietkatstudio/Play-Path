@@ -44,8 +44,16 @@ public class DataWriter extends DataConstants {
         return userDetails;
     }
 
+    // DataWriter Test
+    // Note: Maybe need to add logic remove older JSON entries that have matching
+    // UUIDs
     public static void main(String[] args) {
+        UserList users = UserList.getInstance();
+        users.getUsers().add(new User("jdoe", "John", "Doe", "jdoe@example.com", "password123", true));
+        users.getUsers().add(new User("asmith", "Alice", "Smith", "asmith@example.com", "securepass", false));
+        System.out.println("Saving users >>>");
         DataWriter.saveUsers();
+        System.out.println("Users saved!");
     }
 
 }
