@@ -1,18 +1,123 @@
 [
     {
         "id": "994b4eba-da23-4c94-84e9-eb57422e465f",
-        "title": "Chords",
-        "description": "This lesson is about Chords",
-        "question": "This is the content of lesson 1",
-        "song" : "Some",
-        "flashcards": "Chords"
+        "title":"The basics of Music",
+        "description": "Introduces the three fundamental elements of music: melody, harmony, and rhythm. These elements form the foundation of any musical composition",
+        "content": "Music consists of 3 main elements: melody, harmony, and rhythm",
+        "flashcards":[
+            {"term":"Melody", "definition":"A sequence of notes that form a tune"},
+            {"term":"Harmony", "definition":"The combination of different notes played together"},
+            {"term":"Rhythm", "definition":"The pattern of beats and timing in music"}
+        ],
+        "quiz":{
+            "question": "Which element of music refers to the sequence of notes that create a tune?",
+            "options": ["Rhythm","Melody","Harmony","Tempo"],
+            "answer": "Melody"
+        }, 
+        "song":"Some"
+
     },
     {
         "id": "fc34ddea-fab4-4edd-9e3d-551232719760",
-        "title": "Key Signatures",
-        "description": "This lesson is about Key Signatures",
-        "question": "What is this key sign",
-        "song" : "Dull",
-        "flashcards": "Key Signatures"
+        "title":"Musical notes and pitch",
+        "description": "Explains how music is built on notes and theur frequencies, focusing on the twelve note system and concept of octaves",
+        "content":"Music is built on notes with specific frequencies. The western system has 12 notes",
+        "flashcards":[
+            {"term":"Note", "definition":"A musical sound with a specific pitch"},
+            {"term":"Octave", "definition":"The same note played higher or lower in pitch"},
+            {"term":"Pitch", "definition":"The percieve frequency of a note"}
+        ],
+        "quiz":{
+            "question": "Which of the following is NOT a note in the western music system?",
+            "options": ["G#","H","D#","F"],
+            "answer": "H"
+        }, 
+        "song":"Dull"
+    },
+    {
+        "id": "72e730ad-658a-4ba7-801f-980d2fc35522",
+        "title":"Scales and keys",
+        "description": "Covers major and minor scales, how they create different moods in music, and how keys determine the set of notes used in a song",
+        "content":"A scale is a set of notes in order. Major scales sound happy, minor scales sound sad",
+        "flashcards":[
+            {"term":"Scale", "definition":"A sequence of notes played in order"},
+            {"term":"Key", "definition":"The set of notes used in a song"},
+            {"term":"Major scale", "definition":"A scale that sounds bright or happy"}
+        ],
+        "quiz":{
+            "question": "Which scale typically sounds happy?",
+            "options": ["Minor","Major","Chromatic","Pentatonic"],
+            "answer": "Major"
+        }, 
+        "song":"Twinkle Twinkle Little Star"
+    },
+    {
+        "id": "d7ae284b-3954-4db4-87a5-62155ff31bb2",
+        "title":"Chords and Harmony",
+        "description": "Introduces chords, including major and minor chords, and explains how harmony is created through cord progressions",
+        "content":"Chords are combinations of three or more notes played together, forming the basis of harmony in music",
+        "flashcards":[
+            {"term":"Chord", "definition":"Multiple notes played together"},
+            {"term":"Major chord", "definition":"A chord that sounds bright and happy"},
+            {"term":"Chord Progression", "definition":"A repeating pattern of chords"}
+        ],
+        "quiz":{
+            "question": "What is a cord?",
+            "options": ["A single note","Multiple notes played together","A rhythm pattern","A scale"],
+            "answer": "Multiple notes played together"
+        }, 
+        "song":"Hot Cross Buns"
+    },
+    {
+        "id": "17eae61b-dc48-46da-a6bf-b94abebbf819",
+        "title":"Rhythm and time signatures",
+        "description": "Teaches the role of beats, tempo, and time signatures in structuring music, with examples of common time signatures like 4/4 and 3/4",
+        "content": "Rhythm is the timing of music, defined by beats and time signatures",
+        "flashcards":[
+            {"term":"Tempo", "definition":"The speed at which a piece of music is played"},
+            {"term":"Beat", "definition":"The basic unit of time in music"},
+            {"term":"Time signature", "definition":"Defines the number of beats in each measure"}
+        ],
+        "quiz":{
+            "question": "Which time signature is known as common time?",
+            "options": ["3/4","6/8","4/4","5/4"],
+            "answer": "4/4"
+        }, 
+        "song":"Cruel Angel's Thesis (Beginning)"
+    },
+    {
+        "id": "c67a1807-5a98-4a21-9787-7c4706a08cc5",
+        "title":"Dynamic and Expression",
+        "description": "Explores how volume and articulation affect music, introducing terms like 'forte' (loud) and 'piano' (soft), as well as crescendo and decrescendo",
+        "content": "Dynamics indicate the loudness or softness of music",
+        "flashcards":[
+            {"term":"Forte", "definition":"Play loudly"},
+            {"term":"Piano", "definition":"Play softly"},
+            {"term":"Crescendo", "definition":"Gradually increase in volume"}
+        ],
+        "quiz":{
+            "question": "What does piano mean in musical dynamics?",
+            "options": ["play softly","play loudly","speed up","slow down"],
+            "answer": "play softly"
+        }, 
+        "song":""
+    },
+    {
+        "id": "0ae5fa12-d469-4219-8ed8-a26208508bbe",
+        "title":"Musical instruments",
+        "description": "Categorizes instruments into strings, wind, and percussion, explaining how each produces sound",
+        "content": "Musical instruments are categorized by how they produce sound",
+        "flashcards":[
+            {"term":"String", "definition":"Produce sound by vibrating strings"},
+            {"term":"Woodwinds", "definition":"Produce sound by air passing through reeds or tubes"},
+            {"term":"Percussion", "definition":"Instuments that create sound through striking or shaking"}
+        ],
+        "quiz":{
+            "question": "Which instrument belongs to the string family?",
+            "options": ["Violin","Trumpet","Flute","Drum"],
+            "answer": "Violin"
+        }, 
+        "song":""
     }
+    
 ]
