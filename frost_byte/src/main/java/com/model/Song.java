@@ -26,14 +26,8 @@ public class Song {
         this.MeasureList = MeasureList;
     }
 
-<<<<<<< HEAD
-    private void compileMeasures(ArrayList<Measure> MeasureList) {
-        
-    }
-=======
     // private void compileMeasures(ArrayList<Measure> MeasureList) {
     // } Dont need
->>>>>>> 95655ad7e5bee3577a85e52ddcde593102b6cb77
 
     public Measure addMeasure() {
         return new Measure(defTimeSigDenom, author, false, null);
