@@ -72,4 +72,7 @@ public class User {
         return this.isTeacher;
     }
 
+    public String toString(){
+        return "username: "+ userName +"\n"+ ", first name: " +"\n"+ firstName + ", last name: " +"\n"+ lastName + ", password: " +"\n"+ password;
+    }
 }
