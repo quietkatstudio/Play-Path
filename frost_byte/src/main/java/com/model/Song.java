@@ -26,8 +26,8 @@ public class Song {
         this.MeasureList = MeasureList;
     }
 
-    private void compileMeasures(ArrayList<Measure> MeasureList) {
-    }
+    // private void compileMeasures(ArrayList<Measure> MeasureList) {
+    // } Dont need
 
     private Measure addMeasure() {
         return new Measure(defTimeSigDenom, author, false, null);
@@ -38,6 +38,8 @@ public class Song {
     }
 
     private void exportSong() {
+        //datawriter
+       // DataWriter.exportSong();
     }
 
     private Clef addClef() {
