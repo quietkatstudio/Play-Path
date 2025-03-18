@@ -1,102 +1,5 @@
 [
     {
-        "id": "cdf54a80-4e64-4cd1-aeb4-c88de4fde7ce",
-        "title": "Twinkle Twinkle Little Star",
-        "artist": "Traditional",
-        "genre": "Nursery Rhyme",
-        "duration": "0:10",
-        "tempo": "100",
-        "defTimeSigNumer": "4",
-        "defTimeSigDenom": "4",
-        "defKeySig": "C",
-        "measureList": [
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "G",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "G",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "A",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "A",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "G",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "half"
-            },
-            {
-                "pitch": "F",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "F",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "E",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "E",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "half"
-            }
-        ]
-    },
-    {
         "id": "06291898-1e24-4642-a839-fff93478bfdc",
         "title": "Hot Cross Buns",
         "artist": "Traditional",
@@ -108,109 +11,134 @@
         "defKeySig": "C",
         "measureList": [
             {
-                "pitch": "E",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "E",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "half"
+                    }
+                ]    
             },
             {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "E",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "half"
+                    }
+                ]
             },
             {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "half"
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    }
+                ]
             },
             {
-                "pitch": "E",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "half"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "eighth"
-            },
-            {
-                "pitch": "E",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "D",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "quarter"
-            },
-            {
-                "pitch": "C",
-                "accidental": "natural",
-                "octave": "4",
-                "length": "half"
-            }
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "E",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "half"
+                    }
+                ]
+            }    
         ]
     },
+    
 
     {
         "id": "84211187-74fe-4d27-90e4-f852e6595928",

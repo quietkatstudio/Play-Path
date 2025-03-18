@@ -27,6 +27,7 @@ public class Song {
     }
 
     private void compileMeasures(ArrayList<Measure> MeasureList) {
+        
     }
 
     private Measure addMeasure() {
