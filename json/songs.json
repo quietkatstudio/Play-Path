@@ -1,94 +1,217 @@
 [
     {
-        "id": "06291898-1e24-4642-a839-fff93478bfdc",
-        "title": "Step to the Rear (Beginning)",
-        "artist": "Gordon (Dick) Goodwin",
-        "genre": "Fight Song",
-        "duration": "0:05",
-        "tempo": "120",
-        "defTimeSigNumer" :"2",
-        "defTimeSigDenom" :"2",
-        "defKeySig": "Ab",
-        "measureList" :  [ 
-                            {
-                                "pitch": "A",
-                                "accidental": "flat",
-                                "octave": "2",
-                                "length": "quarter"
-                            },
-
-                            {
-                                "pitch" : "G",
-                                "accidental" : "natural",
-                                "octave" : "2",
-                                "length" : "quarter"
-                            },
-
-                            {
-                                "pitch" : "A",
-                                "accidental" : "natural",
-                                "octave" : "2",
-                                "length" : "quarter"
-                            },
-
-                            {
-                                "pitch" : "A",
-                                "accidental" : "natural",
-                                "octave" : "2",
-                                "length" : "quarter"
-                            },
-
-                            {
-                                "pitch" : "B",
-                                "accidental" : "flat",
-                                "octave" : "2",
-                                "length" : "quarter"
-                            },
-
-                            {
-                                "pitch" : "R",
-                                "accidental" : "natural",
-                                "octave" : "R",
-                                "length" : "thirty-second"
-                            },
-
-                            {
-                                "pitch" : "B",
-                                "accidental" : "flat",
-                                "octave" : "2",
-                                "length" : "sixteenth"
-                            },
-
-                            {
-                                "pitch" : "R",
-                                "accidental" : "natural",
-                                "octave" : "R",
-                                "length" : "sixteenth"
-                            },
-
-                            {
-                                "pitch" : "E",
-                                "accidental" : "flat",
-                                "octave" : "2",
-                                "length" : "eight + sixteenth"
-                            },
-
-                            {
-                                "pitch" : "R",
-                                "accidental" : "natural",
-                                "octave" : "R",
-                                "length" : "quarter"
-                            },
-
-                            {
-                                "pitch" : "E",
-                                "accidental" : "flat",
-                                "octave" : "2",
-                                "length" : "quarter"
-                            }
-                        ]
+        "id": "f3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
+        "title": "Twinkle Twinkle Little Star",
+        "artist": "Traditional",
+        "genre": "Nursery Rhyme",
+        "duration": "0:10",
+        "tempo": "100",
+        "defTimeSigNumer": "4",
+        "defTimeSigDenom": "4",
+        "defKeySig": "C",
+        "measureList": [
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "G",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "G",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "A",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "A",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "G",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "half"
+            },
+            {
+                "pitch": "F",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "F",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "E",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "E",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "half"
+            }
+        ]
     },
-
+    {
+        "id": "06291898-1e24-4642-a839-fff93478bfdc",
+        "title": "Hot Cross Buns",
+        "artist": "Traditional",
+        "genre": "Nursery Rhyme",
+        "duration": "0:10",
+        "tempo": "100",
+        "defTimeSigNumer": "4",
+        "defTimeSigDenom": "4",
+        "defKeySig": "C",
+        "measureList": [
+            {
+                "pitch": "E",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "half"
+            },
+            {
+                "pitch": "E",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "half"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "eighth"
+            },
+            {
+                "pitch": "E",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "D",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "quarter"
+            },
+            {
+                "pitch": "C",
+                "accidental": "natural",
+                "octave": "4",
+                "length": "half"
+            }
+        ]
+    },
+    
     {
         "id": "84211187-74fe-4d27-90e4-f852e6595928",
         "title": "Cruel Angel's Thesis (Beginning)",
