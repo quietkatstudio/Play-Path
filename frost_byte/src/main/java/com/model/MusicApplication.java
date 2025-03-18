@@ -4,9 +4,17 @@ public class MusicApplication {
     private User user;
     private Song song;
     private ChooseInstrument instrument;
-    private String login(String userName){
-        return " ";
-    }
+    
+    //teacher example
+    // public boolean login(String userName, String password){
+    //     return UserList.getInstance().login(userName,password);
+    // }
+
+
+
+    // private String login(String userName){
+    //     return " ";
+    // }
     private String register(User user){
         return " ";
     }

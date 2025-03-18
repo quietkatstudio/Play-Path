@@ -1,4 +1,4 @@
-package com;
+package com.model;
 
 public class Flashcard {
     private String term;
