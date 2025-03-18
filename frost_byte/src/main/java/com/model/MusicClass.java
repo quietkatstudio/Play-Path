@@ -3,6 +3,9 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * musicClass has a list of students, a class code(id), a list of lessons, can make a class code, delete a class, add a lesson to the list of lessons
+ */
 public class MusicClass {
     private ArrayList<Student> musicClass;
     private UUID musClassCode;
