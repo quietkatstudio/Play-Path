@@ -29,107 +29,107 @@ public class Song {
     // private void compileMeasures(ArrayList<Measure> MeasureList) {
     // } Dont need
 
-    private Measure addMeasure() {
+    public Measure addMeasure() {
         return new Measure(defTimeSigDenom, author, false, null);
     }
 
-    private Annotation addAnnotation() {
+    public Annotation addAnnotation() {
         return new Annotation(null, author);
     }
 
-    private void exportSong() {
+    public void exportSong() {
         //datawriter
        // DataWriter.exportSong();
     }
 
-    private Clef addClef() {
+    public Clef addClef() {
         return new Clef(null);
     }
 
-    private void changeTimeSig(TimeSig timeSig) {
+    public void changeTimeSig(TimeSig timeSig) {
     }
 
-    private void changeKeySig(KeySig keySig) {
+    public void changeKeySig(KeySig keySig) {
     }
 
-    private String setTitle(String title) {
+    public String setTitle(String title) {
         this.title = title;
         return this.title;
     }
 
-    private String setAuthor(String author) {
+    public String setAuthor(String author) {
         this.author = author;
         return this.author;
     }
 
-    private String setGenre(String genre) {
+    public String setGenre(String genre) {
         this.genre = genre;
         return this.genre;
     }
 
-    private String setDuration(String duration) {
+    public String setDuration(String duration) {
         this.duration = duration;
         return this.duration;
     }
 
-    private String setTempo(String tempo) {
+    public String setTempo(String tempo) {
         this.tempo = tempo;
         return this.tempo;
     }
 
-    private int setDefTimeSigNumer(int defTimeSigNumer) {
+    public int setDefTimeSigNumer(int defTimeSigNumer) {
         this.defTimeSigNumer = defTimeSigNumer;
         return this.defTimeSigNumer;
     }
 
-    private int setDefTimeSigDenom(int defTimeSigDenom) {
+    public int setDefTimeSigDenom(int defTimeSigDenom) {
         this.defTimeSigDenom = defTimeSigDenom;
         return this.defTimeSigDenom;
     }
 
-    private KeySig setDefKeySig(KeySig defKeySig) {
+    public KeySig setDefKeySig(KeySig defKeySig) {
         this.defKeySig = defKeySig;
         return this.defKeySig;
     }
 
-    private ArrayList<Measure> setMeasureList(ArrayList<Measure> MeasureList) {
+    public ArrayList<Measure> setMeasureList(ArrayList<Measure> MeasureList) {
         this.MeasureList = MeasureList;
         return this.MeasureList;
     }
 
-    private String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-    private String getAuthor() {
+    public String getAuthor() {
         return this.author;
     }
 
-    private String getGenre() {
+    public String getGenre() {
         return this.genre;
     }
 
-    private String getDuration() {
+    public String getDuration() {
         return this.duration;
     }
 
-    private String getTempo() {
+    public String getTempo() {
         return this.tempo;
     }
 
-    private int getDefTimeSigNumer() {
+    public int getDefTimeSigNumer() {
         return this.defTimeSigNumer;
     }
 
-    private int getDefTimeSigDenom() {
+    public int getDefTimeSigDenom() {
         return this.defTimeSigDenom;
     }
 
-    private KeySig getDefKeySig() {
+    public KeySig getDefKeySig() {
         return this.defKeySig;
     }
 
-    private ArrayList<Measure> getMeasureList() {
+    public  ArrayList<Measure> getMeasureList() {
         return this.MeasureList;
     }
 }
