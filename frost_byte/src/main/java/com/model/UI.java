@@ -1,5 +1,5 @@
 package com.model;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class UI {
@@ -34,7 +34,5 @@ public class UI {
         ui.run();
         
     }
-
-
 
 }
