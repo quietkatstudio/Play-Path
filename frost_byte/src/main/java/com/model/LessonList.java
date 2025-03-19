@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * @author 
  */
 public class LessonList {
+    //note:   does lessonlist need to have a what level is unlocked
     private static LessonList lessonList = new LessonList();
     private ArrayList<Lesson> lessons = new ArrayList<>();
 
@@ -27,8 +28,7 @@ public class LessonList {
      * @param flashcards
      * @param song
      */
-    public void addLesson(String title, String description, String content, ArrayList<
-    Flashcard> flashcards, Song song){
+    public void addLesson(String title, String description, String content, ArrayList<Flashcard> flashcards, Song song){
        // lessons.add(newLesson);
         //saveLessons();
     }
