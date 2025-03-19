@@ -14,6 +14,7 @@ public class Lesson {
     private ArrayList<Flashcard> flashcards;
     private Quiz quiz;
     private Song song;
+    private int currentFlashcardIndex;
 
     /**
      * 
@@ -32,6 +33,7 @@ public class Lesson {
         this.content = content;
         this.song = song;
         this.quiz = quiz;
+        this.currentFlashcardIndex = 0;
         
     }
 
