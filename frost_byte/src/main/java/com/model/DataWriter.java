@@ -14,7 +14,7 @@ import org.json.simple.JSONObject;
  */
 public class DataWriter extends DataConstants {
 
-    public static void saveUsers() {
+    public static boolean saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
         userList.add(new User(UUID.randomUUID(),"Kai", "Kai", "Watts", "kaiwatts06@gmail.comaaaa", true, "password123!"));
@@ -30,7 +30,19 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return true;
     }
+
+    public static boolean saveLessons(){
+        return true;
+    }
+
+
+    public static boolean saveSong(){
+        return true;
+    }
+
+
 
     public static JSONObject getUserJSON(User user) {
 
@@ -40,6 +52,8 @@ public class DataWriter extends DataConstants {
         userDetails.put(USER_FIRST_NAME, user.getFirstName());
         userDetails.put(USER_LAST_NAME, user.getLastName());
         userDetails.put(USER_EMAIL, user.getEmail());
+        userDetails.put(USER_PASSWORD, user.getPassword());
+        userDetails.put(USER_ACCOUNT_TYPE, user.getIsTeacher());
 
         return userDetails;
     }
@@ -94,10 +108,16 @@ public class DataWriter extends DataConstants {
         return songDetails;
     }
     
-
-
+    // DataWriter Test
+    // Note: Maybe need to add logic remove older JSON entries that have matching
+    // UUIDs
     public static void main(String[] args) {
+        UserList users = UserList.getInstance();
+        users.getUsers().add(new User("jdoe", "John", "Doe", "jdoe@example.com", "password123", true));
+        users.getUsers().add(new User("asmith", "Alice", "Smith", "asmith@example.com", "securepass", false));
+        System.out.println("Saving users >>>");
         DataWriter.saveUsers();
+        System.out.println("Users saved!");
         DataWriter.saveSongs();
     }
 

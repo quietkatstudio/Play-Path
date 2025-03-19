@@ -2,6 +2,10 @@ package com.model;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author 
+ */
 public class Song {
     private String title;
     private String author;
@@ -13,6 +17,19 @@ public class Song {
     private KeySig defKeySig;
     private ArrayList<Measure> MeasureList;
 
+
+    /**
+     * 
+     * @param title
+     * @param author
+     * @param genre
+     * @param duration
+     * @param tempo
+     * @param defTimeSigNumer
+     * @param defTimeSigDenom
+     * @param defKeySig
+     * @param MeasureList
+     */
     public Song(String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
             int defTimeSigDenom, KeySig defKeySig, ArrayList<Measure> MeasureList) {
         this.title = title;
@@ -26,108 +43,214 @@ public class Song {
         this.MeasureList = MeasureList;
     }
 
-    private void compileMeasures(ArrayList<Measure> MeasureList) {
-    }
+    // private void compileMeasures(ArrayList<Measure> MeasureList) {
+    // } Dont need
 
-    private Measure addMeasure() {
+    /**
+     * 
+     */
+    public Measure addMeasure() {
         return new Measure(defTimeSigDenom, author, false, null);
     }
 
-    private Annotation addAnnotation() {
+    /**
+     * 
+     * @return
+     */
+    public Annotation addAnnotation() {
         return new Annotation(null, author);
     }
 
-    private void exportSong() {
+    /**
+     * 
+     */
+    public void exportSong() {
+        //datawriter
+       // DataWriter.exportSong();
     }
 
-    private Clef addClef() {
+    /**
+     * 
+     * @return
+     */
+    public Clef addClef() {
         return new Clef(null);
     }
 
-    private void changeTimeSig(TimeSig timeSig) {
+    /**
+     * 
+     * @param timeSig
+     */
+    public void changeTimeSig(TimeSig timeSig) {
     }
 
-    private void changeKeySig(KeySig keySig) {
+    /**
+     * 
+     * @param keySig
+     */
+    public void changeKeySig(KeySig keySig) {
     }
 
-    private String setTitle(String title) {
+    /**
+     * 
+     * @param title
+     * @return
+     */
+    public String setTitle(String title) {
         this.title = title;
         return this.title;
     }
 
-    private String setAuthor(String author) {
+    /**
+     * 
+     * @param author
+     * @return
+     */
+    public String setAuthor(String author) {
         this.author = author;
         return this.author;
     }
 
-    private String setGenre(String genre) {
+    /**
+     * 
+     * @param genre
+     * @return
+     */
+    public String setGenre(String genre) {
         this.genre = genre;
         return this.genre;
     }
 
-    private String setDuration(String duration) {
+    /**
+     * 
+     * @param duration
+     * @return
+     */
+    public String setDuration(String duration) {
         this.duration = duration;
         return this.duration;
     }
 
-    private String setTempo(String tempo) {
+
+    /**
+     * 
+     * @param tempo
+     * @return
+     */
+    public String setTempo(String tempo) {
         this.tempo = tempo;
         return this.tempo;
     }
 
-    private int setDefTimeSigNumer(int defTimeSigNumer) {
+    /**
+     * 
+     * @param defTimeSigNumer
+     * @return
+     */
+    public int setDefTimeSigNumer(int defTimeSigNumer) {
         this.defTimeSigNumer = defTimeSigNumer;
         return this.defTimeSigNumer;
     }
 
-    private int setDefTimeSigDenom(int defTimeSigDenom) {
+    /**
+     * 
+     * @param defTimeSigDenom
+     * @return
+     */
+    public int setDefTimeSigDenom(int defTimeSigDenom) {
         this.defTimeSigDenom = defTimeSigDenom;
         return this.defTimeSigDenom;
     }
 
-    private KeySig setDefKeySig(KeySig defKeySig) {
+    /**
+     * \
+     * @param defKeySig
+     * @return
+     */
+    public KeySig setDefKeySig(KeySig defKeySig) {
         this.defKeySig = defKeySig;
         return this.defKeySig;
     }
 
-    private ArrayList<Measure> setMeasureList(ArrayList<Measure> MeasureList) {
+    /**
+     * 
+     * @param MeasureList
+     * @return
+     */
+    public ArrayList<Measure> setMeasureList(ArrayList<Measure> MeasureList) {
         this.MeasureList = MeasureList;
         return this.MeasureList;
     }
 
-    private String getTitle() {
+    /**
+     * 
+     * @return
+     */
+    public String getTitle() {
         return this.title;
     }
 
-    private String getAuthor() {
+    /**
+     * 
+     * @return
+     */
+    public String getAuthor() {
         return this.author;
     }
 
-    private String getGenre() {
+    /**
+     * 
+     * @return
+     */
+    public String getGenre() {
         return this.genre;
     }
 
-    private String getDuration() {
+    /**
+     * 
+     * @return
+     */
+    public String getDuration() {
         return this.duration;
     }
 
-    private String getTempo() {
+    /**
+     * 
+     * @return
+     */
+    public String getTempo() {
         return this.tempo;
     }
 
-    private int getDefTimeSigNumer() {
+    /**
+     * 
+     * @return
+     */
+    public int getDefTimeSigNumer() {
         return this.defTimeSigNumer;
     }
 
-    private int getDefTimeSigDenom() {
+    /**
+     * 
+     * @return
+     */
+    public int getDefTimeSigDenom() {
         return this.defTimeSigDenom;
     }
 
-    private KeySig getDefKeySig() {
+    /**
+     * 
+     * @return
+     */
+    public KeySig getDefKeySig() {
         return this.defKeySig;
     }
 
-    private ArrayList<Measure> getMeasureList() {
+    /**
+     * 
+     * @return
+     */
+    public  ArrayList<Measure> getMeasureList() {
         return this.MeasureList;
     }
 }
