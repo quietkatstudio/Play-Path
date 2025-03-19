@@ -9,4 +9,9 @@ public abstract class DataConstants {
     protected static final String USER_EMAIL = "email";
     protected static final String USER_ACCOUNT_TYPE = "isTeacher";
     protected static final String USER_PASSWORD = "password";
+
+    protected static final String LESSON_TITLE = "lessonTitle";
+    protected static final String LESSON_DESCRIPTION = "lessonDescription";
+    protected static final String LESSON_CONTENT = "lessonContent";
+    
 }
