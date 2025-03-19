@@ -42,6 +42,23 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
+    public static ArrayList<Lesson> getLessons(){
+        ArrayList<Lesson> lessons = new ArrayList<Lesson>();
+        return lessons;
+    }
+
+
+
+    public static ArrayList<Song> getSongs(){
+        ArrayList<Song> songs = new ArrayList<Song>();
+        return songs;
+    }
+
+
+
+
+
+
     public static void main(String[] args) {
         ArrayList<User> users = DataLoader.getUsers();
 

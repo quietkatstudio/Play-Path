@@ -13,7 +13,7 @@ import org.json.simple.JSONObject;
  */
 public class DataWriter extends DataConstants {
 
-    public static void saveUsers() {
+    public static boolean saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
         JSONArray jsonUsers = new JSONArray();
@@ -28,7 +28,19 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return true;
     }
+
+    public static boolean saveLessons(){
+        return true;
+    }
+
+
+    public static boolean saveSong(){
+        return true;
+    }
+
+
 
     public static JSONObject getUserJSON(User user) {
 
