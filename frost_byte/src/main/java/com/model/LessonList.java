@@ -14,7 +14,7 @@ public class LessonList {
      * 
      */
     private LessonList(){
-       // lessons = DataLoader.getLessons();
+        lessons = DataLoader.getLessons();
         if (lessons == null){
             lessons = new ArrayList<>();
         }
@@ -29,14 +29,14 @@ public class LessonList {
      * @param song
      */
     public void addLesson(String title, String description, String content, ArrayList<Flashcard> flashcards, Song song){
-       // lessons.add(newLesson);
-        //saveLessons();
+        //lessons.add(newLesson);
+        saveLessons();
     }
 
     /**
      * 
      */
     public void saveLessons(){
-      //  DataWriter.saveLessons();
+      DataWriter.saveLessons();
     }
 }
