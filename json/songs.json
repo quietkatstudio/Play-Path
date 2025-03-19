@@ -1,16 +1,144 @@
 [
     {
         "id": "06291898-1e24-4642-a839-fff93478bfdc",
-        "title": "Step to the Rear (Beginning)",
-        "artist": "Gordon (Dick) Goodwin",
-        "genre": "Fight Song",
-        "duration": "0:05",
-        "tempo": "120",
-        "defTimeSigNumer" :"2",
-        "defTimeSigDenom" :"2",
-        "defKeySig": "Ab",
-        "measureList" : ["Ab2q G2q", "A2q A2q", "Bb2q Rt Bb2s Rs Eb2is", "Rq Eb2q"]
+        "title": "Hot Cross Buns",
+        "artist": "Traditional",
+        "genre": "Nursery Rhyme",
+        "duration": "0:10",
+        "tempo": "100",
+        "defTimeSigNumer": "4",
+        "defTimeSigDenom": "4",
+        "defKeySig": "C",
+        "measureList": [
+            {
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "E",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "half"
+                    }
+                ]    
+            },
+            {
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "E",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "half"
+                    }
+                ]
+            },
+            {
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "eighth"
+                    }
+                ]
+            },
+            {
+                "beatAmount": "4",
+                "clef": "bass",
+                "notes": [
+                    {
+                        "pitch": "E",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "D",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "quarter"
+                    },
+                    {
+                        "pitch": "C",
+                        "accidental": "natural",
+                        "octave": "2",
+                        "length": "half"
+                    }
+                ]
+            }    
+        ]
     },
+    
 
     {
         "id": "84211187-74fe-4d27-90e4-f852e6595928",
@@ -22,7 +150,161 @@
         "defTimeSigNumer" :"4",
         "defTimeSigDenom" :"4",
         "defKeySig": "Eb",
-        "measureList" : ["C3q E3bq F3is E3bis F3i", "F3q Bb3i Ab3i G3s F3i G3is Ri",  "G3q Bb3q C4is F3is Eb3i", "Bb3q G3i Bb3i Bb3is C4w"]
+        "measureList" : [
+                            {
+                                "pitch": "C",
+                                "accidental": "natural",
+                                "octave": "3",
+                                "length": "quarter"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "quarter + eighth"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "A",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "sixteenth"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth + sixteenth"
+                            },
+
+                            {
+                                "pitch" : "R",
+                                "accidental" : "natural",
+                                "octave" : "R",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "C",
+                                "accidental" : "natural",
+                                "octave" : "4",
+                                "length" : "eighth+sixteenth"
+                            },
+
+                            {
+                                "pitch" : "F",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth+sixteenth"
+                            },
+
+                            {
+                                "pitch" : "E",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "quarter"
+                            },
+
+                            {
+                                "pitch" : "G",
+                                "accidental" : "natural",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth"
+                            },
+
+                            {
+                                "pitch" : "B",
+                                "accidental" : "flat",
+                                "octave" : "3",
+                                "length" : "eighth + sixteenth"
+                            },
+
+                            {
+                                "pitch" : "C",
+                                "accidental" : "natural",
+                                "octave" : "4",
+                                "length" : "whole"
+                            }
+                        ]
 
     }
 ]

@@ -8,5 +8,5 @@ enum Pitches{
     E,
     F,
     G,
-    REST
+    R
 }

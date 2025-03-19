@@ -1,9 +1,11 @@
 package com.model;
 
 import java.util.ArrayList;
+
 /**
- * This is a singleton class that manages the list of users 
- * @author 
+ * This is a singleton class that manages the list of users
+ * 
+ * @author
  */
 public class UserList {
 
@@ -15,17 +17,18 @@ public class UserList {
      */
     private UserList() {
         users = DataLoader.getUsers();
-        if(users == null){
+        if (users == null) {
             users = new ArrayList<>();
         }
     }
 
     /**
      * Returns the singleton instance of userlist
+     * 
      * @return the userlist instance
      */
     public static UserList getInstance() {
-        if (userList == null){
+        if (userList == null) {
             userList = new UserList();
         }
         return userList;
@@ -33,21 +36,25 @@ public class UserList {
 
     /**
      * This method adds a new user to the Array List UserList
-     * @param userName the users username
-     * @param firstName the users first name 
-     * @param lastName the users last name
-     * @param email the users email
-     * @param password the users password
+     * 
+     * @param userName  the users username
+     * @param firstName the users first name
+     * @param lastName  the users last name
+     * @param email     the users email
+     * @param password  the users password
      */
-    public void addUser(String userName, String firstName, String lastName, String email, String password) {
-        User newUser = new User(userName, firstName, lastName, email, false, password);
+    public void addUser(String userName, String firstName, String lastName, String email, String password,
+            boolean isTeacher) {
+        User newUser = new User(userName, firstName, lastName, email, password, isTeacher);
         users.add(newUser);
         saveUsers();
 
     }
 
     /**
-     * This method iterates through the userlist and returns the User with the matching UserName
+     * This method iterates through the userlist and returns the User with the
+     * matching UserName
+     * 
      * @param UserName the users username
      * @return the user
      */
@@ -69,6 +76,7 @@ public class UserList {
 
     /**
      * This method gets the full list of users
+     * 
      * @return the users
      */
     public ArrayList<User> getUsers() {
