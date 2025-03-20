@@ -34,6 +34,9 @@ public class UserList {
         return userList;
     }
 
+    public void login(String username, String password){
+        //find specific
+    }
     /**
      * This method adds a new user to the Array List UserList
      * 

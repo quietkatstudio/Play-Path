@@ -7,15 +7,17 @@ package com.model;
 public class MusicApplication {
     private User user;
     private Song song;
+    private SongList songs;
     private ChooseInstrument instrument;
     private UserList users;
     
     //teacher example
-    // public boolean login(String userName, String password){
-    //     return UserList.getInstance().login(userName,password);
-    // }
+    public boolean login(String userName, String password){
+        // return UserList.getInstance().login(userName,password);
+        return true;
+    }
 
-
+    
 
     // private String login(String userName){
     //     return " ";
@@ -26,7 +28,7 @@ public class MusicApplication {
      * @param user
      * @return
      */
-    private void register(String userName, String firstName,String lastName, String email, String password, Boolean isTeacher){
+    public void register(String userName, String firstName,String lastName, String email, String password, Boolean isTeacher){
         //add user to the list to be saved in json
         users.addUser(userName, firstName, lastName, email, password, isTeacher);
 
@@ -39,7 +41,7 @@ public class MusicApplication {
      * @param song
      * @return
      */
-    private Song makeSong(Song song){
+    public Song makeSong(Song song){
         return song;
     }
 
@@ -48,8 +50,8 @@ public class MusicApplication {
      * @param songList
      * @return
      */
-    private SongList getAllSongs(SongList songList){
-        return songList;
+    private SongList getAllSongs(){
+        return songs;
     }
 
     /**
@@ -79,9 +81,6 @@ public class MusicApplication {
         return student;
     }
 
-    private boolean login(String userName, String password){
-        //loads the data from json, returns true if
-        return true;
-    }
+    
 
 }
