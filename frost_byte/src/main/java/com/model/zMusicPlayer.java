@@ -1,4 +1,4 @@
-package com.model.MusicPlayerTesting;
+package com.model;
 
 import java.lang.Thread;
 import org.jfugue.player.Player;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import org.jfugue.midi.MidiFileManager;
 import javax.sound.midi.InvalidMidiDataException;
 
-public class MusicPlayer {
+public class zMusicPlayer {
     
     Pattern song = new Pattern();
 
@@ -109,7 +109,7 @@ public class MusicPlayer {
         }
     
         public static void main(String[] args) {
-            MusicPlayer player = new MusicPlayer();
+            zMusicPlayer player = new zMusicPlayer();
             player.playCruelAngel();
             //Midi();
     }

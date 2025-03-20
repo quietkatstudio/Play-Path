@@ -1,6 +1,9 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
+
+import org.json.simple.JSONArray;
 
 /**
  * 
@@ -45,6 +48,11 @@ public class Song {
 
     // private void compileMeasures(ArrayList<Measure> MeasureList) {
     // } Dont need
+
+    public Song(UUID id, String title2, String artist, String genre2, String duration2, String tempo2,
+            String defTimeSigNum, String defTimeSigDen, String defKey, JSONArray measures) {
+        //TODO Auto-generated constructor stub
+    }
 
     /**
      * 
