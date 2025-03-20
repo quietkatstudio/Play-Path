@@ -2,6 +2,10 @@ package com.model;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author 
+ */
 public class Song {
     private String title;
     private String author;
@@ -13,6 +17,19 @@ public class Song {
     private KeySig defKeySig;
     private ArrayList<Measure> MeasureList;
 
+
+    /**
+     * 
+     * @param title
+     * @param author
+     * @param genre
+     * @param duration
+     * @param tempo
+     * @param defTimeSigNumer
+     * @param defTimeSigDenom
+     * @param defKeySig
+     * @param MeasureList
+     */
     public Song(String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
             int defTimeSigDenom, KeySig defKeySig, ArrayList<Measure> MeasureList) {
         this.title = title;
@@ -29,106 +46,210 @@ public class Song {
     // private void compileMeasures(ArrayList<Measure> MeasureList) {
     // } Dont need
 
+    /**
+     * 
+     */
     public Measure addMeasure() {
         return new Measure(defTimeSigDenom, author, false, null);
     }
 
+    /**
+     * 
+     * @return
+     */
     public Annotation addAnnotation() {
         return new Annotation(null, author);
     }
 
+    /**
+     * 
+     */
     public void exportSong() {
         //datawriter
        // DataWriter.exportSong();
     }
 
+    /**
+     * 
+     * @return
+     */
     public Clef addClef() {
         return new Clef(null);
     }
 
+    /**
+     * 
+     * @param timeSig
+     */
     public void changeTimeSig(TimeSig timeSig) {
     }
 
+    /**
+     * 
+     * @param keySig
+     */
     public void changeKeySig(KeySig keySig) {
     }
 
+    /**
+     * 
+     * @param title
+     * @return
+     */
     public String setTitle(String title) {
         this.title = title;
         return this.title;
     }
 
+    /**
+     * 
+     * @param author
+     * @return
+     */
     public String setAuthor(String author) {
         this.author = author;
         return this.author;
     }
 
+    /**
+     * 
+     * @param genre
+     * @return
+     */
     public String setGenre(String genre) {
         this.genre = genre;
         return this.genre;
     }
 
+    /**
+     * 
+     * @param duration
+     * @return
+     */
     public String setDuration(String duration) {
         this.duration = duration;
         return this.duration;
     }
 
+
+    /**
+     * 
+     * @param tempo
+     * @return
+     */
     public String setTempo(String tempo) {
         this.tempo = tempo;
         return this.tempo;
     }
 
+    /**
+     * 
+     * @param defTimeSigNumer
+     * @return
+     */
     public int setDefTimeSigNumer(int defTimeSigNumer) {
         this.defTimeSigNumer = defTimeSigNumer;
         return this.defTimeSigNumer;
     }
 
+    /**
+     * 
+     * @param defTimeSigDenom
+     * @return
+     */
     public int setDefTimeSigDenom(int defTimeSigDenom) {
         this.defTimeSigDenom = defTimeSigDenom;
         return this.defTimeSigDenom;
     }
 
+    /**
+     * \
+     * @param defKeySig
+     * @return
+     */
     public KeySig setDefKeySig(KeySig defKeySig) {
         this.defKeySig = defKeySig;
         return this.defKeySig;
     }
 
+    /**
+     * 
+     * @param MeasureList
+     * @return
+     */
     public ArrayList<Measure> setMeasureList(ArrayList<Measure> MeasureList) {
         this.MeasureList = MeasureList;
         return this.MeasureList;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getTitle() {
         return this.title;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getAuthor() {
         return this.author;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getGenre() {
         return this.genre;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getDuration() {
         return this.duration;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getTempo() {
         return this.tempo;
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getDefTimeSigNumer() {
         return this.defTimeSigNumer;
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getDefTimeSigDenom() {
         return this.defTimeSigDenom;
     }
 
+    /**
+     * 
+     * @return
+     */
     public KeySig getDefKeySig() {
         return this.defKeySig;
     }
 
+    /**
+     * 
+     * @return
+     */
     public  ArrayList<Measure> getMeasureList() {
         return this.MeasureList;
     }

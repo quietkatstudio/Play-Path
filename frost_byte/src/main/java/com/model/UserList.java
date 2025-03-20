@@ -43,8 +43,7 @@ public class UserList {
      * @param email     the users email
      * @param password  the users password
      */
-    public void addUser(String userName, String firstName, String lastName, String email, String password,
-            boolean isTeacher) {
+    public void addUser(String userName, String firstName, String lastName, String email, String password, boolean isTeacher) {
         User newUser = new User(userName, firstName, lastName, email, password, isTeacher);
         users.add(newUser);
         saveUsers();
