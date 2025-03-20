@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT, ADD IT TO FACADE */
 
 
-
+    private SongList songs;
     private Scanner scanner;
     private MusicApplication application;
     public void scenario1(){
@@ -26,16 +26,21 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
         //sara plays a song
 
         System.out.println("Login:");
-        /*if(application.login("asmith","securepass" )){
+        if(application.login("asmith","securepass" )){
             System.out.println("Login successful");
             System.out.println("Welcome Alice");
-        }*/
+        }
     }
     public void scenario3(){
        //load song, edit song, play song
+       //application.getAllSongs();
     }
     public void scenario4(){
         //register a new user
+        //String userName, String firstName,String lastName, String email, String password, Boolean isTeacher
+        System.out.println("Register user");
+        application.register("username", "firstname", "lastname", "email", "password", true);
+        application.login("username", "password");
         //login new user
     }
 
@@ -54,3 +59,17 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     }
 
 }
+
+//register a new user
+    //json . login
+
+//play a song
+//lessons or question
+
+//create a new song
+    //show its in json
+    //play song
+
+//connection between songs and people
+
+//show all the songs that i've authored
