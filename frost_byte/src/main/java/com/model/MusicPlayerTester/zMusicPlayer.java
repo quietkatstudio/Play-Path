@@ -1,4 +1,4 @@
-package com.model;
+/*package com.model.MusicPlayerTester;
 
 import java.lang.Thread;
 import org.jfugue.player.Player;
@@ -10,13 +10,8 @@ import java.io.IOException;
 import org.jfugue.midi.MidiFileManager;
 import javax.sound.midi.InvalidMidiDataException;
 
-<<<<<<< HEAD:frost_byte/src/main/java/com/model/zMusicPlayer.java
 public class zMusicPlayer {
     
-=======
-public class MusicPlayer {
-
->>>>>>> 4a88eb59427a055f458f19b03fe27767fb729eca:frost_byte/src/main/java/com/model/MusicPlayerTesting/MusicPlayer.java
     Pattern song = new Pattern();
 
     // Doesn't work the tempo is extremely slow and I can't figure out why or how to
@@ -30,7 +25,6 @@ public class MusicPlayer {
 
         } catch (IOException | InvalidMidiDataException e) {
             e.printStackTrace();
-        }
         cruel.setTempo(80000);
         Player player = new Player();
         player.play(cruel);
@@ -113,7 +107,6 @@ public class MusicPlayer {
         }
     }
 
-<<<<<<< HEAD:frost_byte/src/main/java/com/model/zMusicPlayer.java
                 Pattern bar23_26 = new Pattern("T129");
                 bar23_26.setInstrument("Tuba");
                 bar23_26.add("Eb3is+C4is Eb3is+C4is D3i Eb3is Eb3is D3i");
@@ -163,11 +156,6 @@ public class MusicPlayer {
             zMusicPlayer player = new zMusicPlayer();
             player.playCruelAngel();
             //Midi();
-=======
-    public static void main(String[] args) {
-        MusicPlayer player = new MusicPlayer();
-        player.playCruelAngel();
-        // Midi();
->>>>>>> 4a88eb59427a055f458f19b03fe27767fb729eca:frost_byte/src/main/java/com/model/MusicPlayerTesting/MusicPlayer.java
     }
 }
+*/
