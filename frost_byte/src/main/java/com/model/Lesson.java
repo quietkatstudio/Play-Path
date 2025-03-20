@@ -95,6 +95,43 @@ public class Lesson {
     public ArrayList<Flashcard> getFlashcards(){
         return flashcards;
     }
+    public boolean hasNext(){
+        while(currentFlashcardIndex < flashcards.size() && (flashcards.get(currentFlashcardIndex)!= null)){
+            currentFlashcardIndex++;
+        }
+        return false;
+    }
+    public Flashcard nextFlashCard(){
+        //currentFlashcardIndex++;
+        return flashcards.get(currentFlashcardIndex++);
+    }
+
+    /*public boolean hasNext(){
+       
+        while((position < flights.size()) && (flights.get(position) != null)){
+            if((flights.get(position).sameLoc(from, to))){
+                return true;
+            }
+            position++;
+        }
+        return false;
+    }
+
+    /**
+     * returns the next flight that matches the specific route
+     * @return the next matching flight
+     
+    public Flight next(){
+        return flights.get(position++);
+    }
+    */
+
+
+
+
+
+
+
 
     /**
      * 
