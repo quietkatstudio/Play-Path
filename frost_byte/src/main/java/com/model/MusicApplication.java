@@ -8,6 +8,7 @@ public class MusicApplication {
     private User user;
     private Song song;
     private ChooseInstrument instrument;
+    private UserList users;
     
     //teacher example
     // public boolean login(String userName, String password){
@@ -25,8 +26,12 @@ public class MusicApplication {
      * @param user
      * @return
      */
-    private String register(User user){
-        return " ";
+    private void register(String userName, String firstName,String lastName, String email, String password, Boolean isTeacher){
+        //add user to the list to be saved in json
+        users.addUser(userName, firstName, lastName, email, password, isTeacher);
+
+        
+        
     }
 
     /**
@@ -72,6 +77,11 @@ public class MusicApplication {
      */
     private Student assignToClass(Student student){
         return student;
+    }
+
+    private boolean login(String userName, String password){
+        //loads the data from json, returns true if
+        return true;
     }
 
 }
