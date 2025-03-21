@@ -22,8 +22,12 @@ public class zToFugueTester {
     public static void main(String[] args) {
         try {
             Player player = new Player();
-            getSongs();
-            //player.playSong();
+            ArrayList<Song> songs = getSongs();
+            for (Song song : songs) {
+                if (song.getTitle().equals("Hot Cross Buns")) {
+                    playSong(song);
+                }
+            }
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
@@ -33,37 +37,61 @@ public class zToFugueTester {
         ArrayList<Song> songs = new ArrayList<Song>();
 
         try {
-            FileReader reader = new FileReader("ztestSongs.json");
+            FileReader reader = new FileReader("C:\\Users\\Ryan\\Documents\\frost_byte\\frost_byte\\src\\main\\java\\com\\model\\ztestSongs.json");
             JSONParser parser = new JSONParser();
             JSONArray songJson = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < songJson.size(); i++) {
                 JSONObject songJSON = (JSONObject) songJson.get(i);
-                String id = (String) songJSON.get("id");
+                UUID id = UUID.fromString((String) songJSON.get("id"));
                 String title = (String) songJSON.get("title");
                 String artist = (String) songJSON.get("artist");
                 String genre = (String) songJSON.get("genre");
                 String duration = (String) songJSON.get("duration");
                 String tempo = (String) songJSON.get("tempo");
-                String defTimeSigNum = (String) songJSON.get("defTimeSigNumer");
-                String defTimeSigDen = (String) songJSON.get("defTimeSigDenom");
-                String defKey = (String) songJSON.get("defKeySig");
-                JSONArray measures = (JSONArray) songJSON.get("measureList");
-                for (int j = 0; j < measures.size(); j++) {
-                    JSONObject measure = (JSONObject) measures.get(j);
-                    String beatAmount = (String) measure.get("beatAmount");
-                    String clef = (String) measure.get("clef");
-                    JSONArray notes = (JSONArray) measure.get("notes");
+                int defTimeSigNum = Integer.parseInt((String) songJSON.get("defTimeSigNumer"));
+                int defTimeSigDen = Integer.parseInt((String) songJSON.get("defTimeSigDenom"));
+                String defKeyString = (String) songJSON.get("defKeySig");
+                JSONArray measuresJSON = (JSONArray) songJSON.get("measureList");
+                System.out.println(title);
+                System.out.println(artist);
+                System.out.println(genre);
+                System.out.println(duration);
+                System.out.println(tempo);
+                System.out.println(defTimeSigNum);
+                System.out.println(defTimeSigDen);
+                System.out.println(defKeyString);
+                System.out.println();
+                ArrayList<Measure> measures = new ArrayList<Measure>();
+                for (int j = 0; j < measuresJSON.size(); j++) {
+                    JSONObject measureJSON = (JSONObject) measuresJSON.get(j);
+                    String beatAmount = (String) measureJSON.get("beatAmount");
+                    String clef = (String) measureJSON.get("clef");
+                    System.out.println(beatAmount);
+                    System.out.println(clef);
+                    System.out.println();
+                    JSONArray notes = (JSONArray) measureJSON.get("notes");
+
+                    ArrayList<Note> noteList = new ArrayList<Note>();
                     for (int r = 0; r < notes.size(); r++) {
                         JSONObject note = (JSONObject) notes.get(r);
                         String notePitch = (String) note.get("pitch");
                         String noteAccidetal = (String) note.get("accidental");
                         String noteOctave = (String) note.get("octave");
                         String noteLength = (String) note.get("length");
+                        Note newNote = new Note(notePitch, noteAccidetal, noteOctave, noteLength);
+                        noteList.add(newNote);
+                        System.out.print(notePitch);
+                        System.out.print(noteAccidetal);
+                        System.out.print(noteOctave);
+                        System.out.println(noteLength);
+                        System.out.println();
                     }
+                    Measure measure = new Measure(beatAmount, clef, noteList);
+                    measures.add(measure);
                 }
 
-                songs.add(new Song(id, title, artist, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKey, measures));
+                songs.add(new Song(id, title, artist, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeyString, measures));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,8 +99,16 @@ public class zToFugueTester {
         return songs;
     }
 
-    private void buildNote(String pitch, String accidental, String octave, String length) {
-        String newNote = pitch + accidental + octave + length;
+    public static void playSong(Song song) {
+        Player player = new Player();
+        Pattern pattern = new Pattern();
+        pattern.setInstrument("Tuba");
+        for (Measure measures : song.getMeasureList()) {
+            for (Note note : measures.getNoteList()) {
+                pattern.add(note.getPitch().toString() + note.getAccidental() + note.getOctave() + note.getLength() + " ");
+            }
+        }
+        player.play(pattern);
     }
 }
 

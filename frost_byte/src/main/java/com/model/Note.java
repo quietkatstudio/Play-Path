@@ -3,57 +3,48 @@ package com.model;
 import java.util.ArrayList;
 
 public class Note {
-    private Pitches pitch;
+    private String pitch;
     private String length;
-    private Accidentals accidental;
-    private int dot;
-    private int octave;
+    private String accidental;
+    //private int dot;
+    private String octave;
 
-    public Note(Pitches pitch, String lenfth, Accidentals accidental, int dot,
-            int octave) {
+    public Note(String pitch, String length, String accidental,
+            String octave) {
         this.pitch = pitch;
         this.length = length;
         this.accidental = accidental;
-        this.dot = dot;
         this.octave = octave;
     }
 
-    private void setPitch(Pitches pitch) {
+    private void setPitch(String pitch) {
         this.pitch = pitch;
     }
 
     private void setLength(String length) {
         this.length = length;
     }
-    private void setAccidental(Accidentals accidental) {
+    private void setAccidental(String accidental) {
         this.accidental = accidental;
     }
 
-    private void setDot(int dot) {
-        this.dot = dot;
-    }
-
-    private void setOctave(int octave) {
+    private void setOctave(String octave) {
         this.octave = octave;
     }
 
-    private Pitches getPitch() {
+    String getPitch() {
         return this.pitch;
     }
 
-    private String getLength() {
+    String getLength() {
         return this.length;
     }
 
-    private Accidentals getAccidental() {
+    String getAccidental() {
         return this.accidental;
     }
 
-    private int getDot() {
-        return this.dot;
-    }
-
-    private int getOctave() {
+    String getOctave() {
         return this.octave;
     }
 }
