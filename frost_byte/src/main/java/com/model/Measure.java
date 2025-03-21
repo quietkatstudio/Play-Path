@@ -3,15 +3,13 @@ package com.model;
 import java.util.ArrayList;
 
 public class Measure {
-    private int beatAmount;
+    private String beatAmount;
     private String clef;
-    private boolean isRepeat;
     private ArrayList<Note> notes;
 
-    public Measure(int beatAmount, String clef, boolean isRepeat, ArrayList<Note> notes) {
+    public Measure(String beatAmount, String clef, ArrayList<Note> notes) {
         this.beatAmount = beatAmount;
         this.clef = clef;
-        this.isRepeat = isRepeat;
         this.notes = notes;
     }
 
@@ -22,7 +20,7 @@ public class Measure {
     private void addNote() {
     }
 
-    private int setBeatAmount(int beatAmount) {
+    private String setBeatAmount(String beatAmount) {
         this.beatAmount = beatAmount;
         return this.beatAmount;
     }
@@ -32,12 +30,7 @@ public class Measure {
         return this.clef;
     }
 
-    private boolean setIsRepeat(boolean isRepeat) {
-        this.isRepeat = isRepeat;
-        return this.isRepeat;
-    }
-
-    private int getBeatAmount() {
+    String getBeatAmount() {
         return this.beatAmount;
     }
 
@@ -45,7 +38,7 @@ public class Measure {
         return this.clef;
     }
 
-    private boolean getIsRepeat() {
-        return this.isRepeat;
+    public  ArrayList<Note> getNoteList() {
+        return this.notes;
     }
 }

@@ -10,6 +10,7 @@ import org.json.simple.JSONArray;
  * @author 
  */
 public class Song {
+    private UUID id;
     private String title;
     private String author;
     private String genre;
@@ -17,7 +18,7 @@ public class Song {
     private String tempo;
     private int defTimeSigNumer;
     private int defTimeSigDenom;
-    private KeySig defKeySig;
+    private String defKeySig;
     private ArrayList<Measure> MeasureList;
 
 
@@ -30,11 +31,12 @@ public class Song {
      * @param tempo
      * @param defTimeSigNumer
      * @param defTimeSigDenom
-     * @param defKeySig
+     * @param defKey
      * @param MeasureList
      */
-    public Song(String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
-            int defTimeSigDenom, KeySig defKeySig, ArrayList<Measure> MeasureList) {
+    public Song(UUID id,String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
+            int defTimeSigDenom, String defKey, ArrayList<Measure> MeasureList) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -42,7 +44,7 @@ public class Song {
         this.tempo = tempo;
         this.defTimeSigNumer = defTimeSigNumer;
         this.defTimeSigDenom = defTimeSigDenom;
-        this.defKeySig = defKeySig;
+        this.defKeySig = defKey;
         this.MeasureList = MeasureList;
     }
 
@@ -54,12 +56,10 @@ public class Song {
         //TODO Auto-generated constructor stub
     }
 
-    /**
-     * 
-     */
+    /*
     public Measure addMeasure() {
         return new Measure(defTimeSigDenom, author, false, null);
-    }
+    } */
 
     /**
      * 
@@ -175,7 +175,7 @@ public class Song {
      * @param defKeySig
      * @return
      */
-    public KeySig setDefKeySig(KeySig defKeySig) {
+    public String setDefKeySig(String defKeySig) {
         this.defKeySig = defKeySig;
         return this.defKeySig;
     }
@@ -250,7 +250,7 @@ public class Song {
      * 
      * @return
      */
-    public KeySig getDefKeySig() {
+    public String getDefKeySig() {
         return this.defKeySig;
     }
 
