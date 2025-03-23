@@ -25,7 +25,8 @@ public class zToFugueTester {
             ArrayList<Song> songs = getSongs();
             for (Song song : songs) {
                 if (song.getTitle().equals("Hot Cross Buns")) {
-                    playSong(song);
+                    //playSong(song);
+                    playMeasure(song, 2);
                 }
             }
         } catch (Exception e) {
@@ -53,7 +54,7 @@ public class zToFugueTester {
                 int defTimeSigDen = Integer.parseInt((String) songJSON.get("defTimeSigDenom"));
                 String defKeyString = (String) songJSON.get("defKeySig");
                 JSONArray measuresJSON = (JSONArray) songJSON.get("measureList");
-                System.out.println(title);
+                /*System.out.println(title);
                 System.out.println(artist);
                 System.out.println(genre);
                 System.out.println(duration);
@@ -61,15 +62,15 @@ public class zToFugueTester {
                 System.out.println(defTimeSigNum);
                 System.out.println(defTimeSigDen);
                 System.out.println(defKeyString);
-                System.out.println();
+                System.out.println();*/
                 ArrayList<Measure> measures = new ArrayList<Measure>();
                 for (int j = 0; j < measuresJSON.size(); j++) {
                     JSONObject measureJSON = (JSONObject) measuresJSON.get(j);
                     String beatAmount = (String) measureJSON.get("beatAmount");
                     String clef = (String) measureJSON.get("clef");
-                    System.out.println(beatAmount);
+                    /*System.out.println(beatAmount);
                     System.out.println(clef);
-                    System.out.println();
+                    System.out.println();*/
                     JSONArray notes = (JSONArray) measureJSON.get("notes");
 
                     ArrayList<Note> noteList = new ArrayList<Note>();
@@ -81,11 +82,11 @@ public class zToFugueTester {
                         String noteLength = (String) note.get("length");
                         Note newNote = new Note(notePitch, noteAccidetal, noteOctave, noteLength);
                         noteList.add(newNote);
-                        System.out.print(notePitch);
+                        /*System.out.print(notePitch);
                         System.out.print(noteAccidetal);
                         System.out.print(noteOctave);
                         System.out.println(noteLength);
-                        System.out.println();
+                        System.out.println();*/
                     }
                     Measure measure = new Measure(beatAmount, clef, noteList);
                     measures.add(measure);
@@ -101,14 +102,34 @@ public class zToFugueTester {
 
     public static void playSong(Song song) {
         Player player = new Player();
-        Pattern pattern = new Pattern();
-        pattern.setInstrument("Tuba");
+        Pattern songPattern = new Pattern();
+        songPattern.setInstrument("Tuba");
         for (Measure measures : song.getMeasureList()) {
             for (Note note : measures.getNoteList()) {
-                pattern.add(note.getPitch().toString() + note.getAccidental() + note.getOctave() + note.getLength() + " ");
+                songPattern.add(note.getPitch().toString() + note.getAccidental() + note.getOctave() + note.getLength() + " ");
             }
         }
-        player.play(pattern);
+        player.play(songPattern);
+    }
+
+    public static void playMeasure(Song song, int measureNum) {
+        int numMeasures = 0;
+        for (Measure measures : song.getMeasureList()) {
+            numMeasures++;
+        }
+        if (measureNum >= numMeasures || measureNum < 0) {
+            System.out.println("Measure number out of bounds");
+            return;
+        }
+        Player player = new Player();
+        Pattern measurePattern = new Pattern();
+        measurePattern.setInstrument("Tuba");
+        ArrayList<Measure> Measures = song.getMeasureList();
+        Measure measure = Measures.get(measureNum);
+        for (Note note : measure.getNoteList()) {
+            measurePattern.add(note.getPitch().toString() + note.getAccidental() + note.getOctave() + note.getLength() + " ");
+        }
+        player.play(measurePattern);
     }
 }
 

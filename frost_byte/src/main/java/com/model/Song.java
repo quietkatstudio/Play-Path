@@ -61,6 +61,11 @@ public class Song {
         return new Measure(defTimeSigDenom, author, false, null);
     } */
 
+    public Song(String title2, String author2, String genre2, String duration2, String tempo2, int defTimeSigNumer2,
+            int defTimeSigDenom2, KeySig defKeySig2, ArrayList<Measure> measureList2) {
+        //TODO Auto-generated constructor stub
+    }
+
     /**
      * 
      * @return
@@ -260,6 +265,10 @@ public class Song {
      */
     public  ArrayList<Measure> getMeasureList() {
         return this.MeasureList;
+    }
+
+    public Measure getMeasure (ArrayList<Measure> MeasureList, int measureNum) {
+        return MeasureList.get(measureNum);
     }
     
 }
