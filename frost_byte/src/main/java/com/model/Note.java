@@ -17,18 +17,18 @@ public class Note {
         this.octave = octave;
     }
 
-    private void setPitch(String pitch) {
+    void setPitch(String pitch) {
         this.pitch = pitch;
     }
 
-    private void setLength(String length) {
+    void setLength(String length) {
         this.length = length;
     }
-    private void setAccidental(String accidental) {
+    void setAccidental(String accidental) {
         this.accidental = accidental;
     }
 
-    private void setOctave(String octave) {
+    void setOctave(String octave) {
         this.octave = octave;
     }
 
