@@ -24,10 +24,10 @@ public class zToFugueTester {
             Player player = new Player();
             ArrayList<Song> songs = getSongs();
             for (Song song : songs) {
-                if (song.getTitle().equals("Hot Cross Buns")) {
-                    //playSong(song);
+                if (song.getTitle().contains("Cruel")) {
+                    playSong(song);
                     //playMeasure(song, 2);
-                    editMeasure(song, 1, 1, "C", "n", "4", "q");
+                    //editMeasure(song, 1, 1, "C", "n", "4", "q");
                 }
             }
         } catch (Exception e) {
@@ -104,6 +104,7 @@ public class zToFugueTester {
     public static void playSong(Song song) {
         Player player = new Player();
         Pattern songPattern = new Pattern();
+        songPattern.setTempo(Integer.parseInt(song.getTempo()));
         songPattern.setInstrument("Tuba");
         for (Measure measures : song.getMeasureList()) {
             for (Note note : measures.getNoteList()) {
