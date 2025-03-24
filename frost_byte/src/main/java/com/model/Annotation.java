@@ -9,21 +9,21 @@ public class Annotation {
         this.comment = comment;
     }
 
-    private Font setFont(Font font) {
+    public Font setFont(Font font) {
         this.font = font;
         return this.font;
     }
 
-    private String setComment(String comment) {
+    public String setComment(String comment) {
         this.comment = comment;
         return this.comment;
     }
 
-    private Font getFont() {
+    public Font getFont() {
         return this.font;
     }
 
-    private String getComment() {
+    public String getComment() {
         return this.comment;
     }
 }

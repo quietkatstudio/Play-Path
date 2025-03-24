@@ -1,6 +1,6 @@
 package com.model;
 
-enum Pitches{
+public enum Pitches {
     A,
     B,
     C,

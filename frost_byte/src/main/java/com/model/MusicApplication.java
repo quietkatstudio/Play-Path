@@ -2,22 +2,20 @@ package com.model;
 
 /**
  * 
- * @author 
+ * @author
  */
 public class MusicApplication {
     private User user;
     private Song song;
     private ChooseInstrument instrument;
-    
-    //teacher example
+
+    // teacher example
     // public boolean login(String userName, String password){
-    //     return UserList.getInstance().login(userName,password);
+    // return UserList.getInstance().login(userName,password);
     // }
 
-
-
     // private String login(String userName){
-    //     return " ";
+    // return " ";
     // }
 
     /**
@@ -25,7 +23,7 @@ public class MusicApplication {
      * @param user
      * @return
      */
-    private String register(User user){
+    public String register(User user) {
         return " ";
     }
 
@@ -34,7 +32,7 @@ public class MusicApplication {
      * @param song
      * @return
      */
-    private Song makeSong(Song song){
+    public Song makeSong(Song song) {
         return song;
     }
 
@@ -43,7 +41,7 @@ public class MusicApplication {
      * @param songList
      * @return
      */
-    private SongList getAllSongs(SongList songList){
+    public SongList getAllSongs(SongList songList) {
         return songList;
     }
 
@@ -52,7 +50,7 @@ public class MusicApplication {
      * @param instrument
      * @return
      */
-    private ChooseInstrument chooseInstrument(ChooseInstrument instrument){
+    public ChooseInstrument chooseInstrument(ChooseInstrument instrument) {
         return instrument;
     }
 
@@ -61,7 +59,7 @@ public class MusicApplication {
      * @param lesson
      * @return
      */
-    private Lesson assignLesson(Lesson lesson){
+    public Lesson assignLesson(Lesson lesson) {
         return lesson;
     }
 
@@ -70,7 +68,7 @@ public class MusicApplication {
      * @param student
      * @return
      */
-    private Student assignToClass(Student student){
+    public Student assignToClass(Student student) {
         return student;
     }
 

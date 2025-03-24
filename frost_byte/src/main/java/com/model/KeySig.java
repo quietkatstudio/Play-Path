@@ -1,5 +1,7 @@
 package com.model;
 
+import org.json.simple.JSONObject;
+
 public class KeySig {
     private Keys keySig;
     private String defPitchA;
@@ -22,75 +24,86 @@ public class KeySig {
         this.defPitchG = defPitchG;
     }
 
-    private Keys setKeySig(Keys keySig) {
+    public Keys setKeySig(Keys keySig) {
         this.keySig = keySig;
         return this.keySig;
     }
 
-    private String setDefPitchA(String defPitchA) {
+    public String setDefPitchA(String defPitchA) {
         this.defPitchA = defPitchA;
         return this.defPitchA;
     }
 
-    private String setDefPitchB(String defPitchB) {
+    public String setDefPitchB(String defPitchB) {
         this.defPitchB = defPitchB;
         return this.defPitchB;
     }
 
-    private String setDefPitchC(String defPitchC) {
+    public String setDefPitchC(String defPitchC) {
         this.defPitchC = defPitchC;
         return this.defPitchC;
     }
 
-    private String setDefPitchD(String defPitchD) {
+    public String setDefPitchD(String defPitchD) {
         this.defPitchD = defPitchD;
         return this.defPitchD;
     }
 
-    private String setDefPitchE(String defPitchE) {
+    public String setDefPitchE(String defPitchE) {
         this.defPitchE = defPitchE;
         return this.defPitchE;
     }
 
-    private String setDefPitchF(String defPitchF) {
+    public String setDefPitchF(String defPitchF) {
         this.defPitchF = defPitchF;
         return this.defPitchF;
     }
 
-    private String setDefPitchG(String defPitchG) {
+    public String setDefPitchG(String defPitchG) {
         this.defPitchG = defPitchG;
         return this.defPitchG;
     }
 
-    private Keys getKeySig() {
+    public Keys getKeySig() {
         return this.keySig;
     }
 
-    private String getDefPitchA() {
+    public String getDefPitchA() {
         return this.defPitchA;
     }
 
-    private String getDefPitchB() {
+    public String getDefPitchB() {
         return this.defPitchB;
     }
 
-    private String getDefPitchC() {
+    public String getDefPitchC() {
         return this.defPitchC;
     }
 
-    private String getDefPitchD() {
+    public String getDefPitchD() {
         return this.defPitchD;
     }
 
-    private String getDefPitchE() {
+    public String getDefPitchE() {
         return this.defPitchE;
     }
 
-    private String getDefPitchF() {
+    public String getDefPitchF() {
         return this.defPitchF;
     }
 
-    private String getDefPitchG() {
+    public String getDefPitchG() {
         return this.defPitchG;
+    }
+
+    public KeySig(JSONObject jsonKeySig) {
+        this.keySig = Keys.valueOf((String) jsonKeySig.get("keySig"));
+        this.defPitchA = (String) jsonKeySig.get("defPitchA");
+        this.defPitchB = (String) jsonKeySig.get("defPitchB");
+        this.defPitchC = (String) jsonKeySig.get("defPitchC");
+        this.defPitchD = (String) jsonKeySig.get("defPitchD");
+        this.defPitchE = (String) jsonKeySig.get("defPitchE");
+        this.defPitchF = (String) jsonKeySig.get("defPitchF");
+        this.defPitchG = (String) jsonKeySig.get("defPitchG");
     }
 }
