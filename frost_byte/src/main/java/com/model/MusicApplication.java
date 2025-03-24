@@ -2,7 +2,7 @@ package com.model;
 
 /**
  * 
- * @author 
+ * @author
  */
 public class MusicApplication {
     private User user;
@@ -10,17 +10,15 @@ public class MusicApplication {
     private SongList songs;
     private ChooseInstrument instrument;
     private UserList users;
-    
-    //teacher example
-    public boolean login(String userName, String password){
+
+    // teacher example
+    public boolean login(String userName, String password) {
         // return UserList.getInstance().login(userName,password);
         return true;
     }
 
-    
-
     // private String login(String userName){
-    //     return " ";
+    // return " ";
     // }
 
     /**
@@ -28,12 +26,11 @@ public class MusicApplication {
      * @param user
      * @return
      */
-    public void register(String userName, String firstName,String lastName, String email, String password, Boolean isTeacher){
-        //add user to the list to be saved in json
+    public void register(String userName, String firstName, String lastName, String email, String password,
+            Boolean isTeacher) {
+        // add user to the list to be saved in json
         users.addUser(userName, firstName, lastName, email, password, isTeacher);
 
-        
-        
     }
 
     /**
@@ -41,7 +38,9 @@ public class MusicApplication {
      * @param song
      * @return
      */
-    public Song makeSong(Song song){
+    public Song makeSong(Song song) {
+
+    public Song makeSong(Song song) {
         return song;
     }
 
@@ -50,7 +49,7 @@ public class MusicApplication {
      * @param songList
      * @return
      */
-    private SongList getAllSongs(){
+    private SongList getAllSongs() {
         return songs;
     }
 
@@ -59,7 +58,7 @@ public class MusicApplication {
      * @param instrument
      * @return
      */
-    private ChooseInstrument chooseInstrument(ChooseInstrument instrument){
+    public ChooseInstrument chooseInstrument(ChooseInstrument instrument) {
         return instrument;
     }
 
@@ -68,7 +67,7 @@ public class MusicApplication {
      * @param lesson
      * @return
      */
-    private Lesson assignLesson(Lesson lesson){
+    public Lesson assignLesson(Lesson lesson) {
         return lesson;
     }
 
@@ -77,10 +76,8 @@ public class MusicApplication {
      * @param student
      * @return
      */
-    private Student assignToClass(Student student){
+    public Student assignToClass(Student student) {
         return student;
     }
-
-    
 
 }

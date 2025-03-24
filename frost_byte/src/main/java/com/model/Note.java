@@ -2,49 +2,76 @@ package com.model;
 
 import java.util.ArrayList;
 
+import org.json.simple.JSONObject;
+
 public class Note {
-    private String pitch;
+    private Pitches pitch;
     private String length;
-    private String accidental;
-    //private int dot;
-    private String octave;
+    private Accidentals accidental;
+    private int dot;
+    private int octave;
 
-    public Note(String pitch, String length, String accidental,
-            String octave) {
+    public Note() {
+        this.pitch = null;
+        this.length = "";
+        this.accidental = null;
+        this.dot = 0;
+        this.octave = 0;
+    }
+
+    public Note(Pitches pitch, String length, Accidentals accidental, int dot,
+            int octave) {
         this.pitch = pitch;
         this.length = length;
         this.accidental = accidental;
         this.octave = octave;
     }
 
-    void setPitch(String pitch) {
+    public void setPitch(Pitches pitch) {
         this.pitch = pitch;
     }
 
-    void setLength(String length) {
+    public void setLength(String length) {
         this.length = length;
     }
-    void setAccidental(String accidental) {
+
+    public void setAccidental(Accidentals accidental) {
         this.accidental = accidental;
     }
 
-    void setOctave(String octave) {
+    public void setDot(int dot) {
+        this.dot = dot;
+    }
+
+    public void setOctave(int octave) {
         this.octave = octave;
     }
 
-    String getPitch() {
+    public Pitches getPitch() {
         return this.pitch;
     }
 
-    String getLength() {
+    public String getLength() {
         return this.length;
     }
 
-    String getAccidental() {
+    public Accidentals getAccidental() {
         return this.accidental;
     }
 
-    String getOctave() {
+    public int getDot() {
+        return this.dot;
+    }
+
+    public int getOctave() {
         return this.octave;
+    }
+
+    public Note(JSONObject noteJSON) {
+        this.pitch = Pitches.valueOf((String) noteJSON.get("pitch"));
+        this.length = (String) noteJSON.get("length");
+        this.accidental = Accidentals.valueOf((String) noteJSON.get("accidental"));
+        this.dot = ((Long) noteJSON.get("dot")).intValue();
+        this.octave = ((Long) noteJSON.get("octave")).intValue();
     }
 }

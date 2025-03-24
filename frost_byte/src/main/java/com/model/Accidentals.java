@@ -1,6 +1,6 @@
 package com.model;
 
-enum Accidentals {
+public enum Accidentals {
     FLAT,
     NATURAL,
     SHARP
