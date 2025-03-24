@@ -118,16 +118,16 @@ public class DataLoader extends DataConstants {
         String tempo = (String) jsonSong.get("tempo");
         int defTimeSigNumer = ((Long) jsonSong.get("defTimeSigNumer")).intValue();
         int defTimeSigDenom = ((Long) jsonSong.get("defTimeSigDenom")).intValue();
-        JSONObject defKeySig = (JSONObject) jsonSong.get("defTimeSigDenom");
+        JSONObject defKeySig = (JSONObject) jsonSong.get("defKeySig");
 
         JSONObject quizJSON = (JSONObject) jsonSong.get("quiz");
         String question = (String) quizJSON.get("question");
         JSONArray optionsArray = (JSONArray) quizJSON.get("options");
 
-        JSONObject measureJson = (JSONObject) jsonSong.get("quiz");
+        JSONObject measureJson = (JSONObject) jsonSong.get("measures");
         JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
         ArrayList<Measure> measuresArrayList = new ArrayList<>();
-        for (Object measure : measuresArray) {
+        for (JSONObject measure : measuresArray) {
             measuresArrayList.add(new measure());
         }
 
