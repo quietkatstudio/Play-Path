@@ -39,8 +39,6 @@ public class MusicApplication {
      * @return
      */
     public Song makeSong(Song song) {
-
-    public Song makeSong(Song song) {
         return song;
     }
 

@@ -140,7 +140,7 @@ public class DataLoader extends DataConstants {
                 JSONObject measureJSON = (JSONObject) measureObj;
                 Measure measure = new Measure(measureJSON);
 
-                // Pase measure meta-data
+                // Parse measure meta-data
                 measure.setBeatAmount(Integer.parseInt((String) measureJSON.get("beatAmount")));
                 measure.setClef((String) measureJSON.get("clef"));
 
