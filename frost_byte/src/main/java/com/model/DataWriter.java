@@ -17,7 +17,6 @@ public class DataWriter extends DataConstants {
     public static boolean saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
-        userList.add(new User(UUID.randomUUID(),"Kai", "Kai", "Watts", "kaiwatts06@gmail.comaaaa", true, "password123!"));
         JSONArray jsonUsers = new JSONArray();
 
         for (int i = 0; i < userList.size(); i++) {
@@ -66,11 +65,7 @@ public class DataWriter extends DataConstants {
         ArrayList<Measure> measures = new ArrayList<>();
         // For example, if Measure has a proper constructor, you might add:
         // measures.add(new Measure(4, "Artist", false, null));
-        
-        // Create two sample songs
-        songList.add(new Song("Song One", "Artist One", "Rock", "3:45", "120", 4, 4, new KeySig("C"), measures));
-        songList.add(new Song("Song Two", "Artist Two", "Jazz", "4:20", "100", 3, 4, new KeySig("F"), measures));
-        
+                
         JSONArray jsonSongs = new JSONArray();
         for (Song song : songList) {
             jsonSongs.add(getSongJSON(song));
@@ -113,8 +108,6 @@ public class DataWriter extends DataConstants {
     // UUIDs
     public static void main(String[] args) {
         UserList users = UserList.getInstance();
-        users.getUsers().add(new User("jdoe", "John", "Doe", "jdoe@example.com", "password123", true));
-        users.getUsers().add(new User("asmith", "Alice", "Smith", "asmith@example.com", "securepass", false));
         System.out.println("Saving users >>>");
         DataWriter.saveUsers();
         System.out.println("Users saved!");
