@@ -116,19 +116,51 @@ public class DataLoader extends DataConstants {
         String genre = (String) jsonSong.get("genre");
         String duration = (String) jsonSong.get("duration");
         String tempo = (String) jsonSong.get("tempo");
-        int defTimeSigNumer = ((Long) jsonSong.get("defTimeSigNumer")).intValue();
-        int defTimeSigDenom = ((Long) jsonSong.get("defTimeSigDenom")).intValue();
-        JSONObject defKeySig = (JSONObject) jsonSong.get("defTimeSigDenom");
 
-        JSONObject quizJSON = (JSONObject) jsonSong.get("quiz");
-        String question = (String) quizJSON.get("question");
-        JSONArray optionsArray = (JSONArray) quizJSON.get("options");
+        // Handle time signature, Long or Int value
+        int defTimeSigNumer = (jsonSong.get("defTimeSigNumer") instanceof Long)
+                ? ((Long) jsonSong.get("defTimeSigNumer")).intValue()
+                : Integer.parseInt((String) jsonSong.get("defTimeSigNumer"));
+        int defTimeSigDenom = (jsonSong.get("defTimeSigDenom") instanceof Long)
+                ? ((Long) jsonSong.get("defTimeSigDenom")).intValue()
+                : Integer.parseInt((String) jsonSong.get("defTimeSigDenom"));
 
-        JSONObject measureJson = (JSONObject) jsonSong.get("quiz");
+        // Parse key signature, accepting JSONObject
+        String defKeySigStr = (String) jsonSong.get("defKeySig");
+        KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
+        // Parse measures
+        JSONObject measureJson = (JSONObject) jsonSong.get("measures");
         JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
+        if (measuresArray == null) {
+            measuresArray = new JSONArray();
+        }
         ArrayList<Measure> measuresArrayList = new ArrayList<>();
-        for (Object measure : measuresArray) {
-            measuresArrayList.add(new measure());
+        for (Object measureObj : measuresArray) {
+            if (measureObj instanceof JSONObject) {
+                JSONObject measureJSON = (JSONObject) measureObj;
+                Measure measure = new Measure(measureJSON);
+
+                // Parse measure meta-data
+                measure.setBeatAmount(Integer.parseInt((String) measureJSON.get("beatAmount")));
+                measure.setClef((String) measureJSON.get("clef"));
+
+                // Parse notes
+                JSONArray notesArray = (JSONArray) measureJSON.get("notes");
+                ArrayList<Note> notes = new ArrayList<>();
+                for (Object noteObj : notesArray) {
+                    if (noteObj instanceof JSONObject) {
+                        JSONObject noteJSON = (JSONObject) noteObj;
+                        Note note = new Note();
+                        note.setPitch((Pitches) noteJSON.get("pitch"));
+                        note.setAccidental((Accidentals) noteJSON.get("accidental"));
+                        note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
+                        note.setLength((String) noteJSON.get("length"));
+                        notes.add(note);
+                    }
+                }
+                measure.setNotes(notes);
+                measuresArrayList.add(measure);
+            }
         }
 
         return new Song(title, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig,

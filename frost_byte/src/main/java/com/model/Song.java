@@ -18,7 +18,7 @@ public class Song {
     private String tempo;
     private int defTimeSigNumer;
     private int defTimeSigDenom;
-    private Keys defKeySig;
+    private KeySig defKeySig;
     private ArrayList<Measure> MeasureList;
 
 
@@ -35,7 +35,7 @@ public class Song {
      * @param MeasureList
      */
     public Song(UUID id,String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
-            int defTimeSigDenom, Keys defKey, ArrayList<Measure> MeasureList) {
+            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> MeasureList) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -180,7 +180,7 @@ public class Song {
      * @param defKeySig
      * @return
      */
-    public Keys setDefKeySig(Keys defKeySig) {
+    public KeySig setDefKeySig(KeySig defKeySig) {
         this.defKeySig = defKeySig;
         return this.defKeySig;
     }
@@ -255,7 +255,7 @@ public class Song {
      * 
      * @return
      */
-    public Keys getDefKeySig() {
+    public KeySig getDefKeySig() {
         return this.defKeySig;
     }
 

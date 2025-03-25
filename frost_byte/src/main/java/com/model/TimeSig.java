@@ -1,5 +1,7 @@
 package com.model;
 
+import org.json.simple.JSONObject;
+
 public class TimeSig {
     private int TopNum;
     private int BotNum;
@@ -9,21 +11,26 @@ public class TimeSig {
         this.BotNum = BotNum;
     }
 
-    private int setTopNum(int topNum) {
+    public int setTopNum(int topNum) {
         this.TopNum = topNum;
         return this.TopNum;
     }
 
-    private int setBotNum(int botNum) {
+    public int setBotNum(int botNum) {
         this.BotNum = botNum;
         return this.BotNum;
     }
 
-    private int getTopNum() {
+    public int getTopNum() {
         return this.TopNum;
     }
 
-    private int getBotNum() {
+    public int getBotNum() {
         return this.BotNum;
+    }
+
+    public TimeSig(JSONObject jsonTimeSig) {
+        this.TopNum = ((Long) jsonTimeSig.get("TopNum")).intValue();
+        this.TopNum = ((Long) jsonTimeSig.get("TopNum")).intValue();
     }
 }

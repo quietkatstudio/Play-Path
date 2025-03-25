@@ -7,12 +7,12 @@ public class Clef {
         this.clef = clef;
     }
 
-    private ClefType setClef(ClefType clef) {
+    public ClefType setClef(ClefType clef) {
         this.clef = clef;
         return this.clef;
     }
 
-    private ClefType getClef() {
+    public ClefType getClef() {
         return this.clef;
     }
 }

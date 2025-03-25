@@ -1,5 +1,5 @@
 package com.model;
 
-enum Font {
+public enum Font {
     SERIFF, TIMES_NEW_ROMAN, ARIAL, CALIBRI, GARAMOND, COURIER_NEW, GEORGIA, LUCIDA_CONSOLE, VERDANA, COMIC_SANS_MS
 }

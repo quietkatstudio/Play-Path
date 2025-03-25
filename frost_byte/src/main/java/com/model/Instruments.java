@@ -1,5 +1,5 @@
 package com.model;
 
-enum Instruments {
+public enum Instruments {
     TUBA
 }

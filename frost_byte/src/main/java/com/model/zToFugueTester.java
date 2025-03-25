@@ -53,7 +53,9 @@ public class zToFugueTester {
                 String tempo = (String) songJSON.get("tempo");
                 int defTimeSigNum = Integer.parseInt((String) songJSON.get("defTimeSigNumer"));
                 int defTimeSigDen = Integer.parseInt((String) songJSON.get("defTimeSigDenom"));
-                Keys defKeyString = (Keys) songJSON.get("defKeySig");
+                 // Parse key signature, accepting JSONObject
+                String defKeySigStr = (String) songJSON.get("defKeySig");
+                KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
                 JSONArray measuresJSON = (JSONArray) songJSON.get("measureList");
                 /*System.out.println(title);
                 System.out.println(artist);
@@ -67,7 +69,7 @@ public class zToFugueTester {
                 ArrayList<Measure> measures = new ArrayList<Measure>();
                 for (int j = 0; j < measuresJSON.size(); j++) {
                     JSONObject measureJSON = (JSONObject) measuresJSON.get(j);
-                    String beatAmount = (String) measureJSON.get("beatAmount");
+                    int beatAmount = Integer.parseInt((String)measureJSON.get("beatAmount"));
                     String clef = (String) measureJSON.get("clef");
                     /*System.out.println(beatAmount);
                     System.out.println(clef);
@@ -76,13 +78,18 @@ public class zToFugueTester {
 
                     ArrayList<Note> noteList = new ArrayList<Note>();
                     for (int r = 0; r < notes.size(); r++) {
-                        JSONObject note = (JSONObject) notes.get(r);
-                        String notePitch = (String) note.get("pitch");
-                        Accidentals noteAccidetal = (Accidentals) note.get("accidental");
-                        String noteOctave = (String) note.get("octave");
-                        String noteLength = (String) note.get("length");
-                        Note newNote = new Note(notePitch, noteAccidetal, noteOctave, noteLength);
-                        noteList.add(newNote);
+                        JSONObject noteJSON = (JSONObject) notes.get(r);
+                        Note note = new Note();
+                        String tempPitch = (String) noteJSON.get("pitch");
+                        Pitches notePitch = Pitches.valueOf(tempPitch);
+                        note.setPitch(notePitch);
+                        String tempAccidental = (String) noteJSON.get("accidental");
+                        tempAccidental = tempAccidental.toUpperCase();
+                        Accidentals noteAccidetal = Accidentals.valueOf(tempAccidental);
+                        note.setAccidental(noteAccidetal);
+                        note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
+                        note.setLength((String) noteJSON.get("length"));
+                        noteList.add(note);
                         /*System.out.print(notePitch);
                         System.out.print(noteAccidetal);
                         System.out.print(noteOctave);
@@ -93,7 +100,7 @@ public class zToFugueTester {
                     measures.add(measure);
                 }
 
-                songs.add(new Song(id, title, artist, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeyString, measures));
+                songs.add(new Song(id, title, artist, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeySig, measures));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,7 +115,7 @@ public class zToFugueTester {
         songPattern.setInstrument("Tuba");
         for (Measure measures : song.getMeasureList()) {
             for (Note note : measures.getNoteList()) {
-                songPattern.add(note.getPitch().toString() + note.getAccidental() + note.getOctave() + note.getLength() + " ");
+                songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength() + " ");
             }
         }
         player.play(songPattern);
@@ -130,12 +137,12 @@ public class zToFugueTester {
         ArrayList<Measure> Measures = song.getMeasureList();
         Measure measure = Measures.get(measureNum);
         for (Note note : measure.getNoteList()) {
-            measurePattern.add(note.getPitch().toString() + note.getAccidental() + note.getOctave() + note.getLength() + " ");
+            measurePattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength() + " ");
         }
         player.play(measurePattern);
     }
 
-    public static void editMeasure(Song song, int meaNum, int noNum, String notePitch, Accidentals noteAccidental, String noteOctave, String noteLength) {
+    public static void editMeasure(Song song, int meaNum, int noNum, Pitches notePitch, Accidentals noteAccidental, int noteOctave, String noteLength) {
         int numMeasures = 0;
         int measureNum = meaNum - 1;
         int numNotes = 0;

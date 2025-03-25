@@ -258,20 +258,20 @@
                 "notes": [
                     {
                         "pitch": "R",
-                        "accidental": "",
-                        "octave": "",
+                        "accidental": "n",
+                        "octave": "0",
                         "length": "q"
                     },
                     {
                         "pitch": "R",
-                        "accidental": "",
-                        "octave": "",
+                        "accidental": "n",
+                        "octave": "0",
                         "length": "q"
                     },
                     {
                         "pitch": "R",
-                        "accidental": "",
-                        "octave": "",
+                        "accidental": "n",
+                        "octave": "0",
                         "length": "h"
                     }
                 ]
@@ -311,7 +311,7 @@
               { "pitch": "G", "accidental": "n", "octave": "3", "length": "s" },
               { "pitch": "F", "accidental": "n", "octave": "3", "length": "i" },
               { "pitch": "G", "accidental": "n", "octave": "3", "length": "is" },
-              { "pitch": "R", "accidental": "n", "octave": "R", "length": "i" }
+              { "pitch": "R", "accidental": "n", "octave": "0", "length": "i" }
             ]
           },
 
