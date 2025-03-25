@@ -271,4 +271,7 @@ public class Song {
         return MeasureList.get(measureNum);
     }
     
+    public String toString(){
+        return "Title: "+ getTitle() +" Author: "+ getAuthor();
+    }
 }
