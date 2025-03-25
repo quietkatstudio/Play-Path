@@ -262,4 +262,7 @@ public class Song {
         return this.MeasureList;
     }
     
+    public String toString(){
+        return "Title: "+ getTitle() +" Author: "+ getAuthor();
+    }
 }

@@ -7,23 +7,41 @@ import java.util.ArrayList;
  * @author 
  */
 public class SongList {
+   // private static SongList songList = new SongList();
+    private static ArrayList<Song> songs; // = new ArrayList<>();
     private ArrayList<User> users;
-    private SongList songs;
+    //private ArrayList<Song> songs;
+    
 
     /**
      * 
      */
-    private SongList(SongList songs) {
-        this.songs = songs;
+    public SongList(ArrayList<Song> songs) {
+        songs = DataLoader.getSongs();
+        if (songs == null) {
+            songs = new ArrayList<>();
+        }
+      this.songs = DataLoader.getSongs();
+        
+       
     }
+
+    
 
     /**
      * 
      * @return
      */
-    public SongList getInstance() {
+    public static ArrayList<Song> getInstance() {
+        if (songs == null) {
+            songs = new ArrayList<>();
+        }
         return songs;
     }
+
+    
+
+
 
     /**
      * 
@@ -38,11 +56,17 @@ public class SongList {
      * @param MeasureList
      * @return
      */
-    public Song addSong(String title, String author, String genre,
-     String duration, String tempo, int defTimeSigNumer, int defTimeSigDenom,
-     KeySig defKeySig, ArrayList<Measure> MeasureList) {
-        return new Song(title, author, genre, duration, tempo, defTimeSigNumer,
-         defTimeSigDenom, defKeySig, MeasureList);
+    public Song addSong(String title, 
+                        String author, 
+                        String genre,
+                        String duration,
+                        String tempo, 
+                        int defTimeSigNumer, 
+                        int defTimeSigDenom,
+                        KeySig defKeySig, 
+                        ArrayList<Measure> MeasureList) {
+
+        return new Song(title, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig, MeasureList);
     }
 
     /**
@@ -50,13 +74,46 @@ public class SongList {
      * @param title
      * @return
      */
-    public Song getSong(String title) {
-        return songs.getSong(title);
+    public Song getSongByTitle(String title) {
+        for (int i = 0; i < songs.size(); i++) {
+            if (songs.get(i).getTitle().equalsIgnoreCase(title)) {
+                return songs.get(i); //returns the specific song that matches the title
+            }
+        }
+        return null; 
+     
+        
+    }
+
+    public String getSongTitles(){
+        String songTitles = "";
+        for (int i=0; i< songs.size(); i++){
+            songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
+        }
+        return songTitles;
+    }  
+
+
+    public Song getSongByAuthor(String author) {
+        for (Song song : songs) {
+            if (song.getAuthor().equalsIgnoreCase(author)) {
+                return song;
+            }
+        }
+        return null;
+        
     }
 
     /**
      * 
      */
+
     public void saveSong() {
+        DataWriter.saveSong();
     }
+    public ArrayList<Song> getSongs() {
+        return songs;
+    }
+
+    
 }
