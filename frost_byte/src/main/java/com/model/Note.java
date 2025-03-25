@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Note {
     private String pitch;
     private String length;
-    private String accidental;
+    private Accidentals accidental;
     //private int dot;
     private String octave;
 
-    public Note(String pitch, String length, String accidental,
-            String octave) {
+    public Note(String pitch, Accidentals accidental, String octave,
+    String length) {
         this.pitch = pitch;
         this.length = length;
         this.accidental = accidental;
@@ -24,7 +24,7 @@ public class Note {
     void setLength(String length) {
         this.length = length;
     }
-    void setAccidental(String accidental) {
+    void setAccidental(Accidentals accidental) {
         this.accidental = accidental;
     }
 
@@ -40,7 +40,7 @@ public class Note {
         return this.length;
     }
 
-    String getAccidental() {
+    Accidentals getAccidental() {
         return this.accidental;
     }
 
