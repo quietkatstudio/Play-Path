@@ -1,12 +1,16 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
+
+import org.json.simple.JSONArray;
 
 /**
  * 
  * @author 
  */
 public class Song {
+    private UUID id;
     private String title;
     private String author;
     private String genre;
@@ -27,11 +31,12 @@ public class Song {
      * @param tempo
      * @param defTimeSigNumer
      * @param defTimeSigDenom
-     * @param defKeySig
+     * @param defKey
      * @param MeasureList
      */
-    public Song(String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
-            int defTimeSigDenom, KeySig defKeySig, ArrayList<Measure> MeasureList) {
+    public Song(UUID id,String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
+            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> MeasureList) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -39,18 +44,26 @@ public class Song {
         this.tempo = tempo;
         this.defTimeSigNumer = defTimeSigNumer;
         this.defTimeSigDenom = defTimeSigDenom;
-        this.defKeySig = defKeySig;
+        this.defKeySig = defKey;
         this.MeasureList = MeasureList;
     }
 
     // private void compileMeasures(ArrayList<Measure> MeasureList) {
     // } Dont need
 
-    /**
-     * 
-     */
+    public Song(UUID id, String title2, String artist, String genre2, String duration2, String tempo2,
+            String defTimeSigNum, String defTimeSigDen, String defKey, JSONArray measures) {
+        //TODO Auto-generated constructor stub
+    }
+
+    /*
     public Measure addMeasure() {
         return new Measure(defTimeSigDenom, author, false, null);
+    } */
+
+    public Song(String title2, String author2, String genre2, String duration2, String tempo2, int defTimeSigNumer2,
+            int defTimeSigDenom2, KeySig defKeySig2, ArrayList<Measure> measureList2) {
+        //TODO Auto-generated constructor stub
     }
 
     /**
@@ -253,4 +266,9 @@ public class Song {
     public  ArrayList<Measure> getMeasureList() {
         return this.MeasureList;
     }
+
+    public Measure getMeasure (ArrayList<Measure> MeasureList, int measureNum) {
+        return MeasureList.get(measureNum);
+    }
+    
 }

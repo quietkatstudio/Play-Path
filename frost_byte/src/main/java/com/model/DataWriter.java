@@ -17,7 +17,7 @@ public class DataWriter extends DataConstants {
     public static boolean saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
-        userList.add(new User(UUID.randomUUID(),"Kai", "Kai", "Watts", "kaiwatts06@gmail.comaaaa", true, "password123!"));
+        userList.add(new User(UUID.randomUUID(),"Kai", "Kai", "Watts", "kaiwatts06@gmail.comaaaa",  "password123!", true));
         JSONArray jsonUsers = new JSONArray();
 
         for (int i = 0; i < userList.size(); i++) {

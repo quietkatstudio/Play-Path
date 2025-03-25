@@ -8,12 +8,13 @@ import java.util.ArrayList;
  */
 public class SongList {
     private ArrayList<User> users;
-    private SongList songList;
+    private SongList songs;
 
     /**
      * 
      */
-    private SongList() {
+    private SongList(SongList songs) {
+        this.songs = songs;
     }
 
     /**
@@ -21,7 +22,7 @@ public class SongList {
      * @return
      */
     public SongList getInstance() {
-        return songList;
+        return songs;
     }
 
     /**
@@ -50,7 +51,7 @@ public class SongList {
      * @return
      */
     public Song getSong(String title) {
-        return songList.getSong(title);
+        return songs.getSong(title);
     }
 
     /**

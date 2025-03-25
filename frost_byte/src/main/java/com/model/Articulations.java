@@ -1,6 +1,6 @@
 package com.model;
 
-enum Articulations {
+public enum Articulations {
     STACATO,
     LEGATO,
     MARCATO,

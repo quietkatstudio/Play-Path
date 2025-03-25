@@ -1,5 +1,5 @@
 package com.model;
 
-enum ClefType {
+public enum ClefType {
     TREBLE, BASS, ALTO, TENOR, PERCUSSION
 }
