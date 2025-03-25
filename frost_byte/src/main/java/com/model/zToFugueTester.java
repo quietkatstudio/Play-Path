@@ -119,6 +119,15 @@ public class zToFugueTester {
             for (Note note : measures.getNoteList()) {
                 songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength() + " ");
                 getNotePlacement(measures);
+                System.out.println("|");
+                System.out.println("|");
+                System.out.println("|");
+                System.out.println("|");
+                System.out.println("|");
+                System.out.println("|");
+                System.out.println("|");
+                System.out.println("|");
+                System.out.println("|");
             }
         }
         player.play(songPattern);
@@ -543,10 +552,10 @@ public class zToFugueTester {
                             b4 += "-Qb-";
                         }
                     }
-                } else {
+                }
+            } else {
                     b3 += "----";
                 }
-            }
         }
         // Checks for C notes
 for (Note Cnote : measure.getNoteList()) {
@@ -676,9 +685,9 @@ for (Note Cnote : measure.getNoteList()) {
                     c4 += "-Qb-";
                 }
             }
-        } else {
+        } 
+    }else {
             c3 += "----";
-        }
     }
 }
 
@@ -810,10 +819,10 @@ for (Note Dnote : measure.getNoteList()) {
                     d4 += "-Qb-";
                 }
             }
-        } else {
+        } 
+    }else {
             d3 += "----";
         }
-    }
 }
 // Checks for E notes
 for (Note Enote : measure.getNoteList()) {
@@ -943,10 +952,10 @@ for (Note Enote : measure.getNoteList()) {
                     e4 += "-Qb-";
                 }
             }
-        } else {
+        }
+    } else {
             e3 += "----";
         }
-    }
 }
 
 // Checks for F notes
@@ -1077,10 +1086,10 @@ for (Note Fnote : measure.getNoteList()) {
                     f4 += "-Qb-";
                 }
             }
-        } else {
+        }
+    } else {
             f3 += "----";
         }
-    }
 }
 
 // Checks for G notes
@@ -1211,17 +1220,31 @@ for (Note Gnote : measure.getNoteList()) {
                     g3 += "-Qb-";
                 }
             }
-        } else {
+        }
+    } else {
             g2 += "----";
         }
-    }
+    
 }
-
 
 
 
         
     }
+    System.out.println();
+    System.out.println(c4);
+    System.out.println(b4);
+    System.out.println(a4);
+    System.out.println(g3);
+    System.out.println(f3);
+    System.out.println(e3);
+    System.out.println(d3);
+    System.out.println(c3);
+    System.out.println(b3);
+    System.out.println(a3);
+    System.out.println(g2);
+    System.out.println();
+
 }
 }
 
