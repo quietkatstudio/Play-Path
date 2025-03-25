@@ -9,17 +9,29 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     private Scanner scanner;
     private MusicApplication application;
     public void scenario1(){
+        /**
+         * login fred, but dont display it
+         * fred searches for all songs by Tom Petty
+         * he sees I won't back down, Mary Janes's Last Dance, Free Fallin
+         * fred picks free falling and plays the song
+         * free prints out the sheet music to text file 
+         */
+
+
         //login
-        //System.out.println("Login:");
-        //if(application.login("asmith","securepass" )){
-       //     System.out.println("Login successful");
-       //     System.out.println("Welcome " + application.getFirstname);
-       // }
-        
-        //load song from songlist, play song
+        System.out.println("Login:");
+        if(application.login("asmith","securepass" )){  //.login  returns a boolean if the load was successful
+             System.out.println("Login successful");
+            System.out.println("Welcome " + application.getFirstName("asmith"));
+        }
+        //System.out.println("Select an activity: Play song, edit song, Take lesson, log out");
+        //System.out.println("Play song");
+        //load songs from songlist, user selects a song, plays song
         //System.out.println("Song list: ");
         //application.loadSong();
-        //application.playSong();
+        //System.out.println(getSongs());
+        //System.out.println("Song selected: ________");
+        //application.playSong(" ");
     }
 
 
@@ -76,9 +88,51 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
 
     public void run(){
         scenario1(); //login and play a song
-        scenario2(); //login and take a lesson
-        scenario3(); //edit a song and play the song
-        scenario4(); //register a new user, log in
+        /*
+         * key notes: add a search ability
+         *
+         */
+        /**
+         * login fred, but dont display it
+         * fred searches for all songs by Tom Petty
+         * he sees I won't back down, Mary Janes's Last Dance, Free Fallin
+         * fred picks free falling and plays the song
+         * free prints out the sheet music to text file 
+         */
+
+
+       // scenario2(); //login and take a lesson
+        //scenario3(); //make a new song
+        /**
+         * show her in the user json 
+         * login the sister, fellicia
+         * create a new song called A horses journey
+         * add 2 measures
+         * each has a set of notes
+         * play the song
+         * log out
+         * login as fredrick
+         * search for her new song
+         * play it
+         * 
+         */
+
+
+        //scenario4(); //register a new user, log in
+
+        /**
+         * 
+         * fred tries to make a new account using fredrickson
+         * the system rejects him
+         * Video: show json file
+         * fred changes the username to ffred
+         * the system accepts him
+         * fred logs out
+         * fred logins in 
+         * the system accepts him
+         * Video: show json file
+         * 
+         *         */
     }
     private void displayMainMenu(){
         

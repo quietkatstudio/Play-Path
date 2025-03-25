@@ -13,8 +13,11 @@ public class MusicApplication {
     
     //teacher example
     public boolean login(String userName, String password){
-        // return UserList.getInstance().login(userName,password);
-        return true;
+        User user =  UserList.getInstance().login(userName,password);
+        if(user != null){
+            return true;
+        }
+        return false;
     }
 
     
@@ -31,11 +34,11 @@ public class MusicApplication {
     public void register(String userName, String firstName,String lastName, String email, String password, Boolean isTeacher){
         //add user to the list to be saved in json
         users.addUser(userName, firstName, lastName, email, password, isTeacher);
-
-        
-        
     }
 
+    public String getFirstName(String username){
+        return user.getFirstName();
+    }
     /**
      * 
      * @param song
@@ -80,7 +83,7 @@ public class MusicApplication {
     private Student assignToClass(Student student){
         return student;
     }
-
+    
     
 
 }

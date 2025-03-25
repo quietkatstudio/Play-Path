@@ -34,8 +34,14 @@ public class UserList {
         return userList;
     }
 
-    public void login(String username, String password){
-        //find specific
+    public User login(String username, String password){
+        for(int i=0; i<users.size(); i++){
+            User user = users.get(i);
+            if(user.getUserName().equals(username) && user.getPassword().equals(password)){
+                return user;
+            }
+        }
+        return null;
     }
     /**
      * This method adds a new user to the Array List UserList
