@@ -10,6 +10,14 @@ public class MusicApplication {
     private SongList songs;
     private ChooseInstrument instrument;
     private UserList users;
+    
+    //teacher example
+    public boolean login(String userName, String password){
+        User user =  UserList.getInstance().login(userName,password);
+        if(user != null){
+            return true;
+        }
+        return false;
 
     // teacher example
     public boolean login(String userName, String password) {
@@ -33,6 +41,9 @@ public class MusicApplication {
 
     }
 
+    public String getFirstName(String username){
+        return user.getFirstName();
+    }
     /**
      * 
      * @param song
@@ -77,5 +88,8 @@ public class MusicApplication {
     public Student assignToClass(Student student) {
         return student;
     }
+
+    
+    
 
 }
