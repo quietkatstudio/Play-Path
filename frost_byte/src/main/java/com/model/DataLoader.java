@@ -114,7 +114,10 @@ public class DataLoader extends DataConstants {
         UUID id = UUID.fromString((String) jsonSong.get("id"));
         String title = (String) jsonSong.get("title");
         String artist = (String) jsonSong.get("artist");
-        UUID author = UUID.fromString((String) jsonSong.get("artist"));
+        UUID author = null;
+        if (jsonSong.containsKey("author")) {
+            author = UUID.fromString((String) jsonSong.get("author"));
+        }
         String genre = (String) jsonSong.get("genre");
         String duration = (String) jsonSong.get("duration");
         String tempo = (String) jsonSong.get("tempo");
@@ -184,11 +187,13 @@ public class DataLoader extends DataConstants {
             System.out.println(song);
         }
 
-        /*System.out.println("Loading lessons >>>");
-        ArrayList<Lesson> lessons = DataLoader.getLessons();
-        for (Lesson lesson : lessons) {
-            System.out.println(lesson);
-        }*/
+        /*
+         * System.out.println("Loading lessons >>>");
+         * ArrayList<Lesson> lessons = DataLoader.getLessons();
+         * for (Lesson lesson : lessons) {
+         * System.out.println(lesson);
+         * }
+         */
 
     }
 
