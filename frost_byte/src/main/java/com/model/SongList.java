@@ -3,6 +3,7 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 
 /**
@@ -55,7 +56,7 @@ public class SongList {
     public Song addSong(UUID id,
             String title,
             String artist,
-            String author,
+            UUID author,
             String genre,
             String duration,
             String tempo,
@@ -141,12 +142,16 @@ public class SongList {
     public void playSong(String title){
         try {
             Player player = new Player();
-            songs = getSongs();
-            for (int i=0; i< songs.size(); i++){
-                if (songs.get(i).getTitle().contains(title)) {
-                    playSong(songs.get(i).getTitle());
-                } 
+            Song chosenSong = getSongWithTitle(songs, title);
+            Pattern songPattern = new Pattern();
+            songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
+            songPattern.setInstrument("Tuba");
+            for (Measure measures : chosenSong.getMeasureList()) {
+                for (Note note : measures.getNoteList()) {
+                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength());
+                }
             }
+            player.play(songPattern);
         } catch (Exception e) {
         }
     }
