@@ -116,7 +116,11 @@ public class DataLoader extends DataConstants {
         String artist = (String) jsonSong.get("artist");
         UUID author = null;
         if (jsonSong.containsKey("author")) {
-            author = UUID.fromString((String) jsonSong.get("author"));
+            try {
+                author = UUID.fromString((String) jsonSong.get("author"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         String genre = (String) jsonSong.get("genre");
         String duration = (String) jsonSong.get("duration");
