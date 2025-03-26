@@ -165,7 +165,7 @@ public class DataLoader extends DataConstants {
             }
         }
 
-        return new Song(id, title, artist, author, genre, duration, tempo,
+        return new Song(id, title, author, artist, genre, duration, tempo,
                 defTimeSigNumer, defTimeSigDenom, defKeySig, measuresArrayList);
 
     }
