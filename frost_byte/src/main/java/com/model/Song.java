@@ -7,7 +7,7 @@ import org.json.simple.JSONArray;
 
 /**
  * 
- * @author 
+ * @author
  */
 public class Song {
     private UUID id;
@@ -19,8 +19,7 @@ public class Song {
     private int defTimeSigNumer;
     private int defTimeSigDenom;
     private KeySig defKeySig;
-    private ArrayList<Measure> MeasureList;
-
+    private ArrayList<Measure> meassureList;
 
     /**
      * 
@@ -34,8 +33,8 @@ public class Song {
      * @param defKey
      * @param MeasureList
      */
-    public Song(UUID id,String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
-            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> MeasureList) {
+    public Song(UUID id, String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
+            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> meassureList) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -45,25 +44,17 @@ public class Song {
         this.defTimeSigNumer = defTimeSigNumer;
         this.defTimeSigDenom = defTimeSigDenom;
         this.defKeySig = defKey;
-        this.MeasureList = MeasureList;
+        this.meassureList = meassureList;
     }
 
-    // private void compileMeasures(ArrayList<Measure> MeasureList) {
-    // } Dont need
-
-    public Song(UUID id, String title2, String artist, String genre2, String duration2, String tempo2,
-            String defTimeSigNum, String defTimeSigDen, String defKey, JSONArray measures) {
-        //TODO Auto-generated constructor stub
-    }
-
-    /*
-    public Measure addMeasure() {
-        return new Measure(defTimeSigDenom, author, false, null);
-    } */
-
-    public Song(String title2, String author2, String genre2, String duration2, String tempo2, int defTimeSigNumer2,
-            int defTimeSigDenom2, KeySig defKeySig2, ArrayList<Measure> measureList2) {
-        //TODO Auto-generated constructor stub
+    /**
+     * addMeasure Method adds a new measure object to the Arraylist<Measure>
+     * measures.
+     * 
+     * @param measure
+     */
+    public void addMeasure(Measure measure) {
+        this.meassureList.add(measure);
     }
 
     /**
@@ -78,8 +69,8 @@ public class Song {
      * 
      */
     public void exportSong() {
-        //datawriter
-       // DataWriter.exportSong();
+        // datawriter
+        // DataWriter.exportSong();
     }
 
     /**
@@ -144,7 +135,6 @@ public class Song {
         return this.duration;
     }
 
-
     /**
      * 
      * @param tempo
@@ -177,6 +167,7 @@ public class Song {
 
     /**
      * \
+     * 
      * @param defKeySig
      * @return
      */
@@ -263,12 +254,12 @@ public class Song {
      * 
      * @return
      */
-    public  ArrayList<Measure> getMeasureList() {
+    public ArrayList<Measure> getMeasureList() {
         return this.MeasureList;
     }
 
-    public Measure getMeasure (ArrayList<Measure> MeasureList, int measureNum) {
+    public Measure getMeasure(ArrayList<Measure> MeasureList, int measureNum) {
         return MeasureList.get(measureNum);
     }
-    
+
 }

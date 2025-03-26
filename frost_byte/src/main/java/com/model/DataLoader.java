@@ -163,7 +163,9 @@ public class DataLoader extends DataConstants {
             }
         }
 
-        return new Song(title, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig,
+        UUID songUUID = UUID.randomUUID();
+
+        return new Song(songUUID, title, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig,
                 measuresArrayList);
 
     }
