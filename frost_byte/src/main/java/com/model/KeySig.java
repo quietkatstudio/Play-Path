@@ -2,7 +2,7 @@ package com.model;
 
 import org.json.simple.JSONObject;
 
-/*
+/**
  * FrostByte
  * This class is used to store the key signature of a piece of music. It contains
  * the key signature and the default pitches for each note in the key signature.
@@ -17,7 +17,7 @@ public class KeySig {
     private String defPitchF;
     private String defPitchG;
 
-    /*
+    /**
      * Constructor for KeySig class.
      * @param keySig the key signature of the piece of music.
      * @param defPitchA the default pitch for note A.
@@ -40,7 +40,7 @@ public class KeySig {
         this.defPitchG = defPitchG;
     }
 
-    /*
+    /**
      * Constructor for KeySig class that takes a Key as a parameter.
      * @param keySig the key signature of the piece of music.
      */
@@ -49,7 +49,7 @@ public class KeySig {
         return this.keySig;
     }
 
-    /*
+    /**
      * sets the default pitch for note A.
      * @param defPitchA the default pitch for note A.
      */
@@ -58,7 +58,7 @@ public class KeySig {
         return this.defPitchA;
     }
 
-    /*
+    /**
      * sets the default pitch for note B.
      * @param defPitchB the default pitch for note B.
      */
@@ -67,7 +67,7 @@ public class KeySig {
         return this.defPitchB;
     }
 
-    /*
+    /**
      * sets the default pitch for note C.
      * @param defPitchC the default pitch for note C.
      */
@@ -76,7 +76,7 @@ public class KeySig {
         return this.defPitchC;
     }
 
-    /*
+    /**
      * sets the default pitch for note D.
      * @param defPitchD the default pitch for note D.
      */
@@ -85,7 +85,7 @@ public class KeySig {
         return this.defPitchD;
     }
 
-    /*
+    /**
      * sets the default pitch for note E.
      * @param defPitchE the default pitch for note E.
      */
@@ -94,7 +94,7 @@ public class KeySig {
         return this.defPitchE;
     }
 
-    /*
+    /**
      * sets the default pitch for note F.
      * @param defPitchF the default pitch for note F.
      */
@@ -103,7 +103,7 @@ public class KeySig {
         return this.defPitchF;
     }
 
-    /*
+    /**
      * sets the default pitch for note G.
      * @param defPitchG the default pitch for note G.
      */
@@ -112,7 +112,7 @@ public class KeySig {
         return this.defPitchG;
     }
 
-    /*
+    /**
      * returns the key signature.
      * @return the key signature.
      */
@@ -120,7 +120,7 @@ public class KeySig {
         return this.keySig;
     }
 
-    /*
+    /**
      * returns the default pitch for note A.
      * @return the default pitch for note A.
      */
@@ -128,7 +128,7 @@ public class KeySig {
         return this.defPitchA;
     }
 
-    /*
+    /**
      * returns the default pitch for note B.
      * @return the default pitch for note B.
      */
@@ -136,7 +136,7 @@ public class KeySig {
         return this.defPitchB;
     }
 
-    /*
+    /**
      * returns the default pitch for note C.
      * @return the default pitch for note C.
      */
@@ -144,7 +144,7 @@ public class KeySig {
         return this.defPitchC;
     }
 
-    /*
+    /**
      * returns the default pitch for note D.
      * @return the default pitch for note D.
      */
@@ -152,7 +152,7 @@ public class KeySig {
         return this.defPitchD;
     }
 
-    /*
+    /**
      * returns the default pitch for note E.
      * @return the default pitch for note E.
      */
@@ -160,7 +160,7 @@ public class KeySig {
         return this.defPitchE;
     }
 
-    /*
+    /**
      * returns the default pitch for note F.
      * @return the default pitch for note F.
      */
@@ -168,7 +168,7 @@ public class KeySig {
         return this.defPitchF;
     }
 
-    /*
+    /**
      * returns the default pitch for note G.
      * @return the default pitch for note G.
      */
@@ -176,7 +176,7 @@ public class KeySig {
         return this.defPitchG;
     }
 
-    /*
+    /**
      * Constructor for KeySig class that takes a JSONObject as a parameter.
      * @param jsonKeySig the JSONObject that contains the key signature of the piece of music.
      */
