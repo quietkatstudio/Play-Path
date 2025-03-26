@@ -297,11 +297,25 @@
             "beatAmount": "4",
             "clef": "bass",
             "notes": [
-              { "pitch": "C", "accidental": "n", "octave": "3", "length": "q" },
-              { "pitch": "E", "accidental": "b", "octave": "3", "length": "q" },
-              { "pitch": "F", "accidental": "n", "octave": "3", "length": "is" },
-              { "pitch": "E", "accidental": "b", "octave": "3", "length": "is" },
-              { "pitch": "F", "accidental": "n", "octave": "3", "length": "i" }
+              { "pitch": "C",
+               "accidental": "n",
+                "octave": "3",
+                 "length": "q" },
+              { "pitch": "E",
+               "accidental": "b",
+                "octave": "3",
+                 "length": "q" },
+              { "pitch": "F",
+               "accidental": "n",
+                "octave": "3",
+                 "length": "is" },
+              { "pitch": "E",
+               "accidental": "b",
+                "octave": "3", "length": "is" },
+              { "pitch": "F",
+               "accidental": "n",
+                "octave": "3",
+                 "length": "i" }
             ]
           },
           {
@@ -339,7 +353,9 @@
               { "pitch": "B", "accidental": "b", "octave": "3", "length": "is" },
               { "pitch": "C", "accidental": "n", "octave": "4", "length": "w" }
             ]
-          }
+          }  
         ]
       }
+    
+    
 ]

@@ -3,6 +3,8 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.jfugue.player.Player;
+
 /**
  * 
  * @author
@@ -87,11 +89,20 @@ public class SongList {
             songTitles = songTitles + "\n" + (songs.get(i).getTitle());
         }
         return songTitles;
-    }
+    }  
+    public String getSongTitlesWithArtist(String artist){
+        String songTitles = "";
+        for (int i=0; i< songs.size(); i++){
+            if (songs.get(i).getArtist().equals(artist)) {
+                songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
+            } 
+        }
+        return songTitles;
+    }  
 
     public Song getSongByAuthor(String author) {
         for (Song song : songs) {
-            if (song.getAuthor().equalsIgnoreCase(author)) {
+            if (song.getAuthor().equals(author)) {
                 return song;
             }
         }
@@ -99,11 +110,9 @@ public class SongList {
 
     }
 
-    /**
-     * 
-     */
+   
 
-    public void saveSong() {
+    public void saveSongs() {
         DataWriter.saveSongs();
     }
 
@@ -111,4 +120,17 @@ public class SongList {
         return songs;
     }
 
+    public void playSong(String title){
+        try {
+            Player player = new Player();
+            songs = getSongs();
+            for (int i=0; i< songs.size(); i++){
+                if (songs.get(i).getTitle().contains(title)) {
+                    playSong(songs.get(i));
+                } 
+            }
+        } catch (Exception e) {
+        }
+    }
+    
 }
