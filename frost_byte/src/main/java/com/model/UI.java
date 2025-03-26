@@ -104,48 +104,39 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
           */
  
      }
-    public void scenario3(){
-        //log into account with Alice dawson
-        //create new song
-        //add 2 measures
-            //add notes to them
-        //play the song
-        //log out
-        //sign in as NeoWave
-        //search for song using 
-        //play the song
-
-
+    public void scenario3(){ 
         //login
         String testUsername = "NeonWave";
         String testPassword = "AncientTome";
       //  System.out.println("Login:");
        // System.out.println("Username: "+testUsername);
       //  System.out.println("PasswordS: "+testPassword);
-        Boolean isLogin = application.login(testUsername,testPassword);
-        if(isLogin){
-            application.getUser(testUsername);
-            System.out.println("Login successful");
-            System.out.println("Welcome " + application.getFirstName(testUsername));
-            System.out.println("");
-            System.out.println("Select an activity: Play song, edit song, Take lesson, log out, search for song");
-            System.out.println("Search for song");
-            System.out.println("");
-            //load songs from songlist, user selects a song, plays song
-            System.out.println("Song list: ");
-            System.out.println("Retrieval : "+application.getSongByTitle("Hot Cross Buns").getTitle());
-            
-            //System.out.println(application.displaySongs());
-            
-            System.out.println("");
-            System.out.println("Song selected: Hot Cross Buns");
-            System.out.println();
-            //someone play a the song please
+        // Boolean isLogin = application.login(testUsername,testPassword);
+        // if(isLogin){
+        //     application.getUser(testUsername);
+        //     System.out.println("Login successful");
+        //     System.out.println("Welcome " + application.getFirstName(testUsername));
+        //     System.out.println("");
+        //     System.out.println("Select an activity: Play song, edit song, Take lesson, log out, search for song");
 
-    }
-    else{
-        System.out.println("Login unsuccessful");
-    }
+            application.playSong("Hot Cross Buns");
+            // System.out.println("Search for song");
+            // System.out.println("");
+            // //load songs from songlist, user selects a song, plays song
+            // System.out.println("Song list: ");
+            // System.out.println("Retrieval : "+application.getSongByTitle("Hot Cross Buns").getTitle());
+            
+            // //System.out.println(application.displaySongs());
+            
+            // System.out.println("");
+            // System.out.println("Song selected: Hot Cross Buns");
+            // System.out.println();
+            // //someone play a the song please
+
+    // }
+    // else{
+    //     System.out.println("Login unsuccessful");
+    // }
        // System.out.println(application.getSong("Hot Cross Buns"));
        // application.playSong("Hot Cross Buns");
     }
@@ -156,7 +147,7 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
 
     public void run(){
       //  scenario2(); //login and play a song
-        scenario1();
+        scenario3();
         //scenario3();
 
     }

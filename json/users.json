@@ -5,5 +5,5 @@
 {"firstName":"John","lastName":"Nightingale","password":"TarotMoon","id":"a985039c-cd22-4304-a9e5-00eaab524dcc","isTeacher":true,"userName":"StarryQuill","email":"nightingale.j@example.com"},
 {"firstName":"Carly","lastName":"Spencer","password":"securepass123","id":"0031b1a1-c652-4132-a099-f87f0c2f7414","isTeacher":false,"userName":"spency","email":"carlys@example.com"},
 {"firstName":"Frost","lastName":"Byte","password":"MoonlitVerse","id":"be98a569-f59e-4dec-9caf-66437c8b9411","isTeacher":true,"userName":"fbyte","email":"fbyte@example.com"},
-{"firstName":"Shawn","lastName":"Black","password":"ridingwaves","id":"cd0da98c-5ed9-482b-93cf-449505475e50","isTeacher":false,"userName":"ShadowWave","email":"blackshadow@example.com"}
+{"firstName":"Shawn","lastName":"Black","password":"ridingwaves","id":"60d1f26d-f30f-4e6a-8fc9-6944c48fef57","isTeacher":false,"userName":"ShadowWave","email":"blackshadow@example.com"}
 ]
