@@ -20,9 +20,8 @@ import java.util.UUID;
  */
 public class Song {
     private UUID id;
-    private String title;
-    private UUID artist;
-    private String author;
+    private String artist;
+    private UUID author;
     private String genre;
     private String duration;
     private String tempo;
