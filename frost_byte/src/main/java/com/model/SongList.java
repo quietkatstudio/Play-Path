@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * 
@@ -57,8 +58,10 @@ public class SongList {
      * @param MeasureList
      * @return
      */
-    public Song addSong(String title, 
-                        String author, 
+    public Song addSong(UUID id,
+                        String title,
+                        String artist, 
+                        UUID author, 
                         String genre,
                         String duration,
                         String tempo, 
@@ -67,7 +70,7 @@ public class SongList {
                         KeySig defKeySig, 
                         ArrayList<Measure> MeasureList) {
 
-        return new Song(title, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig, MeasureList);
+        return new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig, MeasureList);
     }
 
     /**

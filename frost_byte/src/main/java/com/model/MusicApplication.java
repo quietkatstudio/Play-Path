@@ -1,6 +1,6 @@
 package com.model;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 /**
  * 
@@ -67,11 +67,10 @@ public class MusicApplication {
 
     }
 
-    
-
-    public String getFirstName(String username){
+    public String getFirstName(String username) {
         return UserList.getInstance().getUser(username).getFirstName();
     }
+
     /**
      * 
      * @param song
@@ -80,12 +79,5 @@ public class MusicApplication {
     public Song makeSong(Song song) {
         return song;
     }
-
-   
-
-   
-    
-    
-    
 
 }

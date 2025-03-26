@@ -18,24 +18,26 @@ import org.json.simple.JSONArray;
 // import javax.sound.midi.InvalidMidiDataException;
 /**
  * 
- * @author 
+ * @author
  */
 public class Song {
     private UUID id;
     private String title;
-    private String author;
+    private String artist;
+    private UUID author;
     private String genre;
     private String duration;
     private String tempo;
     private int defTimeSigNumer;
     private int defTimeSigDenom;
     private KeySig defKeySig;
-    private ArrayList<Measure> MeasureList;
-
+    private ArrayList<Measure> measureList;
 
     /**
-     * 
+     * Constructor for Song class.
+     * @param id the UUID of the song.
      * @param title
+     * @param artist
      * @param author
      * @param genre
      * @param duration
@@ -43,12 +45,13 @@ public class Song {
      * @param defTimeSigNumer
      * @param defTimeSigDenom
      * @param defKey
-     * @param MeasureList
+     * @param measureList
      */
-    public Song(UUID id,String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
-            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> MeasureList) {
+    public Song(UUID id, String title, String artist, UUID author, String genre, String duration, String tempo, int defTimeSigNumer,
+            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> measureList) {
         this.id = id;
         this.title = title;
+        this.artist = artist;
         this.author = author;
         this.genre = genre;
         this.duration = duration;
@@ -56,25 +59,17 @@ public class Song {
         this.defTimeSigNumer = defTimeSigNumer;
         this.defTimeSigDenom = defTimeSigDenom;
         this.defKeySig = defKey;
-        this.MeasureList = MeasureList;
+        this.measureList = measureList;
     }
 
-    // private void compileMeasures(ArrayList<Measure> MeasureList) {
-    // } Dont need
-
-    public Song(UUID id, String title2, String artist, String genre2, String duration2, String tempo2,
-            String defTimeSigNum, String defTimeSigDen, String defKey, JSONArray measures) {
-        //TODO Auto-generated constructor stub
-    }
-
-    /*
-    public Measure addMeasure() {
-        return new Measure(defTimeSigDenom, author, false, null);
-    } */
-
-    public Song(String title2, String author2, String genre2, String duration2, String tempo2, int defTimeSigNumer2,
-            int defTimeSigDenom2, KeySig defKeySig2, ArrayList<Measure> measureList2) {
-        //TODO Auto-generated constructor stub
+    /**
+     * addMeasure Method adds a new measure object to the Arraylist<Measure>
+     * measures.
+     * 
+     * @param measure
+     */
+    public void addMeasure(Measure measure) {
+        this.measureList.add(measure);
     }
 
     /**
@@ -82,15 +77,15 @@ public class Song {
      * @return
      */
     public Annotation addAnnotation() {
-        return new Annotation(null, author);
+        return new Annotation(null, artist);
     }
 
     /**
      * 
      */
     public void exportSong() {
-        //datawriter
-       // DataWriter.exportSong();
+        // datawriter
+        // DataWriter.exportSong();
     }
 
     /**
@@ -127,10 +122,20 @@ public class Song {
 
     /**
      * 
+     * @param artist
+     * @return
+     */
+    public String setArtist(String artist) {
+        this.artist = artist;
+        return this.artist;
+    }
+
+    /**
+     * 
      * @param author
      * @return
      */
-    public String setAuthor(String author) {
+    public UUID setAuthor(UUID author) {
         this.author = author;
         return this.author;
     }
@@ -154,7 +159,6 @@ public class Song {
         this.duration = duration;
         return this.duration;
     }
-
 
     /**
      * 
@@ -188,6 +192,7 @@ public class Song {
 
     /**
      * \
+     * 
      * @param defKeySig
      * @return
      */
@@ -201,9 +206,9 @@ public class Song {
      * @param MeasureList
      * @return
      */
-    public ArrayList<Measure> setMeasureList(ArrayList<Measure> MeasureList) {
-        this.MeasureList = MeasureList;
-        return this.MeasureList;
+    public ArrayList<Measure> setMeasureList(ArrayList<Measure> measureList) {
+        this.measureList = measureList;
+        return this.measureList;
     }
 
     /**
@@ -216,9 +221,17 @@ public class Song {
 
     /**
      * 
+     * @return 
+     */
+    public String getArtist() {
+        return this.artist;
+    }
+
+    /**
+     * 
      * @return
      */
-    public String getAuthor() {
+    public UUID getAuthor() {
         return this.author;
     }
 
@@ -274,15 +287,15 @@ public class Song {
      * 
      * @return
      */
-    public  ArrayList<Measure> getMeasureList() {
-        return this.MeasureList;
+    public ArrayList<Measure> getMeasureList() {
+        return this.measureList;
     }
 
-    public Measure getMeasure (ArrayList<Measure> MeasureList, int measureNum) {
-        return MeasureList.get(measureNum);
+    public Measure getMeasure(ArrayList<Measure> measureList, int measureNum) {
+        return measureList.get(measureNum);
     }
-    
-    public String toString(){
-        return "Title: "+ getTitle() +" Author: "+ getAuthor();
+
+    public String toString() {
+        return "Title: " + getTitle() + " Author: " + getAuthor();
     }
 }
