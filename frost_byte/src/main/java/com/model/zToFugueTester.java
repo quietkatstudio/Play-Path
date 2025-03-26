@@ -64,6 +64,7 @@ public class zToFugueTester {
                     JSONObject songJSON = (JSONObject) songJson.get(i);
                     UUID id = UUID.fromString((String) songJSON.get("id"));
                     String title = (String) songJSON.get("title");
+                    UUID author = UUID.fromString((String) songJSON.get("author"));
                     String artist = (String) songJSON.get("artist");
                     String genre = (String) songJSON.get("genre");
                     String duration = (String) songJSON.get("duration");
@@ -117,7 +118,7 @@ public class zToFugueTester {
                         measures.add(measure);
                     }
     
-                    songs.add(new Song(id, title, artist, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeySig, measures));
+                    songs.add(new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeySig, measures));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -5,7 +5,7 @@ import java.util.UUID;
 
 /**
  * 
- * @author
+ * @author Frost Byte
  */
 public class Lesson {
     private UUID id;

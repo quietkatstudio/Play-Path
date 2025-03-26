@@ -23,7 +23,8 @@ import org.json.simple.JSONArray;
 public class Song {
     private UUID id;
     private String title;
-    private String author;
+    private String artist;
+    private UUID author;
     private String genre;
     private String duration;
     private String tempo;
@@ -33,8 +34,10 @@ public class Song {
     private ArrayList<Measure> measureList;
 
     /**
-     * 
+     * Constructor for Song class.
+     * @param id the UUID of the song.
      * @param title
+     * @param artist
      * @param author
      * @param genre
      * @param duration
@@ -44,10 +47,11 @@ public class Song {
      * @param defKey
      * @param measureList
      */
-    public Song(UUID id, String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
+    public Song(UUID id, String title, String artist, UUID author, String genre, String duration, String tempo, int defTimeSigNumer,
             int defTimeSigDenom, KeySig defKey, ArrayList<Measure> measureList) {
         this.id = id;
         this.title = title;
+        this.artist = artist;
         this.author = author;
         this.genre = genre;
         this.duration = duration;
@@ -73,7 +77,7 @@ public class Song {
      * @return
      */
     public Annotation addAnnotation() {
-        return new Annotation(null, author);
+        return new Annotation(null, artist);
     }
 
     /**
@@ -118,10 +122,20 @@ public class Song {
 
     /**
      * 
+     * @param artist
+     * @return
+     */
+    public String setArtist(String artist) {
+        this.artist = artist;
+        return this.artist;
+    }
+
+    /**
+     * 
      * @param author
      * @return
      */
-    public String setAuthor(String author) {
+    public UUID setAuthor(UUID author) {
         this.author = author;
         return this.author;
     }
@@ -207,9 +221,17 @@ public class Song {
 
     /**
      * 
+     * @return 
+     */
+    public String getArtist() {
+        return this.artist;
+    }
+
+    /**
+     * 
      * @return
      */
-    public String getAuthor() {
+    public UUID getAuthor() {
         return this.author;
     }
 
