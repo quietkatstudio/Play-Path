@@ -335,6 +335,58 @@
       },
 
       {
+        "id": "abc12345-def6-7890-gh12-ijklmnopqrst",
+        "title": "Minecraft Theme",
+        "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
+        "artist": "C418",
+        "genre": "Ambient",
+        "duration": "1:00",
+        "tempo": "72",
+        "defTimeSigNumer": "4",
+        "defTimeSigDenom": "4",
+        "defKeySig": "E minor",
+        "measureList": [
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "B", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "E", "accidental": "n", "octave": "5", "length": "h" },
+              { "pitch": "G", "accidental": "n", "octave": "5", "length": "q" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "B", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "D", "accidental": "n", "octave": "5", "length": "h" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "B", "accidental": "n", "octave": "4", "length": "h" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "h" },
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" }
+            ]
+          }
+        ]
+      },
+      
+
+      {
         "id": "87654321-abcd-ef12-3456-7890abcdef12",
         "title": "Mary Had a Little Lamb",
         "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
