@@ -65,7 +65,7 @@ public class UserList {
     public void addUser(String userName, String firstName, String lastName, String email, String password, boolean isTeacher) {
         User newUser = new User(userName, firstName, lastName, email, password, isTeacher);
         users.add(newUser);
-        saveUsers();
+        //saveUsers();
 
     }
 

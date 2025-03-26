@@ -16,71 +16,6 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     }
 
     public void scenario1(){
-        //load song, edit song, play song
-        //application.getAllSongs();
-        /**
-          * show her in the user json 
-          * login the sister, fellicia
-          * create a new song called A horses journey
-          * add 2 measures
-          * each has a set of notes
-          * play the song
-          * log out
-          * login as fredrick
-          * search for her new song
-          * play it
-          * 
-          */
- 
-     }
-    public void scenario2(){
-        /**
-         * login alice,
-         * alice searches for all songs by Traditional
-         * alice sees Hot cross buns
-         * alice picks Hot cross buns and plays the song
-         * alice prints out the sheet music to text file 
-         */
-
-
-        //login
-        String testUsername = "dawning";
-        String testPassword = "securepass";
-        System.out.println("Login:");
-        System.out.println("Username: "+testUsername);
-        System.out.println("PasswordS: "+testPassword);
-        Boolean isLogin = application.login(testUsername,testPassword);
-        if(isLogin){
-            application.getUser(testUsername);
-            System.out.println("Login successful");
-            System.out.println("Welcome " + application.getFirstName(testUsername));
-            System.out.println("");
-            System.out.println("Select an activity: Play song, edit song, Take lesson, log out, search for song");
-            System.out.println("Search for song");
-            System.out.println("");
-            //load songs from songlist, user selects a song, plays song
-            System.out.println("Song list: ");
-            System.out.println(application.getSongsByArtist("Traditional"));
-            
-            //System.out.println(application.displaySongs());
-            
-            System.out.println("");
-            System.out.println("Song selected: Hot Cross Buns");
-            System.out.println();
-            //someone play a the song please
-
-    }
-    else{
-        System.out.println("Login unsuccessful");
-    }
-       // System.out.println(application.getSong("Hot Cross Buns"));
-       // application.playSong("Hot Cross Buns");
-    }
-
-
-    
-
-    public void scenario3(){
         boolean loggedin = false;
         System.out.println("Would you like to register or log in?");
         System.out.println(ANSI_GREEN);
@@ -128,35 +63,98 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
             System.out.println(ANSI_GREEN);
             System.out.println("logout");
             System.out.println(ANSI_BLACK);
-
-            loggedin = false;
+            if(application.logout()){
+                loggedin = false;
+                System.out.println("GoodBye!");
+            }
+            
+        }
+        //login
+        String testUsername = "ShadowWave";
+        String testPassword = "ridingwaves";
+        System.out.println("Login:");
+        System.out.println("Username: "+testUsername);
+        System.out.println("PasswordS: "+testPassword);
+        Boolean isLogin = application.login(testUsername,testPassword);
+        if(isLogin){
+            System.out.println("Login successful");
+            System.out.println("Welcome "+application.getFirstName(testUsername));
         }
 
 
-        /**
-         * 
-         * fred tries to make a new account using fredrickson
-         * the system rejects him
-         * Video: show json file
-         * fred changes the username to ffred
-         * the system accepts him
-         * fred logs out
-         * fred logins in 
-         * the system accepts him
-         * Video: show json file
-         * 
-         *         */
-        //register a new user
-        //String userName, String firstName,String lastName, String email, String password, Boolean isTeacher
-        System.out.println("Register user");
-        application.register("username", "firstname", "lastname", "email", "password", true);
-        application.login("username", "password");
-        //login new user
+
+        
     }
+
+    public void scenario2(){
+        //load song, edit song, play song
+        //application.getAllSongs();
+        /**
+          * show her in the user json 
+          * login the sister, fellicia
+          * create a new song called A horses journey
+          * add 2 measures
+          * each has a set of notes
+          * play the song
+          * log out
+          * login as fredrick
+          * search for her new song
+          * play it
+          * 
+          */
+ 
+     }
+    public void scenario3(){
+        /**
+         * login alice,
+         * alice searches for all songs by Traditional
+         * alice sees Hot cross buns
+         * alice picks Hot cross buns and plays the song
+         * alice prints out the sheet music to text file 
+         */
+
+
+        //login
+        String testUsername = "dawning";
+        String testPassword = "securepass";
+        System.out.println("Login:");
+        System.out.println("Username: "+testUsername);
+        System.out.println("PasswordS: "+testPassword);
+        Boolean isLogin = application.login(testUsername,testPassword);
+        if(isLogin){
+            application.getUser(testUsername);
+            System.out.println("Login successful");
+            System.out.println("Welcome " + application.getFirstName(testUsername));
+            System.out.println("");
+            System.out.println("Select an activity: Play song, edit song, Take lesson, log out, search for song");
+            System.out.println("Search for song");
+            System.out.println("");
+            //load songs from songlist, user selects a song, plays song
+            System.out.println("Song list: ");
+            System.out.println(application.getSongsByArtist("Traditional"));
+            
+            //System.out.println(application.displaySongs());
+            
+            System.out.println("");
+            System.out.println("Song selected: Hot Cross Buns");
+            System.out.println();
+            //someone play a the song please
+
+    }
+    else{
+        System.out.println("Login unsuccessful");
+    }
+       // System.out.println(application.getSong("Hot Cross Buns"));
+       // application.playSong("Hot Cross Buns");
+    }
+
+
+       
+    
 
     public void run(){
       //  scenario2(); //login and play a song
-        scenario3();
+        scenario1();
 
     }
     

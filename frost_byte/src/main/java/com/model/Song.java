@@ -2,8 +2,6 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
-import org.json.simple.JSONArray;
 // import org.json.simple.JSONObject;
 // import org.json.simple.parser.JSONParser;
 
@@ -79,7 +77,7 @@ public class Song {
      * @return
      */
     public Annotation addAnnotation() {
-        return new Annotation(null, artist);
+        return new Annotation(null, author);
     }
 
     /**

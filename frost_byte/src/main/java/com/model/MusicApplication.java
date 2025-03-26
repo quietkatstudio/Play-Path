@@ -29,10 +29,13 @@ public class MusicApplication {
        
     }
 
-    // public boolean logout(String userName){
+     public boolean logout(){
+           UserList.getInstance().saveUsers();
+           return true;
     //     boolean loggin_in = UserList.getInstance().logout(userName);
     //     if
-    // }
+     }
+
     public User getUser(String userName){
         User loggedin_user = UserList.getInstance().getUser(userName);
         return loggedin_user;
@@ -49,9 +52,7 @@ public class MusicApplication {
         display = track.getSongTitlesWithArtist(artist);
         return display;
     }
-    // public String DisplaySong(){
-    //     return song.getTitle();
-    // }
+    
     public String displaySongs(){   
         songs = track.getInstance();
         String display;
@@ -59,9 +60,7 @@ public class MusicApplication {
         return display;
     }
 
-    // private String login(String userName){
-    // return " ";
-    // }
+    
 
     /**
      * 
@@ -84,7 +83,8 @@ public class MusicApplication {
 
     }
     public void register(String userName, String firstName, String lastName, String email, String password, Boolean isTeacher){
-        users.addUser(userName, firstName, lastName, email, password, isTeacher);
+        
+        UserList.getInstance().addUser(userName, firstName, lastName, email, password, isTeacher);
     }
     
 
