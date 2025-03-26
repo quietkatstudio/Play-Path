@@ -102,6 +102,7 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
           * play it
           * 
           */
+        application.displaySongs();
         songs.playSong("Hot Cross Buns");
  
      }
