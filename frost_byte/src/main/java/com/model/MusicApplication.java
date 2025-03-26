@@ -64,6 +64,8 @@ public class MusicApplication {
     }
 
     public void playSong(String title){
+       // song = track.getInstance();
+
         track.playSong(title);
     }
 
