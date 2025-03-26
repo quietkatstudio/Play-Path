@@ -118,7 +118,7 @@ public class zToFugueTester {
                         measures.add(measure);
                     }
     
-                    songs.add(new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeySig, measures));
+                    songs.add(new Song(id, title, author, artist, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeySig, measures));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

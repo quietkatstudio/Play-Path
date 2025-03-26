@@ -2,8 +2,8 @@
     {
         "id": "06291898-1e24-4642-a839-fff93478bfdc",
         "title": "Hot Cross Buns",
-        "author": "be98a569-f59e-4dec-9caf-66437c8b9411",
-        "artist": "Traditional",
+        "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
+        "artist": "Alice",
         "genre": "Nursery Rhyme",
         "duration": "0:10",
         "tempo": "100",
@@ -143,8 +143,8 @@
     {
         "id": "6b82a972-734c-49ad-a86f-9d21ca39f068",
         "title": "Hot Cross Buns WRONG",
-        "author": "be98a569-f59e-4dec-9caf-66437c8b9411",
-        "artist": "Ryan Evans",
+        "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
+        "artist": "Alice",
         "genre": "Nursery Rhyme",
         "duration": "0:10",
         "tempo": "100",
@@ -280,6 +280,165 @@
             }    
         ]
     },
+
+    {
+        "id": "12345678-90ab-cdef-1234-567890abcdef",
+        "title": "Twinkle Twinkle Little Star",
+        "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
+        "artist": "Traditional",
+        "genre": "Children's Song",
+        "duration": "0:30",
+        "tempo": "80",
+        "defTimeSigNumer": "4",
+        "defTimeSigDenom": "4",
+        "defKeySig": "C",
+        "measureList": [
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "C", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "C", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "q" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "h" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "F", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "F", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "q" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "D", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "D", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "C", "accidental": "n", "octave": "4", "length": "h" }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "abc12345-def6-7890-gh12-ijklmnopqrst",
+        "title": "Minecraft Theme",
+        "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
+        "artist": "C418",
+        "genre": "Ambient",
+        "duration": "1:00",
+        "tempo": "72",
+        "defTimeSigNumer": "4",
+        "defTimeSigDenom": "4",
+        "defKeySig": "E minor",
+        "measureList": [
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "B", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "E", "accidental": "n", "octave": "5", "length": "h" },
+              { "pitch": "G", "accidental": "n", "octave": "5", "length": "q" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "B", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "D", "accidental": "n", "octave": "5", "length": "h" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "B", "accidental": "n", "octave": "4", "length": "h" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "h" },
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "A", "accidental": "n", "octave": "4", "length": "q" }
+            ]
+          }
+        ]
+      },
+      
+
+      {
+        "id": "87654321-abcd-ef12-3456-7890abcdef12",
+        "title": "Mary Had a Little Lamb",
+        "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
+        "artist": "Traditional",
+        "genre": "Children's Song",
+        "duration": "0:30",
+        "tempo": "80",
+        "defTimeSigNumer": "4",
+        "defTimeSigDenom": "4",
+        "defKeySig": "C",
+        "measureList": [
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "D", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "C", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "D", "accidental": "n", "octave": "4", "length": "q" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "h" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "D", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "D", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "D", "accidental": "n", "octave": "4", "length": "h" }
+            ]
+          },
+          {
+            "beatAmount": "4",
+            "clef": "treble",
+            "notes": [
+              { "pitch": "E", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "q" },
+              { "pitch": "G", "accidental": "n", "octave": "4", "length": "h" }
+            ]
+          }
+        ]
+      },
+      
+      
 
     {
         "id": "84211187-74fe-4d27-90e4-f852e6595928",
