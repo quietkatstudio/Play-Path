@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI { /*
@@ -32,9 +33,26 @@ public class UI { /*
          * login as fredrick
          * search for her new song
          * play it
-         * 
          */
-        songs.playSong("Hot Cross Buns");
+        System.out.println("What would you like to do?");
+        System.out.println("Play song, edit song, take lesson, log out, search for song");
+        System.out.println(ANSI_GREEN);
+        System.out.println("Search for song");
+        System.out.println(ANSI_BLACK);  
+        System.out.println("Enter artist name:");
+        System.out.println(ANSI_GREEN);
+        System.out.println("Traditional");
+        System.out.println(ANSI_BLACK);
+        ArrayList<Song> songs = application.getSongsByArtist("Tradtional");
+        for(Song song : songs){
+            System.out.println(song.getTitle());
+        }
+        System.out.println("Select a song to play");
+        System.out.println(ANSI_GREEN);
+        System.out.println("Hot Cross Buns");
+        System.out.println(ANSI_BLACK);
+        Song chosenSong = application.getSongByTitle("Hot Cross Buns");
+        application.playSong(chosenSong);
 
     }
 
@@ -54,7 +72,7 @@ public class UI { /*
         // System.out.println("Select an activity: Play song, edit song, Take lesson,
         // log out, search for song");
 
-        application.playSong("Hot Cross Buns");
+        //application.playSong("Hot Cross Buns");
         // System.out.println("Search for song");
         // System.out.println("");
         // //load songs from songlist, user selects a song, plays song
@@ -141,9 +159,9 @@ public class UI { /*
     }
 
     public void run() {
-        // scenario2(); //login and play a song
+        scenario2(); //login and play a song
         // scenario3();
-        scenario1();
+        //scenario1();
 
     }
 

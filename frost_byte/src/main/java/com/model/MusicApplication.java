@@ -46,9 +46,9 @@ public class MusicApplication {
 
     }
 
-    public String getSongsByArtist(String artist) {
+    public ArrayList<Song> getSongsByArtist(String artist) {
         songs = track.getInstance();
-        String display;
+        ArrayList<Song> display;
         display = track.getSongTitlesWithArtist(songs, artist);
         return display;
     }
@@ -60,8 +60,8 @@ public class MusicApplication {
         return display;
     }
 
-    public void playSong(String title) {
-        track.playSong(title);
+    public void playSong(Song song) {
+        track.playSong(song);
     }
 
     public boolean availableUsername(String userName) {
