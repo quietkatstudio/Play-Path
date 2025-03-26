@@ -41,7 +41,7 @@ public class LessonList {
      * 
      */
     public void saveLessons(){
-      DataWriter.saveLessons();
+     // DataWriter.saveLessons();
     }
 
     public ArrayList<Lesson> getLessons() {
