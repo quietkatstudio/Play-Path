@@ -144,7 +144,7 @@ public class SongList {
             songs = getSongs();
             for (int i=0; i< songs.size(); i++){
                 if (songs.get(i).getTitle().contains(title)) {
-                    playSong(songs.get(i));
+                    playSong(songs.get(i).getTitle());
                 } 
             }
         } catch (Exception e) {

@@ -63,7 +63,9 @@ public class MusicApplication {
         return display;
     }
 
-    
+    public void playSong(String title){
+        track.playSong(title);
+    }
 
     /**
      * 
