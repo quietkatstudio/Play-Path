@@ -125,6 +125,7 @@ public class DataWriter extends DataConstants {
     
         JSONObject songJson = new JSONObject();
         songJson.put(SONG_TITLE, song.getTitle());
+        songJson.put(SONG_ARTIST, song.getArtist());
         songJson.put(SONG_AUTHOR, song.getAuthor());
         songJson.put(SONG_GENRE, song.getGenre());
         songJson.put(SONG_DURATION, song.getDuration());

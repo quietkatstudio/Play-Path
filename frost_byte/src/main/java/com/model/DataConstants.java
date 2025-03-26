@@ -34,8 +34,8 @@ public abstract class DataConstants {
     protected static final String SONG_FILE_NAME = "json\\songs.json";
     protected static final String SONG_ID = "id";
     protected static final String SONG_TITLE = "title";
-    // In your songs.json, the key is "artist" rather than "author"
-    protected static final String SONG_AUTHOR = "artist";
+    protected static final String SONG_ARTIST = "artist";
+    protected static final String SONG_AUTHOR = "author";
     protected static final String SONG_GENRE = "genre";
     protected static final String SONG_DURATION = "duration";
     protected static final String SONG_TEMPO = "tempo";
