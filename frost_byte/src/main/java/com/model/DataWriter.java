@@ -3,7 +3,6 @@ package com.model;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,10 +16,8 @@ public class DataWriter extends DataConstants {
 
     /**
      * Saves the list of users to the JSON file specified by {@code USER_FILE_NAME}.
-     *
-     * @return true if the users were saved successfully; false otherwise.
      */
-    public static boolean saveUsers() {
+    public static void saveUsers() {
         UserList userListInstance = UserList.getInstance();
         ArrayList<User> users = userListInstance.getUsers();
         JSONArray jsonUsers = new JSONArray();
@@ -33,25 +30,21 @@ public class DataWriter extends DataConstants {
             file.write(jsonUsers.toJSONString());
             file.write(System.lineSeparator());
             file.flush();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
     /**
      * Saves the list of songs to the JSON file specified by {@code SONG_FILE_NAME}.
-     *
-     * @return true if the songs were saved successfully; false otherwise.
      */
-    public static boolean saveSongs() {
+    public static void saveSongs() {
         // Get the songs (if there are any)
         ArrayList<Song> songs = DataLoader.getSongs();
 
         // If there are no songs, skip saving
         if (songs == null || songs.isEmpty()) {
-            return false; // No songs to save
+            // Nothing to save
         }
 
         JSONArray jsonSongs = new JSONArray();
@@ -66,21 +59,17 @@ public class DataWriter extends DataConstants {
             file.write(jsonSongs.toJSONString());
             file.write(System.lineSeparator());
             file.flush();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
     /**
-     * Saves the list of lessons to the JSON file specified by
-     * {@code LESSON_FILE_NAME}.
+     * Saves the list of lessons to the JSON file specified by {@code LESSON_FILE_NAME}.
      *
      * @param lessons the list of lessons to save
-     * @return true if the lessons were saved successfully; false otherwise.
      */
-    public static boolean saveLessons(ArrayList<Lesson> lessons) {
+    public static void saveLessons(ArrayList<Lesson> lessons) {
         JSONArray jsonLessons = new JSONArray();
         for (Lesson lesson : lessons) {
             jsonLessons.add(getLessonJSON(lesson));
@@ -90,10 +79,8 @@ public class DataWriter extends DataConstants {
             file.write(jsonLessons.toJSONString());
             file.write(System.lineSeparator());
             file.flush();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
@@ -205,4 +192,4 @@ public class DataWriter extends DataConstants {
 
         return lessonJson;
     }
-} 
+}
