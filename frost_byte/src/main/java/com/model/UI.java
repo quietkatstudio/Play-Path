@@ -105,21 +105,23 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
  
      }
     public void scenario3(){
-        /**
-         * login alice,
-         * alice searches for all songs by Traditional
-         * alice sees Hot cross buns
-         * alice picks Hot cross buns and plays the song
-         * alice prints out the sheet music to text file 
-         */
+        //log into account with Alice dawson
+        //create new song
+        //add 2 measures
+            //add notes to them
+        //play the song
+        //log out
+        //sign in as NeoWave
+        //search for song using 
+        //play the song
 
 
         //login
-        String testUsername = "dawning";
-        String testPassword = "securepass";
-        System.out.println("Login:");
-        System.out.println("Username: "+testUsername);
-        System.out.println("PasswordS: "+testPassword);
+        String testUsername = "NeonWave";
+        String testPassword = "AncientTome";
+      //  System.out.println("Login:");
+       // System.out.println("Username: "+testUsername);
+      //  System.out.println("PasswordS: "+testPassword);
         Boolean isLogin = application.login(testUsername,testPassword);
         if(isLogin){
             application.getUser(testUsername);
@@ -131,7 +133,7 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
             System.out.println("");
             //load songs from songlist, user selects a song, plays song
             System.out.println("Song list: ");
-            System.out.println(application.getSongsByArtist("Traditional"));
+            System.out.println("Retrieval : "+application.getSongByTitle("Hot Cross Buns").getTitle());
             
             //System.out.println(application.displaySongs());
             
@@ -154,7 +156,8 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
 
     public void run(){
       //  scenario2(); //login and play a song
-        scenario1();
+       // scenario1();
+        scenario3();
 
     }
     

@@ -41,15 +41,18 @@ public class MusicApplication {
         return loggedin_user;
 
     }
-    // public Song getSongByTitle(String title){
-    //     songs = track.getInstance();
-    //     SongList.
-    //     return song;
-    // }
+
+
+    public Song getSongByTitle(String title){
+        songs = track.getInstance();
+        return track.getSongByTitle(title);
+        
+    }
+
     public String getSongsByArtist(String artist){
         songs = track.getInstance();
         String display;
-        display = track.getSongTitlesWithArtist(artist);
+        display = track.getSongTitlesWithArtist(songs, artist);
         return display;
     }
     

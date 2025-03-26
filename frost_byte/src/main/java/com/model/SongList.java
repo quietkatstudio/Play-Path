@@ -90,7 +90,7 @@ public class SongList {
         }
         return songTitles;
     }  
-    public String getSongTitlesWithArtist(String artist){
+    public String getSongTitlesWithArtist(ArrayList<Song> songs, String artist){
         String songTitles = "";
         for (int i=0; i< songs.size(); i++){
             if (songs.get(i).getArtist().equals(artist)) {
@@ -99,16 +99,34 @@ public class SongList {
         }
         return songTitles;
     }  
-
-    public Song getSongByAuthor(String author) {
-        for (Song song : songs) {
-            if (song.getAuthor().equals(author)) {
-                return song;
-            }
+    public String getSongTitlesWithTitle(ArrayList<Song> songs, String title){
+        String songTitles = "";
+        for (int i=0; i< songs.size(); i++){
+            if (songs.get(i).getTitle().equals(title)) {
+                songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
+            } 
         }
-        return null;
+        return songTitles;
+    } 
+    public Song getSongWithTitle(ArrayList<Song> songs, String title){
+        Song songChosen = songs.get(1);
+        for (int i=0; i< songs.size(); i++){
+            if (songs.get(i).getTitle().equals(title)) {
+                songChosen = songs.get(i);
+            } 
+        }
+        return songChosen;
+    }  
 
-    }
+    // public Song getSongByAuthor(String author) {
+    //     for (Song song : songs) {
+    //         if (song.getAuthor().equals(author)) {
+    //             return song;
+    //         }
+    //     }
+    //     return null;
+
+    // }
 
    
 
