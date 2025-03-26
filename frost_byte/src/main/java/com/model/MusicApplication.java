@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author 
+ * @author
  */
 public class MusicApplication {
     private User user;
@@ -42,7 +42,7 @@ public class MusicApplication {
     }
 
     // private String login(String userName){
-    //     return " ";
+    // return " ";
     // }
 
     /**
@@ -50,9 +50,11 @@ public class MusicApplication {
      * @param user
      * @return
      */
-    public void register(String userName, String firstName,String lastName, String email, String password, Boolean isTeacher){
-        //add user to the list to be saved in json
+    public void register(String userName, String firstName, String lastName, String email, String password,
+            Boolean isTeacher) {
+        // add user to the list to be saved in json
         users.addUser(userName, firstName, lastName, email, password, isTeacher);
+
     }
 
     
@@ -65,7 +67,7 @@ public class MusicApplication {
      * @param song
      * @return
      */
-    public Song makeSong(Song song){
+    public Song makeSong(Song song) {
         return song;
     }
 

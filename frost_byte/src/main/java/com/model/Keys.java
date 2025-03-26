@@ -1,6 +1,14 @@
 package com.model;
 
-enum Keys {
+public enum Keys {
+    A,
+    B,
+    C,
+    D,
+    E,
+    F,
+    G,
+    Eb,
     CMajor,
     GMajor,
     DMajor,
@@ -31,5 +39,5 @@ enum Keys {
     BFlatMinor,
     EFlatMinor,
     AFlatMinor,
-    GFlatMinor
+    GFlatMinor;
 }

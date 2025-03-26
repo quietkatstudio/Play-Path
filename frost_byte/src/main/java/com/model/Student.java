@@ -1,9 +1,10 @@
 package com.model;
+
 import java.util.ArrayList;
 
 /**
  * 
- * @author 
+ * @author
  */
 public class Student {
     private ArrayList<MusicClass> classList;
@@ -13,7 +14,7 @@ public class Student {
      * 
      * @param song
      */
-    private void makeSong(Song song){
+    public void makeSong(Song song) {
 
     }
 
@@ -21,7 +22,7 @@ public class Student {
      * 
      * @param student
      */
-    private void joinClass(Student student){
+    public void joinClass(Student student) {
 
     }
 }

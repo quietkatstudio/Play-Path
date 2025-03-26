@@ -7,12 +7,12 @@ public class ChooseInstrument {
         this.currentInstrument = chosenInstrument;
     }
 
-    private Instruments setInstrument(Instruments chosenInstrument) {
+    public Instruments setInstrument(Instruments chosenInstrument) {
         this.currentInstrument = chosenInstrument;
         return this.currentInstrument;
     }
 
-    private Instruments getInstrument() {
+    public Instruments getInstrument() {
         return this.currentInstrument;
     }
 }
