@@ -2,6 +2,7 @@
     {
         "id": "06291898-1e24-4642-a839-fff93478bfdc",
         "title": "Hot Cross Buns",
+        "author": "be98a569-f59e-4dec-9caf-66437c8b9411",
         "artist": "Traditional",
         "genre": "Nursery Rhyme",
         "duration": "0:10",
@@ -142,6 +143,7 @@
     {
         "id": "6b82a972-734c-49ad-a86f-9d21ca39f068",
         "title": "Hot Cross Buns WRONG",
+        "author": "be98a569-f59e-4dec-9caf-66437c8b9411",
         "artist": "Ryan Evans",
         "genre": "Nursery Rhyme",
         "duration": "0:10",
@@ -282,6 +284,7 @@
     {
         "id": "84211187-74fe-4d27-90e4-f852e6595928",
         "title": "Cruel Angel's Thesis (Beginning)",
+        "author": "be98a569-f59e-4dec-9caf-66437c8b9411",
         "artist": "Yoko Takahashi",
         "genre": "Indie",
         "duration": "0:16",
