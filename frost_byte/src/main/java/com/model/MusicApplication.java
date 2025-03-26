@@ -13,14 +13,42 @@ public class MusicApplication {
     private ArrayList<Song> songs;
     private ChooseInstrument instrument;
     private UserList users;
+    
+    public MusicApplication() {
+        track = new SongList(songs);  
+    }
 
-    // teacher example
-    public boolean login(String userName, String password) {
-        User user = UserList.getInstance().login(userName, password);
-        if (user != null) {
-            return true;
+    //teacher example
+    public boolean login(String userName, String password){
+        boolean logged_in = UserList.getInstance().login(userName,password);
+        if (logged_in) {
+            user = UserList.getInstance().getUser(userName);
         }
-        return false;
+        return UserList.getInstance().login(userName,password);
+       
+    }
+    public User getUser(String userName){
+        User loggedin_user = UserList.getInstance().getUser(userName);
+        return loggedin_user;
+
+    }
+    // public Song getSongByTitle(String title){
+    //     songs = track.getInstance();
+    //     SongList.
+    //     return song;
+    // }
+    // public Song getSongByAuthor(String author){
+    //     song = SongList.getInstance().getSongByAuthor(author);
+    //     return song;
+    // }
+    // public String DisplaySong(){
+    //     return song.getTitle();
+    // }
+    public String displaySongs(){   
+        songs = track.getInstance();
+        String display;
+        display = track.getSongTitles(songs);
+        return display;
     }
 
     // private String login(String userName){
