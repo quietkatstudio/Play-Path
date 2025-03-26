@@ -5,12 +5,14 @@ import java.util.UUID;
 
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+import org.json.simple.JSONObject;
 
 /**
  * 
  * @author
  */
 public class SongList {
+    public static final String DataLoader = null;
     // private static SongList songList = new SongList();
     private static ArrayList<Song> songs; // = new ArrayList<>();
     private ArrayList<User> users;
@@ -135,8 +137,9 @@ public class SongList {
         DataWriter.saveSongs();
     }
 
-    public ArrayList<Song> getSongs() {
-        return songs;
+    public SongList getSongs(SongList songList) {
+        ArrayList<Song> songs = DataLoader.getSongs();
+
     }
 
     public void playSong(String title){
