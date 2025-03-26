@@ -4,14 +4,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
-import org.json.simple.parser.JSONParser;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
+import org.json.simple.parser.JSONParser;
 
 /**
  * Data Loader Class. This class extends the DataConstants and reads through
- * each JSON file to return ArrayLists of Users and Songs.
+ * each JSON file to return an ArrayList of Users.
  */
 public class DataLoader extends DataConstants {
 
@@ -21,7 +21,7 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray peopleJson = (JSONArray) parser.parse(reader);
+            JSONArray peopleJson = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < peopleJson.size(); i++) {
                 JSONObject personJSON = (JSONObject) peopleJson.get(i);
@@ -31,8 +31,7 @@ public class DataLoader extends DataConstants {
                 String lastName = (String) personJSON.get(USER_LAST_NAME);
                 String email = (String) personJSON.get(USER_EMAIL);
                 String password = (String) personJSON.get(USER_PASSWORD);
-                Boolean isTeacher = (Boolean) personJSON.get(USER_ACCOUNT_TYPE);
-                
+                boolean isTeacher = Boolean.parseBoolean(personJSON.get(USER_ACCOUNT_TYPE).toString());
 
                 users.add(new User(id, userName, firstName, lastName, email, password, isTeacher));
             }
@@ -44,8 +43,6 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-<<<<<<< HEAD
-=======
     public static ArrayList<Lesson> getLessons() {
         ArrayList<Lesson> lessons = new ArrayList<Lesson>();
 
@@ -64,74 +61,24 @@ public class DataLoader extends DataConstants {
         return lessons;
     }
 
->>>>>>> f5a86188716117e0a1ab9af96c065d9b51033b3d
     public static ArrayList<Song> getSongs() {
         ArrayList<Song> songs = new ArrayList<Song>();
 
         try {
-<<<<<<< HEAD
-            FileReader reader = new FileReader(SONG_FILE_NAME);
-=======
             FileReader reader = new FileReader("json\\songs.json");
->>>>>>> f5a86188716117e0a1ab9af96c065d9b51033b3d
             JSONParser parser = new JSONParser();
             JSONArray songsJson = (JSONArray) parser.parse(reader);
 
             for (int i = 0; i < songsJson.size(); i++) {
                 JSONObject songJSON = (JSONObject) songsJson.get(i);
-<<<<<<< HEAD
-
-                // Read basic song details from JSON.
-                String title = (String) songJSON.get(SONG_TITLE);
-                String author = (String) songJSON.get(SONG_AUTHOR);
-                String genre = (String) songJSON.get(SONG_GENRE);
-                String duration = (String) songJSON.get(SONG_DURATION);
-                String tempo = (String) songJSON.get(SONG_TEMPO);
-                int defTimeSigNumer = Integer.parseInt(songJSON.get(SONG_DEF_TIME_SIG_NUMER).toString());
-                int defTimeSigDenom = Integer.parseInt(songJSON.get(SONG_DEF_TIME_SIG_DENOM).toString());
-                
-                // Assuming defKeySig is stored as a String and KeySig has a constructor that accepts it.
-                String keySigStr = (String) songJSON.get(SONG_DEF_KEY_SIG);
-                KeySig defKeySig = new KeySig(keySigStr);
-
-                // Process measure list
-                ArrayList<Measure> measureList = new ArrayList<>();
-                JSONArray measuresJson = (JSONArray) songJSON.get(SONG_MEASURE_LIST);
-                if (measuresJson != null) {
-                    for (int j = 0; j < measuresJson.size(); j++) {
-                        JSONObject measureJSON = (JSONObject) measuresJson.get(j);
-                        
-                        int beatAmount = Integer.parseInt(measureJSON.get(MEASURE_BEAT_AMOUNT).toString());
-                        String clef = (String) measureJSON.get(MEASURE_CLEF);
-                        boolean isRepeat = Boolean.parseBoolean(measureJSON.get(MEASURE_IS_REPEAT).toString());
-                        
-                        // For simplicity, we'll assume notes are not being loaded. 
-                        // You can expand this to read a JSONArray of notes if needed.
-                        ArrayList<Note> notes = new ArrayList<>();
-                        
-                        measureList.add(new Measure(beatAmount, clef, isRepeat, notes));
-                    }
-                }
-
-                // Create a new Song object with the parsed details.
-                Song song = new Song(title, author, genre, duration, tempo, 
-                                     defTimeSigNumer, defTimeSigDenom, defKeySig, measureList);
-                songs.add(song);
-            }
-
-            return songs;
-=======
                 songs.add(parseSongJSON(songJSON));
             }
->>>>>>> f5a86188716117e0a1ab9af96c065d9b51033b3d
         } catch (Exception e) {
             e.printStackTrace();
         }
         return songs;
     }
 
-<<<<<<< HEAD
-=======
     private static Lesson parseLessonJSON(JSONObject jsonLesson) {
         UUID id = UUID.fromString((String) jsonLesson.get("id"));
         String title = (String) jsonLesson.get("title");
@@ -222,7 +169,6 @@ public class DataLoader extends DataConstants {
     }
 
     // DataLoader Tests
->>>>>>> f5a86188716117e0a1ab9af96c065d9b51033b3d
     public static void main(String[] args) {
         ArrayList<User> users = DataLoader.getUsers();
 
@@ -230,13 +176,8 @@ public class DataLoader extends DataConstants {
             System.out.println(user);
         }
 
-<<<<<<< HEAD
-        ArrayList<Song> songs = DataLoader.getSongs();
-
-=======
         System.out.println("Loading songs >>>");
         ArrayList<Song> songs = DataLoader.getSongs();
->>>>>>> f5a86188716117e0a1ab9af96c065d9b51033b3d
         for (Song song : songs) {
             System.out.println(song);
         }
