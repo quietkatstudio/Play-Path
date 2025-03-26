@@ -19,7 +19,7 @@ public class Song {
     private int defTimeSigNumer;
     private int defTimeSigDenom;
     private KeySig defKeySig;
-    private ArrayList<Measure> meassureList;
+    private ArrayList<Measure> measureList;
 
     /**
      * 
@@ -31,10 +31,10 @@ public class Song {
      * @param defTimeSigNumer
      * @param defTimeSigDenom
      * @param defKey
-     * @param MeasureList
+     * @param measureList
      */
     public Song(UUID id, String title, String author, String genre, String duration, String tempo, int defTimeSigNumer,
-            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> meassureList) {
+            int defTimeSigDenom, KeySig defKey, ArrayList<Measure> measureList) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -44,7 +44,7 @@ public class Song {
         this.defTimeSigNumer = defTimeSigNumer;
         this.defTimeSigDenom = defTimeSigDenom;
         this.defKeySig = defKey;
-        this.meassureList = meassureList;
+        this.measureList = measureList;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Song {
      * @param measure
      */
     public void addMeasure(Measure measure) {
-        this.meassureList.add(measure);
+        this.measureList.add(measure);
     }
 
     /**
@@ -181,9 +181,9 @@ public class Song {
      * @param MeasureList
      * @return
      */
-    public ArrayList<Measure> setMeasureList(ArrayList<Measure> MeasureList) {
-        this.MeasureList = MeasureList;
-        return this.MeasureList;
+    public ArrayList<Measure> setMeasureList(ArrayList<Measure> measureList) {
+        this.measureList = measureList;
+        return this.measureList;
     }
 
     /**
@@ -255,11 +255,11 @@ public class Song {
      * @return
      */
     public ArrayList<Measure> getMeasureList() {
-        return this.MeasureList;
+        return this.measureList;
     }
 
-    public Measure getMeasure(ArrayList<Measure> MeasureList, int measureNum) {
-        return MeasureList.get(measureNum);
+    public Measure getMeasure(ArrayList<Measure> measureList, int measureNum) {
+        return measureList.get(measureNum);
     }
 
     public String toString() {
