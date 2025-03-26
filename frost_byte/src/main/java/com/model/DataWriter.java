@@ -31,6 +31,7 @@ public class DataWriter extends DataConstants {
 
         try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
             file.write(jsonUsers.toJSONString());
+            file.write(System.lineSeparator());
             file.flush();
             return true;
         } catch (IOException e) {
@@ -63,6 +64,7 @@ public class DataWriter extends DataConstants {
 
         try (FileWriter file = new FileWriter(SONG_FILE_NAME)) {
             file.write(jsonSongs.toJSONString());
+            file.write(System.lineSeparator());
             file.flush();
             return true;
         } catch (IOException e) {
@@ -86,6 +88,7 @@ public class DataWriter extends DataConstants {
 
         try (FileWriter file = new FileWriter(LESSON_FILE_NAME)) {
             file.write(jsonLessons.toJSONString());
+            file.write(System.lineSeparator());
             file.flush();
             return true;
         } catch (IOException e) {
@@ -197,9 +200,9 @@ public class DataWriter extends DataConstants {
             lessonJson.put(LESSON_QUIZ, null);
         }
 
-        // For simplicity, we assume the lesson's song is represented as a string.
+        // Assuming the lesson's song is represented as a string.
         lessonJson.put(LESSON_SONG, lesson.getSong());
 
         return lessonJson;
     }
-}
+} 
