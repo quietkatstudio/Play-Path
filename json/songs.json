@@ -282,7 +282,7 @@
     },
 
     {
-        "id": "12345678-90ab-cdef-1234-567890abcdef",
+        "id": "d6cfba8a-f585-44cf-9a8b-adf557396639",
         "title": "Twinkle Twinkle Little Star",
         "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
         "artist": "Traditional",
@@ -335,7 +335,7 @@
       },
 
       {
-        "id": "abc12345-def6-7890-gh12-ijklmnopqrst",
+        "id": "f6116298-6978-441b-848e-7e5d09fbfcb1",
         "title": "Minecraft Theme",
         "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
         "artist": "C418",
@@ -344,7 +344,7 @@
         "tempo": "72",
         "defTimeSigNumer": "4",
         "defTimeSigDenom": "4",
-        "defKeySig": "E minor",
+        "defKeySig": "E",
         "measureList": [
           {
             "beatAmount": "4",
@@ -387,7 +387,7 @@
       
 
       {
-        "id": "87654321-abcd-ef12-3456-7890abcdef12",
+        "id": "3dd77e8b-b72f-405a-a476-58fefdf876f8",
         "title": "Mary Had a Little Lamb",
         "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
         "artist": "Traditional",

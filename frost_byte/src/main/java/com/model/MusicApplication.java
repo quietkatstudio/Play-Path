@@ -2,6 +2,9 @@ package com.model;
 
 import java.util.ArrayList;
 
+import org.jfugue.pattern.Pattern;
+import org.jfugue.player.Player;
+
 /**
  * 
  * @author
@@ -60,8 +63,21 @@ public class MusicApplication {
         return display;
     }
 
-    public void playSong(Song song) {
-        track.playSong(song);
+    public void playSong(Song chosenSong) {
+        try {
+            Player player = new Player();
+            Pattern songPattern = new Pattern();
+            songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
+            songPattern.setInstrument("Tuba");
+            for (Measure measures : chosenSong.getMeasureList()) {
+                for (Note note : measures.getNoteList()) {
+                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength());
+                }
+                measures.getNotePlacement(measures);
+            }
+            player.play(songPattern);
+        } catch (Exception e) {
+        }
     }
 
     public boolean availableUsername(String userName) {

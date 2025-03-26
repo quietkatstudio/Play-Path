@@ -3,6 +3,8 @@ package com.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.jfugue.player.Player;
+
 public class UI { /*
                    * ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT, ADD IT TO
                    * FACADE
@@ -52,6 +54,8 @@ public class UI { /*
         System.out.println("Hot Cross Buns");
         System.out.println(ANSI_BLACK);
         Song chosenSong = application.getSongByTitle("Hot Cross Buns");
+        
+        Player player = new Player();
         application.playSong(chosenSong);
 
     }

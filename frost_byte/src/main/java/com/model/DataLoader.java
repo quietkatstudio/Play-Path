@@ -138,8 +138,8 @@ public class DataLoader extends DataConstants {
         String defKeySigStr = (String) jsonSong.get("defKeySig");
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
         // Parse measures
-        JSONObject measureJson = (JSONObject) jsonSong.get("measures");
-        JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
+        JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
+        //JSONObject measureJson = (JSONObject) measuresArray.get("measureList");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
