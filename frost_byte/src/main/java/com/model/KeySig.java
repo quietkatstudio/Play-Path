@@ -3,9 +3,9 @@ package com.model;
 import org.json.simple.JSONObject;
 
 /**
- * FrostByte
  * This class is used to store the key signature of a piece of music. It contains
  * the key signature and the default pitches for each note in the key signature.
+ * @author FrostByte
  */
 public class KeySig {
     private Keys keySig;
