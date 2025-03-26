@@ -34,6 +34,16 @@ public class UserList {
         return userList;
     }
 
+    public boolean userExist(String username){
+        for(int i=0; i<users.size(); i++){
+            User user = users.get(i);
+            if(user.getUserName().equals(username)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean login(String username, String password){
         for(int i=0; i<users.size(); i++){
             User user = users.get(i);
@@ -55,7 +65,7 @@ public class UserList {
     public void addUser(String userName, String firstName, String lastName, String email, String password, boolean isTeacher) {
         User newUser = new User(userName, firstName, lastName, email, password, isTeacher);
         users.add(newUser);
-        saveUsers();
+        //saveUsers();
 
     }
 

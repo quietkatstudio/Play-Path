@@ -1,6 +1,6 @@
 package com.model;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 /**
  * 
@@ -18,50 +18,80 @@ public class MusicApplication {
         track = new SongList(songs);  
     }
 
+    
     //teacher example
     public boolean login(String userName, String password){
+        boolean logged_in = UserList.getInstance().login(userName,password);
+        if (logged_in) {
+            user = UserList.getInstance().getUser(userName);
+        }
         return UserList.getInstance().login(userName,password);
        
     }
 
+     public boolean logout(){
+           UserList.getInstance().saveUsers();
+           return true;
+    //     boolean loggin_in = UserList.getInstance().logout(userName);
+    //     if
+     }
+
+    public User getUser(String userName){
+        User loggedin_user = UserList.getInstance().getUser(userName);
+        return loggedin_user;
+
+    }
     // public Song getSongByTitle(String title){
-    //     songs = SongList.getInstance();
+    //     songs = track.getInstance();
     //     SongList.
     //     return song;
     // }
-    // public Song getSongByAuthor(String author){
-    //     song = SongList.getInstance().getSongByAuthor(author);
-    //     return song;
-    // }
-    // public String DisplaySong(){
-    //     return song.getTitle();
-    // }
+    public String getSongsByArtist(String artist){
+        songs = track.getInstance();
+        String display;
+        display = track.getSongTitlesWithArtist(artist);
+        return display;
+    }
+    
     public String displaySongs(){   
-        return track.getSongTitles();
-
+        songs = track.getInstance();
+        String display;
+        display = track.getSongTitles(songs);
+        return display;
     }
 
-    // private String login(String userName){
-    // return " ";
-    // }
+    
 
     /**
      * 
      * @param user
      * @return
      */
-    public void register(String userName, String firstName, String lastName, String email, String password,
-            Boolean isTeacher) {
-        // add user to the list to be saved in json
-        users.addUser(userName, firstName, lastName, email, password, isTeacher);
+
+    //  public boolean login(String userName, String password){
+    //     boolean logged_in = UserList.getInstance().login(userName,password);
+    //     if (logged_in) {
+    //         user = UserList.getInstance().getUser(userName);
+    //     }
+    //     return UserList.getInstance().login(userName,password);
+       
+    // }
+
+    public boolean safeToregister(String userName) {
+        boolean userExist = UserList.getInstance().userExist(userName); //if false that means they need to change the username
+        return userExist;
 
     }
-
+    public void register(String userName, String firstName, String lastName, String email, String password, Boolean isTeacher){
+        
+        UserList.getInstance().addUser(userName, firstName, lastName, email, password, isTeacher);
+    }
     
 
-    public String getFirstName(String username){
+    public String getFirstName(String username) {
         return UserList.getInstance().getUser(username).getFirstName();
     }
+
     /**
      * 
      * @param song
@@ -70,12 +100,5 @@ public class MusicApplication {
     public Song makeSong(Song song) {
         return song;
     }
-
-   
-
-   
-    
-    
-    
 
 }
