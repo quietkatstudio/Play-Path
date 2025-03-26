@@ -138,8 +138,7 @@ public class DataLoader extends DataConstants {
         String defKeySigStr = (String) jsonSong.get("defKeySig");
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
         // Parse measures
-        JSONObject measureJson = (JSONObject) jsonSong.get("measures");
-        JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
+        JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
@@ -161,7 +160,7 @@ public class DataLoader extends DataConstants {
                         JSONObject noteJSON = (JSONObject) noteObj;
                         Note note = new Note();
                         note.setPitch((Pitches) noteJSON.get("pitch"));
-                        note.setAccidental((Accidentals) noteJSON.get("accidental"));
+                        note.setAccidental(Accidentals.valueOf(((String) noteJSON.get("accidental")).toUpperCase()));
                         note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
                         note.setLength((String) noteJSON.get("length"));
                         notes.add(note);

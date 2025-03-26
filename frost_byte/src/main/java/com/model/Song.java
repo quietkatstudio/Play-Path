@@ -69,7 +69,7 @@ public class Song {
      * @param measure
      */
     public void addMeasure(Measure measure) {
-        this.measureList.add(measure);
+        measureList.add(measure);
     }
 
     /**
@@ -280,7 +280,7 @@ public class Song {
      * @return
      */
     public ArrayList<Measure> getMeasureList() {
-        return this.measureList;
+        return measureList;
     }
 
     public Measure getMeasure(ArrayList<Measure> measureList, int measureNum) {
