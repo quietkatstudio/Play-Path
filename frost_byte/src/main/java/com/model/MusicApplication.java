@@ -1,4 +1,6 @@
 package com.model;
+import java.util.ArrayList;
+
 
 /**
  * 
@@ -7,22 +9,36 @@ package com.model;
 public class MusicApplication {
     private User user;
     private Song song;
-    private SongList songs;
+    private SongList track;
+    private ArrayList<Song> songs;
     private ChooseInstrument instrument;
     private UserList users;
     
+    public MusicApplication() {
+        track = new SongList(songs);  
+    }
+
     //teacher example
     public boolean login(String userName, String password){
-        User user =  UserList.getInstance().login(userName,password);
-        if(user != null){
-            return true;
-        }
-        return false;
+        return UserList.getInstance().login(userName,password);
+       
+    }
 
-    // teacher example
-    public boolean login(String userName, String password) {
-        // return UserList.getInstance().login(userName,password);
-        return true;
+    // public Song getSongByTitle(String title){
+    //     songs = SongList.getInstance();
+    //     SongList.
+    //     return song;
+    // }
+    // public Song getSongByAuthor(String author){
+    //     song = SongList.getInstance().getSongByAuthor(author);
+    //     return song;
+    // }
+    // public String DisplaySong(){
+    //     return song.getTitle();
+    // }
+    public String displaySongs(){   
+        return track.getSongTitles();
+
     }
 
     // private String login(String userName){
@@ -41,8 +57,10 @@ public class MusicApplication {
 
     }
 
+    
+
     public String getFirstName(String username){
-        return user.getFirstName();
+        return UserList.getInstance().getUser(username).getFirstName();
     }
     /**
      * 
@@ -53,42 +71,10 @@ public class MusicApplication {
         return song;
     }
 
-    /**
-     * 
-     * @param songList
-     * @return
-     */
-    private SongList getAllSongs() {
-        return songs;
-    }
+   
 
-    /**
-     * 
-     * @param instrument
-     * @return
-     */
-    public ChooseInstrument chooseInstrument(ChooseInstrument instrument) {
-        return instrument;
-    }
-
-    /**
-     * 
-     * @param lesson
-     * @return
-     */
-    public Lesson assignLesson(Lesson lesson) {
-        return lesson;
-    }
-
-    /**
-     * 
-     * @param student
-     * @return
-     */
-    public Student assignToClass(Student student) {
-        return student;
-    }
-
+   
+    
     
     
 

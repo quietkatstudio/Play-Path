@@ -8,30 +8,42 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     private SongList songs;
     private Scanner scanner;
     private MusicApplication application;
+    public UI(){
+        this.application = new MusicApplication();
+    }
     public void scenario1(){
         /**
-         * login fred, but dont display it
-         * fred searches for all songs by Tom Petty
-         * he sees I won't back down, Mary Janes's Last Dance, Free Fallin
-         * fred picks free falling and plays the song
-         * free prints out the sheet music to text file 
+         * login alice,
+         * alice searches for all songs by Traditional
+         * alice sees Hot cross buns
+         * alice picks Hot cross buns and plays the song
+         * alice prints out the sheet music to text file 
          */
 
 
         //login
         System.out.println("Login:");
-        if(application.login("asmith","securepass" )){  //.login  returns a boolean if the load was successful
-             System.out.println("Login successful");
+        System.out.println("Username: asmith");
+        System.out.println("PasswordS: securepass");
+        Boolean isLogin = application.login("asmith","securepass" );
+        if(isLogin){
+            System.out.println("Login successful");
             System.out.println("Welcome " + application.getFirstName("asmith"));
-        }
-        //System.out.println("Select an activity: Play song, edit song, Take lesson, log out");
-        //System.out.println("Play song");
-        //load songs from songlist, user selects a song, plays song
-        //System.out.println("Song list: ");
-        //application.loadSong();
-        //System.out.println(getSongs());
-        //System.out.println("Song selected: ________");
-        //application.playSong(" ");
+            System.out.println("");
+            System.out.println("Select an activity: Play song, edit song, Take lesson, log out");
+            System.out.println("Play song");
+            System.out.println("");
+            //load songs from songlist, user selects a song, plays song
+            System.out.println("Song list: ");
+            System.out.println(application.displaySongs());
+            System.out.println("Song selected: Hot Cross Buns");
+
+    }
+    else{
+        System.out.println("Login unsuccessful");
+    }
+       // System.out.println(application.getSong("Hot Cross Buns"));
+       // application.playSong("Hot Cross Buns");
     }
 
 
@@ -76,34 +88,7 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     public void scenario3(){
        //load song, edit song, play song
        //application.getAllSongs();
-    }
-    public void scenario4(){
-        //register a new user
-        //String userName, String firstName,String lastName, String email, String password, Boolean isTeacher
-        System.out.println("Register user");
-        application.register("username", "firstname", "lastname", "email", "password", true);
-        application.login("username", "password");
-        //login new user
-    }
-
-    public void run(){
-        scenario1(); //login and play a song
-        /*
-         * key notes: add a search ability
-         *
-         */
-        /**
-         * login fred, but dont display it
-         * fred searches for all songs by Tom Petty
-         * he sees I won't back down, Mary Janes's Last Dance, Free Fallin
-         * fred picks free falling and plays the song
-         * free prints out the sheet music to text file 
-         */
-
-
-       // scenario2(); //login and take a lesson
-        //scenario3(); //make a new song
-        /**
+       /**
          * show her in the user json 
          * login the sister, fellicia
          * create a new song called A horses journey
@@ -117,9 +102,8 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
          * 
          */
 
-
-        //scenario4(); //register a new user, log in
-
+    }
+    public void scenario4(){
         /**
          * 
          * fred tries to make a new account using fredrickson
@@ -133,7 +117,22 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
          * Video: show json file
          * 
          *         */
+        //register a new user
+        //String userName, String firstName,String lastName, String email, String password, Boolean isTeacher
+        System.out.println("Register user");
+        application.register("username", "firstname", "lastname", "email", "password", true);
+        application.login("username", "password");
+        //login new user
     }
+
+    public void run(){
+        scenario1(); //login and play a song
+    
+
+
+        
+    }
+    
     private void displayMainMenu(){
         
     }
@@ -144,17 +143,3 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     }
 
 }
-
-//register a new user    happens in scernario 4
-    //json . login
-
-//play a song
-//lessons or question
-
-//create a new song
-    //show its in json
-    //play song
-
-//connection between songs and people
-
-//show all the songs that i've authored
