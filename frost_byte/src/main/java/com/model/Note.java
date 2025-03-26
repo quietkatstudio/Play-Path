@@ -10,6 +10,7 @@ public class Note {
     private Accidentals accidental;
     private int dot;
     private int octave;
+    private String noteSymbol;
 
     public Note() {
         this.pitch = null;
@@ -24,6 +25,7 @@ public class Note {
         this.pitch = pitch;
         this.length = length;
         this.accidental = accidental;
+        this.dot = dot;
         this.octave = octave;
     }
 
@@ -45,6 +47,52 @@ public class Note {
 
     public void setOctave(int octave) {
         this.octave = octave;
+    }
+
+    public void setSymbol(String symbol) {
+        this.noteSymbol = symbol;
+    }
+
+    /**
+     * This getter method returns a String that is the combination of the note's
+     * unicode character & the accidental character
+     * 
+     * @return String
+     */
+    public String getSymbol() {
+        // Unicode handling
+        String unicodeSymbol = "";
+        if (this.length.equals("w")) {
+            unicodeSymbol = "𝅝";
+        } else if (this.length.equals("h")) {
+            unicodeSymbol = "𝅗𝅥";
+        } else if (this.length.equals("q")) {
+            unicodeSymbol = "𝅘𝅥";
+        } else if (this.length.equals("e")) {
+            unicodeSymbol = "𝅘𝅥𝅮";
+        } else if (this.length.equals("s")) {
+            unicodeSymbol = "𝅘𝅥𝅯";
+        } else if (this.length.equals("t")) {
+            unicodeSymbol = "𝅘𝅥𝅰";
+        } else if (this.length.equals("x")) {
+            unicodeSymbol = "𝅘𝅥𝅱";
+        } else if (this.length.equals("o")) {
+            unicodeSymbol = "𝅘𝅥𝅲";
+        } else {
+            unicodeSymbol = "𝅘𝅥";
+        }
+
+        // Accidental handling
+        String accidentalSymbol = "";
+        if (this.accidental == Accidentals.SHARP) {
+            accidentalSymbol = "#";
+        } else if (this.accidental == Accidentals.FLAT) {
+            accidentalSymbol = "♭";
+        } else if (this.accidental == Accidentals.NATURAL) {
+            accidentalSymbol = " ";
+        }
+
+        return unicodeSymbol + accidentalSymbol;
     }
 
     public Pitches getPitch() {
