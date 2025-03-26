@@ -156,8 +156,8 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
 
     public void run(){
       //  scenario2(); //login and play a song
-       // scenario1();
-        scenario3();
+        scenario1();
+        //scenario3();
 
     }
     

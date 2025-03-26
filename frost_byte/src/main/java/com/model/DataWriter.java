@@ -1,13 +1,11 @@
 package com.model;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.UUID;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  * The DataWriter class is responsible for converting Users, Songs, and Lessons
@@ -24,14 +22,30 @@ public class DataWriter extends DataConstants {
         UserList userListInstance = UserList.getInstance();
         ArrayList<User> users = userListInstance.getUsers();
         JSONArray jsonUsers = new JSONArray();
+        
 
         for (User user : users) {
             jsonUsers.add(getUserJSON(user));
         }
-
+        int size = jsonUsers.size();
         try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
-            file.write(jsonUsers.toJSONString());
-            file.write(System.lineSeparator());
+
+            file.write("[");
+            for (int i = 0; i < size; i++) {
+                file.write(jsonUsers.get(i).toString());
+                // If it's not the last user, add a comma and new line
+                if (i < size - 1) {
+                    file.write("," + System.lineSeparator());
+                } else {
+                    // Add a new line after the last entry (no comma)
+                    file.write(System.lineSeparator());
+                }
+            }
+            
+            // for (Object jsonUser : jsonUsers) {
+            // file.write(jsonUser.toString()+ ","+System.lineSeparator());
+            // }
+            file.write("]");
             file.flush();
             return true;
         } catch (IOException e) {
