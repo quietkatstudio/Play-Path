@@ -181,6 +181,13 @@ public class DataLoader extends DataConstants {
         for (Song song : songs) {
             System.out.println(song);
         }
+
+        System.out.println("Loading lessons >>>");
+        ArrayList<Lesson> lessons = DataLoader.getLessons();
+        for (Lesson lesson : lessons) {
+            System.out.println(lesson);
+        }
+
     }
 
 }

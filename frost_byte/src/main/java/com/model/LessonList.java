@@ -20,6 +20,10 @@ public class LessonList {
         }
     }
 
+    public static LessonList getInstance() {
+        return lessonList;
+    }
+
     /**
      * 
      * @param title
@@ -39,4 +43,9 @@ public class LessonList {
     public void saveLessons(){
       DataWriter.saveLessons();
     }
+
+    public ArrayList<Lesson> getLessons() {
+        return lessons;
+    }
+
 }
