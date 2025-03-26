@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author
@@ -7,7 +9,8 @@ package com.model;
 public class MusicApplication {
     private User user;
     private Song song;
-    private SongList songs;
+    private SongList track;
+    private ArrayList<Song> songs;
     private ChooseInstrument instrument;
     private UserList users;
 
@@ -37,7 +40,7 @@ public class MusicApplication {
     }
 
     public String getFirstName(String username) {
-        return user.getFirstName();
+        return UserList.getInstance().getUser(username).getFirstName();
     }
 
     /**
@@ -47,42 +50,6 @@ public class MusicApplication {
      */
     public Song makeSong(Song song) {
         return song;
-    }
-
-    /**
-     * 
-     * @param songList
-     * @return
-     */
-    private SongList getAllSongs() {
-        return songs;
-    }
-
-    /**
-     * 
-     * @param instrument
-     * @return
-     */
-    public ChooseInstrument chooseInstrument(ChooseInstrument instrument) {
-        return instrument;
-    }
-
-    /**
-     * 
-     * @param lesson
-     * @return
-     */
-    public Lesson assignLesson(Lesson lesson) {
-        return lesson;
-    }
-
-    /**
-     * 
-     * @param student
-     * @return
-     */
-    public Student assignToClass(Student student) {
-        return student;
     }
 
 }
