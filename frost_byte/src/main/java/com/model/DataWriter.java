@@ -47,20 +47,20 @@ public class DataWriter extends DataConstants {
     public static boolean saveSongs() {
         // Get the songs (if there are any)
         ArrayList<Song> songs = DataLoader.getSongs();
-    
+
         // If there are no songs, skip saving
         if (songs == null || songs.isEmpty()) {
             return false; // No songs to save
         }
-    
+
         JSONArray jsonSongs = new JSONArray();
-        
+
         for (Song song : songs) {
             if (song != null) { // Ensure the song is not null before processing
                 jsonSongs.add(getSongJSON(song));
             }
         }
-    
+
         try (FileWriter file = new FileWriter(SONG_FILE_NAME)) {
             file.write(jsonSongs.toJSONString());
             file.flush();
@@ -70,9 +70,10 @@ public class DataWriter extends DataConstants {
             return false;
         }
     }
-    
+
     /**
-     * Saves the list of lessons to the JSON file specified by {@code LESSON_FILE_NAME}.
+     * Saves the list of lessons to the JSON file specified by
+     * {@code LESSON_FILE_NAME}.
      *
      * @param lessons the list of lessons to save
      * @return true if the lessons were saved successfully; false otherwise.
@@ -122,23 +123,24 @@ public class DataWriter extends DataConstants {
         if (song == null) {
             return new JSONObject();
         }
-    
+
         JSONObject songJson = new JSONObject();
         songJson.put(SONG_TITLE, song.getTitle());
+        songJson.put(SONG_ARTIST, song.getArtist());
         songJson.put(SONG_AUTHOR, song.getAuthor());
         songJson.put(SONG_GENRE, song.getGenre());
         songJson.put(SONG_DURATION, song.getDuration());
         songJson.put(SONG_TEMPO, song.getTempo());
         songJson.put(SONG_DEF_TIME_SIG_NUMER, song.getDefTimeSigNumer());
         songJson.put(SONG_DEF_TIME_SIG_DENOM, song.getDefTimeSigDenom());
-        
+
         // Check if key signature is null before calling toString()
         if (song.getDefKeySig() != null) {
             songJson.put(SONG_DEF_KEY_SIG, song.getDefKeySig().toString());
         } else {
-            songJson.put(SONG_DEF_KEY_SIG, "Unknown");  // Default value if null
+            songJson.put(SONG_DEF_KEY_SIG, "Unknown"); // Default value if null
         }
-    
+
         // Check if measureList is null and initialize if necessary
         JSONArray measuresArray = new JSONArray();
         if (song.getMeasureList() != null) {
@@ -149,10 +151,10 @@ public class DataWriter extends DataConstants {
             }
         }
         songJson.put(SONG_MEASURE_LIST, measuresArray);
-    
+
         return songJson;
     }
-            
+
     /**
      * Converts a Lesson object to its JSON representation.
      *
@@ -165,7 +167,7 @@ public class DataWriter extends DataConstants {
         lessonJson.put(LESSON_TITLE, lesson.getTitle());
         lessonJson.put(LESSON_DESCRIPTION, lesson.getDescription());
         lessonJson.put(LESSON_CONTENT, lesson.getContent());
-    
+
         // Check if flashcards is null and initialize if necessary
         JSONArray flashcardsArray = new JSONArray();
         if (lesson.getFlashcards() != null) {
@@ -177,13 +179,13 @@ public class DataWriter extends DataConstants {
             }
         }
         lessonJson.put(LESSON_FLASHCARDS, flashcardsArray);
-    
+
         // Convert quiz
         Quiz quiz = lesson.getQuiz();
         if (quiz != null) {
             JSONObject quizJson = new JSONObject();
             quizJson.put(QUIZ_QUESTION, quiz.getQuestion());
-    
+
             JSONArray optionsArray = new JSONArray();
             for (String option : quiz.getOptions()) {
                 optionsArray.add(option);
@@ -194,10 +196,10 @@ public class DataWriter extends DataConstants {
         } else {
             lessonJson.put(LESSON_QUIZ, null);
         }
-    
+
         // For simplicity, we assume the lesson's song is represented as a string.
         lessonJson.put(LESSON_SONG, lesson.getSong());
-    
+
         return lessonJson;
     }
 }
