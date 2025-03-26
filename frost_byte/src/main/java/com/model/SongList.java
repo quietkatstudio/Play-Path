@@ -12,7 +12,6 @@ import org.json.simple.JSONObject;
  * @author
  */
 public class SongList {
-    public static final String DataLoader = null;
     // private static SongList songList = new SongList();
     private static ArrayList<Song> songs; // = new ArrayList<>();
     private ArrayList<User> users;
@@ -138,14 +137,28 @@ public class SongList {
     }
 
     public SongList getSongs(SongList songList) {
-        ArrayList<Song> songs = DataLoader.getSongs();
-
-    }
-
-    public void playSong(String title){
+        //ArrayList<Song> songs = DataLoader.getSongs();
         try {
             Player player = new Player();
-            Song chosenSong = getSongWithTitle(songs, title);
+            ArrayList<Song> songs = DataLoader.getSongs();
+            for (Song song : songs) {
+                if (song.getTitle().contains("Cruel")) {
+                    playSong(song);
+                    //playMeasure(song, 2);
+                    //editMeasure(song, 1, 1, "C", "n", "4", "q");
+                }
+            }
+            return songList;
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+            return null;
+        }
+    }
+
+    public void playSong(Song chosenSong) {
+        try {
+            Player player = new Player();
+            chosenSong = getSongWithTitle(songs, title);
             Pattern songPattern = new Pattern();
             songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
             songPattern.setInstrument("Tuba");
