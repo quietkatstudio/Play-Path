@@ -113,8 +113,8 @@ public class DataLoader extends DataConstants {
     private static Song parseSongJSON(JSONObject jsonSong) {
         UUID id = UUID.fromString((String) jsonSong.get("id"));
         String title = (String) jsonSong.get("title");
-        String artist = (String) jsonSong.get("artist");
-        UUID author = UUID.fromString((String) jsonSong.get("author"));
+        UUID artist = UUID.fromString((String) jsonSong.get("artist"));
+        String author = (String) jsonSong.get("author");
         String genre = (String) jsonSong.get("genre");
         String duration = (String) jsonSong.get("duration");
         String tempo = (String) jsonSong.get("tempo");
@@ -165,8 +165,8 @@ public class DataLoader extends DataConstants {
             }
         }
 
-        return new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig,
-                measuresArrayList);
+        return new Song(id, title, artist, author, genre, duration, tempo,
+                defTimeSigNumer, defTimeSigDenom, defKeySig, measuresArrayList);
 
     }
 

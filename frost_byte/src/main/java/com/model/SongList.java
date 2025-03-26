@@ -5,14 +5,13 @@ import java.util.UUID;
 
 /**
  * 
- * @author 
+ * @author
  */
 public class SongList {
-   // private static SongList songList = new SongList();
+    // private static SongList songList = new SongList();
     private static ArrayList<Song> songs; // = new ArrayList<>();
     private ArrayList<User> users;
-    //private ArrayList<Song> songs;
-    
+    // private ArrayList<Song> songs;
 
     /**
      * 
@@ -23,11 +22,8 @@ public class SongList {
             songs_ = new ArrayList<>();
         }
         songs_ = DataLoader.getSongs();
-        
-       
-    }
 
-    
+    }
 
     /**
      * 
@@ -40,10 +36,6 @@ public class SongList {
         }
         return songs;
     }
-
-    
-
-
 
     /**
      * 
@@ -59,18 +51,19 @@ public class SongList {
      * @return
      */
     public Song addSong(UUID id,
-                        String title,
-                        String artist, 
-                        UUID author, 
-                        String genre,
-                        String duration,
-                        String tempo, 
-                        int defTimeSigNumer, 
-                        int defTimeSigDenom,
-                        KeySig defKeySig, 
-                        ArrayList<Measure> MeasureList) {
+            String title,
+            String artist,
+            String author,
+            String genre,
+            String duration,
+            String tempo,
+            int defTimeSigNumer,
+            int defTimeSigDenom,
+            KeySig defKeySig,
+            ArrayList<Measure> MeasureList) {
 
-        return new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig, MeasureList);
+        return new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig,
+                MeasureList);
     }
 
     /**
@@ -81,22 +74,20 @@ public class SongList {
     public Song getSongByTitle(String title) {
         for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getTitle().equalsIgnoreCase(title)) {
-                return songs.get(i); //returns the specific song that matches the title
+                return songs.get(i); // returns the specific song that matches the title
             }
         }
-        return null; 
-     
-        
+        return null;
+
     }
 
-    public String getSongTitles(ArrayList<Song> songs){
+    public String getSongTitles(ArrayList<Song> songs) {
         String songTitles = "";
-        for (int i=0; i< songs.size(); i++){
-            songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
+        for (int i = 0; i < songs.size(); i++) {
+            songTitles = songTitles + "\n" + (songs.get(i).getTitle());
         }
         return songTitles;
-    }  
-
+    }
 
     public Song getSongByAuthor(String author) {
         for (Song song : songs) {
@@ -105,7 +96,7 @@ public class SongList {
             }
         }
         return null;
-        
+
     }
 
     /**
@@ -113,11 +104,11 @@ public class SongList {
      */
 
     public void saveSong() {
-        DataWriter.saveSong();
+        DataWriter.saveSongs();
     }
+
     public ArrayList<Song> getSongs() {
         return songs;
     }
 
-    
 }

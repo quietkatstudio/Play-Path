@@ -23,8 +23,8 @@ import org.json.simple.JSONArray;
 public class Song {
     private UUID id;
     private String title;
-    private String artist;
-    private UUID author;
+    private UUID artist;
+    private String author;
     private String genre;
     private String duration;
     private String tempo;
@@ -35,7 +35,8 @@ public class Song {
 
     /**
      * Constructor for Song class.
-     * @param id the UUID of the song.
+     * 
+     * @param id              the UUID of the song.
      * @param title
      * @param artist
      * @param author
@@ -47,7 +48,8 @@ public class Song {
      * @param defKey
      * @param measureList
      */
-    public Song(UUID id, String title, String artist, UUID author, String genre, String duration, String tempo, int defTimeSigNumer,
+    public Song(UUID id, String title, UUID artist, String author, String genre, String duration, String tempo,
+            int defTimeSigNumer,
             int defTimeSigDenom, KeySig defKey, ArrayList<Measure> measureList) {
         this.id = id;
         this.title = title;
@@ -115,9 +117,8 @@ public class Song {
      * @param title
      * @return
      */
-    public String setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
-        return this.title;
     }
 
     /**
@@ -125,9 +126,8 @@ public class Song {
      * @param artist
      * @return
      */
-    public String setArtist(String artist) {
+    public void setArtist(UUID artist) {
         this.artist = artist;
-        return this.artist;
     }
 
     /**
@@ -135,9 +135,8 @@ public class Song {
      * @param author
      * @return
      */
-    public UUID setAuthor(UUID author) {
+    public void setAuthor(String author) {
         this.author = author;
-        return this.author;
     }
 
     /**
@@ -145,9 +144,8 @@ public class Song {
      * @param genre
      * @return
      */
-    public String setGenre(String genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
-        return this.genre;
     }
 
     /**
@@ -155,9 +153,8 @@ public class Song {
      * @param duration
      * @return
      */
-    public String setDuration(String duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
-        return this.duration;
     }
 
     /**
@@ -165,9 +162,8 @@ public class Song {
      * @param tempo
      * @return
      */
-    public String setTempo(String tempo) {
+    public void setTempo(String tempo) {
         this.tempo = tempo;
-        return this.tempo;
     }
 
     /**
@@ -175,9 +171,8 @@ public class Song {
      * @param defTimeSigNumer
      * @return
      */
-    public int setDefTimeSigNumer(int defTimeSigNumer) {
+    public void setDefTimeSigNumer(int defTimeSigNumer) {
         this.defTimeSigNumer = defTimeSigNumer;
-        return this.defTimeSigNumer;
     }
 
     /**
@@ -196,9 +191,8 @@ public class Song {
      * @param defKeySig
      * @return
      */
-    public KeySig setDefKeySig(KeySig defKeySig) {
+    public void setDefKeySig(KeySig defKeySig) {
         this.defKeySig = defKeySig;
-        return this.defKeySig;
     }
 
     /**
@@ -206,9 +200,9 @@ public class Song {
      * @param MeasureList
      * @return
      */
-    public ArrayList<Measure> setMeasureList(ArrayList<Measure> measureList) {
+    public void setMeasureList(ArrayList<Measure> measureList) {
         this.measureList = measureList;
-        return this.measureList;
+
     }
 
     /**
@@ -221,9 +215,9 @@ public class Song {
 
     /**
      * 
-     * @return 
+     * @return
      */
-    public String getArtist() {
+    public UUID getArtist() {
         return this.artist;
     }
 
@@ -231,7 +225,7 @@ public class Song {
      * 
      * @return
      */
-    public UUID getAuthor() {
+    public String getAuthor() {
         return this.author;
     }
 
