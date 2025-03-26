@@ -89,6 +89,7 @@ public class UserList {
      * This method saves the user list to the data writer
      */
     public void saveUsers() {
+        getUsers();
         DataWriter.saveUsers();
     }
 
