@@ -150,6 +150,7 @@ public class SongList {
                 for (Note note : measures.getNoteList()) {
                     songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength());
                 }
+                measures.getNotePlacement(measures);
             }
             player.play(songPattern);
         } catch (Exception e) {
