@@ -20,12 +20,20 @@ public class MusicApplication {
 
     //teacher example
     public boolean login(String userName, String password){
+        boolean logged_in = UserList.getInstance().login(userName,password);
+        if (logged_in) {
+            user = UserList.getInstance().getUser(userName);
+        }
         return UserList.getInstance().login(userName,password);
        
     }
+    public User getUser(String userName){
+        User loggedin_user = UserList.getInstance().getUser(userName);
+        return loggedin_user;
 
+    }
     // public Song getSongByTitle(String title){
-    //     songs = SongList.getInstance();
+    //     songs = track.getInstance();
     //     SongList.
     //     return song;
     // }
@@ -37,8 +45,10 @@ public class MusicApplication {
     //     return song.getTitle();
     // }
     public String displaySongs(){   
-        return track.getSongTitles();
-
+        songs = track.getInstance();
+        String display;
+        display = track.getSongTitles(songs);
+        return display;
     }
 
     // private String login(String userName){

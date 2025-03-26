@@ -16,12 +16,12 @@ public class SongList {
     /**
      * 
      */
-    public SongList(ArrayList<Song> songs) {
-        songs = DataLoader.getSongs();
-        if (songs == null) {
-            songs = new ArrayList<>();
+    public SongList(ArrayList<Song> songs_) {
+        songs_ = DataLoader.getSongs();
+        if (songs_ == null) {
+            songs_ = new ArrayList<>();
         }
-      this.songs = DataLoader.getSongs();
+        songs_ = DataLoader.getSongs();
         
        
     }
@@ -35,6 +35,7 @@ public class SongList {
     public static ArrayList<Song> getInstance() {
         if (songs == null) {
             songs = new ArrayList<>();
+            songs = DataLoader.getSongs();
         }
         return songs;
     }
@@ -85,7 +86,7 @@ public class SongList {
         
     }
 
-    public String getSongTitles(){
+    public String getSongTitles(ArrayList<Song> songs){
         String songTitles = "";
         for (int i=0; i< songs.size(); i++){
             songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
