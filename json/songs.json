@@ -17,21 +17,21 @@
                 "notes": [
                     {
                         "pitch": "E",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "quarter"
+                        "length": "q"
                     },
                     {
                         "pitch": "D",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "quarter"
+                        "length": "q"
                     },
                     {
                         "pitch": "C",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "half"
+                        "length": "h"
                     }
                 ]    
             },
@@ -41,21 +41,21 @@
                 "notes": [
                     {
                         "pitch": "E",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "quarter"
+                        "length": "q"
                     },
                     {
                         "pitch": "D",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "quarter"
+                        "length": "q"
                     },
                     {
                         "pitch": "C",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "half"
+                        "length": "h"
                     }
                 ]
             },
@@ -65,51 +65,51 @@
                 "notes": [
                     {
                         "pitch": "C",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     },
                     {
                         "pitch": "C",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     },
                     {
                         "pitch": "C",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     },
                     {
                         "pitch": "C",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     },
                     {
                         "pitch": "D",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     },
                     {
                         "pitch": "D",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     },
                     {
                         "pitch": "D",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     },
                     {
                         "pitch": "D",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "eighth"
+                        "length": "i"
                     }
                 ]
             },
@@ -119,21 +119,21 @@
                 "notes": [
                     {
                         "pitch": "E",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "quarter"
+                        "length": "q"
                     },
                     {
                         "pitch": "D",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "quarter"
+                        "length": "q"
                     },
                     {
                         "pitch": "C",
-                        "accidental": "natural",
+                        "accidental": "n",
                         "octave": "2",
-                        "length": "half"
+                        "length": "h"
                     }
                 ]
             }    
