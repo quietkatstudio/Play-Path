@@ -17,6 +17,17 @@ public class KeySig {
     private String defPitchF;
     private String defPitchG;
 
+
+    public KeySig() {
+        this.keySig = Keys.C;
+        this.defPitchA = "A";
+        this.defPitchB = "B";
+        this.defPitchC = "C";
+        this.defPitchD = "D";
+        this.defPitchE = "E";
+        this.defPitchF = "F";
+        this.defPitchG = "G";
+    }
     /**
      * Constructor for KeySig class.
      * @param keySig the key signature of the piece of music.

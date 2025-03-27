@@ -31,6 +31,20 @@ public class Song {
     private KeySig defKeySig;
     private ArrayList<Measure> measureList;
 
+
+    public Song() {
+        this.id = UUID.randomUUID();
+        this.title = "";
+        this.artist = "";
+        this.author = UUID.randomUUID();
+        this.genre = "";
+        this.duration = "";
+        this.tempo = "";
+        this.defTimeSigNumer = 4;
+        this.defTimeSigDenom = 4;
+        this.defKeySig = new KeySig();
+        this.measureList = new ArrayList<Measure>();
+    }
     /**
      * Constructor for Song class.
      * 
@@ -289,5 +303,9 @@ public class Song {
 
     public String toString() {
         return "Title: " + getTitle() + " Author: " + getAuthor();
+    }
+
+    public void setId(UUID fromString) {
+        id = fromString;
     }
 }

@@ -7,132 +7,132 @@
     "genre": "Nursery Rhyme",
     "duration": "0:10",
     "tempo": "100",
-    "defTimeSigNumer": "4",
-    "defTimeSigDenom": "4",
+    "defTimeSigNumer": 4,
+    "defTimeSigDenom": 4,
     "defKeySig": "C",
     "measureList": [
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "bass",
         "notes": [
           {
             "pitch": "E",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "q"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "q"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "h"
           }
         ]
       },
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "bass",
         "notes": [
           {
             "pitch": "E",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "q"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "q"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "h"
           }
         ]
       },
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "bass",
         "notes": [
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "i"
           }
         ]
       },
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "bass",
         "notes": [
           {
             "pitch": "E",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "q"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "q"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "3",
+            "octave": 3,
             "length": "h"
           }
         ]
@@ -147,114 +147,114 @@
     "genre": "Children's Song",
     "duration": "0:30",
     "tempo": "80",
-    "defTimeSigNumer": "4",
-    "defTimeSigDenom": "4",
+    "defTimeSigNumer": 4,
+    "defTimeSigDenom": 4,
     "defKeySig": "C",
     "measureList": [
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "treble",
         "notes": [
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "G",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "G",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           }
         ]
       },
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "treble",
         "notes": [
           {
             "pitch": "A",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "A",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "G",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "h"
           }
         ]
       },
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "treble",
         "notes": [
           {
             "pitch": "F",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "F",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "E",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "E",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           }
         ]
       },
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "treble",
         "notes": [
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "D",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "C",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "h"
           }
         ]
@@ -269,30 +269,30 @@
     "genre": "Ambient",
     "duration": "1:00",
     "tempo": "72",
-    "defTimeSigNumer": "4",
-    "defTimeSigDenom": "4",
+    "defTimeSigNumer": 4,
+    "defTimeSigDenom": 4,
     "defKeySig": "E",
     "measureList": [
       {
-        "beatAmount": "4",
+        "beatAmount": 4,
         "clef": "treble",
         "notes": [
           {
             "pitch": "B",
             "accidental": "n",
-            "octave": "4",
+            "octave": 4,
             "length": "q"
           },
           {
             "pitch": "E",
             "accidental": "n",
-            "octave": "5",
+            "octave": 5,
             "length": "h"
           },
           {
             "pitch": "G",
             "accidental": "n",
-            "octave": "5",
+            "octave": 5,
             "length": "q"
           }
         ]
@@ -300,373 +300,301 @@
       {
         "pitch": "E",
         "accidental": "n",
-        "octave": "5",
+        "octave": 5,
         "length": "h"
       },
       {
         "pitch": "G",
         "accidental": "n",
-        "octave": "5",
+        "octave": 5,
         "length": "q"
       }
     ]
   },
   {
-    "beatAmount": "4",
-    "clef": "treble",
-    "notes": [
+    "id": "3dd77e8b-b72f-405a-a476-58fefdf876f8",
+    "title": "Mary Had a Little Lamb",
+    "author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
+    "artist": "Traditional",
+    "genre": "Children's Song",
+    "duration": "0:30",
+    "tempo": "80",
+    "defTimeSigNumer": 4,
+    "defTimeSigDenom": 4,
+    "defKeySig": "C",
+    "measureList": [
       {
-        "pitch": "A",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
+        "beatAmount": 4,
+        "clef": "treble",
+        "notes": [
+          {
+            "pitch": "E",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "C",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          }
+        ]
       },
       {
-        "pitch": "B",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
+        "beatAmount": 4,
+        "clef": "treble",
+        "notes": [
+          {
+            "pitch": "E",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "E",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "E",
+            "accidental": "n",
+            "octave": 4,
+            "length": "h"
+          }
+        ]
       },
       {
-        "pitch": "D",
-        "accidental": "n",
-        "octave": "5",
-        "length": "h"
+        "beatAmount": 4,
+        "clef": "treble",
+        "notes": [
+          {
+            "pitch": "D",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "n",
+            "octave": 4,
+            "length": "h"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "treble",
+        "notes": [
+          {
+            "pitch": "E",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "G",
+            "accidental": "n",
+            "octave": 4,
+            "length": "q"
+          },
+          {
+            "pitch": "G",
+            "accidental": "n",
+            "octave": 4,
+            "length": "h"
+          }
+        ]
       }
     ]
   },
   {
-    "beatAmount": "4",
-    "clef": "treble",
-    "notes": [
+    "id": "84211187-74fe-4d27-90e4-f852e6595928",
+    "title": "Cruel Angel's Thesis (Beginning)",
+    "author": "be98a569-f59e-4dec-9caf-66437c8b9411",
+    "artist": "Yoko Takahashi",
+    "genre": "Indie",
+    "duration": "0:16",
+    "tempo": "80",
+    "defTimeSigNumer": 4,
+    "defTimeSigDenom": 4,
+    "defKeySig": "Eb",
+    "measureList": [
       {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "C",
+            "accidental": "n",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "E",
+            "accidental": "b",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "F",
+            "accidental": "n",
+            "octave": 3,
+            "length": "is"
+          },
+          {
+            "pitch": "E",
+            "accidental": "b",
+            "octave": 3,
+            "length": "is"
+          },
+          {
+            "pitch": "F",
+            "accidental": "n",
+            "octave": 3,
+            "length": "i"
+          }
+        ]
       },
       {
-        "pitch": "A",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "F",
+            "accidental": "n",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "B",
+            "accidental": "b",
+            "octave": 3,
+            "length": "i"
+          },
+          {
+            "pitch": "A",
+            "accidental": "b",
+            "octave": 3,
+            "length": "i"
+          },
+          {
+            "pitch": "G",
+            "accidental": "n",
+            "octave": 3,
+            "length": "s"
+          },
+          {
+            "pitch": "F",
+            "accidental": "n",
+            "octave": 3,
+            "length": "i"
+          },
+          {
+            "pitch": "G",
+            "accidental": "n",
+            "octave": 3,
+            "length": "is"
+          },
+          {
+            "pitch": "R",
+            "accidental": "n",
+            "octave": 0,
+            "length": "i"
+          }
+        ]
       },
       {
-        "pitch": "B",
-        "accidental": "n",
-        "octave": "4",
-        "length": "h"
-      }
-    ]
-  },
-  {
-    "beatAmount": "4",
-    "clef": "treble",
-    "notes": [
-      {
-        "pitch": "E",
-        "accidental": "n",
-        "octave": "4",
-        "length": "h"
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "G",
+            "accidental": "n",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "B",
+            "accidental": "b",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "C",
+            "accidental": "n",
+            "octave": 4,
+            "length": "is"
+          },
+          {
+            "pitch": "F",
+            "accidental": "n",
+            "octave": 3,
+            "length": "is"
+          },
+          {
+            "pitch": "E",
+            "accidental": "b",
+            "octave": 3,
+            "length": "i"
+          }
+        ]
       },
       {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "A",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      }
-    ]
-  },
-{
-"id": "3dd77e8b-b72f-405a-a476-58fefdf876f8",
-"title": "Mary Had a Little Lamb",
-"author": "f5b9d11e-eb4b-434f-ae63-84094fc86bdd",
-"artist": "Traditional",
-"genre": "Children's Song",
-"duration": "0:30",
-"tempo": "80",
-"defTimeSigNumer": "4",
-"defTimeSigDenom": "4",
-"defKeySig": "C",
-"measureList": [
-  {
-    "beatAmount": "4",
-    "clef": "treble",
-    "notes": [
-      {
-        "pitch": "E",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "D",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "C",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "D",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      }
-    ]
-  },
-  {
-    "beatAmount": "4",
-    "clef": "treble",
-    "notes": [
-      {
-        "pitch": "E",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "E",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "E",
-        "accidental": "n",
-        "octave": "4",
-        "length": "h"
-      }
-    ]
-  },
-  {
-    "beatAmount": "4",
-    "clef": "treble",
-    "notes": [
-      {
-        "pitch": "D",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "D",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "D",
-        "accidental": "n",
-        "octave": "4",
-        "length": "h"
-      }
-    ]
-  },
-  {
-    "beatAmount": "4",
-    "clef": "treble",
-    "notes": [
-      {
-        "pitch": "E",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "4",
-        "length": "q"
-      },
-      {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "4",
-        "length": "h"
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "B",
+            "accidental": "b",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "G",
+            "accidental": "n",
+            "octave": 3,
+            "length": "i"
+          },
+          {
+            "pitch": "B",
+            "accidental": "b",
+            "octave": 3,
+            "length": "i"
+          },
+          {
+            "pitch": "B",
+            "accidental": "b",
+            "octave": 3,
+            "length": "is"
+          },
+          {
+            "pitch": "C",
+            "accidental": "n",
+            "octave": 4,
+            "length": "w"
+          }
+        ]
       }
     ]
   }
-]
-},
-{
-"id": "84211187-74fe-4d27-90e4-f852e6595928",
-"title": "Cruel Angel's Thesis (Beginning)",
-"author": "be98a569-f59e-4dec-9caf-66437c8b9411",
-"artist": "Yoko Takahashi",
-"genre": "Indie",
-"duration": "0:16",
-"tempo": "80",
-"defTimeSigNumer": "4",
-"defTimeSigDenom": "4",
-"defKeySig": "Eb",
-"measureList": [
-  {
-    "beatAmount": "4",
-    "clef": "bass",
-    "notes": [
-      {
-        "pitch": "C",
-        "accidental": "n",
-        "octave": "3",
-        "length": "q"
-      },
-      {
-        "pitch": "E",
-        "accidental": "b",
-        "octave": "3",
-        "length": "q"
-      },
-      {
-        "pitch": "F",
-        "accidental": "n",
-        "octave": "3",
-        "length": "is"
-      },
-      {
-        "pitch": "E",
-        "accidental": "b",
-        "octave": "3",
-        "length": "is"
-      },
-      {
-        "pitch": "F",
-        "accidental": "n",
-        "octave": "3",
-        "length": "i"
-      }
-    ]
-  },
-  {
-    "beatAmount": "4",
-    "clef": "bass",
-    "notes": [
-      {
-        "pitch": "F",
-        "accidental": "n",
-        "octave": "3",
-        "length": "q"
-      },
-      {
-        "pitch": "B",
-        "accidental": "b",
-        "octave": "3",
-        "length": "i"
-      },
-      {
-        "pitch": "A",
-        "accidental": "b",
-        "octave": "3",
-        "length": "i"
-      },
-      {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "3",
-        "length": "s"
-      },
-      {
-        "pitch": "F",
-        "accidental": "n",
-        "octave": "3",
-        "length": "i"
-      },
-      {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "3",
-        "length": "is"
-      },
-      {
-        "pitch": "R",
-        "accidental": "n",
-        "octave": "0",
-        "length": "i"
-      }
-    ]
-  },
-  {
-    "beatAmount": "4",
-    "clef": "bass",
-    "notes": [
-      {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "3",
-        "length": "q"
-      },
-      {
-        "pitch": "B",
-        "accidental": "b",
-        "octave": "3",
-        "length": "q"
-      },
-      {
-        "pitch": "C",
-        "accidental": "n",
-        "octave": "4",
-        "length": "is"
-      },
-      {
-        "pitch": "F",
-        "accidental": "n",
-        "octave": "3",
-        "length": "is"
-      },
-      {
-        "pitch": "E",
-        "accidental": "b",
-        "octave": "3",
-        "length": "i"
-      }
-    ]
-  },
-  {
-    "beatAmount": "4",
-    "clef": "bass",
-    "notes": [
-      {
-        "pitch": "B",
-        "accidental": "b",
-        "octave": "3",
-        "length": "q"
-      },
-      {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": "3",
-        "length": "i"
-      },
-      {
-        "pitch": "B",
-        "accidental": "b",
-        "octave": "3",
-        "length": "i"
-      },
-      {
-        "pitch": "B",
-        "accidental": "b",
-        "octave": "3",
-        "length": "is"
-      },
-      {
-        "pitch": "C",
-        "accidental": "n",
-        "octave": "4",
-        "length": "w"
-      }
-    ]
-  }
-]
-}
 ]
