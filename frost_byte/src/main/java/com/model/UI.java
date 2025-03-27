@@ -5,10 +5,7 @@ import org.jfugue.player.Player;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UI { /*
-                   * ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT, ADD IT TO
-                   * FACADE
-                   */
+public class UI {
 
     private SongList songs;
     private Scanner scanner;
