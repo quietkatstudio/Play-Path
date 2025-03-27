@@ -2,7 +2,10 @@ package com.model;
 
 import java.util.Scanner;
 
-public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT, ADD IT TO FACADE */
+/**
+ * @author Frost Byte
+ */
+public class UI { 
 
 
     private SongList songs;
@@ -14,7 +17,9 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     public UI(){
         this.application = new MusicApplication();
     }
-
+    /**
+     * 
+     */
     public void scenario1(){
         boolean loggedin = false;
         System.out.println("Would you like to register or log in?");
