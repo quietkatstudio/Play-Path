@@ -102,6 +102,7 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
           * play it
           * 
           */
+        songs.playSong("Hot Cross Buns");
  
      }
     public void scenario3(){ 
@@ -146,8 +147,8 @@ public class UI { /*ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT
     
 
     public void run(){
-      //  scenario2(); //login and play a song
-        scenario1();
+        scenario2(); //login and play a song
+        //scenario3();
         //scenario3();
 
     }
