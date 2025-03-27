@@ -3,7 +3,10 @@ package com.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.jfugue.player.Player;
+/**
+ * @author Frost Byte
+ */
+public class UI { 
 
 public class UI { /*
                    * ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT, ADD IT TO
