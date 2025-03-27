@@ -1,6 +1,6 @@
 package com.model;
-
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
@@ -30,6 +30,31 @@ public class MusicApplication {
 
     }
 
+    public void clear() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+    public void sleep() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(0);//1000
+        } catch (Exception e) {
+            System.out.println("Timmer error");
+        }
+    }
+    public void longSleep() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(0);//3000
+        } catch (Exception e) {
+            System.out.println("Timmer error");
+        }
+    }
+    public void shortSleep() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(0); //20
+        } catch (Exception e) {
+            System.out.println("Timmer error");
+        }
+    }
     public boolean logout() {
         UserList.getInstance().saveUsers();
         return true;
