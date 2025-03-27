@@ -64,9 +64,24 @@ public class Measure {
     }
 
     public Measure(JSONObject measureJSON) {
-        this.beatAmount = ((Long) measureJSON.get("beatAmount")).intValue();
+        Object beatAmountObj = measureJSON.get("beatAmount");
+        if (beatAmountObj instanceof String) {
+            this.beatAmount = Integer.parseInt((String) beatAmountObj);
+        } else if (beatAmountObj instanceof Number) {
+            this.beatAmount = ((Number) beatAmountObj).intValue();
+        } else {
+            // Optionally, handle unexpected type or set a default
+            this.beatAmount = 0;
+        }
         this.clef = (String) measureJSON.get("clef");
-        this.isRepeat = (boolean) measureJSON.get("isRepeat");
+        Object isRepeatObj = measureJSON.get("isRepeat");
+        if (isRepeatObj == null) {
+            this.isRepeat = false;
+        } else if (isRepeatObj instanceof Boolean) {
+            this.isRepeat = (Boolean) isRepeatObj;
+        } else if (isRepeatObj instanceof String) {
+            this.isRepeat = Boolean.parseBoolean((String) isRepeatObj);
+        }
 
         this.notes = new ArrayList<>();
         JSONArray notesArray = (JSONArray) measureJSON.get("notes");

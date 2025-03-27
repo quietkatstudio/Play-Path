@@ -113,8 +113,15 @@ public class DataLoader extends DataConstants {
     private static Song parseSongJSON(JSONObject jsonSong) {
         UUID id = UUID.fromString((String) jsonSong.get("id"));
         String title = (String) jsonSong.get("title");
-        UUID artist = UUID.fromString((String) jsonSong.get("artist"));
-        String author = (String) jsonSong.get("author");
+        String artist = (String) jsonSong.get("artist");
+        UUID author = null;
+        if (jsonSong.containsKey("author")) {
+            try {
+                author = UUID.fromString((String) jsonSong.get("author"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         String genre = (String) jsonSong.get("genre");
         String duration = (String) jsonSong.get("duration");
         String tempo = (String) jsonSong.get("tempo");
@@ -131,8 +138,7 @@ public class DataLoader extends DataConstants {
         String defKeySigStr = (String) jsonSong.get("defKeySig");
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
         // Parse measures
-        JSONObject measureJson = (JSONObject) jsonSong.get("measures");
-        JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
+        JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
@@ -154,7 +160,7 @@ public class DataLoader extends DataConstants {
                         JSONObject noteJSON = (JSONObject) noteObj;
                         Note note = new Note();
                         note.setPitch((Pitches) noteJSON.get("pitch"));
-                        note.setAccidental((Accidentals) noteJSON.get("accidental"));
+                        note.setAccidental(Accidentals.valueOf(((String) noteJSON.get("accidental")).toUpperCase()));
                         note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
                         note.setLength((String) noteJSON.get("length"));
                         notes.add(note);
@@ -165,7 +171,7 @@ public class DataLoader extends DataConstants {
             }
         }
 
-        return new Song(id, title, author, artist, genre, duration, tempo,
+        return new Song(id, title, artist, author, genre, duration, tempo,
                 defTimeSigNumer, defTimeSigDenom, defKeySig, measuresArrayList);
 
     }
@@ -184,11 +190,13 @@ public class DataLoader extends DataConstants {
             System.out.println(song);
         }
 
-        System.out.println("Loading lessons >>>");
-        ArrayList<Lesson> lessons = DataLoader.getLessons();
-        for (Lesson lesson : lessons) {
-            System.out.println(lesson);
-        }
+        /*
+         * System.out.println("Loading lessons >>>");
+         * ArrayList<Lesson> lessons = DataLoader.getLessons();
+         * for (Lesson lesson : lessons) {
+         * System.out.println(lesson);
+         * }
+         */
 
     }
 

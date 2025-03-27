@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+import org.json.simple.JSONObject;
 
 /**
  * 
@@ -91,14 +92,15 @@ public class SongList {
         }
         return songTitles;
     }  
-    public String getSongTitlesWithArtist(ArrayList<Song> songs, String artist){
-        String songTitles = "";
+    public ArrayList<Song> getSongTitlesWithArtist(ArrayList<Song> songs, String artist){
+        ArrayList<Song> matchingArtist = new ArrayList<>();
         for (int i=0; i< songs.size(); i++){
             if (songs.get(i).getArtist().equals(artist)) {
-                songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
+                Song tempSong = songs.get(i);
+                matchingArtist.add(tempSong);
             } 
         }
-        return songTitles;
+        return matchingArtist;
     }  
     public String getSongTitlesWithTitle(ArrayList<Song> songs, String title){
         String songTitles = "";
@@ -135,14 +137,28 @@ public class SongList {
         DataWriter.saveSongs();
     }
 
-    public ArrayList<Song> getSongs() {
-        return songs;
-    }
-
-    public void playSong(String title){
+    public SongList getSongs(SongList songList) {
+        //ArrayList<Song> songs = DataLoader.getSongs();
         try {
             Player player = new Player();
-            Song chosenSong = getSongWithTitle(songs, title);
+            ArrayList<Song> songs = DataLoader.getSongs();
+            for (Song song : songs) {
+                if (song.getTitle().contains("Cruel")) {
+                    playSong(song);
+                    //playMeasure(song, 2);
+                    //editMeasure(song, 1, 1, "C", "n", "4", "q");
+                }
+            }
+            return songList;
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+            return null;
+        }
+    }
+
+    public void playSong(Song chosenSong) {
+        try {
+            Player player = new Player();
             Pattern songPattern = new Pattern();
             songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
             songPattern.setInstrument("Tuba");
