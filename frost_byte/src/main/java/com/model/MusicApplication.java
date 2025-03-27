@@ -71,9 +71,10 @@ public class MusicApplication {
             songPattern.setInstrument("Tuba");
             for (Measure measures : chosenSong.getMeasureList()) {
                 for (Note note : measures.getNoteList()) {
-                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength());
+                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave()
+                            + note.getLength());
                 }
-                measures.getNotePlacement(measures);
+                Measure.getNotePlacement(measures);
             }
             player.play(songPattern);
         } catch (Exception e) {
