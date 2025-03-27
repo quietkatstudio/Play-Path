@@ -1,12 +1,9 @@
 package com.model;
 
+import org.jfugue.player.Player;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
-/**
- * @author Frost Byte
- */
-public class UI { 
 
 public class UI { /*
                    * ONLY USE THE FACADE, NO OTHER CLASSES. IF YOU NEED TO USE IT, ADD IT TO
@@ -43,13 +40,13 @@ public class UI { /*
         System.out.println("Play song, edit song, take lesson, log out, search for song");
         System.out.println(ANSI_GREEN);
         System.out.println("Search for song");
-        System.out.println(ANSI_BLACK);  
+        System.out.println(ANSI_BLACK);
         System.out.println("Enter artist name:");
         System.out.println(ANSI_GREEN);
         System.out.println("Traditional");
         System.out.println(ANSI_BLACK);
         ArrayList<Song> songs = application.getSongsByArtist("Tradtional");
-        for(Song song : songs){
+        for (Song song : songs) {
             System.out.println(song.getTitle());
         }
         System.out.println("Select a song to play");
@@ -57,7 +54,7 @@ public class UI { /*
         System.out.println("Hot Cross Buns");
         System.out.println(ANSI_BLACK);
         Song chosenSong = application.getSongByTitle("Hot Cross Buns");
-        
+
         Player player = new Player();
         application.playSong(chosenSong);
 
@@ -79,7 +76,7 @@ public class UI { /*
         // System.out.println("Select an activity: Play song, edit song, Take lesson,
         // log out, search for song");
 
-        //application.playSong("Hot Cross Buns");
+        // application.playSong("Hot Cross Buns");
         // System.out.println("Search for song");
         // System.out.println("");
         // //load songs from songlist, user selects a song, plays song
@@ -113,10 +110,6 @@ public class UI { /*
         System.out.println("Username: NeonWave");
         System.out.println(ANSI_BLACK);
         if (!application.availableUsername("NeonWave")) {
-        if(application.availableUsername("NeonWave")){
-            //wont be safe to regiser
-        }
-        else{
             System.out.println("This username already exists");
         }
         System.out.println(ANSI_GREEN);
@@ -170,9 +163,9 @@ public class UI { /*
     }
 
     public void run() {
-        scenario2(); //login and play a song
+        scenario2(); // login and play a song
         // scenario3();
-        //scenario1();
+        // scenario1();
 
     }
 
