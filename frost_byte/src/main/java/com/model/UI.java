@@ -113,6 +113,10 @@ public class UI { /*
         System.out.println("Username: NeonWave");
         System.out.println(ANSI_BLACK);
         if (!application.availableUsername("NeonWave")) {
+        if(application.availableUsername("NeonWave")){
+            //wont be safe to regiser
+        }
+        else{
             System.out.println("This username already exists");
         }
         System.out.println(ANSI_GREEN);
