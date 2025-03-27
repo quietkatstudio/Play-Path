@@ -22,20 +22,7 @@ public class UI { /*
     }
 
     public void scenario2() {
-        // load song, edit song, play song
-        // application.getAllSongs();
-        /**
-         * show her in the user json
-         * login the sister, fellicia
-         * create a new song called A horses journey
-         * add 2 measures
-         * each has a set of notes
-         * play the song
-         * log out
-         * login as fredrick
-         * search for her new song
-         * play it
-         */
+        
         System.out.println("What would you like to do?");
         System.out.println("Play song, edit song, take lesson, log out, search for song");
         System.out.println(ANSI_GREEN);
