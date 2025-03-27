@@ -1,8 +1,8 @@
 package com.model;
 
-import org.jfugue.player.Player;
-
 import java.util.ArrayList;
+
+import org.jfugue.player.Player;
 
 public class UI {
 
@@ -16,20 +16,7 @@ public class UI {
     }
 
     public void scenario2() {
-        // load song, edit song, play song
-        // application.getAllSongs();
-        /**
-         * show her in the user json
-         * login the sister, fellicia
-         * create a new song called A horses journey
-         * add 2 measures
-         * each has a set of notes
-         * play the song
-         * log out
-         * login as fredrick
-         * search for her new song
-         * play it
-         */
+        
         System.out.println("What would you like to do?");
         System.out.println("Play song, edit song, take lesson, log out, search for song");
         System.out.println(ANSI_GREEN);
@@ -55,29 +42,201 @@ public class UI {
     }
 
     public void scenario3() {
-        // login
-        String testUsername = "NeonWave";
-        String testPassword = "AncientTome";
-        // System.out.println("Login:");
-        // System.out.println("Username: "+testUsername);
-        // System.out.println("PasswordS: "+testPassword);
-        // Boolean isLogin = application.login(testUsername,testPassword);
-        // if(isLogin){
-        // application.getUser(testUsername);
-        // System.out.println("Login successful");
-        // System.out.println("Welcome " + application.getFirstName(testUsername));
-        // System.out.println("");
-        // System.out.println("Select an activity: Play song, edit song, Take lesson,
-        // log out, search for song");
+        /**
+         * show neonwave in the users.json
+         * show that there is no song called a horses journey
+         * log in neonwave
+         * create a new song called "A horses journey"
+         * add 2 measures each with notes
+         * play song
+         * log out neonwave
+         * show the json files
+         * song should be tied to neonwave
+         * 
+         * sign in as asmith
+         * search for song using a horses journey
+         * play
+         * */ 
+        String testUsername1 = "NeonWave";
+        String testPassword1 = "AncientTome";
 
-        // application.playSong("Hot Cross Buns");
-        // System.out.println("Search for song");
-        // System.out.println("");
+        String testUsername2 = "asmith";
+        String testPassword2 = "SurfVibes";
+
+
+        application.clear();
+        System.out.println("Login:");
+        application.sleep();
+        System.out.print(ANSI_GREEN);
+        System.out.println("Username: "+testUsername1);
+        application.sleep();
+        System.out.println("Password: "+testPassword1);
+        application.sleep();
+        
+        System.out.print(ANSI_BLACK);
+        Boolean isLoggedin = application.login(testUsername1,testPassword1);
+        if(isLoggedin){
+            application.getUser(testUsername1);
+            System.out.println("Login successful");
+            application.sleep();
+            System.out.println("Welcome " + application.getFirstName(testUsername1));
+            application.longSleep();
+            //application.clear();
+            for(int i=0; i<30; i++){
+                System.out.print("-");
+                application.shortSleep();
+            }
+            
+            System.out.print("Main Menu");
+            application.shortSleep();
+            for(int i=0; i<30; i++){
+                System.out.print("-");
+                application.shortSleep();
+            }
+            System.out.println("");
+            application.sleep();
+            System.out.println("Select an activity: Play song, edit song, Take lesson, log out, search for song, Make song");
+            application.sleep();
+            System.out.print(ANSI_GREEN);
+            System.out.println("Make song");
+            application.sleep();
+            System.out.print(ANSI_BLACK);
+            System.out.println("What would you like to name it?");
+            application.sleep();
+            System.out.print(ANSI_GREEN);
+            System.out.println("A horses journey");
+            application.sleep();
+            System.out.print(ANSI_BLACK);
+            application.longSleep();
+           // application.clear();
+            System.out.println("Edit mode");
+            application.sleep();
+            System.out.println("Making song named A horses journey.....");
+            
+
+            //moved out of editing mode
+            for(int i=0; i<30; i++){
+                System.out.print("-");
+                application.shortSleep();
+            }
+            
+            System.out.print("Main Menu");
+            application.shortSleep();
+            for(int i=0; i<30; i++){
+                System.out.print("-");
+                application.shortSleep();
+            }
+            System.out.println("");
+            
+            System.out.println("What would you like to do?");
+            System.out.println("Play song, edit song, Take lesson, log out, search for song, logout");
+            System.out.println("search for song");
+            System.out.println("Would you like to search by title or see your own songs?");
+            System.out.println("See my songs");
+           
+            //display songs by user id?
+            System.out.println("Which song do you want to play?");
+            System.out.println("A horses journey");
+
+
+            //play
+
+
+            System.out.println("What would you like to do?");
+            System.out.println("Play song, edit song, Take lesson, log out, search for song, logout");
+
+
+            System.out.print(ANSI_GREEN);
+            System.out.println("logout");
+            System.out.println(ANSI_BLACK);
+            if (application.logout()) {
+                isLoggedin = false;
+                System.out.println("GoodBye!");
+            }
+
+        }
+
+
+
+        System.out.println("Login:");
+        application.sleep();
+        System.out.print(ANSI_GREEN);
+        System.out.println("Username: "+testUsername2);
+        application.sleep();
+        System.out.println("Password: "+testPassword2);
+        application.sleep();
+
+
+        System.out.print(ANSI_BLACK);
+        Boolean isLoggedin2 = application.login(testUsername2,testPassword2);
+        if(isLoggedin2){
+            application.getUser(testUsername1);
+            System.out.println("Login successful");
+            application.sleep();
+            System.out.println("Welcome " + application.getFirstName(testUsername2));
+            application.longSleep();
+            //application.clear();
+            for(int i=0; i<30; i++){
+                System.out.print("-");
+                application.shortSleep();
+            }
+            
+            System.out.print("Main Menu");
+            application.shortSleep();
+            for(int i=0; i<30; i++){
+                System.out.print("-");
+                application.shortSleep();
+            }
+            System.out.println("");
+            application.sleep();
+            System.out.println("Select an activity: Play song, edit song, Take lesson, log out, search for song, Make song");
+            application.sleep();
+            
+            
+          
+            System.out.println("search for song");
+            System.out.println("Would you like to search by title or see your own songs?");
+            System.out.println("Search by title");
+           
+            //display songs by user id?
+            System.out.println("Which song do you want to play?");
+            System.out.println("A horses journey");
+
+
+            //play
+
+
+            System.out.println("What would you like to do?");
+            System.out.println("Play song, edit song, Take lesson, log out, search for song, logout");
+
+
+            System.out.print(ANSI_GREEN);
+            System.out.println("logout");
+            System.out.println(ANSI_BLACK);
+            if (application.logout()) {
+                isLoggedin = false;
+                System.out.println("GoodBye!");
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+         // System.out.println("");
         // //load songs from songlist, user selects a song, plays song
         // System.out.println("Song list: ");
         // System.out.println("Retrieval : "+application.getSongByTitle("Hot Cross
         // Buns").getTitle());
-
+        // application.playSong("Hot Cross Buns");
         // //System.out.println(application.displaySongs());
 
         // System.out.println("");
@@ -85,10 +244,9 @@ public class UI {
         // System.out.println();
         // //someone play a the song please
 
-        // }
-        // else{
-        // System.out.println("Login unsuccessful");
-        // }
+
+
+        
         // System.out.println(application.getSong("Hot Cross Buns"));
         // application.playSong("Hot Cross Buns");
     }
@@ -157,8 +315,8 @@ public class UI {
     }
 
     public void run() {
-        scenario2(); // login and play a song
-        // scenario3();
+        //scenario2(); 
+        scenario3();
         // scenario1();
 
     }
