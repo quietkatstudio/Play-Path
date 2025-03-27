@@ -111,10 +111,32 @@ public class DataLoader extends DataConstants {
     }
 
     private static Song parseSongJSON(JSONObject jsonSong) {
-        UUID id = UUID.fromString((String) jsonSong.get("id"));
+         String idString = (String) jsonSong.get("id");
+        UUID id;
+        if (idString != null && !idString.isEmpty()) {
+            try {
+                id = UUID.fromString(idString);
+            } catch (IllegalArgumentException e) {
+                // Handle invalid UUID format
+                System.err.println("Invalid UUID format for song ID: " + idString);
+                throw e; // Re-throw or handle as needed
+            }
+        } else {
+            // Generate a new UUID for missing or null IDs
+            System.err.println("Missing or null song ID in JSON data. Generating a new UUID.");
+            id = UUID.randomUUID();
+        }
+
         String title = (String) jsonSong.get("title");
-        UUID artist = UUID.fromString((String) jsonSong.get("artist"));
-        String author = (String) jsonSong.get("author");
+        String artist = (String) jsonSong.get("artist");
+        UUID author = null;
+        if (jsonSong.containsKey("author")) {
+            try {
+                author = UUID.fromString((String) jsonSong.get("author"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         String genre = (String) jsonSong.get("genre");
         String duration = (String) jsonSong.get("duration");
         String tempo = (String) jsonSong.get("tempo");
@@ -127,12 +149,12 @@ public class DataLoader extends DataConstants {
                 ? ((Long) jsonSong.get("defTimeSigDenom")).intValue()
                 : Integer.parseInt((String) jsonSong.get("defTimeSigDenom"));
 
-        // Parse key signature, accepting JSONObject
+        // Parse key signature
         String defKeySigStr = (String) jsonSong.get("defKeySig");
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
+
         // Parse measures
-        JSONObject measureJson = (JSONObject) jsonSong.get("measures");
-        JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
+        JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
@@ -140,24 +162,38 @@ public class DataLoader extends DataConstants {
         for (Object measureObj : measuresArray) {
             if (measureObj instanceof JSONObject) {
                 JSONObject measureJSON = (JSONObject) measureObj;
-                Measure measure = new Measure(measureJSON);
+                Measure measure = new Measure();
 
                 // Parse measure meta-data
-                measure.setBeatAmount(Integer.parseInt((String) measureJSON.get("beatAmount")));
+                if (measureJSON.get("beatAmount") != null) {
+                    measure.setBeatAmount(((Long) measureJSON.get("beatAmount")).intValue());
+                } else {
+                    measure.setBeatAmount(4); // Default value
+                }
                 measure.setClef((String) measureJSON.get("clef"));
 
                 // Parse notes
                 JSONArray notesArray = (JSONArray) measureJSON.get("notes");
                 ArrayList<Note> notes = new ArrayList<>();
-                for (Object noteObj : notesArray) {
-                    if (noteObj instanceof JSONObject) {
-                        JSONObject noteJSON = (JSONObject) noteObj;
-                        Note note = new Note();
-                        note.setPitch((Pitches) noteJSON.get("pitch"));
-                        note.setAccidental((Accidentals) noteJSON.get("accidental"));
-                        note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
-                        note.setLength((String) noteJSON.get("length"));
-                        notes.add(note);
+                if (notesArray != null) {
+                    for (Object noteObj : notesArray) {
+                        if (noteObj instanceof JSONObject) {
+                            JSONObject noteJSON = (JSONObject) noteObj;
+                            Note note = new Note();
+                            String tempPitch = (String) noteJSON.get("pitch");
+                            tempPitch = tempPitch.toUpperCase();
+                            Pitches notePitch = Pitches.valueOf(tempPitch);
+                            note.setPitch(notePitch);
+
+                            String tempAccidental = (String) noteJSON.get("accidental");
+                            tempAccidental = tempAccidental.toUpperCase();
+                            Accidentals noteAccidental = Accidentals.valueOf(tempAccidental);
+                            note.setAccidental(noteAccidental);
+
+                            note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
+                            note.setLength((String) noteJSON.get("length"));
+                            notes.add(note);
+                        }
                     }
                 }
                 measure.setNotes(notes);
@@ -167,7 +203,50 @@ public class DataLoader extends DataConstants {
 
         return new Song(id, title, artist, author, genre, duration, tempo,
                 defTimeSigNumer, defTimeSigDenom, defKeySig, measuresArrayList);
+    }
 
+    private Song parseSongJSONAlternate(JSONObject songJSON) {
+        Song song = new Song();
+
+        // Parse numeric fields as integers
+        int defTimeSigNumer = ((Number) songJSON.get("defTimeSigNumer")).intValue();
+        int defTimeSigDenom = ((Number) songJSON.get("defTimeSigDenom")).intValue();
+
+        // Set these values in the Song object
+        song.setDefTimeSigNumer(defTimeSigNumer);
+        song.setDefTimeSigDenom(defTimeSigDenom);
+
+        // Parse other fields
+        song.setTitle((String) songJSON.get("title"));
+        String artistString = (String) songJSON.get("artist");
+        if (artistString != null && !artistString.isEmpty()) {
+            try {
+                song.setArtist(UUID.fromString(artistString));
+            } catch (IllegalArgumentException e) {
+                System.err.println("Invalid UUID format for artist: " + artistString);
+                throw e; // Re-throw or handle as needed
+            }
+        } else {
+            System.err.println("Missing or null artist ID in JSON data.");
+            song.setArtist(null); // Or handle as needed
+        }
+        song.setGenre((String) songJSON.get("genre"));
+
+        // Parse measureList and handle "octave" as an integer
+        JSONArray measureList = (JSONArray) songJSON.get("measureList");
+        for (Object measureObj : measureList) {
+            JSONObject measureJSON = (JSONObject) measureObj;
+            JSONArray notes = (JSONArray) measureJSON.get("notes");
+            for (Object noteObj : notes) {
+                JSONObject noteJSON = (JSONObject) noteObj;
+                if (noteJSON.containsKey("octave")) {
+                    int octave = ((Number) noteJSON.get("octave")).intValue();
+                    // Use the octave value as needed
+                }
+            }
+        }
+
+        return song;
     }
 
     // DataLoader Tests
@@ -184,11 +263,13 @@ public class DataLoader extends DataConstants {
             System.out.println(song);
         }
 
-        System.out.println("Loading lessons >>>");
-        ArrayList<Lesson> lessons = DataLoader.getLessons();
-        for (Lesson lesson : lessons) {
-            System.out.println(lesson);
-        }
+        /*
+         * System.out.println("Loading lessons >>>");
+         * ArrayList<Lesson> lessons = DataLoader.getLessons();
+         * for (Lesson lesson : lessons) {
+         * System.out.println(lesson);
+         * }
+         */
 
     }
 

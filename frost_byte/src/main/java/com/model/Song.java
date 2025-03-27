@@ -21,8 +21,8 @@ import java.util.UUID;
 public class Song {
     private UUID id;
     private String title;
-    private UUID artist;
-    private String author;
+    private String artist;
+    private UUID author;
     private String genre;
     private String duration;
     private String tempo;
@@ -31,6 +31,20 @@ public class Song {
     private KeySig defKeySig;
     private ArrayList<Measure> measureList;
 
+
+    public Song() {
+        this.id = UUID.randomUUID();
+        this.title = "";
+        this.artist = "";
+        this.author = UUID.randomUUID();
+        this.genre = "";
+        this.duration = "";
+        this.tempo = "";
+        this.defTimeSigNumer = 4;
+        this.defTimeSigDenom = 4;
+        this.defKeySig = new KeySig();
+        this.measureList = new ArrayList<Measure>();
+    }
     /**
      * Constructor for Song class.
      * 
@@ -44,9 +58,9 @@ public class Song {
      * @param defTimeSigNumer
      * @param defTimeSigDenom
      * @param defKey
-     * @param measureList
+     * @param measureLi
      */
-    public Song(UUID id, String title, UUID artist, String author, String genre, String duration, String tempo,
+    public Song(UUID id, String title, String artist, UUID author, String genre, String duration, String tempo,
             int defTimeSigNumer,
             int defTimeSigDenom, KeySig defKey, ArrayList<Measure> measureList) {
         this.id = id;
@@ -69,7 +83,7 @@ public class Song {
      * @param measure
      */
     public void addMeasure(Measure measure) {
-        this.measureList.add(measure);
+        measureList.add(measure);
     }
 
     /**
@@ -77,7 +91,7 @@ public class Song {
      * @return
      */
     public Annotation addAnnotation() {
-        return new Annotation(null, author);
+        return new Annotation(null, artist);
     }
 
     /**
@@ -124,8 +138,8 @@ public class Song {
      * @param artist
      * @return
      */
-    public void setArtist(UUID artist) {
-        this.artist = artist;
+    public void setArtist(UUID author) {
+        this.author = author;
     }
 
     /**
@@ -133,8 +147,8 @@ public class Song {
      * @param author
      * @return
      */
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(String artist) {
+        this.artist = artist;
     }
 
     /**
@@ -215,16 +229,16 @@ public class Song {
      * 
      * @return
      */
-    public UUID getArtist() {
-        return this.artist;
+    public UUID getAuthor() {
+        return this.author;
     }
 
     /**
      * 
      * @return
      */
-    public String getAuthor() {
-        return this.author;
+    public String getArtist() {
+        return this.artist;
     }
 
     /**
@@ -280,7 +294,7 @@ public class Song {
      * @return
      */
     public ArrayList<Measure> getMeasureList() {
-        return this.measureList;
+        return measureList;
     }
 
     public Measure getMeasure(ArrayList<Measure> measureList, int measureNum) {
@@ -289,5 +303,9 @@ public class Song {
 
     public String toString() {
         return "Title: " + getTitle() + " Author: " + getAuthor();
+    }
+
+    public void setId(UUID fromString) {
+        id = fromString;
     }
 }

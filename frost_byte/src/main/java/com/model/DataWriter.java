@@ -1,11 +1,12 @@
 package com.model;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import java.util.UUID;
 
 /**
  * The DataWriter class is responsible for converting Users, Songs, and Lessons
@@ -15,57 +16,35 @@ public class DataWriter extends DataConstants {
 
     /**
      * Saves the list of users to the JSON file specified by {@code USER_FILE_NAME}.
-     *
-     * @return true if the users were saved successfully; false otherwise.
      */
-    public static boolean saveUsers() {
+    public static void saveUsers() {
         UserList userListInstance = UserList.getInstance();
         ArrayList<User> users = userListInstance.getUsers();
         JSONArray jsonUsers = new JSONArray();
-        
 
         for (User user : users) {
             jsonUsers.add(getUserJSON(user));
         }
-        int size = jsonUsers.size();
-        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
 
-            file.write("[");
-            for (int i = 0; i < size; i++) {
-                file.write(jsonUsers.get(i).toString());
-                // If it's not the last user, add a comma and new line
-                if (i < size - 1) {
-                    file.write("," + System.lineSeparator());
-                } else {
-                    // Add a new line after the last entry (no comma)
-                    file.write(System.lineSeparator());
-                }
-            }
-            
-            // for (Object jsonUser : jsonUsers) {
-            // file.write(jsonUser.toString()+ ","+System.lineSeparator());
-            // }
-            file.write("]");
+        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
+            file.write(jsonUsers.toJSONString());
+            file.write(System.lineSeparator());
             file.flush();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
     /**
      * Saves the list of songs to the JSON file specified by {@code SONG_FILE_NAME}.
-     *
-     * @return true if the songs were saved successfully; false otherwise.
      */
-    public static boolean saveSongs() {
+    public static void saveSongs() {
         // Get the songs (if there are any)
         ArrayList<Song> songs = DataLoader.getSongs();
 
         // If there are no songs, skip saving
         if (songs == null || songs.isEmpty()) {
-            return false; // No songs to save
+            // Nothing to save
         }
 
         JSONArray jsonSongs = new JSONArray();
@@ -78,22 +57,19 @@ public class DataWriter extends DataConstants {
 
         try (FileWriter file = new FileWriter(SONG_FILE_NAME)) {
             file.write(jsonSongs.toJSONString());
+            file.write(System.lineSeparator());
             file.flush();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
     /**
-     * Saves the list of lessons to the JSON file specified by
-     * {@code LESSON_FILE_NAME}.
+     * Saves the list of lessons to the JSON file specified by {@code LESSON_FILE_NAME}.
      *
      * @param lessons the list of lessons to save
-     * @return true if the lessons were saved successfully; false otherwise.
      */
-    public static boolean saveLessons(ArrayList<Lesson> lessons) {
+    public static void saveLessons(ArrayList<Lesson> lessons) {
         JSONArray jsonLessons = new JSONArray();
         for (Lesson lesson : lessons) {
             jsonLessons.add(getLessonJSON(lesson));
@@ -101,11 +77,10 @@ public class DataWriter extends DataConstants {
 
         try (FileWriter file = new FileWriter(LESSON_FILE_NAME)) {
             file.write(jsonLessons.toJSONString());
+            file.write(System.lineSeparator());
             file.flush();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
@@ -212,7 +187,7 @@ public class DataWriter extends DataConstants {
             lessonJson.put(LESSON_QUIZ, null);
         }
 
-        // For simplicity, we assume the lesson's song is represented as a string.
+        // Assuming the lesson's song is represented as a string.
         lessonJson.put(LESSON_SONG, lesson.getSong());
 
         return lessonJson;
