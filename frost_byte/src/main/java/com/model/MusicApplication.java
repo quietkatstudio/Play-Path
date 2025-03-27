@@ -78,14 +78,19 @@ public class MusicApplication {
             }
             player.play(songPattern);
         } catch (Exception e) {
+            System.out.println("Problem encountered substantiating JFugue Player");
         }
     }
 
+    /**
+     * This method checks to see if a username is already taken
+     * 
+     * @param userName
+     * @return True (Available), False (Unavailable)
+     */
     public boolean availableUsername(String userName) {
-        boolean userExist = UserList.getInstance().userExist(userName); // if false that means they need to change the
-                                                                        // username
+        boolean userExist = UserList.getInstance().userExist(userName);
         return userExist;
-
     }
 
     public void register(String userName, String firstName, String lastName, String email, String password,
