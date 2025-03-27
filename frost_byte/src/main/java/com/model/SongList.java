@@ -91,62 +91,63 @@ public class SongList {
             songTitles = songTitles + "\n" + (songs.get(i).getTitle());
         }
         return songTitles;
-    }  
-    public ArrayList<Song> getSongTitlesWithArtist(ArrayList<Song> songs, String artist){
+    }
+
+    public ArrayList<Song> getSongTitlesWithArtist(ArrayList<Song> songs, String artist) {
         ArrayList<Song> matchingArtist = new ArrayList<>();
-        for (int i=0; i< songs.size(); i++){
+        for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getArtist().equals(artist)) {
                 Song tempSong = songs.get(i);
                 matchingArtist.add(tempSong);
-            } 
+            }
         }
         return matchingArtist;
-    }  
-    public String getSongTitlesWithTitle(ArrayList<Song> songs, String title){
+    }
+
+    public String getSongTitlesWithTitle(ArrayList<Song> songs, String title) {
         String songTitles = "";
-        for (int i=0; i< songs.size(); i++){
+        for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getTitle().equals(title)) {
-                songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
-            } 
+                songTitles = songTitles + "\n" + (songs.get(i).getTitle());
+            }
         }
         return songTitles;
-    } 
-    public Song getSongWithTitle(ArrayList<Song> songs, String title){
+    }
+
+    public Song getSongWithTitle(ArrayList<Song> songs, String title) {
         Song songChosen = songs.get(1);
-        for (int i=0; i< songs.size(); i++){
+        for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getTitle().equals(title)) {
                 songChosen = songs.get(i);
-            } 
+            }
         }
         return songChosen;
-    }  
+    }
 
     // public Song getSongByAuthor(String author) {
-    //     for (Song song : songs) {
-    //         if (song.getAuthor().equals(author)) {
-    //             return song;
-    //         }
-    //     }
-    //     return null;
+    // for (Song song : songs) {
+    // if (song.getAuthor().equals(author)) {
+    // return song;
+    // }
+    // }
+    // return null;
 
     // }
-
-   
 
     public void saveSongs() {
         DataWriter.saveSongs();
     }
 
     public SongList getSongs(SongList songList) {
-        //ArrayList<Song> songs = DataLoader.getSongs();
+        // ArrayList<Song> songs = DataLoader.getSongs();
         try {
             Player player = new Player();
             ArrayList<Song> songs = DataLoader.getSongs();
             for (Song song : songs) {
                 if (song.getTitle().contains("Cruel")) {
                     playSong(song);
-                    //playMeasure(song, 2);
-                    //editMeasure(song, 1, 1, "C", "n", "4", "q");
+                    // playMeasure(song, 2);
+                    // editMeasure(song, 1, 1, "C", "n", "4", "q");
                 }
             }
             return songList;
@@ -161,16 +162,17 @@ public class SongList {
             Player player = new Player();
             Pattern songPattern = new Pattern();
             songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
-            songPattern.setInstrument("Tuba");
+            songPattern.setInstrument("piano");
             for (Measure measures : chosenSong.getMeasureList()) {
                 for (Note note : measures.getNoteList()) {
-                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength());
+                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave()
+                            + note.getLength());
                 }
-                measures.getNotePlacement(measures);
+                Measure.getNotePlacement(measures);
             }
             player.play(songPattern);
         } catch (Exception e) {
         }
     }
-    
+
 }
