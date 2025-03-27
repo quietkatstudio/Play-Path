@@ -107,7 +107,7 @@ public class MusicApplication {
      * @param userName the user's username
      * @return false if the username already exists, true otherwise
      */
-    public boolean safeToregister(String userName) {
+    public boolean availableUsername(String userName) {
         boolean userExist = UserList.getInstance().userExist(userName); //if false that means they need to change the username
         return userExist;
 

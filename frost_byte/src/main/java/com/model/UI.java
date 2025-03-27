@@ -31,7 +31,7 @@ public class UI {
         System.out.println("Username: NeonWave");
       //need to implement a looping system later on
         System.out.println(ANSI_BLACK);
-        if(application.safeToregister("NeonWave")){
+        if(application.availableUsername("NeonWave")){
             //wont be safe to regiser
         }
         else{
@@ -40,7 +40,7 @@ public class UI {
         System.out.println(ANSI_GREEN);
         System.out.println("Username: ShadowWave");
         System.out.println(ANSI_BLACK);
-        if(application.safeToregister("ShadowWave")){
+        if(application.availableUsername("ShadowWave")){
             //should be safe to regiser
             System.out.println("Username is safe");
             System.out.println("Please enter the required information");
