@@ -26,6 +26,25 @@ public class Measure {
     static String a3 = "";
     static String g2 = "";
 
+    public Measure(JSONObject measureJSON) {
+        // Parsing basic properties
+        this.beatAmount = ((Long) measureJSON.get("beatAmount")).intValue(); // assuming beatAmount is in the JSON
+        this.clef = (String) measureJSON.get("clef");
+
+        // Parsing notes if available
+        this.notes = new ArrayList<>();
+        if (measureJSON.containsKey("notes")) {
+            JSONArray notesArray = (JSONArray) measureJSON.get("notes");
+            for (Object noteObj : notesArray) {
+                if (noteObj instanceof JSONObject) {
+                    JSONObject noteJSON = (JSONObject) noteObj;
+                    Note note = new Note(noteJSON); // Assuming you have a constructor in Note that handles JSONObject
+                    this.notes.add(note);
+                }
+            }
+        }
+    }
+
     public Measure() {
         this.beatAmount = 0;
         this.clef = "bass";
@@ -68,34 +87,6 @@ public class Measure {
 
     public ArrayList<Note> getNoteList() {
         return this.notes;
-    }
-
-    public Measure(JSONObject measureJSON) {
-        Object beatAmountObj = measureJSON.get("beatAmount");
-        if (beatAmountObj instanceof String) {
-            this.beatAmount = Integer.parseInt((String) beatAmountObj);
-        } else if (beatAmountObj instanceof Number) {
-            this.beatAmount = ((Number) beatAmountObj).intValue();
-        } else {
-            // Optionally, handle unexpected type or set a default
-            this.beatAmount = 0;
-        }
-        this.clef = (String) measureJSON.get("clef");
-        Object isRepeatObj = measureJSON.get("isRepeat");
-        if (isRepeatObj == null) {
-            this.isRepeat = false;
-        } else if (isRepeatObj instanceof Boolean) {
-            this.isRepeat = (Boolean) isRepeatObj;
-        } else if (isRepeatObj instanceof String) {
-            this.isRepeat = Boolean.parseBoolean((String) isRepeatObj);
-        }
-
-        this.notes = new ArrayList<>();
-        JSONArray notesArray = (JSONArray) measureJSON.get("notes");
-        for (Object noteObj : notesArray) {
-            JSONObject noteJSON = (JSONObject) noteObj;
-            this.notes.add(new Note(noteJSON));
-        }
     }
 
     /**

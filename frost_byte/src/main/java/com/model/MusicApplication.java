@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.ArrayList;
 
+import javax.sound.midi.Track;
+
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 
@@ -18,7 +20,7 @@ public class MusicApplication {
     private UserList users;
 
     public MusicApplication() {
-        track = new SongList(songs);
+        track = SongList.getInstance();
     }
 
     public boolean login(String userName, String password) {
@@ -26,60 +28,36 @@ public class MusicApplication {
         if (logged_in) {
             user = UserList.getInstance().getUser(userName);
         }
-        return UserList.getInstance().login(userName, password);
+        return logged_in;
 
     }
 
     public boolean logout() {
         UserList.getInstance().saveUsers();
         return true;
-        // boolean loggin_in = UserList.getInstance().logout(userName);
-        // if
     }
 
     public User getUser(String userName) {
-        User loggedin_user = UserList.getInstance().getUser(userName);
-        return loggedin_user;
+        return UserList.getInstance().getUser(userName);
 
     }
 
     public Song getSongByTitle(String title) {
-        songs = track.getInstance();
-        return track.getSongByTitle(title);
 
+        return track.getSongByTitle(title);
     }
 
     public ArrayList<Song> getSongsByArtist(String artist) {
-        songs = track.getInstance();
-        ArrayList<Song> display;
-        display = track.getSongTitlesWithArtist(songs, artist);
+        ArrayList<Song> display = track.getSongTitlesWithArtist(artist);
         return display;
     }
 
     public String displaySongs() {
-        songs = track.getInstance();
-        String display;
-        display = track.getSongTitles(songs);
-        return display;
+        return track.getSongTitles();
     }
 
-    public void playSong(Song chosenSong) {
-        try {
-            Player player = new Player();
-            Pattern songPattern = new Pattern();
-            songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
-            songPattern.setInstrument("Tuba");
-            for (Measure measures : chosenSong.getMeasureList()) {
-                for (Note note : measures.getNoteList()) {
-                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave()
-                            + note.getLength());
-                }
-                Measure.getNotePlacement(measures);
-            }
-            player.play(songPattern);
-        } catch (Exception e) {
-            System.out.println("Problem encountered substantiating JFugue Player");
-        }
+    public void playSong(Song song) {
+        track.playSong(song);
     }
 
     /**

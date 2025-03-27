@@ -2,18 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-// import org.json.simple.JSONObject;
-// import org.json.simple.parser.JSONParser;
 
-// import java.lang.Thread;
-// import org.jfugue.player.Player;
-// import org.jfugue.pattern.Pattern;
-// import org.jfugue.theory.Chord;
-// import org.jfugue.theory.ChordProgression;
-// import java.io.File;
-// import java.io.IOException;
-// import org.jfugue.midi.MidiFileManager;
-// import javax.sound.midi.InvalidMidiDataException;
 /**
  * 
  * @author
@@ -31,20 +20,6 @@ public class Song {
     private KeySig defKeySig;
     private ArrayList<Measure> measureList;
 
-
-    public Song() {
-        this.id = UUID.randomUUID();
-        this.title = "";
-        this.artist = "";
-        this.author = UUID.randomUUID();
-        this.genre = "";
-        this.duration = "";
-        this.tempo = "";
-        this.defTimeSigNumer = 4;
-        this.defTimeSigDenom = 4;
-        this.defKeySig = new KeySig();
-        this.measureList = new ArrayList<Measure>();
-    }
     /**
      * Constructor for Song class.
      * 
@@ -302,10 +277,12 @@ public class Song {
     }
 
     public String toString() {
-        return "Title: " + getTitle() + " Author: " + getAuthor();
-    }
-
-    public void setId(UUID fromString) {
-        id = fromString;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Song: ").append(title).append("\n");
+        sb.append("Measures:\n");
+        for (Measure measure : measureList) {
+            sb.append(measure.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }

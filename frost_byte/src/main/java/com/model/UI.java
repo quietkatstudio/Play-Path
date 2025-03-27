@@ -3,12 +3,9 @@ package com.model;
 import org.jfugue.player.Player;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class UI {
 
-    private SongList songs;
-    private Scanner scanner;
     private MusicApplication application;
     private static final String ANSI_GREEN = "\u001B[32m";
     private static final String ANSI_RED = "\u001B[31m";
