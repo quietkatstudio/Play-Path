@@ -26,6 +26,13 @@ public class Measure {
     static String a3 = "";
     static String g2 = "";
 
+    public Measure() {
+        this.beatAmount = 0;
+        this.clef = "bass";
+        this.notes = new ArrayList<>();
+        this.isRepeat = false;
+    }
+
     public Measure(int beatAmount2, String clef, ArrayList<Note> notes) {
         this.beatAmount = beatAmount2;
         this.clef = clef;
@@ -64,9 +71,24 @@ public class Measure {
     }
 
     public Measure(JSONObject measureJSON) {
-        this.beatAmount = ((Long) measureJSON.get("beatAmount")).intValue();
+        Object beatAmountObj = measureJSON.get("beatAmount");
+        if (beatAmountObj instanceof String) {
+            this.beatAmount = Integer.parseInt((String) beatAmountObj);
+        } else if (beatAmountObj instanceof Number) {
+            this.beatAmount = ((Number) beatAmountObj).intValue();
+        } else {
+            // Optionally, handle unexpected type or set a default
+            this.beatAmount = 0;
+        }
         this.clef = (String) measureJSON.get("clef");
-        this.isRepeat = (boolean) measureJSON.get("isRepeat");
+        Object isRepeatObj = measureJSON.get("isRepeat");
+        if (isRepeatObj == null) {
+            this.isRepeat = false;
+        } else if (isRepeatObj instanceof Boolean) {
+            this.isRepeat = (Boolean) isRepeatObj;
+        } else if (isRepeatObj instanceof String) {
+            this.isRepeat = Boolean.parseBoolean((String) isRepeatObj);
+        }
 
         this.notes = new ArrayList<>();
         JSONArray notesArray = (JSONArray) measureJSON.get("notes");
@@ -193,8 +215,11 @@ public class Measure {
         }
     }
 
-    public void setNotes(ArrayList<Note> notes2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setNotes'");
+    public void setNotes(ArrayList<Note> notes) {
+        if (notes == null) {
+            this.notes = new ArrayList<>();
+        } else {
+            this.notes = notes;
+        }
     }
 }

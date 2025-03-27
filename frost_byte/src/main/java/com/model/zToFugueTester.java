@@ -75,15 +75,6 @@ public class zToFugueTester {
                     String defKeySigStr = (String) songJSON.get("defKeySig");
                     KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
                     JSONArray measuresJSON = (JSONArray) songJSON.get("measureList");
-                    /*System.out.println(title);
-                    System.out.println(artist);
-                    System.out.println(genre);
-                    System.out.println(duration);
-                    System.out.println(tempo);
-                    System.out.println(defTimeSigNum);
-                    System.out.println(defTimeSigDen);
-                    System.out.println(defKeyString);
-                    System.out.println();*/
                     ArrayList<Measure> measures = new ArrayList<Measure>();
                     for (int j = 0; j < measuresJSON.size(); j++) {
                         JSONObject measureJSON = (JSONObject) measuresJSON.get(j);
@@ -118,7 +109,7 @@ public class zToFugueTester {
                         measures.add(measure);
                     }
     
-                    songs.add(new Song(id, title, author, artist, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeySig, measures));
+                    songs.add(new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNum, defTimeSigDen, defKeySig, measures));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -113,8 +113,15 @@ public class DataLoader extends DataConstants {
     private static Song parseSongJSON(JSONObject jsonSong) {
         UUID id = UUID.fromString((String) jsonSong.get("id"));
         String title = (String) jsonSong.get("title");
-        UUID artist = UUID.fromString((String) jsonSong.get("artist"));
-        String author = (String) jsonSong.get("author");
+        String artist = (String) jsonSong.get("artist");
+        UUID author = null;
+        if (jsonSong.containsKey("author")) {
+            try {
+                author = UUID.fromString((String) jsonSong.get("author"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         String genre = (String) jsonSong.get("genre");
         String duration = (String) jsonSong.get("duration");
         String tempo = (String) jsonSong.get("tempo");
@@ -131,8 +138,7 @@ public class DataLoader extends DataConstants {
         String defKeySigStr = (String) jsonSong.get("defKeySig");
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
         // Parse measures
-        JSONObject measureJson = (JSONObject) jsonSong.get("measures");
-        JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
+        JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
@@ -140,7 +146,7 @@ public class DataLoader extends DataConstants {
         for (Object measureObj : measuresArray) {
             if (measureObj instanceof JSONObject) {
                 JSONObject measureJSON = (JSONObject) measureObj;
-                Measure measure = new Measure(measureJSON);
+                Measure measure = new Measure();
 
                 // Parse measure meta-data
                 measure.setBeatAmount(Integer.parseInt((String) measureJSON.get("beatAmount")));
@@ -153,8 +159,16 @@ public class DataLoader extends DataConstants {
                     if (noteObj instanceof JSONObject) {
                         JSONObject noteJSON = (JSONObject) noteObj;
                         Note note = new Note();
-                        note.setPitch((Pitches) noteJSON.get("pitch"));
-                        note.setAccidental((Accidentals) noteJSON.get("accidental"));
+                        String tempPitch = (String) noteJSON.get("pitch");
+                        tempPitch = tempPitch.toUpperCase();
+                        Pitches notePitch;
+                        notePitch = Pitches.valueOf(tempPitch);
+                        note.setPitch(notePitch);
+                        String tempAccidental = (String) noteJSON.get("accidental");
+                        tempAccidental = tempAccidental.toUpperCase();
+                        Accidentals noteAccidental;
+                        noteAccidental = Accidentals.valueOf(tempAccidental);
+                        note.setAccidental(noteAccidental);
                         note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
                         note.setLength((String) noteJSON.get("length"));
                         notes.add(note);
@@ -184,11 +198,13 @@ public class DataLoader extends DataConstants {
             System.out.println(song);
         }
 
-        System.out.println("Loading lessons >>>");
-        ArrayList<Lesson> lessons = DataLoader.getLessons();
-        for (Lesson lesson : lessons) {
-            System.out.println(lesson);
-        }
+        /*
+         * System.out.println("Loading lessons >>>");
+         * ArrayList<Lesson> lessons = DataLoader.getLessons();
+         * for (Lesson lesson : lessons) {
+         * System.out.println(lesson);
+         * }
+         */
 
     }
 

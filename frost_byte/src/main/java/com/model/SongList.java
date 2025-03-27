@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+import org.json.simple.JSONObject;
 
 /**
  * 
@@ -90,70 +91,88 @@ public class SongList {
             songTitles = songTitles + "\n" + (songs.get(i).getTitle());
         }
         return songTitles;
-    }  
-    public String getSongTitlesWithArtist(ArrayList<Song> songs, String artist){
-        String songTitles = "";
-        for (int i=0; i< songs.size(); i++){
+    }
+
+    public ArrayList<Song> getSongTitlesWithArtist(ArrayList<Song> songs, String artist) {
+        ArrayList<Song> matchingArtist = new ArrayList<>();
+        for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getArtist().equals(artist)) {
-                songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
-            } 
+                Song tempSong = songs.get(i);
+                matchingArtist.add(tempSong);
+            }
         }
-        return songTitles;
-    }  
-    public String getSongTitlesWithTitle(ArrayList<Song> songs, String title){
+        return matchingArtist;
+    }
+
+    public String getSongTitlesWithTitle(ArrayList<Song> songs, String title) {
         String songTitles = "";
-        for (int i=0; i< songs.size(); i++){
+        for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getTitle().equals(title)) {
-                songTitles = songTitles+ "\n" +(songs.get(i).getTitle());
-            } 
+                songTitles = songTitles + "\n" + (songs.get(i).getTitle());
+            }
         }
         return songTitles;
-    } 
-    public Song getSongWithTitle(ArrayList<Song> songs, String title){
+    }
+
+    public Song getSongWithTitle(ArrayList<Song> songs, String title) {
         Song songChosen = songs.get(1);
-        for (int i=0; i< songs.size(); i++){
+        for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getTitle().equals(title)) {
                 songChosen = songs.get(i);
-            } 
+            }
         }
         return songChosen;
-    }  
+    }
 
     // public Song getSongByAuthor(String author) {
-    //     for (Song song : songs) {
-    //         if (song.getAuthor().equals(author)) {
-    //             return song;
-    //         }
-    //     }
-    //     return null;
+    // for (Song song : songs) {
+    // if (song.getAuthor().equals(author)) {
+    // return song;
+    // }
+    // }
+    // return null;
 
     // }
-
-   
 
     public void saveSongs() {
         DataWriter.saveSongs();
     }
 
-    public ArrayList<Song> getSongs() {
-        return songs;
-    }
-
-    public void playSong(String title){
+    public SongList getSongs(SongList songList) {
+        // ArrayList<Song> songs = DataLoader.getSongs();
         try {
             Player player = new Player();
-            Song chosenSong = getSongWithTitle(songs, title);
+            ArrayList<Song> songs = DataLoader.getSongs();
+            for (Song song : songs) {
+                if (song.getTitle().contains("Cruel")) {
+                    playSong(song);
+                    // playMeasure(song, 2);
+                    // editMeasure(song, 1, 1, "C", "n", "4", "q");
+                }
+            }
+            return songList;
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+            return null;
+        }
+    }
+
+    public void playSong(Song chosenSong) {
+        try {
+            Player player = new Player();
             Pattern songPattern = new Pattern();
             songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
-            songPattern.setInstrument("Tuba");
+            songPattern.setInstrument("piano");
             for (Measure measures : chosenSong.getMeasureList()) {
                 for (Note note : measures.getNoteList()) {
-                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave() + note.getLength());
+                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave()
+                            + note.getLength());
                 }
+                Measure.getNotePlacement(measures);
             }
             player.play(songPattern);
         } catch (Exception e) {
         }
     }
-    
+
 }
