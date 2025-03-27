@@ -26,6 +26,13 @@ public class Measure {
     static String a3 = "";
     static String g2 = "";
 
+    public Measure() {
+        this.beatAmount = 0;
+        this.clef = "bass";
+        this.notes = new ArrayList<>();
+        this.isRepeat = false;
+    }
+
     public Measure(int beatAmount2, String clef, ArrayList<Note> notes) {
         this.beatAmount = beatAmount2;
         this.clef = clef;
@@ -208,8 +215,11 @@ public class Measure {
         }
     }
 
-    public void setNotes(ArrayList<Note> notes2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setNotes'");
+    public void setNotes(ArrayList<Note> notes) {
+        if (notes == null) {
+            this.notes = new ArrayList<>();
+        } else {
+            this.notes = notes;
+        }
     }
 }

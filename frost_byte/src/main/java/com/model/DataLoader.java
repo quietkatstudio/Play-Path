@@ -146,7 +146,7 @@ public class DataLoader extends DataConstants {
         for (Object measureObj : measuresArray) {
             if (measureObj instanceof JSONObject) {
                 JSONObject measureJSON = (JSONObject) measureObj;
-                Measure measure = new Measure(measureJSON);
+                Measure measure = new Measure();
 
                 // Parse measure meta-data
                 measure.setBeatAmount(Integer.parseInt((String) measureJSON.get("beatAmount")));
@@ -159,8 +159,16 @@ public class DataLoader extends DataConstants {
                     if (noteObj instanceof JSONObject) {
                         JSONObject noteJSON = (JSONObject) noteObj;
                         Note note = new Note();
-                        note.setPitch((Pitches) noteJSON.get("pitch"));
-                        note.setAccidental(Accidentals.valueOf(((String) noteJSON.get("accidental")).toUpperCase()));
+                        String tempPitch = (String) noteJSON.get("pitch");
+                        tempPitch = tempPitch.toUpperCase();
+                        Pitches notePitch;
+                        notePitch = Pitches.valueOf(tempPitch);
+                        note.setPitch(notePitch);
+                        String tempAccidental = (String) noteJSON.get("accidental");
+                        tempAccidental = tempAccidental.toUpperCase();
+                        Accidentals noteAccidental;
+                        noteAccidental = Accidentals.valueOf(tempAccidental);
+                        note.setAccidental(noteAccidental);
                         note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
                         note.setLength((String) noteJSON.get("length"));
                         notes.add(note);

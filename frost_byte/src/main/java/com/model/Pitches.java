@@ -8,5 +8,5 @@ public enum Pitches {
     E,
     F,
     G,
-    R
+    R,
 }
