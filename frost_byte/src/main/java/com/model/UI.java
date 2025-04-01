@@ -274,8 +274,8 @@ public class UI {
     }
 
     public void run() {
-        // scenario2();
-        scenario3();
+        scenario2();
+        //scenario3();
         // scenario1();
 
     }
