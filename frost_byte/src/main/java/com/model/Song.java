@@ -225,6 +225,15 @@ public class Song {
     }
 
     /**
+     * This getter method returns the Song's ID
+     * 
+     * @return UUID
+     */
+    public UUID getID() {
+        return this.id;
+    }
+
+    /**
      * 
      * @return
      */

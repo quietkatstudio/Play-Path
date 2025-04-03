@@ -48,6 +48,7 @@ public class NoteTest {
         assertEquals(0, note.getDot());
         assertEquals(4, note.getOctave());
     }
+
     @Test
     public void testGetSymbol() {
         Note note = new Note(Pitches.C, "quarter", Accidentals.FLAT, 0, 4);
@@ -55,5 +56,5 @@ public class NoteTest {
         String actualSymbol = note.getSymbol();
         assertEquals(expectedSymbol, actualSymbol);
     }
-    
+
 }
