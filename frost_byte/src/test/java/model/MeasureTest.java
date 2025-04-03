@@ -1,3 +1,7 @@
+/**
+ * @author Ryan Evans
+ */
+
 package model;
 
 import java.util.ArrayList;

@@ -1,3 +1,7 @@
+/**
+ * @author Ryan Evans
+ */
+
 package model;
 
 import static org.junit.Assert.assertEquals;

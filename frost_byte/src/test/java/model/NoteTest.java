@@ -1,3 +1,6 @@
+/**
+ * @author Ryan Evans
+ */
 package model;
 
 import static org.junit.Assert.assertEquals;
@@ -36,7 +39,7 @@ public class NoteTest {
         octave = 0;
         noteSymbol = null;
     }
-    
+
     @Test
     public void testNoteCreation() {
         assertEquals(Pitches.C, note.getPitch());
