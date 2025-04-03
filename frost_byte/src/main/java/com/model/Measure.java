@@ -58,7 +58,7 @@ public class Measure {
         this.notes = notes;
     }
 
-    public Measure addMeasure(Measure measure) {
+    public Measure getMeasure(Measure measure) {
         return measure;
     }
 
