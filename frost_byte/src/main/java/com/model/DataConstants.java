@@ -3,6 +3,7 @@ package com.model;
 public abstract class DataConstants {
     // User JSON constants
     protected static final String USER_FILE_NAME = "json\\users.json";
+    
     protected static final String USER_ID = "id";
     protected static final String USER_USER_NAME = "userName";
     protected static final String USER_FIRST_NAME = "firstName";
@@ -55,4 +56,13 @@ public abstract class DataConstants {
     protected static final String NOTE_ACCIDENTAL = "accidental";
     protected static final String NOTE_OCTAVE = "octave";
     protected static final String NOTE_LENGTH = "length";
+
+    public static boolean isJUnitTest() {  
+		for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+		  if (element.getClassName().startsWith("org.junit.")) {
+			return true;
+		  }           
+		}
+		return false;
+	  }
 }
