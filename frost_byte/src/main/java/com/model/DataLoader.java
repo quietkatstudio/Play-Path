@@ -126,62 +126,68 @@ public class DataLoader extends DataConstants {
         String duration = (String) jsonSong.get("duration");
         String tempo = (String) jsonSong.get("tempo");
 
-        // Handle time signature, Long or Int value
+        // Handle time signature
         int defTimeSigNumer = (jsonSong.get("defTimeSigNumer") instanceof Long)
                 ? ((Long) jsonSong.get("defTimeSigNumer")).intValue()
-                : Integer.parseInt((String) jsonSong.get("defTimeSigNumer"));
+                : Integer.parseInt(jsonSong.get("defTimeSigNumer").toString());
         int defTimeSigDenom = (jsonSong.get("defTimeSigDenom") instanceof Long)
                 ? ((Long) jsonSong.get("defTimeSigDenom")).intValue()
-                : Integer.parseInt((String) jsonSong.get("defTimeSigDenom"));
+                : Integer.parseInt(jsonSong.get("defTimeSigDenom").toString());
 
-        // Parse key signature, accepting JSONObject
+        // Parse key signature
         String defKeySigStr = (String) jsonSong.get("defKeySig");
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
+
         // Parse measures
         JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
-        ArrayList<Measure> measuresArrayList = new ArrayList<>();
+        ArrayList<Measure> measuresArrayList = new ArrayList<Measure>();
         for (Object measureObj : measuresArray) {
             if (measureObj instanceof JSONObject) {
                 JSONObject measureJSON = (JSONObject) measureObj;
-                Measure measure = new Measure();
+                Measure measure = new Measure(measureJSON);
 
                 // Parse measure meta-data
-                measure.setBeatAmount(Integer.parseInt((String) measureJSON.get("beatAmount")));
-                measure.setClef((String) measureJSON.get("clef"));
+                if (measureJSON.containsKey("beatAmount")) {
+                    measure.setBeatAmount(((Long) measureJSON.get("beatAmount")).intValue());
+                }
+                if (measureJSON.containsKey("clef")) {
+                    measure.setClef((String) measureJSON.get("clef"));
+                }
+                JSONArray notes = (JSONArray) measureJSON.get("notes");
 
-                // Parse notes
-                JSONArray notesArray = (JSONArray) measureJSON.get("notes");
-                ArrayList<Note> notes = new ArrayList<>();
-                for (Object noteObj : notesArray) {
-                    if (noteObj instanceof JSONObject) {
-                        JSONObject noteJSON = (JSONObject) noteObj;
+                    ArrayList<Note> noteList = new ArrayList<Note>();
+                    for (int r = 0; r < notes.size(); r++) {
+                        JSONObject noteJSON = (JSONObject) notes.get(r);
                         Note note = new Note();
                         String tempPitch = (String) noteJSON.get("pitch");
-                        tempPitch = tempPitch.toUpperCase();
-                        Pitches notePitch;
-                        notePitch = Pitches.valueOf(tempPitch);
+                        Pitches notePitch = Pitches.valueOf(tempPitch);
                         note.setPitch(notePitch);
                         String tempAccidental = (String) noteJSON.get("accidental");
                         tempAccidental = tempAccidental.toUpperCase();
-                        Accidentals noteAccidental;
-                        noteAccidental = Accidentals.valueOf(tempAccidental);
-                        note.setAccidental(noteAccidental);
+                        Accidentals noteAccidetal = Accidentals.valueOf(tempAccidental);
+                        note.setAccidental(noteAccidetal);
                         note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
                         note.setLength((String) noteJSON.get("length"));
-                        notes.add(note);
+                        noteList.add(note);
+                        /*
+                         * System.out.print(notePitch);
+                         * System.out.print(noteAccidetal);
+                         * System.out.print(noteOctave);
+                         * System.out.println(noteLength);
+                         * System.out.println();
+                         */
                     }
-                }
-                measure.setNotes(notes);
+                    measure.setNotes(noteList);
+
                 measuresArrayList.add(measure);
             }
         }
 
         return new Song(id, title, artist, author, genre, duration, tempo,
                 defTimeSigNumer, defTimeSigDenom, defKeySig, measuresArrayList);
-
     }
 
     // DataLoader Tests
@@ -195,17 +201,8 @@ public class DataLoader extends DataConstants {
         System.out.println("Loading songs >>>");
         ArrayList<Song> songs = DataLoader.getSongs();
         for (Song song : songs) {
-            System.out.println(song);
+            System.out.println(song.getMeasureList());
         }
-
-        /*
-         * System.out.println("Loading lessons >>>");
-         * ArrayList<Lesson> lessons = DataLoader.getLessons();
-         * for (Lesson lesson : lessons) {
-         * System.out.println(lesson);
-         * }
-         */
-
     }
 
 }

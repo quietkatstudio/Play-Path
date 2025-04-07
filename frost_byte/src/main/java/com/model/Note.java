@@ -3,9 +3,12 @@ package com.model;
 import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
+
 /**
- * This class is used to store the note of a piece of music. It contains the pitch, length, accidental, dot, and octave of the note.
+ * This class is used to store the note of a piece of music. It contains the
+ * pitch, length, accidental, dot, and octave of the note.
  * It also contains a method to get the unicode character of the note.
+ * 
  * @author Frost Byte
  */
 public class Note {
@@ -29,11 +32,12 @@ public class Note {
 
     /**
      * Constructor for Note class.
-     * @param pitch the pitch of the note.
-     * @param length the length of the note.
+     * 
+     * @param pitch      the pitch of the note.
+     * @param length     the length of the note.
      * @param accidental the accidental of the note.
-     * @param dot the dot of the note.
-     * @param octave the octave of the note.
+     * @param dot        the dot of the note.
+     * @param octave     the octave of the note.
      */
     public Note(Pitches pitch, String length, Accidentals accidental, int dot,
             int octave) {
@@ -46,6 +50,7 @@ public class Note {
 
     /**
      * sets a new pitch for the note
+     * 
      * @param pitch the pitch of the note.
      */
     public void setPitch(Pitches pitch) {
@@ -54,6 +59,7 @@ public class Note {
 
     /**
      * sets a new length for the note
+     * 
      * @param length the length of the note.
      */
     public void setLength(String length) {
@@ -62,6 +68,7 @@ public class Note {
 
     /**
      * sets a new accidental for the note
+     * 
      * @param accidental the accidental of the note.
      */
     public void setAccidental(Accidentals accidental) {
@@ -70,6 +77,7 @@ public class Note {
 
     /**
      * sets a new dot for the note
+     * 
      * @param dot the dot of the note.
      */
     public void setDot(int dot) {
@@ -78,6 +86,7 @@ public class Note {
 
     /**
      * sets a new octave for the note
+     * 
      * @param octave the octave of the note.
      */
     public void setOctave(int octave) {
@@ -86,6 +95,7 @@ public class Note {
 
     /**
      * sets a new symbol for the note
+     * 
      * @param symbol the symbol of the note.
      */
     public void setSymbol(String symbol) {
@@ -136,46 +146,52 @@ public class Note {
 
     /**
      * get the pitch of the note
+     * 
      * @return the pitch of the note.
      */
     public Pitches getPitch() {
-        return this.pitch;
+        return pitch;
     }
 
     /**
      * get the length of the note
+     * 
      * @return the length of the note.
      */
     public String getLength() {
-        return this.length;
+        return length;
     }
 
     /**
      * get the accidental of the note
+     * 
      * @return the accidental of the note.
      */
     public Accidentals getAccidental() {
-        return this.accidental;
+        return accidental;
     }
 
     /**
      * get the dot of the note
+     * 
      * @return the dot of the note.
      */
     public int getDot() {
-        return this.dot;
+        return dot;
     }
 
     /**
      * get the octave of the note
+     * 
      * @return the octave of the note.
      */
     public int getOctave() {
-        return this.octave;
+        return octave;
     }
 
     /**
      * Constructor for Note class that takes a JSONObject as a parameter.
+     * 
      * @param noteJSON the JSONObject that contains the note of the piece of music.
      */
     public Note(JSONObject noteJSON) {

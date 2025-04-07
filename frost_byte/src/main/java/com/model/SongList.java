@@ -2,7 +2,6 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 import org.json.simple.JSONObject;
@@ -12,47 +11,71 @@ import org.json.simple.JSONObject;
  * @author
  */
 public class SongList {
-    // private static SongList songList = new SongList();
-    private static ArrayList<Song> songs; // = new ArrayList<>();
-    private ArrayList<User> users;
-    // private ArrayList<Song> songs;
+    private static SongList instance; // Singleton instance
+    private static ArrayList<Song> songs; // List of songs
 
     /**
-     * 
+     * Private constructor to prevent instantiation
      */
-    public SongList(ArrayList<Song> songs_) {
-        songs_ = DataLoader.getSongs();
-        if (songs_ == null) {
-            songs_ = new ArrayList<>();
+    private SongList() {
+        // Initialize songs list by fetching data from the DataLoader
+        songs = DataLoader.getSongs();
+        if (songs == null) {
+            songs = new ArrayList<>();
         }
-        songs_ = DataLoader.getSongs();
-
     }
 
     /**
+     * Public method to get the singleton instance of SongList
      * 
-     * @return
+     * @return the single instance of SongList
      */
-    public static ArrayList<Song> getInstance() {
-        if (songs == null) {
-            songs = new ArrayList<>();
-            songs = DataLoader.getSongs();
+    public static SongList getInstance() {
+        if (instance == null) {
+            instance = new SongList();
         }
+        return instance;
+    }
+
+    /**
+     * Method to get the list of songs
+     * 
+     * @return the list of songs
+     */
+    public ArrayList<Song> getSongs() {
         return songs;
     }
 
     /**
+     * Method to get a song by its title
      * 
-     * @param title
-     * @param author
-     * @param genre
-     * @param duration
-     * @param tempo
-     * @param defTimeSigNumer
-     * @param defTimeSigDenom
-     * @param defKeySig
-     * @param MeasureList
-     * @return
+     * @param title the title of the song
+     * @return the song with the given title, or null if not found
+     */
+    public Song getSongByTitle(String title) {
+        for (Song song : songs) {
+            if (song.getTitle().equalsIgnoreCase(title)) {
+                return song;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Adds a new song to the list
+     * 
+     * @param id              the song ID
+     * @param title           the song title
+     * @param artist          the song artist
+     * @param author          the song author
+     * @param genre           the song genre
+     * @param duration        the song duration
+     * @param tempo           the song tempo
+     * @param defTimeSigNumer the default time signature numerator
+     * @param defTimeSigDenom the default time signature denominator
+     * @param defKeySig       the default key signature
+     * @param measureList     the list of measures for the song
+     * @return the newly created song
      */
     public Song addSong(UUID id,
             String title,
@@ -64,115 +87,70 @@ public class SongList {
             int defTimeSigNumer,
             int defTimeSigDenom,
             KeySig defKeySig,
-            ArrayList<Measure> MeasureList) {
-
-        return new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom, defKeySig,
-                MeasureList);
+            ArrayList<Measure> measureList) {
+        Song newSong = new Song(id, title, artist, author, genre, duration, tempo, defTimeSigNumer, defTimeSigDenom,
+                defKeySig, measureList);
+        songs.add(newSong); // Add the new song to the list
+        return newSong;
     }
 
     /**
+     * Plays a chosen song using JFugue Player
      * 
-     * @param title
-     * @return
+     * @param chosenSong the song to be played
      */
-    public Song getSongByTitle(String title) {
-        for (int i = 0; i < songs.size(); i++) {
-            if (songs.get(i).getTitle().equalsIgnoreCase(title)) {
-                return songs.get(i); // returns the specific song that matches the title
-            }
-        }
-        return null;
-
-    }
-
-    public String getSongTitles(ArrayList<Song> songs) {
-        String songTitles = "";
-        for (int i = 0; i < songs.size(); i++) {
-            songTitles = songTitles + "\n" + (songs.get(i).getTitle());
-        }
-        return songTitles;
-    }
-
-    public ArrayList<Song> getSongTitlesWithArtist(ArrayList<Song> songs, String artist) {
-        ArrayList<Song> matchingArtist = new ArrayList<>();
-        for (int i = 0; i < songs.size(); i++) {
-            if (songs.get(i).getArtist().equals(artist)) {
-                Song tempSong = songs.get(i);
-                matchingArtist.add(tempSong);
-            }
-        }
-        return matchingArtist;
-    }
-
-    public String getSongTitlesWithTitle(ArrayList<Song> songs, String title) {
-        String songTitles = "";
-        for (int i = 0; i < songs.size(); i++) {
-            if (songs.get(i).getTitle().equals(title)) {
-                songTitles = songTitles + "\n" + (songs.get(i).getTitle());
-            }
-        }
-        return songTitles;
-    }
-
-    public Song getSongWithTitle(ArrayList<Song> songs, String title) {
-        Song songChosen = songs.get(1);
-        for (int i = 0; i < songs.size(); i++) {
-            if (songs.get(i).getTitle().equals(title)) {
-                songChosen = songs.get(i);
-            }
-        }
-        return songChosen;
-    }
-
-    // public Song getSongByAuthor(String author) {
-    // for (Song song : songs) {
-    // if (song.getAuthor().equals(author)) {
-    // return song;
-    // }
-    // }
-    // return null;
-
-    // }
-
-    public void saveSongs() {
-        DataWriter.saveSongs();
-    }
-
-    public SongList getSongs(SongList songList) {
-        // ArrayList<Song> songs = DataLoader.getSongs();
-        try {
-            Player player = new Player();
-            ArrayList<Song> songs = DataLoader.getSongs();
-            for (Song song : songs) {
-                if (song.getTitle().contains("Cruel")) {
-                    playSong(song);
-                    // playMeasure(song, 2);
-                    // editMeasure(song, 1, 1, "C", "n", "4", "q");
-                }
-            }
-            return songList;
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-            return null;
-        }
-    }
-
     public void playSong(Song chosenSong) {
         try {
             Player player = new Player();
             Pattern songPattern = new Pattern();
             songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
-            songPattern.setInstrument("piano");
-            for (Measure measures : chosenSong.getMeasureList()) {
-                for (Note note : measures.getNoteList()) {
+            songPattern.setInstrument("piano"); // Set the instrument to piano
+            for (Measure measure : chosenSong.getMeasureList()) {
+                for (Note note : measure.getNoteList()) {
                     songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave()
                             + note.getLength());
                 }
-                Measure.getNotePlacement(measures);
+                Measure.getNotePlacement(measure);
             }
-            player.play(songPattern);
+            player.play(songPattern); // Play the song
         } catch (Exception e) {
+            System.out.println("Problem encountered while playing the song.");
         }
     }
 
+    /**
+     * Get a list of song titles by a specific artist
+     * 
+     * @param artist the artist name
+     * @return a list of songs by the artist
+     */
+    public ArrayList<Song> getSongTitlesWithArtist(String artist) {
+        ArrayList<Song> matchingArtistSongs = new ArrayList<>();
+        for (Song song : songs) {
+            if (song.getArtist().equalsIgnoreCase(artist)) {
+                matchingArtistSongs.add(song);
+            }
+        }
+        return matchingArtistSongs;
+    }
+
+    /**
+     * Get a list of song titles
+     * 
+     * @return a string representation of song titles
+     */
+    public String getSongTitles() {
+        StringBuilder songTitles = new StringBuilder();
+        for (Song song : songs) {
+            songTitles.append("\n").append(song.getTitle());
+        }
+        return songTitles.toString();
+    }
+
+    /**
+     * Save songs to persistent storage
+     */
+    public void saveSongs() {
+        DataWriter.saveSongs(); // Call DataWriter to save songs
+    }
 }

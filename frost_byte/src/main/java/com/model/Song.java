@@ -2,18 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-// import org.json.simple.JSONObject;
-// import org.json.simple.parser.JSONParser;
 
-// import java.lang.Thread;
-// import org.jfugue.player.Player;
-// import org.jfugue.pattern.Pattern;
-// import org.jfugue.theory.Chord;
-// import org.jfugue.theory.ChordProgression;
-// import java.io.File;
-// import java.io.IOException;
-// import org.jfugue.midi.MidiFileManager;
-// import javax.sound.midi.InvalidMidiDataException;
 /**
  * 
  * @author
@@ -288,6 +277,12 @@ public class Song {
     }
 
     public String toString() {
-        return "Title: " + getTitle() + " Author: " + getAuthor();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Song: ").append(title).append("\n");
+        sb.append("Measures:\n");
+        for (Measure measure : measureList) {
+            sb.append(measure.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }

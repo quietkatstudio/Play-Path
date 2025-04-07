@@ -2,6 +2,7 @@ module com.frost_byte{
     
     requires javafx.controls;
     requires javafx.fxml;
+    requires junit;
     requires json.simple;
     requires jfugue;
     //requires org.jfugue;
