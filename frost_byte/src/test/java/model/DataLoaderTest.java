@@ -82,7 +82,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testMissingUserName() {
+    public void testMissingUserName() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getUsers();
         });
@@ -90,7 +90,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testMissingLessonTitle() {
+    public void testMissingLessonTitle() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getLessons();
         });
@@ -98,7 +98,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testMissingLessonContent() {
+    public void testMissingLessonContent() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getLessons();
         });
@@ -106,7 +106,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testMissingSongTitle() {
+    public void testMissingSongTitle() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getSongs();
         });
@@ -114,7 +114,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testMissingSongArtist() {
+    public void testMissingSongArtist() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getSongs();
         });
@@ -122,7 +122,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testMissingMeasureList() {
+    public void testMissingMeasureList() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getSongs();
         });
@@ -130,7 +130,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testEmptyMeasureList() {
+    public void testEmptyMeasureList() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getSongs();
         });
@@ -138,7 +138,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testMissingTempo() {
+    public void testMissingTempo() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getSongs();
         });
@@ -146,7 +146,7 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testInvalidUUIDFormat() {
+    public void testInvalidUUIDFormat() {
         Exception exception = assertThrows(Exception.class, () -> {
             DataLoader.getSongs();
         });
