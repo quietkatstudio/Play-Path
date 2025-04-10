@@ -158,29 +158,29 @@ public class DataLoader extends DataConstants {
                 }
                 JSONArray notes = (JSONArray) measureJSON.get("notes");
 
-                    ArrayList<Note> noteList = new ArrayList<Note>();
-                    for (int r = 0; r < notes.size(); r++) {
-                        JSONObject noteJSON = (JSONObject) notes.get(r);
-                        Note note = new Note();
-                        String tempPitch = (String) noteJSON.get("pitch");
-                        Pitches notePitch = Pitches.valueOf(tempPitch);
-                        note.setPitch(notePitch);
-                        String tempAccidental = (String) noteJSON.get("accidental");
-                        tempAccidental = tempAccidental.toUpperCase();
-                        Accidentals noteAccidetal = Accidentals.valueOf(tempAccidental);
-                        note.setAccidental(noteAccidetal);
-                        note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
-                        note.setLength((String) noteJSON.get("length"));
-                        noteList.add(note);
-                        /*
-                         * System.out.print(notePitch);
-                         * System.out.print(noteAccidetal);
-                         * System.out.print(noteOctave);
-                         * System.out.println(noteLength);
-                         * System.out.println();
-                         */
-                    }
-                    measure.setNotes(noteList);
+                ArrayList<Note> noteList = new ArrayList<Note>();
+                for (int r = 0; r < notes.size(); r++) {
+                    JSONObject noteJSON = (JSONObject) notes.get(r);
+                    Note note = new Note();
+                    String tempPitch = (String) noteJSON.get("pitch");
+                    Pitches notePitch = Pitches.valueOf(tempPitch);
+                    note.setPitch(notePitch);
+                    String tempAccidental = (String) noteJSON.get("accidental");
+                    tempAccidental = tempAccidental.toUpperCase();
+                    Accidentals noteAccidetal = Accidentals.valueOf(tempAccidental);
+                    note.setAccidental(noteAccidetal);
+                    note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
+                    note.setLength((String) noteJSON.get("length"));
+                    noteList.add(note);
+                    /*
+                     * System.out.print(notePitch);
+                     * System.out.print(noteAccidetal);
+                     * System.out.print(noteOctave);
+                     * System.out.println(noteLength);
+                     * System.out.println();
+                     */
+                }
+                measure.setNotes(noteList);
 
                 measuresArrayList.add(measure);
             }

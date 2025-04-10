@@ -42,14 +42,15 @@ public class DataLoaderTest {
 
     @Test
     public void testLoadUsersNotEmpty() {
-        assertNotNull("Users list should not be nul", users);
+        users = DataLoader.getUsers();
+        assertNotNull("Users list should not be null", users);
         assertTrue("Users list should not be empty", users.size() > 0);
     }
 
     @Test
     public void testUser() {
         User user = users.get(0);
-        assertNotNull("User ID should not be nul", user.getID());
+        assertNotNull("User ID should not be null", user.getID());
         assertNotNull("Username should not be null", user.getUserName());
         assertNotNull("Email should not be null", user.getEmail());
     }
