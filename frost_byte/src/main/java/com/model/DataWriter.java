@@ -5,7 +5,7 @@ import org.json.simple.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -17,66 +17,47 @@ public class DataWriter extends DataConstants {
     /**
      * Saves the list of users to the JSON file specified by {@code USER_FILE_NAME}.
      */
-    public static void saveUsers() {
-        UserList userListInstance = UserList.getInstance();
-        ArrayList<User> users = userListInstance.getUsers();
+    public static void saveUsers(List<User> users) {
         JSONArray jsonUsers = new JSONArray();
-
         for (User user : users) {
             jsonUsers.add(getUserJSON(user));
         }
-
-        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
-            file.write(jsonUsers.toJSONString());
-            file.write(System.lineSeparator());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        writeToFile(USER_FILE_NAME, jsonUsers);
     }
 
     /**
      * Saves the list of songs to the JSON file specified by {@code SONG_FILE_NAME}.
      */
-    public static void saveSongs() {
-        // Get the songs (if there are any)
-        ArrayList<Song> songs = DataLoader.getSongs();
-
-        // If there are no songs, skip saving
+    public static void saveSongs(List<Song> songs) {
         if (songs == null || songs.isEmpty()) {
-            // Nothing to save
+            return;
         }
-
         JSONArray jsonSongs = new JSONArray();
-
         for (Song song : songs) {
-            if (song != null) { // Ensure the song is not null before processing
+            if (song != null) {
                 jsonSongs.add(getSongJSON(song));
             }
         }
-
-        try (FileWriter file = new FileWriter(SONG_FILE_NAME)) {
-            file.write(jsonSongs.toJSONString());
-            file.write(System.lineSeparator());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        writeToFile(SONG_FILE_NAME, jsonSongs);
     }
 
     /**
      * Saves the list of lessons to the JSON file specified by {@code LESSON_FILE_NAME}.
-     *
-     * @param lessons the list of lessons to save
      */
-    public static void saveLessons(ArrayList<Lesson> lessons) {
+    public static void saveLessons(List<Lesson> lessons) {
+        if (lessons == null || lessons.isEmpty()) {
+            return;
+        }
         JSONArray jsonLessons = new JSONArray();
         for (Lesson lesson : lessons) {
             jsonLessons.add(getLessonJSON(lesson));
         }
+        writeToFile(LESSON_FILE_NAME, jsonLessons);
+    }
 
-        try (FileWriter file = new FileWriter(LESSON_FILE_NAME)) {
-            file.write(jsonLessons.toJSONString());
+    private static void writeToFile(String filename, JSONArray array) {
+        try (FileWriter file = new FileWriter(filename)) {
+            file.write(array.toJSONString());
             file.write(System.lineSeparator());
             file.flush();
         } catch (IOException e) {
@@ -84,12 +65,6 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    /**
-     * Converts a User object to its JSON representation.
-     *
-     * @param user the User to be converted.
-     * @return a JSONObject representing the user.
-     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userJson = new JSONObject();
         userJson.put(USER_ID, user.getID().toString());
@@ -102,80 +77,73 @@ public class DataWriter extends DataConstants {
         return userJson;
     }
 
-    /**
-     * Converts a Song object to its JSON representation.
-     *
-     * @param song the Song to be converted.
-     * @return a JSONObject representing the song.
-     */
     public static JSONObject getSongJSON(Song song) {
-        // If the song is null, return an empty song JSON object
-        if (song == null) {
-            return new JSONObject();
-        }
-
         JSONObject songJson = new JSONObject();
+        // Required fields
+        songJson.put(SONG_ID, song.getId().toString());
         songJson.put(SONG_TITLE, song.getTitle());
         songJson.put(SONG_ARTIST, song.getArtist());
-        songJson.put(SONG_AUTHOR, song.getAuthor());
+        songJson.put(SONG_AUTHOR, song.getAuthor() != null ? song.getAuthor().toString() : null);
         songJson.put(SONG_GENRE, song.getGenre());
         songJson.put(SONG_DURATION, song.getDuration());
         songJson.put(SONG_TEMPO, song.getTempo());
         songJson.put(SONG_DEF_TIME_SIG_NUMER, song.getDefTimeSigNumer());
         songJson.put(SONG_DEF_TIME_SIG_DENOM, song.getDefTimeSigDenom());
+        songJson.put(SONG_DEF_KEY_SIG, song.getDefKeySig() != null ? song.getDefKeySig().toString() : "Unknown");
 
-        // Check if key signature is null before calling toString()
-        if (song.getDefKeySig() != null) {
-            songJson.put(SONG_DEF_KEY_SIG, song.getDefKeySig().toString());
-        } else {
-            songJson.put(SONG_DEF_KEY_SIG, "Unknown"); // Default value if null
-        }
-
-        // Check if measureList is null and initialize if necessary
+        // Measures serialization - structured
         JSONArray measuresArray = new JSONArray();
         if (song.getMeasureList() != null) {
             for (Measure measure : song.getMeasureList()) {
-                JSONObject measureJson = new JSONObject();
-                measureJson.put("measure", measure.toString());
-                measuresArray.add(measureJson);
+                measuresArray.add(getMeasureJSON(measure));
             }
         }
         songJson.put(SONG_MEASURE_LIST, measuresArray);
-
         return songJson;
     }
 
-    /**
-     * Converts a Lesson object to its JSON representation.
-     *
-     * @param lesson the Lesson to be converted.
-     * @return a JSONObject representing the lesson.
-     */
+    private static JSONObject getMeasureJSON(Measure measure) {
+        JSONObject measureJson = new JSONObject();
+        measureJson.put("beatAmount", measure.getBeatAmount());
+        measureJson.put("clef", measure.getClef());
+        // Notes
+        JSONArray notesArray = new JSONArray();
+        if (measure.getNoteList() != null) {
+            for (Note note : measure.getNoteList()) {
+                JSONObject noteJson = new JSONObject();
+                noteJson.put("pitch", note.getPitch().toString());
+                noteJson.put("accidental", note.getAccidental().toString());
+                noteJson.put("octave", note.getOctave());
+                noteJson.put("length", note.getLength());
+                notesArray.add(noteJson);
+            }
+        }
+        measureJson.put("notes", notesArray);
+        return measureJson;
+    }
+
     public static JSONObject getLessonJSON(Lesson lesson) {
         JSONObject lessonJson = new JSONObject();
         lessonJson.put(LESSON_ID, lesson.getID().toString());
         lessonJson.put(LESSON_TITLE, lesson.getTitle());
         lessonJson.put(LESSON_DESCRIPTION, lesson.getDescription());
         lessonJson.put(LESSON_CONTENT, lesson.getContent());
-
-        // Check if flashcards is null and initialize if necessary
+        // Flashcards
         JSONArray flashcardsArray = new JSONArray();
         if (lesson.getFlashcards() != null) {
             for (Flashcard flashcard : lesson.getFlashcards()) {
-                JSONObject flashcardJson = new JSONObject();
-                flashcardJson.put(FLASHCARD_TERM, flashcard.getTerm());
-                flashcardJson.put(FLASHCARD_DEFINITION, flashcard.getDefinition());
-                flashcardsArray.add(flashcardJson);
+                JSONObject fcJson = new JSONObject();
+                fcJson.put(FLASHCARD_TERM, flashcard.getTerm());
+                fcJson.put(FLASHCARD_DEFINITION, flashcard.getDefinition());
+                flashcardsArray.add(fcJson);
             }
         }
         lessonJson.put(LESSON_FLASHCARDS, flashcardsArray);
-
-        // Convert quiz
+        // Quiz
         Quiz quiz = lesson.getQuiz();
         if (quiz != null) {
             JSONObject quizJson = new JSONObject();
             quizJson.put(QUIZ_QUESTION, quiz.getQuestion());
-
             JSONArray optionsArray = new JSONArray();
             for (String option : quiz.getOptions()) {
                 optionsArray.add(option);
@@ -186,10 +154,10 @@ public class DataWriter extends DataConstants {
         } else {
             lessonJson.put(LESSON_QUIZ, null);
         }
-
-        // Assuming the lesson's song is represented as a string.
-        lessonJson.put(LESSON_SONG, lesson.getSong());
-
+        // Song
+        lessonJson.put(LESSON_SONG, getSongJSON(lesson.getSong()));
         return lessonJson;
     }
 }
+
+
