@@ -1,13 +1,11 @@
 
 
 <?import java.net.URL?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.171"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -22,7 +20,7 @@
             <children>
                 <Button text="Home" onAction="#showHome"/>
                 <Button text="Profile" onAction="#showProfile"/>
-                <Button text="Lessons" onAction="#showLessons"/>
+               
                 <Button text="Settings" onAction="#showSettings"/>
             </children>
             <padding>
@@ -35,16 +33,3 @@
         <URL value="@styles.css"/>
     </stylesheets>
 </BorderPane>
-
-<!-- <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.PrimaryController">
-   <children>
-      <Label text="Primary View" />
-      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
-   </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-   <stylesheets>
-      <URL value="@styles.css"/>
-   </stylesheets>
-</VBox> -->
