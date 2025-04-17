@@ -1,6 +1,6 @@
 package com.frost_byte;
 
-public class HomeController {
+public class LessonsController {
 
     private PrimaryController primary;
 

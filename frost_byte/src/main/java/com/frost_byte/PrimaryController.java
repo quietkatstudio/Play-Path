@@ -30,12 +30,12 @@ public class PrimaryController {
 
     @FXML
     private void showHome() {
-        loadView("Home.fxml");
+        loadView("home.fxml");
     }
 
     @FXML
     private void showProfile() {
-        loadView("Profile.fxml");
+        loadView("profile.fxml");
     }
 
     @FXML
