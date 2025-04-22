@@ -42,7 +42,8 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * Saves the list of lessons to the JSON file specified by {@code LESSON_FILE_NAME}.
+     * Saves the list of lessons to the JSON file specified by
+     * {@code LESSON_FILE_NAME}.
      */
     public static void saveLessons(List<Lesson> lessons) {
         if (lessons == null || lessons.isEmpty()) {
@@ -80,7 +81,7 @@ public class DataWriter extends DataConstants {
     public static JSONObject getSongJSON(Song song) {
         JSONObject songJson = new JSONObject();
         // Required fields
-        songJson.put(SONG_ID, song.getId().toString());
+        songJson.put(SONG_ID, song.getID().toString());
         songJson.put(SONG_TITLE, song.getTitle());
         songJson.put(SONG_ARTIST, song.getArtist());
         songJson.put(SONG_AUTHOR, song.getAuthor() != null ? song.getAuthor().toString() : null);
@@ -159,5 +160,3 @@ public class DataWriter extends DataConstants {
         return lessonJson;
     }
 }
-
-
