@@ -151,6 +151,6 @@ public class SongList {
      * Save songs to persistent storage
      */
     public void saveSongs() {
-        DataWriter.saveSongs(); // Call DataWriter to save songs
+        DataWriter.saveSongs(songs); // Call DataWriter to save songs
     }
 }

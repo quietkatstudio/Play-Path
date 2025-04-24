@@ -11,12 +11,12 @@ import com.model.*;
 
 public class UsersTest {
     @Test
-    public void testTesting(){
+    public void testTesting() {
         assertTrue(true);
     }
 
     @Test
-    public void testValidLogin(){
+    public void testValidLogin() {
         MusicApplication musicApplication = MusicApplication.getInstance();
         MusicApplication.login("asmith");
         String firstName = MusicApplication.getCurrentUser().getFirstName().toLowerCase();
@@ -25,16 +25,16 @@ public class UsersTest {
     }
 
     @Test
-    public void testInValidLogin(){
+    public void testInValidLogin() {
         MusicApplication MusicApplication = MusicApplication.getInstance();
         boolean success = MusicApplication.login("bross");
         assertFalse(success);
     }
 
-    @Test 
+    @Test
     public void testAddValidUser() {
         MusicApplication MusicApplication = MusicApplication.getInstance();
-        MusicApplication.createAccount("jmath", "John","Math", 15, "803-222-3333");
+        MusicApplication.createAccount("jmath", "John", "Math", 15, "803-222-3333");
         MusicApplication.logout();
         MusicApplication = MusicApplication.getInstance();
         MusicApplication.login("jmath");
@@ -42,10 +42,10 @@ public class UsersTest {
         assertEquals("math", lastName);
     }
 
-    @Test 
+    @Test
     public void testDuplicateValidUser() {
         MusicApplication MusicApplication = MusicApplication.getInstance();
-        boolean success = MusicApplication.createAccount("jmath", "Jannet","Math", 15, "803-222-3333");
+        boolean success = MusicApplication.createAccount("jmath", "Jannet", "Math", 15, "803-222-3333");
         assertFalse(success);
     }
 }
