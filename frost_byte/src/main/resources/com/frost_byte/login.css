@@ -1,0 +1,17 @@
+#StackPane {
+    -fx-background-color: #bed8d7
+    
+}
+
+#loginButton{
+    -fx-background-color: #403f3f
+   
+}
+#passButton{
+    -fx-background-color: #bed8d7
+   
+}
+#regButton{
+    -fx-background-color: #bed8d7
+   
+}
