@@ -1,0 +1,20 @@
+#controls{
+    -fx-background-color: #403f3f
+   
+}
+.root {
+    -fx-background-color: #bed8d7
+    
+}
+#homeButton{
+    -fx-background-color: #403f3f
+}
+#lessonsButton{
+    -fx-background-color: #403f3f
+}
+#studioButton{
+    -fx-background-color: #403f3f
+}
+#songsButton{
+    -fx-background-color: #403f3f
+}

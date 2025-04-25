@@ -20,7 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 
 public class PrimaryController {
-
+    
     @FXML
     private StackPane contentPane;
 
@@ -39,7 +39,7 @@ public class PrimaryController {
     }
 
     @FXML
-    private void showLessons() {
+    public void showLessons() {
         loadView("Lessons.fxml");
     }
 

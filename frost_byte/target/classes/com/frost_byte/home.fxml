@@ -1,4 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!-- <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -16,7 +29,7 @@
    <children>
       <VBox prefHeight="626.0" prefWidth="339.0" spacing="20.0">
          <children>
-            <!-- Top spacing -->
+            <! Top spacing 
             <HBox prefHeight="60.0" prefWidth="367.0">
                <children>
                   <Separator opacity="0.0" prefHeight="31.0" prefWidth="115.0" />
@@ -24,7 +37,7 @@
                </children>
             </HBox>
 
-            <!-- Logo -->
+            <! Logo 
             <HBox alignment="CENTER">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
@@ -35,7 +48,7 @@
                </children>
             </HBox>
 
-            <!-- Title -->
+            <! Title 
             <HBox alignment="CENTER">
                <children>
                   <Label text="Welcome to Home"
@@ -48,16 +61,159 @@
                </children>
             </HBox>
 
-            <!-- Subtext -->
+            <!Subtext 
             <HBox alignment="CENTER">
                <children>
-                  <Label text="Here’s your Home view content!"
+                  <Label text=" Home view content!"
                          textAlignment="CENTER"
                          styleClass="subtitle-label">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane> -->
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="337.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox prefHeight="62.0" prefWidth="338.0" stylesheets="@home.css">
+               <children>
+                  <ImageView fitHeight="81.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/playpathlogo.png" />
+                     </image>
+                  </ImageView>
+                  <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back" textOrigin="CENTER" wrappingWidth="223.9312515258789">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="236.0" prefWidth="338.0">
+               <children>
+                  <Separator opacity="0.0" prefHeight="24.0" prefWidth="17.0" />
+                  <VBox prefHeight="100.0" prefWidth="168.0">
+                     <children>
+                        <Button fx:id="playButton" mnemonicParsing="false" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                           <graphic>
+                              <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
+                                 <children>
+                                    <Separator opacity="0.0" orientation="VERTICAL" prefHeight="4.0" prefWidth="50.0" />
+                                    <HBox prefHeight="70.0" prefWidth="137.0">
+                                       <children>
+                                          <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
+                                          <ImageView fx:id="playImage" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/playbutton.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="playsongTxt" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Play Song" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                 </children>
+                              </VBox>
+                           </graphic></Button>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="26.0" prefWidth="56.0" />
+                        <Button fx:id="studioButton" mnemonicParsing="false" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                           <graphic>
+                              <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
+                                 <children>
+                                    <Separator opacity="0.0" orientation="VERTICAL" prefHeight="4.0" prefWidth="50.0" />
+                                    <HBox prefHeight="70.0" prefWidth="137.0">
+                                       <children>
+                                          <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
+                                          <ImageView fx:id="playImage1" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/Musicnote.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="playsongTxt1" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Music Studio" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Separator opacity="0.0" prefHeight="126.0" prefWidth="22.0" />
+                  <VBox prefHeight="100.0" prefWidth="168.0">
+                     <children>
+                        <Button fx:id="lessonsButton" mnemonicParsing="false" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                           <graphic>
+                              <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
+                                 <children>
+                                    <Separator opacity="0.0" orientation="VERTICAL" prefHeight="4.0" prefWidth="50.0" />
+                                    <HBox prefHeight="70.0" prefWidth="137.0">
+                                       <children>
+                                          <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
+                                          <ImageView fx:id="playImage11" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/book.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="playsongTxt11" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Lessons" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </graphic>
+                        </Button>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="26.0" prefWidth="56.0" />
+                        <Button fx:id="classesButton" mnemonicParsing="false" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                           <graphic>
+                              <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
+                                 <children>
+                                    <Separator opacity="0.0" orientation="VERTICAL" prefHeight="4.0" prefWidth="50.0" />
+                                    <HBox prefHeight="70.0" prefWidth="137.0">
+                                       <children>
+                                          <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
+                                          <ImageView fx:id="playImage12" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/school.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="playsongTxt12" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Classes" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Separator opacity="0.0" prefHeight="70.0" prefWidth="27.0" />
+               </children>
+            </HBox>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="33.0" prefWidth="250.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Separator opacity="0.0" prefHeight="34.0" prefWidth="74.0" />
+                  <Button fx:id="logoutButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="202.0" stylesheets="@home.css" text="Log out" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>

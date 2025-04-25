@@ -1,0 +1,34 @@
+
+#playButton{
+    -fx-background-color: #403f3f
+   
+}
+#studioButton{
+    -fx-background-color: #403f3f
+   
+}
+
+#logoutButton{
+    -fx-background-color: #403f3f
+   
+}
+#classesButton{
+    -fx-background-color: #403f3f
+   
+}
+#lessonsButton{
+    -fx-background-color: #403f3f
+   
+}
+
+.root{
+    -fx-background-color: #bed8d7
+}
+#playsongTxt{
+    -fx-text-color: white
+
+}
+#StackPane {
+    -fx-background-color: #bed8d7
+    
+}
