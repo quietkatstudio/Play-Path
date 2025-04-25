@@ -11,6 +11,7 @@ public class UserList {
 
     private static UserList userList = new UserList();
     private ArrayList<User> users = new ArrayList<>();
+    private static User currentUser = null;
 
     /**
      * This method constructs the users list using the user json file
@@ -48,6 +49,7 @@ public class UserList {
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
             if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
+                currentUser = user;
                 return true;
             }
         }
