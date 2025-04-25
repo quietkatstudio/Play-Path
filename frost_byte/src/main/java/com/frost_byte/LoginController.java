@@ -42,6 +42,7 @@ public class LoginController {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Login Failed");
             alert.setHeaderText("Invalid Username or Password");
+            alert.setContentText("The username or password you entered is incorrect.\n Please press OK to try again.");
             alert.showAndWait();
         }
     }
