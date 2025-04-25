@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class LoginController {
 
@@ -37,7 +39,10 @@ public class LoginController {
             }
         } else {
             System.out.println("Invalid username or password.");
-            // Optional: display message to user here
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Login Failed");
+            alert.setHeaderText("Invalid Username or Password");
+            alert.showAndWait();
         }
     }
 }
