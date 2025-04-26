@@ -2,6 +2,10 @@
     -fx-background-color: #403f3f
    
 }
+#topBar{
+    -fx-background-color: #403f3f
+   
+}
 .root {
     -fx-background-color: #bed8d7
     
@@ -18,3 +22,8 @@
 #songsButton{
     -fx-background-color: #403f3f
 }
+
+#backButton{
+    -fx-background-color: #403f3f
+}
+

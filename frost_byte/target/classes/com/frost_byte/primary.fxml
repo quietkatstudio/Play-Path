@@ -122,9 +122,16 @@
         <URL value="@styles.css" />
     </stylesheets>
    <top>
-      <HBox fx:id="topBar" prefHeight="75.0" prefWidth="391.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="topBar" prefHeight="75.0" prefWidth="391.0" stylesheets="@primary.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="backButton" mnemonicParsing="false" prefHeight="72.0" prefWidth="88.0" text="Button" />
+            <Button fx:id="backButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="49.0">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/backButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="185.33666229248047" />
          </children>
       </HBox>
