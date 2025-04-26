@@ -1,29 +1,76 @@
-#controls{
+#controls {
     -fx-background-color: #403f3f
-   
 }
-#topBar{
+
+#topBar {
     -fx-background-color: #403f3f
-   
 }
+
 .root {
     -fx-background-color: #bed8d7
-    
 }
-#homeButton{
-    -fx-background-color: #403f3f
-}
-#lessonsButton{
-    -fx-background-color: #403f3f
-}
-#studioButton{
-    -fx-background-color: #403f3f
-}
-#songsButton{
+
+#homeButton {
     -fx-background-color: #403f3f
 }
 
-#backButton{
+#lessonsButton {
     -fx-background-color: #403f3f
 }
 
+#studioButton {
+    -fx-background-color: #403f3f
+}
+
+#songsButton {
+    -fx-background-color: #403f3f
+}
+
+#backButton {
+    -fx-background-color: #403f3f
+}
+
+#topBar {
+    -fx-background-color: rgba(64, 63, 63, 0.7);
+    /* Semi-transparent dark color */
+    -fx-padding: 10px;
+}
+
+/* Transparent background for bottom control bar */
+#controls {
+    -fx-background-color: rgba(64, 63, 63, 0.7);
+    /* Semi-transparent dark color */
+    -fx-padding: 10px;
+}
+
+/* Button transparency for the bottom bar */
+#homeButton,
+#lessonsButton,
+#studioButton,
+#songsButton {
+    -fx-background-color: transparent;
+    /* Make button background transparent */
+    -fx-text-fill: white;
+    /* Text color for the button */
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+    /* Rounded corners */
+}
+
+/* Add transparency to the button borders */
+#homeButton:hover,
+#lessonsButton:hover,
+#studioButton:hover,
+#songsButton:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    /* Light transparent hover effect */
+}
+
+/* Label text transparency for the buttons */
+#homeButton Label,
+#lessonsButton Label,
+#studioButton Label,
+#songsButton Label {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}

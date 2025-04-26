@@ -20,7 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 
 public class PrimaryController {
-    
+
     @FXML
     private StackPane contentPane;
 
