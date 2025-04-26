@@ -1,34 +1,46 @@
-
-#playButton{
+#playButton {
     -fx-background-color: #403f3f
-   
-}
-#studioButton{
-    -fx-background-color: #403f3f
-   
 }
 
-#logoutButton{
+#studioButton {
     -fx-background-color: #403f3f
-   
-}
-#classesButton{
-    -fx-background-color: #403f3f
-   
-}
-#lessonsButton{
-    -fx-background-color: #403f3f
-   
 }
 
-.root{
+#logoutButton {
+    -fx-background-color: #403f3f
+}
+
+#classesButton {
+    -fx-background-color: #403f3f
+}
+
+#lessonsButton {
+    -fx-background-color: #403f3f
+}
+
+.root {
     -fx-background-color: #bed8d7
 }
-#playsongTxt{
-    -fx-text-color: white
 
+#playsongTxt {
+    -fx-text-color: white
 }
+
 #StackPane {
     -fx-background-color: #bed8d7
-    
+}
+
+#classesButton,
+#lessonsButton,
+#studioButton,
+#playButton {
+    -fx-border-color: white
+}
+
+#classesButton:hover,
+#lessonsButton:hover,
+#studioButton:hover,
+#playButton:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    /* Light transparent hover effect */
 }

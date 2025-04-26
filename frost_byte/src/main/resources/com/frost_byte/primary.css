@@ -1,33 +1,46 @@
 #controls {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
+    -fx-background-image: url("@../../images/background.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 #topBar {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
+    -fx-background-image: url("@../../images/topbar-background.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 .root {
-    -fx-background-color: #bed8d7
+    -fx-background-color: #bed8d7;
+    -fx-background-image: url("@../../images/backgroundcropped.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 #homeButton {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
 }
 
 #lessonsButton {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
 }
 
 #studioButton {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
 }
 
 #songsButton {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
 }
 
 #backButton {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
+}
+
+#settingsButton {
+    -fx-background-color: #403f3f;
 }
 
 #topBar {
@@ -55,22 +68,34 @@
     -fx-font-size: 14px;
     -fx-border-radius: 5px;
     /* Rounded corners */
+
 }
 
 /* Add transparency to the button borders */
-#homeButton:hover,
+#classesButton:hover,
 #lessonsButton:hover,
 #studioButton:hover,
-#songsButton:hover {
+#playButton:hover {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     /* Light transparent hover effect */
 }
 
 /* Label text transparency for the buttons */
-#homeButton Label,
+#classesButton Label,
 #lessonsButton Label,
 #studioButton Label,
-#songsButton Label {
+#playButton Label {
     -fx-text-fill: white;
     -fx-font-size: 12px;
+}
+
+#contentPane {
+
+    #classesButton:hover,
+    #lessonsButton:hover,
+    #studioButton:hover,
+    #playButton:hover {
+        -fx-background-color: rgba(255, 255, 255, 0.7);
+        /* Light transparent hover effect */
+    }
 }
