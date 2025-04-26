@@ -19,7 +19,7 @@
        <Pane>
            <ImageView fitHeight="626.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="false">
                <image>
-                   <Image url="@../../images/forestbackground.jpg" />
+                   <Image url="@../../images/backgroundcropped.png" />
                </image>
            </ImageView>
        </Pane>
