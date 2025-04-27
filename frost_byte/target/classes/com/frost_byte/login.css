@@ -4,18 +4,19 @@
 
 #loginButton {
     -fx-background-color: #403f3f
-    
 }
 
 #passButton {
     -fx-background-color: #bed8d7;
-    -fx-border-color: rgba(255, 255, 255, 0.4);;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    ;
     -fx-border-radius: 5px;
 }
 
 #regButton {
     -fx-background-color: #bed8d7;
-    -fx-border-color: rgba(255, 255, 255, 0.4);;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    ;
     -fx-border-radius: 5px;
 }
 

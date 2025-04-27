@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="388.0" prefWidth="391.0" stylesheets="@primary.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.PrimaryController">
@@ -128,7 +129,10 @@
                   </Button>
                </children>
             </Pane>
-            <Text fx:id="TEMP_TITLE" strokeType="OUTSIDE" strokeWidth="0.0" text="TEMPORARY" textAlignment="CENTER" wrappingWidth="185.33666229248047" />
+            <Text fx:id="TEMP_TITLE" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TEMPORARY" textAlignment="CENTER" wrappingWidth="185.33666229248047">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font></Text>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

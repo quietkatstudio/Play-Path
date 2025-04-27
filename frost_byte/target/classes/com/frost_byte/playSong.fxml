@@ -1,39 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="337.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.HomeController">
+<VBox xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.frost_byte.ProfileController"
+      alignment="CENTER" spacing="20.0">
+
    <children>
-      <ImageView fitHeight="599.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/grayedBackground.png" />
-         </image>
-      </ImageView>
-      <Pane prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="144.0" fitWidth="140.0" layoutX="113.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/foxTuba.PNG" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" layoutX="49.0" layoutY="278.0" prefHeight="17.0" prefWidth="240.0" text="Title" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="46.0" layoutY="319.0" prefHeight="17.0" prefWidth="240.0" text="Artist" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="137.0" layoutY="294.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="Button" visible="false" />
-         </children>
-      </Pane>
+      <Label text="This is the Lessons View" />
+      <Label text="You can add lessons info here." />
    </children>
-</StackPane>
+
+   <padding>
+      <Insets top="20" right="20" bottom="20" left="20"/>
+   </padding>
+
+</VBox>
