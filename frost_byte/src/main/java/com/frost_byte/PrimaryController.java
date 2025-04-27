@@ -23,7 +23,8 @@ import javafx.scene.text.Text;
 
 public class PrimaryController {
 
-    ArrayList screenHistory;
+    private ArrayList<String> screenHistory = new ArrayList<>();
+
     @FXML
     private StackPane contentPane;
 
@@ -40,6 +41,7 @@ public class PrimaryController {
         loadView("home.fxml");
         TEMP_TITLE.setText("Home");
         screenHistory.add("home.fxml");
+
     }
 
     @FXML
@@ -47,6 +49,7 @@ public class PrimaryController {
         loadView("profile.fxml");
         TEMP_TITLE.setText("Profile");
         screenHistory.add("profile.fxml");
+
     }
 
     @FXML
@@ -54,6 +57,7 @@ public class PrimaryController {
         loadView("musicStudio.fxml");
         TEMP_TITLE.setText("Music Studio");
         screenHistory.add("musicStudio.fxml");
+
     }
 
     @FXML
@@ -61,6 +65,7 @@ public class PrimaryController {
         loadView("lessons.fxml");
         TEMP_TITLE.setText("Lessons");
         screenHistory.add("lessons.fxml");
+
     }
 
     @FXML
@@ -68,6 +73,7 @@ public class PrimaryController {
         loadView("settings.fxml");
         TEMP_TITLE.setText("Settings");
         screenHistory.add("settings.fxml");
+
     }
 
     @FXML
@@ -77,6 +83,7 @@ public class PrimaryController {
         screenHistory.add("playlist.fxml");
     }
 
+    @FXML
     private void loadView(String fxmlFile) {
         try {
             Node view = FXMLLoader.load(getClass().getResource(fxmlFile));
@@ -85,4 +92,40 @@ public class PrimaryController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void printScreenHistory() {
+        for (String a : screenHistory) {
+            System.out.println(a);
+        }
+
+        if (screenHistory.size() > 1) {
+            // Get the second-to-last screen, not the last one.
+            String previousScreen = screenHistory.get(screenHistory.size() - 2);
+
+            // Load the previous screen.
+            loadView(previousScreen);
+
+            // Set the title based on the previous screen's FXML name.
+            if (previousScreen.equals("home.fxml")) {
+                TEMP_TITLE.setText("Home Screen");
+            } else if (previousScreen.equals("playlist.fxml")) {
+                TEMP_TITLE.setText("Playlist");
+            } else if (previousScreen.equals("musicStudio.fxml")) {
+                TEMP_TITLE.setText("Music Studio");
+            } else if (previousScreen.equals("playSong.fxml")) {
+                TEMP_TITLE.setText("Play Music");
+            } else if (previousScreen.equals("settings.fxml")) {
+                TEMP_TITLE.setText("Settings");
+            } else if (previousScreen.equals("lessons.fxml")) {
+                TEMP_TITLE.setText("Lessons");
+            } else {
+                TEMP_TITLE.setText("Unknown Screen"); // Default title if no match is found
+            }
+
+            // Remove the current screen from the history (we are going back).
+            screenHistory.remove(screenHistory.size() - 1);
+        }
+    }
+
 }

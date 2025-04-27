@@ -37,10 +37,13 @@
     -fx-border-color: white
 }
 
-#classesButton:hover,
-#lessonsButton:hover,
-#studioButton:hover,
-#playButton:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.7);
-    /* Light transparent hover effect */
+#contentPane {
+
+    #classesButton:hover,
+    #lessonsButton:hover,
+    #studioButton:hover,
+    #playButton:hover {
+        -fx-background-color: rgba(255, 255, 255, 0.7);
+        /* Light transparent hover effect */
+    }
 }
