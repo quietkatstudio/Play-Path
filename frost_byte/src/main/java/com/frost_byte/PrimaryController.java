@@ -13,15 +13,17 @@
 package com.frost_byte;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
-import javafx.scene.text.Text;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 public class PrimaryController {
 
+    ArrayList screenHistory;
     @FXML
     private StackPane contentPane;
 
@@ -37,36 +39,42 @@ public class PrimaryController {
 
         loadView("home.fxml");
         TEMP_TITLE.setText("Home");
+        screenHistory.add("home.fxml");
     }
 
     @FXML
     private void showProfile() {
         loadView("profile.fxml");
         TEMP_TITLE.setText("Profile");
+        screenHistory.add("profile.fxml");
     }
 
     @FXML
     private void showMusicStudio() {
         loadView("musicStudio.fxml");
         TEMP_TITLE.setText("Music Studio");
+        screenHistory.add("musicStudio.fxml");
     }
 
     @FXML
     public void showLessons() {
-        loadView("Lessons.fxml");
+        loadView("lessons.fxml");
         TEMP_TITLE.setText("Lessons");
+        screenHistory.add("lessons.fxml");
     }
 
     @FXML
     private void showSettings() {
-        loadView("Settings.fxml");
+        loadView("settings.fxml");
         TEMP_TITLE.setText("Settings");
+        screenHistory.add("settings.fxml");
     }
 
     @FXML
     private void showPlaylist() {
-        loadView("Playlist.fxml");
+        loadView("playlist.fxml");
         TEMP_TITLE.setText("Playlist");
+        screenHistory.add("playlist.fxml");
     }
 
     private void loadView(String fxmlFile) {
