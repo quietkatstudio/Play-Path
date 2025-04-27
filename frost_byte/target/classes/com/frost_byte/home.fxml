@@ -48,7 +48,7 @@
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Label fx:id="playsongTxt" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Play Song" textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="playsongTxt" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Playlist" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font></Label>

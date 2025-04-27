@@ -114,7 +114,7 @@ public class PrimaryController {
             } else if (previousScreen.equals("musicStudio.fxml")) {
                 TEMP_TITLE.setText("Music Studio");
             } else if (previousScreen.equals("playSong.fxml")) {
-                TEMP_TITLE.setText("Play Music");
+                TEMP_TITLE.setText("Playlist");
             } else if (previousScreen.equals("settings.fxml")) {
                 TEMP_TITLE.setText("Settings");
             } else if (previousScreen.equals("lessons.fxml")) {

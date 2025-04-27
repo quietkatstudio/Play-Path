@@ -97,7 +97,7 @@
                               </ImageView>
                            </children>
                         </HBox>
-                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="49.0" text="Songs" textAlignment="CENTER" textFill="WHITE" />
+                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="49.0" text="Playlist" textAlignment="CENTER" textFill="WHITE" />
                      </children>
                   </VBox>
                </graphic>
