@@ -2,7 +2,9 @@ package com.frost_byte;
 
 import java.io.IOException;
 
+import com.model.DataWriter;
 import com.model.Song;
+import com.model.UserList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,4 +86,14 @@ public class HomeController {
             e.printStackTrace();
         }
     }
+
+    public void handleLogout() {
+        try {
+            DataWriter.saveSongs(songList);
+            App.setRoot("primary");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
