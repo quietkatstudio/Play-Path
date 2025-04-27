@@ -24,7 +24,7 @@ public class PrimaryController {
     }
 
     // General method to show screens with dynamic titles
-    private void showScreen(String fxmlFile, String title) {
+    public void showScreen(String fxmlFile, String title) {
         loadView(fxmlFile);
         TEMP_TITLE.setText(title);
         screenHistory.add(fxmlFile);
@@ -36,12 +36,12 @@ public class PrimaryController {
     }
 
     @FXML
-    private void showProfile() {
+    public void showProfile() {
         showScreen("profile.fxml", "Profile");
     }
 
     @FXML
-    private void showMusicStudio() {
+    public void showMusicStudio() {
         showScreen("musicStudio.fxml", "Music Studio");
     }
 
@@ -51,40 +51,25 @@ public class PrimaryController {
     }
 
     @FXML
-    private void showSettings() {
+    public void showSettings() {
         showScreen("settings.fxml", "Settings");
     }
 
     @FXML
-    private void showPlaylist() {
+    public void showPlaylist() {
         showScreen("playlist.fxml", "Playlist");
     }
 
     @FXML
-    private void loadView(String fxmlFile) {
-        try {
-            Node view = FXMLLoader.load(getClass().getResource(fxmlFile));
-            contentPane.getChildren().setAll(view);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     private void printScreenHistory() {
-        for (String a : screenHistory) {
-            System.out.println(a);
-        }
-
         if (screenHistory.size() > 1) {
-            String previousScreen = screenHistory.get(screenHistory.size() - 2);
-            loadView(previousScreen);
+            screenHistory.remove(screenHistory.size() - 1); // Remove current
+            String previousScreen = screenHistory.get(screenHistory.size() - 1);
             setTitleFromScreen(previousScreen);
-            screenHistory.remove(screenHistory.size() - 1);
+            loadView(previousScreen);
         }
     }
 
-    // Set the title dynamically based on the screen
     private void setTitleFromScreen(String screen) {
         switch (screen) {
             case "home.fxml":
@@ -110,4 +95,22 @@ public class PrimaryController {
                 break;
         }
     }
+
+    private void loadView(String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Node view = loader.load();
+            contentPane.getChildren().setAll(view);
+
+            // If we loaded HomeController, link it
+            if (fxmlFile.equals("home.fxml")) {
+                HomeController homeController = loader.getController();
+                homeController.setPrimaryController(this);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
