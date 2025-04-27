@@ -1,6 +1,7 @@
 package com.frost_byte;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.model.DataWriter;
 import com.model.Song;
@@ -18,6 +19,12 @@ import javafx.stage.Stage;
 public class HomeController {
 
     private PrimaryController primaryController;
+
+    ArrayList<Song> songList = new ArrayList<>();
+
+    public void saveSongs(ArrayList<Song> songslist) {
+        this.songList = songslist;
+    }
 
     @FXML
     private StackPane contentPane;
@@ -88,6 +95,7 @@ public class HomeController {
     }
 
     public void handleLogout() {
+
         try {
             DataWriter.saveSongs(songList);
             App.setRoot("primary");
