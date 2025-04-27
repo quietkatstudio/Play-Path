@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="songPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.SongController">
+    <children>
+        <ImageView fx:id="songImageView" />
+        <Text fx:id="songTitleText" />
+        <Text fx:id="songAuthorText" />
+    </children>
+</Pane>
