@@ -1,15 +1,3 @@
-// package com.frost_byte;
-
-// import java.io.IOException;
-// import javafx.fxml.FXML;
-
-// public class PrimaryController {
-
-//     @FXML
-//     private void switchToSecondary() throws IOException {
-//         App.setRoot("secondary");
-//     }
-// }
 package com.frost_byte;
 
 import java.io.IOException;
@@ -32,55 +20,44 @@ public class PrimaryController {
     private Text TEMP_TITLE;
 
     public void initialize() {
-        showHome(); // Load home view on start
+        showScreen("home.fxml", "Home");
+    }
+
+    // General method to show screens with dynamic titles
+    private void showScreen(String fxmlFile, String title) {
+        loadView(fxmlFile);
+        TEMP_TITLE.setText(title);
+        screenHistory.add(fxmlFile);
     }
 
     @FXML
     private void showHome() {
-
-        loadView("home.fxml");
-        TEMP_TITLE.setText("Home");
-        screenHistory.add("home.fxml");
-
+        showScreen("home.fxml", "Home");
     }
 
     @FXML
     private void showProfile() {
-        loadView("profile.fxml");
-        TEMP_TITLE.setText("Profile");
-        screenHistory.add("profile.fxml");
-
+        showScreen("profile.fxml", "Profile");
     }
 
     @FXML
     private void showMusicStudio() {
-        loadView("musicStudio.fxml");
-        TEMP_TITLE.setText("Music Studio");
-        screenHistory.add("musicStudio.fxml");
-
+        showScreen("musicStudio.fxml", "Music Studio");
     }
 
     @FXML
     public void showLessons() {
-        loadView("lessons.fxml");
-        TEMP_TITLE.setText("Lessons");
-        screenHistory.add("lessons.fxml");
-
+        showScreen("lessons.fxml", "Lessons");
     }
 
     @FXML
     private void showSettings() {
-        loadView("settings.fxml");
-        TEMP_TITLE.setText("Settings");
-        screenHistory.add("settings.fxml");
-
+        showScreen("settings.fxml", "Settings");
     }
 
     @FXML
     private void showPlaylist() {
-        loadView("playlist.fxml");
-        TEMP_TITLE.setText("Playlist");
-        screenHistory.add("playlist.fxml");
+        showScreen("playlist.fxml", "Playlist");
     }
 
     @FXML
@@ -100,32 +77,37 @@ public class PrimaryController {
         }
 
         if (screenHistory.size() > 1) {
-            // Get the second-to-last screen, not the last one.
             String previousScreen = screenHistory.get(screenHistory.size() - 2);
-
-            // Load the previous screen.
             loadView(previousScreen);
-
-            // Set the title based on the previous screen's FXML name.
-            if (previousScreen.equals("home.fxml")) {
-                TEMP_TITLE.setText("Home Screen");
-            } else if (previousScreen.equals("playlist.fxml")) {
-                TEMP_TITLE.setText("Playlist");
-            } else if (previousScreen.equals("musicStudio.fxml")) {
-                TEMP_TITLE.setText("Music Studio");
-            } else if (previousScreen.equals("playSong.fxml")) {
-                TEMP_TITLE.setText("Playlist");
-            } else if (previousScreen.equals("settings.fxml")) {
-                TEMP_TITLE.setText("Settings");
-            } else if (previousScreen.equals("lessons.fxml")) {
-                TEMP_TITLE.setText("Lessons");
-            } else {
-                TEMP_TITLE.setText("Unknown Screen"); // Default title if no match is found
-            }
-
-            // Remove the current screen from the history (we are going back).
+            setTitleFromScreen(previousScreen);
             screenHistory.remove(screenHistory.size() - 1);
         }
     }
 
+    // Set the title dynamically based on the screen
+    private void setTitleFromScreen(String screen) {
+        switch (screen) {
+            case "home.fxml":
+                TEMP_TITLE.setText("Home");
+                break;
+            case "playlist.fxml":
+                TEMP_TITLE.setText("Playlist");
+                break;
+            case "musicStudio.fxml":
+                TEMP_TITLE.setText("Music Studio");
+                break;
+            case "playSong.fxml":
+                TEMP_TITLE.setText("Playlist");
+                break;
+            case "settings.fxml":
+                TEMP_TITLE.setText("Settings");
+                break;
+            case "lessons.fxml":
+                TEMP_TITLE.setText("Lessons");
+                break;
+            default:
+                TEMP_TITLE.setText("Unknown Screen");
+                break;
+        }
+    }
 }

@@ -17,6 +17,8 @@ public class PlaylistController {
     @FXML
     private TextField songSearch;
 
+    private ArrayList<Song> songs = new ArrayList<>();
+
     public void loadSongs() {
 
         ArrayList<Song> songArrayList = DataLoader.getSongs();
@@ -24,6 +26,10 @@ public class PlaylistController {
             songList.getItems().add(song);
         }
 
+    }
+
+    public void initialize() {
+        songs = DataLoader.getSongs();
     }
 
     @FXML
