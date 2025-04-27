@@ -152,7 +152,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Separator opacity="0.0" prefHeight="34.0" prefWidth="74.0" />
-                  <Button fx:id="logoutButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="202.0" stylesheets="@home.css" text="Log out" textFill="WHITE">
+                  <Button fx:id="logoutButton" onAction = "#handleLogout" mnemonicParsing="false" prefHeight="42.0" prefWidth="202.0" stylesheets="@home.css" text="Log out" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Button>

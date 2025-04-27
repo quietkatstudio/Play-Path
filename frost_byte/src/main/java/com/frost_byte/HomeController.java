@@ -1,7 +1,9 @@
 package com.frost_byte;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import com.model.DataWriter;
 import com.model.Song;
 
 import javafx.fxml.FXML;
@@ -37,6 +39,12 @@ public class HomeController {
 
     @FXML
     private Button studioButton;
+
+    ArrayList<Song> songList = new ArrayList<>();
+
+    public void saveSongs(ArrayList<Song> songslist) {
+        this.songList = songslist;
+    }
 
     public void setPrimaryController(PrimaryController controller) {
         this.primaryController = controller;
@@ -80,6 +88,16 @@ public class HomeController {
             Stage stage = (Stage) songButton.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleLogout() {
+
+        try {
+            DataWriter.saveSongs(songList);
+            App.setRoot("login");
         } catch (IOException e) {
             e.printStackTrace();
         }
