@@ -12,7 +12,11 @@ import com.model.Song;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import java.util.ArrayList;
+
 import javafx.scene.control.Label;
 import java.util.ArrayList;
 
@@ -24,11 +28,17 @@ public class HomeController {
 
     private ArrayList<String> screenHistory = new ArrayList<>();
 
+    private ArrayList<String> screenHistory = new ArrayList<>();
+
     @FXML
     private StackPane contentPane;
 
     @FXML
     private Text TEMP_TITLE;
+
+    public void setPrimaryController(PrimaryController controller) {
+        this.primaryController = controller;
+    }
 
     @FXML
     private Button classesButton;
@@ -67,6 +77,10 @@ public class HomeController {
         TEMP_TITLE.setText("Music Studio");
         screenHistory.add("musicStudio.fxml");
 
+        loadView("musicStudio.fxml");
+        TEMP_TITLE.setText("Music Studio");
+        screenHistory.add("musicStudio.fxml");
+
     }
 
     @FXML
@@ -75,10 +89,17 @@ public class HomeController {
         TEMP_TITLE.setText("Lessons");
         screenHistory.add("lessons.fxml");
 
+        loadView("lessons.fxml");
+        TEMP_TITLE.setText("Lessons");
+        screenHistory.add("lessons.fxml");
+
     }
 
     @FXML
     private void showPlaylist() {
+        loadView("playlist.fxml");
+        TEMP_TITLE.setText("Playlist");
+        screenHistory.add("playlist.fxml");
         loadView("playlist.fxml");
         TEMP_TITLE.setText("Playlist");
         screenHistory.add("playlist.fxml");
