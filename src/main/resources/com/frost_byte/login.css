@@ -1,0 +1,49 @@
+#StackPane {
+    -fx-background-color: #bed8d7
+}
+
+#loginButton {
+    -fx-background-color: #403f3f
+}
+
+#passButton {
+    -fx-background-color: #bed8d7;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    ;
+    -fx-border-radius: 5px;
+}
+
+#regButton {
+    -fx-background-color: #bed8d7;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    ;
+    -fx-border-radius: 5px;
+}
+
+.text-field,
+.password-field {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    /* Grey-black with transparency */
+    -fx-background-radius: 5px;
+    /* Rounded corners */
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    /* Subtle white border */
+    -fx-border-radius: 5px;
+    /* Rounded corners for border */
+    -fx-text-fill: white;
+    /* White text color */
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.7);
+    /* Lighter white for placeholder text */
+    -fx-font-size: 14px;
+    /* Font size */
+    -fx-padding: 5px 10px;
+    /* Padding inside text field */
+}
+
+.text-field:focused,
+.password-field:focused {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    /* Slightly darker when focused */
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+    /* Brighter border on focus */
+}
