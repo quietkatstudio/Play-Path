@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Pane?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.controller.SongController" spacing="10" alignment="center">
-    <!-- Song title label -->
-    <Label fx:id="songTitleLabel" text="Song Title" />
-    
-    <!-- Artist label -->
-    <Label fx:id="artistLabel" text="Artist" />
-    
-    <!-- Genre label -->
-    <Label fx:id="genreLabel" text="Genre" />
-    
-    <!-- Duration label -->
-    <Label fx:id="durationLabel" text="Duration" />
-    
-    <!-- Tempo label -->
-    <Label fx:id="tempoLabel" text="Tempo" />
-    
-    <!-- Play button -->
-    <Button fx:id="playButton" text="Play" />
-</VBox>
+<Pane fx:id="songPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.SongController">
+    <children>
+        <ImageView fx:id="songImageView" />
+        <Text fx:id="songTitleText" />
+        <Text fx:id="songAuthorText" />
+    </children>
+</Pane>

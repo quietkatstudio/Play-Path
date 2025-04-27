@@ -1,47 +1,69 @@
 package com.frost_byte;
 
 import com.model.Song;
-import com.model.SongList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import java.util.ArrayList;
+import com.model.Song;
 
-public class SongController {
+public class SongController extends ListCell<Song> {
 
     @FXML
-    private Label songTitleLabel;
-    @FXML
-    private Label artistLabel;
-    @FXML
-    private Label genreLabel;
-    @FXML
-    private Label durationLabel;
-    @FXML
-    private Label tempoLabel;
-    @FXML
-    private Button playButton;
+    private ImageView songImageView; // For displaying the song image
 
-    private Song currentSong;
+    @FXML
+    private Text songTitleText; // For displaying the song title
 
-    // Method to initialize song details
-    public void setSong(Song song) {
-        currentSong = song; // Store the current song
+    @FXML
+    private Text songAuthorText; // For displaying the song author
 
-        // Set song details to labels
-        songTitleLabel.setText(song.getTitle());
-        artistLabel.setText(song.getArtist());
-        genreLabel.setText(song.getGenre());
-        durationLabel.setText(song.getDuration());
-        tempoLabel.setText(song.getTempo());
+    // A list of album art locations, ideally should come from a service or database
+    private ArrayList<String> albumArtList;
 
-        // Set action for play button
-        playButton.setOnAction(event -> playSong());
+    public Song selectedSong;
+
+    @FXML
+    public void initialize() {
+        // Optionally load albumArtList if needed, or pass it from controller
     }
 
-    // Method to play the song
-    private void playSong() {
-        if (currentSong != null) {
-            SongList.getInstance().playSong(currentSong); // Play the selected song using SongList
+    public void setSong(Song selectedSong) {
+        this.selectedSong = selectedSong;
+    }
+
+    @Override
+    protected void updateItem(Song song, boolean empty) {
+        super.updateItem(song, empty);
+
+        if (empty || song == null) {
+            setGraphic(null); // Don't display anything if the item is empty
+        } else {
+            Pane pane = new Pane(); // Or use VBox/HBox depending on layout
+            // Load the song details into the pane
+
+            // Set the image for the song (you can adjust this logic)
+            for (String s : albumArtList) {
+                if (song.getTitle().equals(s)) {
+                    Image image = new Image(s); // Set the image path
+                    songImageView.setImage(image);
+                    break;
+                }
+            }
+
+            // Set the song title and author
+            songTitleText.setText(song.getTitle());
+            songAuthorText.setText(song.getArtist());
+
+            // Add to the pane (or use any other container like VBox or HBox)
+            pane.getChildren().add(songImageView);
+            pane.getChildren().add(songTitleText);
+            pane.getChildren().add(songAuthorText);
+
+            setGraphic(pane);
         }
     }
 }

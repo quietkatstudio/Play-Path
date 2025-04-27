@@ -16,7 +16,6 @@ import javafx.scene.control.Alert.AlertType;
 public class LoginController {
 
     private PrimaryController primary;
-
     @FXML
     private TextField usernameText;
     @FXML

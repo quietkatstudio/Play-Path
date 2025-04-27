@@ -1,21 +1,28 @@
 package com.frost_byte;
 
+import javafx.scene.Scene;
 import java.io.IOException;
+import java.util.ArrayList;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
 
+import com.model.DataWriter;
 import com.model.Song;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import java.util.ArrayList;
+
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class HomeController {
-
     private PrimaryController primaryController;
+
+    private ArrayList<String> screenHistory = new ArrayList<>();
 
     @FXML
     private StackPane contentPane;
@@ -38,50 +45,93 @@ public class HomeController {
     @FXML
     private Button studioButton;
 
+    ArrayList<Song> songList = new ArrayList<>();
+
+    public void saveSongs(ArrayList<Song> songslist) {
+        this.songList = songslist;
+    }
+
     public void setPrimaryController(PrimaryController controller) {
         this.primaryController = controller;
     }
 
+    private Song selectedSong;
+
+    public void setSelectedSong(Song song) {
+        this.selectedSong = song;
+    }
+
     @FXML
     private void showMusicStudio() {
-        if (primaryController != null)
-            primaryController.showMusicStudio();
+        loadView("musicStudio.fxml");
+        TEMP_TITLE.setText("Music Studio");
+        screenHistory.add("musicStudio.fxml");
+
     }
 
     @FXML
     public void showLessons() {
-        if (primaryController != null)
-            primaryController.showLessons();
+        loadView("lessons.fxml");
+        TEMP_TITLE.setText("Lessons");
+        screenHistory.add("lessons.fxml");
+
     }
 
     @FXML
     private void showPlaylist() {
-        if (primaryController != null)
-            primaryController.showPlaylist();
+        loadView("playlist.fxml");
+        TEMP_TITLE.setText("Playlist");
+        screenHistory.add("playlist.fxml");
     }
 
     @FXML
     private void showClasses() {
-        if (primaryController != null)
-            primaryController.showClasses(); // or show specific class screen
+        loadView("classes.fxml");
+        TEMP_TITLE.setText("Classes");
+        screenHistory.add("classes.fxml");
     }
 
-    public void openSongPage(Song selectedSong) {
+    @FXML
+    private Label playsongTxt;
+
+    @FXML
+    private Label playsongTxt1;
+
+    @FXML
+    private Label playsongTxt11;
+
+    @FXML
+    private Label playsongTxt12;
+
+    @FXML
+    private void loadView(String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/song.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/" + fxmlFile));
             Parent root = loader.load();
 
-            // Pass the selected song to the SongController
-            SongController controller = loader.getController();
-            controller.setSong(selectedSong);
+            if (fxmlFile.equals("song.fxml")) {
+                SongController controller = loader.getController();
+                controller.setSong(selectedSong);
+            }
 
             // Update the scene
             Scene scene = new Scene(root);
-            Stage stage = (Stage) songButton.getScene().getWindow();
+            Stage stage = (Stage) contentPane.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void handleLogout() {
+        try {
+            DataWriter.saveSongs(songList);
+            App.setRoot("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
