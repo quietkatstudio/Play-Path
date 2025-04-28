@@ -40,6 +40,7 @@ public class PlaySongController {
     public void initialize() {
         System.out.println("PlaySongController loaded!");
         playButton.setOnAction(event -> {
+            System.out.println("HERE IS OUR TEMPO! " + currentSong.getTempo());
             playSong(currentSong);
             startTubaAnimation();
         });
@@ -57,6 +58,7 @@ public class PlaySongController {
         if (song != null) {
             System.out.println("Trying to play song: " + song.getTitle());
             Thread musicThread = new Thread(() -> {
+                currentSong.setTempo(currentSong.getTempo());
                 SongList.getInstance().playSong(song);
             });
             musicThread.start();

@@ -19,24 +19,36 @@ public class SettingsController {
     private PrimaryController primary;
 
     // --- Change Username Fields ---
-    @FXML private TextField oldUsernameField1;
-    @FXML private PasswordField oldPasswordField1;
-    @FXML private TextField newUsernameField;
+    @FXML
+    private TextField oldUsernameField1;
+    @FXML
+    private PasswordField oldPasswordField1;
+    @FXML
+    private TextField newUsernameField;
 
     // --- Change Password Fields ---
-    @FXML private TextField usernameField2;
-    @FXML private PasswordField oldPasswordField2;
-    @FXML private PasswordField newPasswordField;
+    @FXML
+    private TextField usernameField2;
+    @FXML
+    private PasswordField oldPasswordField2;
+    @FXML
+    private PasswordField newPasswordField;
 
     // --- Delete Account Fields ---
-    @FXML private TextField usernameField3;
-    @FXML private PasswordField passwordField3;
+    @FXML
+    private TextField usernameField3;
+    @FXML
+    private PasswordField passwordField3;
 
     // --- Buttons ---
-    @FXML private Button changeUsernameButton;
-    @FXML private Button changePasswordButton;
-    @FXML private Button deleteAccountButton;
-    @FXML private Button backButton;
+    @FXML
+    private Button changeUsernameButton;
+    @FXML
+    private Button changePasswordButton;
+    @FXML
+    private Button deleteAccountButton;
+    @FXML
+    private Button backButton;
 
     /** Let PrimaryController inject itself so we can navigate back home */
     public void setPrimaryController(PrimaryController controller) {
@@ -68,20 +80,22 @@ public class SettingsController {
         // remove old and add new with same ID & data
         ul.getUsers().remove(oldUser);
         User newUser = new User(
-            oldUser.getID(),
-            newU,
-            oldUser.getFirstName(),
-            oldUser.getLastName(),
-            oldUser.getEmail(),
-            oldUser.getPassword(),
-            oldUser.getIsTeacher()
-        );
+                oldUser.getID(),
+                newU,
+                oldUser.getFirstName(),
+                oldUser.getLastName(),
+                oldUser.getEmail(),
+                oldUser.getPassword(),
+                oldUser.getIsTeacher());
         ul.getUsers().add(newUser);
         ul.saveUsers();
         alertInfo("Username changed to “" + newU + "”.\nPlease login again.");
         // go back to login screen
-        try { App.setRoot("login"); }
-        catch (IOException e) { e.printStackTrace(); }
+        try {
+            App.setRoot("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /** Handle “Change Password” */
@@ -99,19 +113,21 @@ public class SettingsController {
         User user = ul.getUser(u);
         ul.getUsers().remove(user);
         User newUser = new User(
-            user.getID(),
-            user.getUserName(),
-            user.getFirstName(),
-            user.getLastName(),
-            user.getEmail(),
-            newP,
-            user.getIsTeacher()
-        );
+                user.getID(),
+                user.getUserName(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                newP,
+                user.getIsTeacher());
         ul.getUsers().add(newUser);
         ul.saveUsers();
         alertInfo("Password changed for user “" + u + "”.\nPlease login again.");
-        try { App.setRoot("login"); }
-        catch (IOException e) { e.printStackTrace(); }
+        try {
+            App.setRoot("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /** Handle “Delete Account” */
@@ -129,14 +145,18 @@ public class SettingsController {
         ul.getUsers().remove(user);
         ul.saveUsers();
         alertInfo("Account “" + u + "” deleted.");
-        try { App.setRoot("login"); }
-        catch (IOException e) { e.printStackTrace(); }
+        try {
+            App.setRoot("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /** Back to Home */
     @FXML
     private void handleBack(ActionEvent ev) {
-        if (primary != null) primary.showHome();
+        if (primary != null)
+            primary.showHome();
     }
 
     /** Helpers to show alerts */
