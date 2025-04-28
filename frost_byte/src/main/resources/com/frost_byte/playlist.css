@@ -1,0 +1,14 @@
+#myListView {
+    -fx-background-color: rgba(0, 0, 0, 0.767);
+}
+
+
+.list-cell {
+    -fx-background-color: rgba(0, 0, 0, 0.767);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+#searchButton {
+    -fx-background-color: rgba(0, 0, 0, 0.66);
+}

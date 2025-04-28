@@ -1,0 +1,13 @@
+#stackpaneLabels {
+    -fx-background-color: rgba(0, 0, 0, 0.767);
+}
+
+#playButton {
+    -fx-background-color: rgba(0, 0, 0, 0.767);
+}
+
+#songTitle {
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-content-display: center;
+}

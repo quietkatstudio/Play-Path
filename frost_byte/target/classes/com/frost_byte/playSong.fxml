@@ -5,15 +5,46 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.PlaySongController">
+<VBox alignment="CENTER" prefHeight="419.0" prefWidth="256.0" spacing="20.0" stylesheets="@playsong.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.PlaySongController">
 
    <children>
-      <Label fx:id="songTitle" text="Song Title" />
-      <Label fx:id="songArtist" text="Artist" />
-      <Button fx:id="playButton" mnemonicParsing="false" text="Play" />
-      <ImageView fx:id="tubaImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+      <StackPane fx:id="stackpaneLabels" prefHeight="150.0" prefWidth="200.0" stylesheets="@playsong.css">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="216.0">
+               <children>
+                  <ImageView fitHeight="90.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/foxTuba.PNG" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="songTitle" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="220.0" stylesheets="@playsong.css" text="Song Title" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="songArtist" alignment="TOP_CENTER" contentDisplay="CENTER" text="Artist" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+      <Button fx:id="playButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="58.0" stylesheets="@playsong.css" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/playbutton.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fx:id="tubaImage" fitHeight="212.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/001.PNG" />
          </image>
