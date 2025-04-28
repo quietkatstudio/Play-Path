@@ -97,7 +97,7 @@ public class HomeController {
 
             // Update the scene
             Scene scene = new Scene(root);
-            Stage stage = (Stage) songButton.getScene().getWindow();
+            Stage stage = (Stage) contentPane.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
