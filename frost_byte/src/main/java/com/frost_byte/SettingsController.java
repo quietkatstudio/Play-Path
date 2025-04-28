@@ -1,14 +1,16 @@
 package com.frost_byte;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Properties;
+
+import com.model.DataWriter;
+import com.model.User;
+import com.model.UserList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
@@ -16,84 +18,141 @@ public class SettingsController {
 
     private PrimaryController primary;
 
-    @FXML private TextField titleField;
-    @FXML private TextField versionField;
-    @FXML private TextField userFileField;
-    @FXML private TextField songFileField;
-    @FXML private TextField lessonFileField;
+    // --- Change Username Fields ---
+    @FXML private TextField oldUsernameField1;
+    @FXML private PasswordField oldPasswordField1;
+    @FXML private TextField newUsernameField;
 
-    @FXML private Button saveButton;
-    @FXML private Button cancelButton;
+    // --- Change Password Fields ---
+    @FXML private TextField usernameField2;
+    @FXML private PasswordField oldPasswordField2;
+    @FXML private PasswordField newPasswordField;
 
-    private final Properties props = new Properties();
-    private static final String PROPERTIES_FILE = "frost_byte/src/main/java/com/model/app.properties";
+    // --- Delete Account Fields ---
+    @FXML private TextField usernameField3;
+    @FXML private PasswordField passwordField3;
 
-    /** Called by FXMLLoader after fields are injected */
-    @FXML
-    private void initialize() {
-        loadProperties();
-    }
+    // --- Buttons ---
+    @FXML private Button changeUsernameButton;
+    @FXML private Button changePasswordButton;
+    @FXML private Button deleteAccountButton;
+    @FXML private Button backButton;
 
-    /** Let PrimaryController inject itself so we can navigate back */
+    /** Let PrimaryController inject itself so we can navigate back home */
     public void setPrimaryController(PrimaryController controller) {
         this.primary = controller;
     }
 
     @FXML
-    private void handleSave(ActionEvent event) {
-        // Update properties from fields
-        props.setProperty("app.title", titleField.getText());
-        props.setProperty("app.version", versionField.getText());
-        props.setProperty("user.file", userFileField.getText());
-        props.setProperty("song.file", songFileField.getText());
-        props.setProperty("lesson.file", lessonFileField.getText());
-
-        // Persist
-        try (FileOutputStream out = new FileOutputStream(PROPERTIES_FILE)) {
-            props.store(out, "Application Settings");
-            Alert ok = new Alert(AlertType.INFORMATION);
-            ok.setTitle("Settings Saved");
-            ok.setHeaderText(null);
-            ok.setContentText("Your settings have been saved.");
-            ok.showAndWait();
-            // Navigate back home
-            if (primary != null) primary.showHome();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert err = new Alert(AlertType.ERROR);
-            err.setTitle("Save Failed");
-            err.setHeaderText("Could not write settings file.");
-            err.setContentText(e.getMessage());
-            err.showAndWait();
-        }
+    private void initialize() {
+        // nothing to preload
     }
 
+    /** Handle “Change Username” */
     @FXML
-    private void handleCancel(ActionEvent event) {
-        // Simply go back—discard any changes
+    private void handleChangeUsername(ActionEvent ev) {
+        String oldU = oldUsernameField1.getText().trim();
+        String oldP = oldPasswordField1.getText().trim();
+        String newU = newUsernameField.getText().trim();
+        UserList ul = UserList.getInstance();
+
+        if (!ul.login(oldU, oldP)) {
+            alertError("Incorrect credentials for user “" + oldU + "”.");
+            return;
+        }
+        if (ul.getUser(newU) != null) {
+            alertError("Username “" + newU + "” is already taken.");
+            return;
+        }
+        User oldUser = ul.getUser(oldU);
+        // remove old and add new with same ID & data
+        ul.getUsers().remove(oldUser);
+        User newUser = new User(
+            oldUser.getID(),
+            newU,
+            oldUser.getFirstName(),
+            oldUser.getLastName(),
+            oldUser.getEmail(),
+            oldUser.getPassword(),
+            oldUser.getIsTeacher()
+        );
+        ul.getUsers().add(newUser);
+        ul.saveUsers();
+        alertInfo("Username changed to “" + newU + "”.\nPlease login again.");
+        // go back to login screen
+        try { App.setRoot("login"); }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    /** Handle “Change Password” */
+    @FXML
+    private void handleChangePassword(ActionEvent ev) {
+        String u = usernameField2.getText().trim();
+        String oldP = oldPasswordField2.getText().trim();
+        String newP = newPasswordField.getText().trim();
+        UserList ul = UserList.getInstance();
+
+        if (!ul.login(u, oldP)) {
+            alertError("Incorrect credentials for user “" + u + "”.");
+            return;
+        }
+        User user = ul.getUser(u);
+        ul.getUsers().remove(user);
+        User newUser = new User(
+            user.getID(),
+            user.getUserName(),
+            user.getFirstName(),
+            user.getLastName(),
+            user.getEmail(),
+            newP,
+            user.getIsTeacher()
+        );
+        ul.getUsers().add(newUser);
+        ul.saveUsers();
+        alertInfo("Password changed for user “" + u + "”.\nPlease login again.");
+        try { App.setRoot("login"); }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    /** Handle “Delete Account” */
+    @FXML
+    private void handleDeleteAccount(ActionEvent ev) {
+        String u = usernameField3.getText().trim();
+        String p = passwordField3.getText().trim();
+        UserList ul = UserList.getInstance();
+
+        if (!ul.login(u, p)) {
+            alertError("Incorrect credentials for user “" + u + "”.");
+            return;
+        }
+        User user = ul.getUser(u);
+        ul.getUsers().remove(user);
+        ul.saveUsers();
+        alertInfo("Account “" + u + "” deleted.");
+        try { App.setRoot("login"); }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    /** Back to Home */
+    @FXML
+    private void handleBack(ActionEvent ev) {
         if (primary != null) primary.showHome();
     }
 
-    private void loadProperties() {
-        try (FileInputStream in = new FileInputStream(PROPERTIES_FILE)) {
-            props.load(in);
-        } catch (IOException e) {
-            // no file? fallback to defaults
-            setDefaultProperties();
-        }
-        // Populate fields
-        titleField.setText(props.getProperty("app.title", ""));
-        versionField.setText(props.getProperty("app.version", ""));
-        userFileField.setText(props.getProperty("user.file", ""));
-        songFileField.setText(props.getProperty("song.file", ""));
-        lessonFileField.setText(props.getProperty("lesson.file", ""));
+    /** Helpers to show alerts */
+    private void alertError(String msg) {
+        Alert a = new Alert(AlertType.ERROR);
+        a.setTitle("Error");
+        a.setHeaderText(null);
+        a.setContentText(msg);
+        a.showAndWait();
     }
 
-    private void setDefaultProperties() {
-        props.setProperty("app.title", "Frost Byte Music App");
-        props.setProperty("app.version", "1.0");
-        props.setProperty("user.file", "json/users.json");
-        props.setProperty("song.file", "json/songs.json");
-        props.setProperty("lesson.file", "json/lessons.json");
+    private void alertInfo(String msg) {
+        Alert a = new Alert(AlertType.INFORMATION);
+        a.setTitle("Success");
+        a.setHeaderText(null);
+        a.setContentText(msg);
+        a.showAndWait();
     }
 }
