@@ -65,19 +65,19 @@ public class PrimaryController {
 
     @FXML
     public void showSongPlayer(Song selectedSong) {
-        //showScreen("playSong.fxml", "PlaySong");
+        // showScreen("playSong.fxml", "PlaySong");
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/playSong.fxml"));
-        Parent view = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/playSong.fxml"));
+            Parent view = loader.load();
 
-        // Get the controller for PlaySong
-        PlaySongController controller = loader.getController();
-        controller.setSong(selectedSong); // <- pass the selected song
+            // Get the controller for PlaySong
+            PlaySongController controller = loader.getController();
+            controller.setSong(selectedSong); // <- pass the selected song
 
-        contentPane.getChildren().setAll(view);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+            contentPane.getChildren().setAll(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -134,15 +134,11 @@ public class PrimaryController {
                 playlistController.setPrimaryController(this);
             }
 
-
             // If we loaded SettingsController, link it too
             if (fxmlFile.equals("settings.fxml")) {
                 SettingsController settingsController = loader.getController();
                 settingsController.setPrimaryController(this);
             }
-
-
-            
 
         } catch (IOException e) {
             e.printStackTrace();

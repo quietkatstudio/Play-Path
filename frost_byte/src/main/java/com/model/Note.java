@@ -199,4 +199,28 @@ public class Note {
         this.dot = ((Long) noteJSON.get("dot")).intValue();
         this.octave = ((Long) noteJSON.get("octave")).intValue();
     }
+
+    public double getDuration() {
+        switch (length) {
+            case "w":
+                return 4.0;
+            case "h":
+                return 2.0;
+            case "q":
+                return 1.0;
+            case "i":
+                return 0.5;
+            case "s":
+                return 0.25;
+            default:
+                return 1.0; // fallback
+        }
+    }
+
+    public double getDurationInSeconds(int bpm) {
+        double beats = getDuration(); // your existing beats (like 1.0 for quarter)
+        double secondsPerBeat = 60.0 / bpm;
+        return beats * secondsPerBeat;
+    }
+
 }

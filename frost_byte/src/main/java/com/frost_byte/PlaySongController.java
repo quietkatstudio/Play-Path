@@ -70,7 +70,6 @@ public class PlaySongController {
 
         List<Note> allNotes = new ArrayList<>();
 
-        // Collect all notes from all measures
         if (currentSong != null && currentSong.getMeasureList() != null) {
             for (Measure measure : currentSong.getMeasureList()) {
                 allNotes.addAll(measure.getNoteList());
@@ -79,15 +78,22 @@ public class PlaySongController {
 
         animationTimeline = new Timeline();
 
-        for (int i = 0; i < allNotes.size(); i++) {
-            final int noteIndex = i;
+        double cumulativeTime = 0.0; // in seconds
+
+        for (Note note : allNotes) {
+            final Note currentNote = note;
+
             animationTimeline.getKeyFrames().add(
-                    new KeyFrame(Duration.seconds(i),
+                    new KeyFrame(Duration.seconds(cumulativeTime),
                             event -> {
-                                Note currentNote = allNotes.get(noteIndex);
                                 System.out.println("Current note: " + currentNote.getPitch() + currentNote.getOctave());
                                 updateTubaImageBasedOnNote(currentNote);
                             }));
+
+            // Update cumulativeTime based on the note's duration
+            // Assuming your Note class has a getDuration() method returning a double in
+            // seconds
+            cumulativeTime += note.getDurationInSeconds(Integer.parseInt(currentSong.getTempo()));
         }
 
         animationTimeline.setCycleCount(1);
@@ -107,254 +113,207 @@ public class PlaySongController {
     }
 
     /**
-     * Maps a note to its tuba binary valve combination (e.g., 010, 101, etc.)
+     * Maps a Note to a binary filename based on its pitch, accidental, and octave.
      */
     private String mapNoteToBinaryFilename(Note note) {
-        // Retrieve the pitch and octave of the note
         Pitches pitch = note.getPitch();
         int octave = note.getOctave();
         String accidental = note.getAccidental();
-        if (accidental.equals("B")) {
-            if (pitch == Pitches.C) {
-                if (octave == 1)
-                    return "000"; // Cb1
-                if (octave == 2)
-                    return "000"; // Cb2
-                if (octave == 3)
-                    return "000"; // Cb3
-                if (octave == 4)
-                    return "000"; // Cb4
-                if (octave == 5)
-                    return "010"; // Cb5
-            } else if (pitch == Pitches.D) {
-                if (octave == 1)
-                    return "010"; // Db1
-                if (octave == 2)
-                    return "010"; // Db2
-                if (octave == 3)
-                    return "010"; // Db3
-                if (octave == 4)
-                    return "010"; // Db4
-                if (octave == 5)
-                    return "010"; // Db5
-            } else if (pitch == Pitches.E) {
-                if (octave == 1)
-                    return "000"; // Eb1
-                if (octave == 2)
-                    return "000"; // Eb2
-                if (octave == 3)
-                    return "000"; // Eb3
-                if (octave == 4)
-                    return "000"; // Eb4
-                if (octave == 5)
-                    return "000"; // Eb5
-            } else if (pitch == Pitches.F) {
-                if (octave == 1)
-                    return "001"; // Fb1
-                if (octave == 2)
-                    return "001"; // Fb2
-                if (octave == 3)
-                    return "001"; // Fb3
-                if (octave == 4)
-                    return "001"; // Fb4
-                if (octave == 5)
-                    return "001"; // Fb5
-            } else if (pitch == Pitches.G) {
-                if (octave == 1)
-                    return "001"; // Gb1
-                if (octave == 2)
-                    return "001"; // Gb2
-                if (octave == 3)
-                    return "001"; // Gb3
-                if (octave == 4)
-                    return "001"; // Gb4
-                if (octave == 5)
-                    return "001"; // Gb5
-            } else if (pitch == Pitches.A) {
-                if (octave == 1)
-                    return "000"; // Ab1
-                if (octave == 2)
-                    return "000"; // Ab2
-                if (octave == 3)
-                    return "000"; // Ab3
-                if (octave == 4)
-                    return "000"; // Ab4
-                if (octave == 5)
-                    return "000"; // Ab5
-            } else if (pitch == Pitches.B) {
-                if (octave == 1)
-                    return "001"; // Bb1
-                if (octave == 2)
-                    return "001"; // Bb2
-                if (octave == 3)
-                    return "001"; // Bb3
-                if (octave == 4)
-                    return "001"; // Bb4
-                if (octave == 5)
-                    return "001"; // Bb5
-            }
-        }
-        if (accidental.equals("#")) {
-            if (pitch == Pitches.C) {
-                if (octave == 1)
-                    return "010"; // Cb1
-                if (octave == 2)
-                    return "010"; // Cb2
-                if (octave == 3)
-                    return "010"; // Cb3
-                if (octave == 4)
-                    return "000"; // Cb4
-                if (octave == 5)
-                    return "010"; // Cb5
-            } else if (pitch == Pitches.D) {
-                if (octave == 1)
-                    return "010"; // Db1
-                if (octave == 2)
-                    return "010"; // Db2
-                if (octave == 3)
-                    return "010"; // Db3
-                if (octave == 4)
-                    return "010"; // Db4
-                if (octave == 5)
-                    return "010"; // Db5
-            } else if (pitch == Pitches.E) {
-                if (octave == 1)
-                    return "000"; // Eb1
-                if (octave == 2)
-                    return "000"; // Eb2
-                if (octave == 3)
-                    return "000"; // Eb3
-                if (octave == 4)
-                    return "000"; // Eb4
-                if (octave == 5)
-                    return "000"; // Eb5
-            } else if (pitch == Pitches.F) {
-                if (octave == 1)
-                    return "001"; // Fb1
-                if (octave == 2)
-                    return "001"; // Fb2
-                if (octave == 3)
-                    return "001"; // Fb3
-                if (octave == 4)
-                    return "001"; // Fb4
-                if (octave == 5)
-                    return "001"; // Fb5
-            } else if (pitch == Pitches.G) {
-                if (octave == 1)
-                    return "001"; // Gb1
-                if (octave == 2)
-                    return "001"; // Gb2
-                if (octave == 3)
-                    return "001"; // Gb3
-                if (octave == 4)
-                    return "001"; // Gb4
-                if (octave == 5)
-                    return "001"; // Gb5
-            } else if (pitch == Pitches.A) {
-                if (octave == 1)
-                    return "000"; // Ab1
-                if (octave == 2)
-                    return "000"; // Ab2
-                if (octave == 3)
-                    return "000"; // Ab3
-                if (octave == 4)
-                    return "000"; // Ab4
-                if (octave == 5)
-                    return "000"; // Ab5
-            } else if (pitch == Pitches.B) {
-                if (octave == 1)
-                    return "001"; // Bb1
-                if (octave == 2)
-                    return "001"; // Bb2
-                if (octave == 3)
-                    return "001"; // Bb3
-                if (octave == 4)
-                    return "001"; // Bb4
-                if (octave == 5)
-                    return "001"; // Bb5
-            }
+
+        // Using switch-case to handle flats, sharps, and naturals for each pitch and
+        // octave
+        switch (accidental) {
+            case "B": // Flat notes
+                switch (pitch) {
+                    case C:
+                        if (octave == 2)
+                            return "111";
+                        else if (octave == 3)
+                            return "110";
+                        else if (octave == 4)
+                            return "110";
+                        break;
+                    case D:
+                        if (octave == 2)
+                            return "011";
+                        else if (octave == 3)
+                            return "010";
+                        else if (octave == 4)
+                            return "010";
+                        break;
+                    case E:
+                        if (octave == 2)
+                            return "100";
+                        else if (octave == 3)
+                            return "100";
+                        else if (octave == 4)
+                            return "100";
+                        break;
+                    case F:
+                        if (octave == 2)
+                            return "010";
+                        else if (octave == 3)
+                            return "010";
+                        else if (octave == 4)
+                            return "010";
+                        break;
+                    case G:
+                        if (octave == 2)
+                            return "011";
+                        else if (octave == 3)
+                            return "011";
+                        else if (octave == 4)
+                            return "011";
+                        break;
+                    case A:
+                        if (octave == 2)
+                            return "100";
+                        else if (octave == 3)
+                            return "100";
+                        else if (octave == 4)
+                            return "100";
+                        break;
+                    case B:
+                        if (octave == 2)
+                            return "000";
+                        else if (octave == 3)
+                            return "000";
+                        else if (octave == 4)
+                            return "000";
+                        break;
+                    default:
+                        return "000";
+                }
+                break;
+
+            case "#": // Sharp notes
+                switch (pitch) {
+                    case C:
+                        if (octave == 2)
+                            return "011";
+                        else if (octave == 3)
+                            return "010";
+                        else if (octave == 4)
+                            return "010";
+                        break;
+                    case D:
+                        if (octave == 2)
+                            return "100";
+                        else if (octave == 3)
+                            return "100";
+                        else if (octave == 4)
+                            return "100";
+                        break;
+                    case E:
+                        if (octave == 2)
+                            return "000";
+                        else if (octave == 3)
+                            return "000";
+                        else if (octave == 4)
+                            return "000";
+                        break;
+                    case F:
+                        if (octave == 2)
+                            return "011";
+                        else if (octave == 3)
+                            return "011";
+                        else if (octave == 4)
+                            return "011";
+                        break;
+                    case G:
+                        if (octave == 2)
+                            return "100";
+                        else if (octave == 3)
+                            return "100";
+                        else if (octave == 4)
+                            return "100";
+                        break;
+                    case A:
+                        if (octave == 2)
+                            return "000";
+                        else if (octave == 3)
+                            return "000";
+                        else if (octave == 4)
+                            return "000";
+                        break;
+                    case B:
+                        if (octave == 2)
+                            return "101";
+                        else if (octave == 3)
+                            return "100";
+                        else if (octave == 4)
+                            return "100";
+                        break;
+                    default:
+                        return "000";
+                }
+                break;
+
+            default: // Natural notes
+                switch (pitch) {
+                    case C:
+                        if (octave == 2)
+                            return "101";
+                        else if (octave == 3)
+                            return "100";
+                        else if (octave == 4)
+                            return "100";
+                        break;
+                    case D:
+                        if (octave == 2)
+                            return "110";
+                        else if (octave == 3)
+                            return "000";
+                        else if (octave == 4)
+                            return "000";
+                        break;
+                    case E:
+                        if (octave == 2)
+                            return "010";
+                        else if (octave == 3)
+                            return "010";
+                        else if (octave == 4)
+                            return "010";
+                        break;
+                    case F:
+                        if (octave == 2)
+                            return "101";
+                        else if (octave == 3)
+                            return "000";
+                        else if (octave == 4)
+                            return "000";
+                        break;
+                    case G:
+                        if (octave == 2)
+                            return "110";
+                        else if (octave == 3)
+                            return "110";
+                        else if (octave == 4)
+                            return "110";
+                        break;
+                    case A:
+                        if (octave == 2)
+                            return "010";
+                        else if (octave == 3)
+                            return "010";
+                        else if (octave == 4)
+                            return "010";
+                        break;
+                    case B:
+                        if (octave == 2)
+                            return "111";
+                        else if (octave == 3)
+                            return "110";
+                        else if (octave == 4)
+                            return "110";
+                        break;
+                    default:
+                        return "000";
+                }
+                break;
         }
 
-        if (pitch == Pitches.C) {
-            if (octave == 1)
-                return "010"; // C1
-            if (octave == 2)
-                return "010"; // C2
-            if (octave == 3)
-                return "010"; // C3
-            if (octave == 4)
-                return "000"; // C4
-            if (octave == 5)
-                return "010"; // C5
-        } else if (pitch == Pitches.D) {
-            if (octave == 1)
-                return "010"; // D1
-            if (octave == 2)
-                return "010"; // D2
-            if (octave == 3)
-                return "011"; // D3
-            if (octave == 4)
-                return "011"; // D4
-            if (octave == 5)
-                return "011"; // D5
-        } else if (pitch == Pitches.E) {
-            if (octave == 1)
-                return "010"; // E1
-            if (octave == 2)
-                return "010"; // E2
-            if (octave == 3)
-                return "001"; // E3
-            if (octave == 4)
-                return "001"; // E4
-            if (octave == 5)
-                return "001"; // E5
-        } else if (pitch == Pitches.F) {
-            if (octave == 1)
-                return "010"; // F1
-            if (octave == 2)
-                return "010"; // F2
-            if (octave == 3)
-                return "100"; // F3
-            if (octave == 4)
-                return "100"; // F4
-            if (octave == 5)
-                return "100"; // F5
-        } else if (pitch == Pitches.G) {
-            if (octave == 1)
-                return "010"; // G1
-            if (octave == 2)
-                return "010"; // G2
-            if (octave == 3)
-                return "000"; // G3
-            if (octave == 4)
-                return "000"; // G4
-            if (octave == 5)
-                return "000"; // G5
-        } else if (pitch == Pitches.A) {
-            if (octave == 1)
-                return "010"; // A1
-            if (octave == 2)
-                return "010"; // A2
-            if (octave == 3)
-                return "010"; // A3
-            if (octave == 4)
-                return "010"; // A4
-            if (octave == 5)
-                return "010"; // A5
-        } else if (pitch == Pitches.B) {
-            if (octave == 1)
-                return "010"; // B1
-            if (octave == 2)
-                return "010"; // B2
-            if (octave == 3)
-                return "100"; // B3
-            if (octave == 4)
-                return "100"; // B4
-            if (octave == 5)
-                return "100"; // B5
-        }
-
-        // Default to open (no valves pressed) if pitch not matched
-        return "000";
+        return "000"; // Default value in case no match is found
     }
+
 }
