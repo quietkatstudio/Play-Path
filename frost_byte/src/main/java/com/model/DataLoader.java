@@ -139,11 +139,11 @@ public class DataLoader extends DataConstants {
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
 
         // Parse measures
-        JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
+        JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
-        ArrayList<Measure> measuresArrayList = new ArrayList<Measure>();
+        ArrayList<Measure> measuresArrayList = new ArrayList<>();
         for (Object measureObj : measuresArray) {
             if (measureObj instanceof JSONObject) {
                 JSONObject measureJSON = (JSONObject) measureObj;
@@ -156,31 +156,6 @@ public class DataLoader extends DataConstants {
                 if (measureJSON.containsKey("clef")) {
                     measure.setClef((String) measureJSON.get("clef"));
                 }
-                JSONArray notes = (JSONArray) measureJSON.get("notes");
-
-                ArrayList<Note> noteList = new ArrayList<Note>();
-                for (int r = 0; r < notes.size(); r++) {
-                    JSONObject noteJSON = (JSONObject) notes.get(r);
-                    Note note = new Note();
-                    String tempPitch = (String) noteJSON.get("pitch");
-                    Pitches notePitch = Pitches.valueOf(tempPitch);
-                    note.setPitch(notePitch);
-                    String tempAccidental = (String) noteJSON.get("accidental");
-                    tempAccidental = tempAccidental.toUpperCase();
-                    Accidentals noteAccidetal = Accidentals.valueOf(tempAccidental);
-                    note.setAccidental(noteAccidetal);
-                    note.setOctave(Integer.parseInt((String) noteJSON.get("octave")));
-                    note.setLength((String) noteJSON.get("length"));
-                    noteList.add(note);
-                    /*
-                     * System.out.print(notePitch);
-                     * System.out.print(noteAccidetal);
-                     * System.out.print(noteOctave);
-                     * System.out.println(noteLength);
-                     * System.out.println();
-                     */
-                }
-                measure.setNotes(noteList);
 
                 measuresArrayList.add(measure);
             }
@@ -201,7 +176,7 @@ public class DataLoader extends DataConstants {
         System.out.println("Loading songs >>>");
         ArrayList<Song> songs = DataLoader.getSongs();
         for (Song song : songs) {
-            System.out.println(song.getMeasureList());
+            System.out.println(song.getTitle());
         }
     }
 
