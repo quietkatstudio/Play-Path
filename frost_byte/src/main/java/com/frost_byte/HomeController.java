@@ -40,6 +40,10 @@ public class HomeController {
     @FXML
     private Button studioButton;
 
+    @FXML
+    private Button settingsButton;
+
+
     ArrayList<Song> songList = new ArrayList<>();
 
     public void saveSongs(ArrayList<Song> songslist) {
@@ -73,6 +77,14 @@ public class HomeController {
         if (primaryController != null)
             primaryController.showClasses(); // or show specific class screen
     }
+
+    /** Top-right Settings button */
+    @FXML private void showSettingsScreen() {
+        if (primaryController != null) {
+            primaryController.showSettings();
+        }
+    }
+
 
     public void openSongPage(Song selectedSong) {
         try {
