@@ -4,9 +4,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javax.swing.event.ChangeListener;
+
 import com.model.DataLoader;
 import com.model.Song;
+import com.model.SongList;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,7 +27,7 @@ public class PlaylistController implements Initializable {
     // @FXML
     // private TextField songSearch;
 
-    private ArrayList<Song> songs = new ArrayList<Song>();
+    
     private ArrayList<String> songTitleArrList = new ArrayList<String>();
 
     // public void loadSongs() {
@@ -59,11 +63,16 @@ public class PlaylistController implements Initializable {
 
 
    
-    String currentSong; 
+    public Song currentSong; 
    // private ListView<Song> songList;
     @FXML
     private TextField songSearch;
 
+    private void playSong(Song currentSong) {
+        if (currentSong != null) {
+            SongList.getInstance().playSong(currentSong); // Play the selected song using SongList
+        }
+    }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1){
 
@@ -74,9 +83,28 @@ public class PlaylistController implements Initializable {
         ArrayList<Song> songArrayList = DataLoader.getSongs();
         for (Song song : songArrayList) {
             songTitleArrList.add(song.getTitle());
+
         }
 
         myListView.getItems().addAll(songTitleArrList);
+        currentSong = SongList.getInstance().getSongByTitle("Hot Cross Buns");
+        System.out.println(currentSong.getTitle());
+        playSong(currentSong);
+        
+        
+        
+        
+        // myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>(){
+           
+        //     @Override
+        //     public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+        //         currentSong = getSongByTitle(myListView.getSelectionModel().getSelectedItem());
+        //         playSong(currentSong);
+        //     }
+
+        // });
+    
+
         //System.out.println(songList.getItems());
 
     }

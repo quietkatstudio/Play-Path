@@ -2,9 +2,9 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
+
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
-import org.json.simple.JSONObject;
 
 /**
  * 
