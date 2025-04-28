@@ -149,6 +149,7 @@ public class SongList {
             //         e.printStackTrace();
             //     }
             // }
+            System.out.println(songPattern);
 
           player.play(songPattern); // Play the song
         } catch (Exception e) {
