@@ -168,7 +168,7 @@ public class DataLoader extends DataConstants {
                         String tempAccidental = (String) noteJSON.get("accidental");
                         tempAccidental = tempAccidental.toUpperCase();
                         Accidentals noteAccidetal = Accidentals.valueOf(tempAccidental);
-                        note.setAccidental(noteAccidetal);
+                        note.setAccidental(noteAccidetal.getSymbol());
                         note.setOctave(((Long) noteJSON.get("octave")).intValue());
                         note.setLength((String) noteJSON.get("length"));
                         noteList.add(note);

@@ -25,8 +25,6 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 
-
-
 public class PlaylistController implements Initializable {
 
     private PrimaryController primaryController;
@@ -37,6 +35,7 @@ public class PlaylistController implements Initializable {
     public void setPrimaryController(PrimaryController controller) {
         this.primaryController = controller;
     }
+
     @FXML
     private void showSongPlayer(Song currentSong) {
         if (primaryController != null)
@@ -48,9 +47,8 @@ public class PlaylistController implements Initializable {
     @FXML
     private ListView<String> myListView;
 
-   
-    public Song currentSong; 
-   // private ListView<Song> songList;
+    public Song currentSong;
+    // private ListView<Song> songList;
     @FXML
     private TextField songSearch;
 
@@ -59,10 +57,9 @@ public class PlaylistController implements Initializable {
             SongList.getInstance().playSong(currentSong); // Play the selected song using SongList
         }
     }
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1){
 
-       
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
 
         ArrayList<Song> songArrayList = DataLoader.getSongs();
         for (Song song : songArrayList) {
@@ -73,22 +70,17 @@ public class PlaylistController implements Initializable {
         myListView.getItems().addAll(songTitleArrList);
         currentSong = SongList.getInstance().getSongByTitle("Hot Cross Buns");
         System.out.println(currentSong.getTitle());
-       // playSong(currentSong);
-        
-        
+        // playSong(currentSong);
 
         myListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 currentSong = SongList.getInstance().getSongByTitle(newValue);
                 showSongPlayer(currentSong);
-                //playSong(currentSong);
+                // playSong(currentSong);
                 System.out.println("Selected song: " + newValue);
             }
         });
-        
-      
 
     }
-    
 
 }

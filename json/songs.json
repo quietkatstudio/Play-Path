@@ -268,46 +268,490 @@
     "artist": "C418",
     "genre": "Ambient",
     "duration": "1:00",
-    "tempo": "72",
+    "tempo": "106",
     "defTimeSigNumer": 4,
     "defTimeSigDenom": 4,
     "defKeySig": "E",
     "measureList": [
       {
         "beatAmount": 4,
-        "clef": "treble",
+        "clef": "bass",
         "notes": [
           {
-            "pitch": "B",
-            "accidental": "n",
-            "octave": 4,
-            "length": "q"
-          },
-          {
-            "pitch": "E",
-            "accidental": "n",
-            "octave": 5,
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
             "length": "h"
           },
           {
             "pitch": "G",
-            "accidental": "n",
-            "octave": 5,
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
             "length": "q"
           }
         ]
       },
       {
-        "pitch": "E",
-        "accidental": "n",
-        "octave": 5,
-        "length": "h"
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          }
+        ]
       },
       {
-        "pitch": "G",
-        "accidental": "n",
-        "octave": 5,
-        "length": "q"
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "R",
+            "accidental": "n",
+            "octave": 3,
+            "length": "q"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "F",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
+      },
+      {
+        "beatAmount": 4,
+        "clef": "bass",
+        "notes": [
+          {
+            "pitch": "A",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "G",
+            "accidental": "s",
+            "octave": 3,
+            "length": "q"
+          },
+          {
+            "pitch": "D",
+            "accidental": "s",
+            "octave": 3,
+            "length": "h"
+          },
+          {
+            "pitch": "C",
+            "accidental": "s",
+            "octave": 3,
+            "length": "hq"
+          }
+        ]
       }
     ]
   },

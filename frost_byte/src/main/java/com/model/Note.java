@@ -1,7 +1,5 @@
 package com.model;
 
-import java.util.ArrayList;
-
 import org.json.simple.JSONObject;
 
 /**
@@ -14,7 +12,7 @@ import org.json.simple.JSONObject;
 public class Note {
     private Pitches pitch;
     private String length;
-    private Accidentals accidental;
+    private String accidental;
     private int dot;
     private int octave;
     private String noteSymbol;
@@ -39,7 +37,7 @@ public class Note {
      * @param dot        the dot of the note.
      * @param octave     the octave of the note.
      */
-    public Note(Pitches pitch, String length, Accidentals accidental, int dot,
+    public Note(Pitches pitch, String length, String accidental, int dot,
             int octave) {
         this.pitch = pitch;
         this.length = length;
@@ -71,7 +69,7 @@ public class Note {
      * 
      * @param accidental the accidental of the note.
      */
-    public void setAccidental(Accidentals accidental) {
+    public void setAccidental(String accidental) {
         this.accidental = accidental;
     }
 
@@ -108,41 +106,41 @@ public class Note {
      * 
      * @return String
      */
-    public String getSymbol() {
-        // Unicode handling
-        String unicodeSymbol = "";
-        if (this.length.equals("w")) {
-            unicodeSymbol = "𝅝";
-        } else if (this.length.equals("h")) {
-            unicodeSymbol = "𝅗𝅥";
-        } else if (this.length.equals("q")) {
-            unicodeSymbol = "𝅘𝅥";
-        } else if (this.length.equals("e")) {
-            unicodeSymbol = "𝅘𝅥𝅮";
-        } else if (this.length.equals("s")) {
-            unicodeSymbol = "𝅘𝅥𝅯";
-        } else if (this.length.equals("t")) {
-            unicodeSymbol = "𝅘𝅥𝅰";
-        } else if (this.length.equals("x")) {
-            unicodeSymbol = "𝅘𝅥𝅱";
-        } else if (this.length.equals("o")) {
-            unicodeSymbol = "𝅘𝅥𝅲";
-        } else {
-            unicodeSymbol = "𝅘𝅥";
-        }
+    // public String getSymbol() {
+    // // Unicode handling
+    // String unicodeSymbol = "";
+    // if (this.length.equals("w")) {
+    // unicodeSymbol = "𝅝";
+    // } else if (this.length.equals("h")) {
+    // unicodeSymbol = "𝅗𝅥";
+    // } else if (this.length.equals("q")) {
+    // unicodeSymbol = "𝅘𝅥";
+    // } else if (this.length.equals("e")) {
+    // unicodeSymbol = "𝅘𝅥𝅮";
+    // } else if (this.length.equals("s")) {
+    // unicodeSymbol = "𝅘𝅥𝅯";
+    // } else if (this.length.equals("t")) {
+    // unicodeSymbol = "𝅘𝅥𝅰";
+    // } else if (this.length.equals("x")) {
+    // unicodeSymbol = "𝅘𝅥𝅱";
+    // } else if (this.length.equals("o")) {
+    // unicodeSymbol = "𝅘𝅥𝅲";
+    // } else {
+    // unicodeSymbol = "𝅘𝅥";
+    // }
 
-        // Accidental handling
-        String accidentalSymbol = "";
-        if (this.accidental == Accidentals.SHARP) {
-            accidentalSymbol = "#";
-        } else if (this.accidental == Accidentals.FLAT) {
-            accidentalSymbol = "♭";
-        } else if (this.accidental == Accidentals.NATURAL) {
-            accidentalSymbol = " ";
-        }
+    // // Accidental handling
+    // // String accidentalSymbol = "";
+    // // if (this.accidental == Accidentals.SHARP) {
+    // // accidentalSymbol = "#";
+    // // } else if (this.accidental == Accidentals.FLAT) {
+    // // accidentalSymbol = "♭";
+    // // } else if (this.accidental == Accidentals.NATURAL) {
+    // // accidentalSymbol = " ";
+    // // }
 
-        return unicodeSymbol + accidentalSymbol;
-    }
+    // // return unicodeSymbol + accidentalSymbol;
+    // }
 
     /**
      * get the pitch of the note
@@ -167,7 +165,7 @@ public class Note {
      * 
      * @return the accidental of the note.
      */
-    public Accidentals getAccidental() {
+    public String getAccidental() {
         return accidental;
     }
 
@@ -197,7 +195,7 @@ public class Note {
     public Note(JSONObject noteJSON) {
         this.pitch = Pitches.valueOf((String) noteJSON.get("pitch"));
         this.length = (String) noteJSON.get("length");
-        this.accidental = Accidentals.valueOf((String) noteJSON.get("accidental"));
+        this.accidental = (String) noteJSON.get("accidental");
         this.dot = ((Long) noteJSON.get("dot")).intValue();
         this.octave = ((Long) noteJSON.get("octave")).intValue();
     }

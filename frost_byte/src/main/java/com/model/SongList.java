@@ -13,7 +13,6 @@ import org.jfugue.player.Player;
 public class SongList {
     private static SongList instance; // Singleton instance
     private static ArrayList<Song> songs; // List of songs
-    
 
     /**
      * Private constructor to prevent instantiation
@@ -105,7 +104,6 @@ public class SongList {
             Player player = new Player();
             Pattern songPattern = new Pattern();
             songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
-           
             songPattern.setInstrument("Tuba"); // Set the instrument to piano
             for (Measure measure : chosenSong.getMeasureList()) {
                 if (measure.getNoteList() != null) {
@@ -113,44 +111,26 @@ public class SongList {
                     int noteSize = notes.size();
                     for (int i = 0; i < noteSize; i++) {
                         Note note = notes.get(i);
-
-                        
-                        System.out.println("pitch "+note.getPitch());
-
-                        
-
-
-
                         Pitches notePitch = note.getPitch();
                         note.setPitch(notePitch);
-                        Accidentals noteAccidental = note.getAccidental();
+                        String noteAccidental = note.getAccidental();
                         note.setAccidental(noteAccidental);
                         int noteOctave = note.getOctave();
                         String noteLength = note.getLength();
 
-                        songPattern.add(notePitch.toString() + noteAccidental.toString() + noteOctave + noteLength); // Add the note to the pattern
-                        Measure.getNotePlacement(measure);
+                        songPattern.add(notePitch.toString() + noteAccidental.toString() + noteOctave + noteLength); // Add
+                                                                                                                     // the
+                                                                                                                     // note
+                                                                                                                     // to
+                                                                                                                     // the
+                                                                                                                     // pattern
+                        // Measure.getNotePlacement(measure);
                     }
                 }
-                Measure.getNotePlacement(measure);
+                // Measure.getNotePlacement(measure);
             }
-            
-
-            // Thread musicThread = new Thread(() -> {
-            //     player.play(songPattern);
-            // });
-
-            // musicThread.start();
-            // for (int i = 0; i < 5; i++) {
-            //     System.out.println("Change image... Step " + (i + 1));
-            //     try {
-            //         Thread.sleep(1000); // Simulate doing something for 1 second
-            //     } catch (InterruptedException e) {
-            //         e.printStackTrace();
-            //     }
-            // }
-
-          player.play(songPattern); // Play the song
+            System.out.println(songPattern); // Print the song pattern for debugging
+            player.play(songPattern); // Play the song
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -191,6 +171,4 @@ public class SongList {
     public void saveSongs() {
         DataWriter.saveSongs(songs); // Call DataWriter to save songs
     }
-
-    
 }
