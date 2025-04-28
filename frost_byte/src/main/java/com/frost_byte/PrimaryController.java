@@ -108,6 +108,15 @@ public class PrimaryController {
                 homeController.setPrimaryController(this);
             }
 
+            // If we loaded SettingsController, link it too
+            if (fxmlFile.equals("settings.fxml")) {
+                SettingsController settingsController = loader.getController();
+                settingsController.setPrimaryController(this);
+            }
+
+
+            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
