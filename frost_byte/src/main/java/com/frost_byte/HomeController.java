@@ -85,25 +85,25 @@ public class HomeController {
         }
     }
 
+    //does not work
+    // public void openSongPage(Song selectedSong) {
+    //     try {
+    //         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/song.fxml"));
+    //         Parent root = loader.load();
 
-    public void openSongPage(Song selectedSong) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/song.fxml"));
-            Parent root = loader.load();
+    //         // Pass the selected song to the SongController
+    //         SongController controller = loader.getController();
+    //         controller.setSong(selectedSong);
 
-            // Pass the selected song to the SongController
-            SongController controller = loader.getController();
-            controller.setSong(selectedSong);
-
-            // Update the scene
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) contentPane.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    //         // Update the scene
+    //         Scene scene = new Scene(root);
+    //         Stage stage = (Stage) contentPane.getScene().getWindow();
+    //         stage.setScene(scene);
+    //         stage.show();
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     public void handleLogout() {
 

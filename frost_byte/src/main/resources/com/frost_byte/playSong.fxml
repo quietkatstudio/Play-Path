@@ -1,21 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.frost_byte.ProfileController"
-      alignment="CENTER" spacing="20.0">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.PlaySongController">
 
    <children>
-      <Label text="This is the Lessons View" />
-      <Label text="You can add lessons info here." />
+      <Label fx:id="songTitle" text="Song Title" />
+      <Label fx:id="songArtist" text="Artist" />
+      <Button fx:id="playButton" mnemonicParsing="false" text="Play" />
+      <ImageView fx:id="tubaImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/001.PNG" />
+         </image>
+      </ImageView>
    </children>
 
    <padding>
-      <Insets top="20" right="20" bottom="20" left="20"/>
+      <Insets bottom="20" left="20" right="20" top="20" />
    </padding>
 
 </VBox>

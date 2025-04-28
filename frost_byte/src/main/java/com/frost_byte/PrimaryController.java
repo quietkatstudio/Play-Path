@@ -3,9 +3,12 @@ package com.frost_byte;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.model.Song;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
@@ -61,6 +64,23 @@ public class PrimaryController {
     }
 
     @FXML
+    public void showSongPlayer(Song selectedSong) {
+        //showScreen("playSong.fxml", "PlaySong");
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/playSong.fxml"));
+        Parent view = loader.load();
+
+        // Get the controller for PlaySong
+        PlaySongController controller = loader.getController();
+        controller.setSong(selectedSong); // <- pass the selected song
+
+        contentPane.getChildren().setAll(view);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
     private void printScreenHistory() {
         if (screenHistory.size() > 1) {
             screenHistory.remove(screenHistory.size() - 1); // Remove current
@@ -82,7 +102,7 @@ public class PrimaryController {
                 TEMP_TITLE.setText("Music Studio");
                 break;
             case "playSong.fxml":
-                TEMP_TITLE.setText("Playlist");
+                TEMP_TITLE.setText("Play Song");
                 break;
             case "settings.fxml":
                 TEMP_TITLE.setText("Settings");
@@ -107,6 +127,13 @@ public class PrimaryController {
                 HomeController homeController = loader.getController();
                 homeController.setPrimaryController(this);
             }
+
+            // If we loaded HomeController, link it
+            if (fxmlFile.equals("playlist.fxml")) {
+                PlaylistController playlistController = loader.getController();
+                playlistController.setPrimaryController(this);
+            }
+
 
             // If we loaded SettingsController, link it too
             if (fxmlFile.equals("settings.fxml")) {
