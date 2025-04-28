@@ -1,50 +1,55 @@
 package com.frost_byte;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import com.model.DataLoader;
 import com.model.Song;
-import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ListView;
 
-public class PlaylistController {
+public class PlaylistController implements Initializable {
 
     @FXML
-    private ListView<Song> songList;
+    private ListView<String> songList;
+
     @FXML
     private TextField songSearch;
 
-    private ArrayList<Song> songs = new ArrayList<>();
+    private ArrayList<Song> songs = new ArrayList<Song>();
+    private ArrayList<String> songTitleArrList = new ArrayList<String>();
 
     public void loadSongs() {
-
         ArrayList<Song> songArrayList = DataLoader.getSongs();
         for (Song song : songArrayList) {
-            songList.getItems().add(song);
+            songTitleArrList.add(song.getTitle());
         }
-
+        songList.getItems().addAll(songTitleArrList);
     }
 
-    public void initialize() {
-        songs = DataLoader.getSongs();
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        System.out.println("pre-load Songs");
+        loadSongs();
+
     }
 
     @FXML
     private void searchButtonClick() {
-        ObservableList<Song> songListObservableList = songList.getItems();
-        String selectedSong = songSearch.getText();
+        String selectedSong = songSearch.getText().toLowerCase();
 
-        if (songList != null && !songListObservableList.isEmpty()) {
-            // Iterate through the ObservableList using an enhanced for-loop
-            for (Song song : songListObservableList) {
-                if (song.getTitle().contains(selectedSong)) {
-                    System.out.println("Song Title: " + song.getTitle() + ", Artist: " + song.getArtist());
+        if (songs != null && !songs.isEmpty()) {
+            for (Song song : songs) {
+                if (song.getTitle().toLowerCase().contains(selectedSong)) {
+                    System.out.println("Song Title: " + song.getTitle() + ", Artist: " +
+                            song.getArtist());
                 }
             }
-
         }
     }
 }
