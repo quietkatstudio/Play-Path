@@ -150,12 +150,10 @@ public class zMusicPlayer {
             catch(Exception e) {
                 System.out.println("Error: " + e);
             }
-        }
+        }*/
     
-        public static void main(String[] args) {
-            zMusicPlayer player = new zMusicPlayer();
-            player.playCruelAngel();
-            //Midi();
-    }
-}
-*/
+//         public static void main(String[] args) {
+            
+//             //Midi();
+//         }
+// }

@@ -139,7 +139,7 @@ public class DataLoader extends DataConstants {
         KeySig defKeySig = new KeySig(Keys.valueOf(defKeySigStr), "A", "B", "C", "D", "E", "F", "G");
 
         // Parse measures
-        JSONArray measuresArray = (JSONArray) jsonSong.get("measures");
+        JSONArray measuresArray = (JSONArray) jsonSong.get("measureList");
         if (measuresArray == null) {
             measuresArray = new JSONArray();
         }
@@ -147,7 +147,7 @@ public class DataLoader extends DataConstants {
         for (Object measureObj : measuresArray) {
             if (measureObj instanceof JSONObject) {
                 JSONObject measureJSON = (JSONObject) measureObj;
-                Measure measure = new Measure(measureJSON);
+                Measure measure = new Measure();
 
                 // Parse measure meta-data
                 if (measureJSON.containsKey("beatAmount")) {
@@ -156,7 +156,25 @@ public class DataLoader extends DataConstants {
                 if (measureJSON.containsKey("clef")) {
                     measure.setClef((String) measureJSON.get("clef"));
                 }
-
+                if (measureJSON.get("notes") != null) {
+                    JSONArray notes = (JSONArray) measureJSON.get("notes");
+                    ArrayList<Note> noteList = new ArrayList<>();
+                    for (int r = 0; r < notes.size(); r++) {
+                        JSONObject noteJSON = (JSONObject) notes.get(r);
+                        Note note = new Note();
+                        String tempPitch = (String) noteJSON.get("pitch");
+                        Pitches notePitch = Pitches.valueOf(tempPitch);
+                        note.setPitch(notePitch);
+                        String tempAccidental = (String) noteJSON.get("accidental");
+                        tempAccidental = tempAccidental.toUpperCase();
+                        Accidentals noteAccidetal = Accidentals.valueOf(tempAccidental);
+                        note.setAccidental(noteAccidetal);
+                        note.setOctave(((Long) noteJSON.get("octave")).intValue());
+                        note.setLength((String) noteJSON.get("length"));
+                        noteList.add(note);
+                    }
+                    measure.setNotes(noteList);
+                }
                 measuresArrayList.add(measure);
             }
         }

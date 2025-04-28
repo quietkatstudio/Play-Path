@@ -26,6 +26,19 @@ public class Measure {
     static String a3 = "";
     static String g2 = "";
 
+    public Measure() {
+        this.beatAmount = 0;
+        this.clef = "bass";
+        this.notes = new ArrayList<>();
+        this.isRepeat = false;
+    }
+
+    public Measure(int beatAmount2, String clef, ArrayList<Note> notes) {
+        this.beatAmount = beatAmount2;
+        this.clef = clef;
+        this.notes = notes;
+    }
+
     public Measure(JSONObject measureJSON) {
         // Parsing basic properties
         this.beatAmount = ((Long) measureJSON.get("beatAmount")).intValue(); // assuming beatAmount is in the JSON
@@ -45,18 +58,6 @@ public class Measure {
         }
     }
 
-    public Measure() {
-        this.beatAmount = 0;
-        this.clef = "bass";
-        this.notes = new ArrayList<>();
-        this.isRepeat = false;
-    }
-
-    public Measure(int beatAmount2, String clef, ArrayList<Note> notes) {
-        this.beatAmount = beatAmount2;
-        this.clef = clef;
-        this.notes = notes;
-    }
 
     public Measure getMeasure(Measure measure) {
         return measure;

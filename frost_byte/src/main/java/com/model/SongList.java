@@ -104,17 +104,29 @@ public class SongList {
             Player player = new Player();
             Pattern songPattern = new Pattern();
             songPattern.setTempo(Integer.parseInt(chosenSong.getTempo()));
-            songPattern.setInstrument("piano"); // Set the instrument to piano
+            songPattern.setInstrument("Tuba"); // Set the instrument to piano
             for (Measure measure : chosenSong.getMeasureList()) {
-                for (Note note : measure.getNoteList()) {
-                    songPattern.add(note.getPitch().toString() + note.getAccidental().toString() + note.getOctave()
-                            + note.getLength());
+                if (measure.getNoteList() != null) {
+                    ArrayList<Note> notes = measure.getNoteList();
+                    int noteSize = notes.size();
+                    for (int i = 0; i < noteSize; i++) {
+                        Note note = notes.get(i);
+                        Pitches notePitch = note.getPitch();
+                        note.setPitch(notePitch);
+                        Accidentals noteAccidental = note.getAccidental();
+                        note.setAccidental(noteAccidental);
+                        int noteOctave = note.getOctave();
+                        String noteLength = note.getLength();
+
+                        songPattern.add(notePitch.toString() + noteAccidental.toString() + noteOctave + noteLength); // Add the note to the pattern
+                        Measure.getNotePlacement(measure);
+                    }
                 }
                 Measure.getNotePlacement(measure);
             }
             player.play(songPattern); // Play the song
         } catch (Exception e) {
-            System.out.println("Problem encountered while playing the song.");
+            System.out.println(e);
         }
     }
 
