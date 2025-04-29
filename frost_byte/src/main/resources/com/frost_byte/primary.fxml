@@ -138,9 +138,9 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
                <children>
-                  <Button fx:id="settingsButton" alignment="CENTER_RIGHT" layoutX="31.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="49.0" textAlignment="RIGHT">
+                  <Button fx:id="settingsButton"  onAction="#showSettings" alignment="CENTER_RIGHT" layoutX="31.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="49.0" textAlignment="RIGHT">
                      <graphic>
-                        <ImageView fitHeight="38.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="settingsButton" fitHeight="38.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/gear.png" />
                            </image>

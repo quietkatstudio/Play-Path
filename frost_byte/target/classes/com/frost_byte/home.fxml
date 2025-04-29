@@ -12,12 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="461.0" prefWidth="337.0"
-           stylesheets="@home.css"
-           xmlns="http://javafx.com/javafx/23.0.1"
-           xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.frost_byte.HomeController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="337.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.HomeController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -37,9 +32,7 @@
                   <!-- Welcome text -->
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="Welcome back" textOrigin="CENTER"
-                              wrappingWidth="223.9312515258789">
+                        <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back" textOrigin="CENTER" wrappingWidth="223.9312515258789">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -47,18 +40,7 @@
                      </children>
                   </HBox>
                   <!-- Spacer pushes Settings button to the right -->
-                  <Region HBox.hgrow="ALWAYS"/>
-                  <!-- SETTINGS BUTTON -->
-                  <Button fx:id="settingsButton"
-                          mnemonicParsing="false"
-                          onAction="#showSettingsScreen"
-                          prefHeight="30.0" prefWidth="80.0"
-                          stylesheets="@home.css"
-                          text="Settings">
-                     <font>
-                        <Font name="System Bold" size="12.0"/>
-                     </font>
-                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
 
@@ -68,8 +50,7 @@
                   <Separator opacity="0.0" prefHeight="24.0" prefWidth="17.0" />
                   <VBox prefHeight="100.0" prefWidth="168.0">
                      <children>
-                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#showPlaylist"
-                                prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#showPlaylist" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
                            <graphic>
                               <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
                                  <children>
@@ -77,17 +58,14 @@
                                     <HBox prefHeight="70.0" prefWidth="137.0">
                                        <children>
                                           <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
-                                          <ImageView fx:id="playImage" fitHeight="82.0" fitWidth="65.0"
-                                                     pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="playImage" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../images/playbutton.png" />
                                              </image>
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Label fx:id="playsongTxt" alignment="CENTER" prefHeight="18.0"
-                                           prefWidth="192.0" text="Playlist" textAlignment="CENTER"
-                                           textFill="WHITE">
+                                    <Label fx:id="playsongTxt" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Playlist" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -97,8 +75,7 @@
                            </graphic>
                         </Button>
                         <Separator opacity="0.0" orientation="VERTICAL" prefHeight="26.0" prefWidth="56.0" />
-                        <Button fx:id="studioButton" mnemonicParsing="false" onAction="#showMusicStudio"
-                                prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                        <Button fx:id="studioButton" mnemonicParsing="false" onAction="#showMusicStudio" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
                            <graphic>
                               <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
                                  <children>
@@ -106,17 +83,14 @@
                                     <HBox prefHeight="70.0" prefWidth="137.0">
                                        <children>
                                           <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
-                                          <ImageView fx:id="playImage1" fitHeight="82.0" fitWidth="65.0"
-                                                     pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="playImage1" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../images/Musicnote.png" />
                                              </image>
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Label fx:id="playsongTxt1" alignment="CENTER" prefHeight="18.0"
-                                           prefWidth="192.0" text="Music Studio" textAlignment="CENTER"
-                                           textFill="WHITE">
+                                    <Label fx:id="playsongTxt1" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Music Studio" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -130,8 +104,7 @@
                   <Separator opacity="0.0" prefHeight="126.0" prefWidth="22.0" />
                   <VBox prefHeight="100.0" prefWidth="168.0">
                      <children>
-                        <Button fx:id="lessonsButton" mnemonicParsing="false" onAction="#showLessons"
-                                prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                        <Button fx:id="lessonsButton" mnemonicParsing="false" onAction="#showLessons" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
                            <graphic>
                               <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
                                  <children>
@@ -139,17 +112,14 @@
                                     <HBox prefHeight="70.0" prefWidth="137.0">
                                        <children>
                                           <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
-                                          <ImageView fx:id="playImage11" fitHeight="82.0" fitWidth="65.0"
-                                                     pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="playImage11" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../images/book.png" />
                                              </image>
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Label fx:id="playsongTxt11" alignment="CENTER" prefHeight="18.0"
-                                           prefWidth="192.0" text="Lessons" textAlignment="CENTER"
-                                           textFill="WHITE">
+                                    <Label fx:id="playsongTxt11" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Lessons" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -159,8 +129,7 @@
                            </graphic>
                         </Button>
                         <Separator opacity="0.0" orientation="VERTICAL" prefHeight="26.0" prefWidth="56.0" />
-                        <Button fx:id="classesButton" mnemonicParsing="false" onAction="#showClasses"
-                                prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
+                        <Button fx:id="classesButton" mnemonicParsing="false" onAction="#showClasses" prefHeight="114.0" prefWidth="168.0" stylesheets="@home.css">
                            <graphic>
                               <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@home.css">
                                  <children>
@@ -168,17 +137,14 @@
                                     <HBox prefHeight="70.0" prefWidth="137.0">
                                        <children>
                                           <Separator opacity="0.0" prefHeight="36.0" prefWidth="31.0" />
-                                          <ImageView fx:id="playImage12" fitHeight="82.0" fitWidth="65.0"
-                                                     pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="playImage12" fitHeight="82.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../images/school.png" />
                                              </image>
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Label fx:id="playsongTxt12" alignment="CENTER" prefHeight="18.0"
-                                           prefWidth="192.0" text="Classes" textAlignment="CENTER"
-                                           textFill="WHITE">
+                                    <Label fx:id="playsongTxt12" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Classes" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -196,9 +162,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Separator opacity="0.0" prefHeight="34.0" prefWidth="74.0" />
-                  <Button fx:id="logoutButton" onAction="#handleLogout" mnemonicParsing="false"
-                          prefHeight="42.0" prefWidth="202.0" stylesheets="@home.css" text="Log out"
-                          textFill="WHITE">
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" prefHeight="42.0" prefWidth="202.0" stylesheets="@home.css" text="Log out" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

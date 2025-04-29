@@ -12,3 +12,7 @@
 #searchButton {
     -fx-background-color: rgba(0, 0, 0, 0.66);
 }
+
+#newSongButton{
+    -fx-background-color: rgba(0, 0, 0, 0.76);
+}

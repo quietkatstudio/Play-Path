@@ -44,14 +44,14 @@
 }
 
 #topBar {
-    -fx-background-color: rgba(64, 63, 63, 0.7);
+    -fx-background-color: rgba(0, 0, 0, 0.767);
     /* Semi-transparent dark color */
     -fx-padding: 10px;
 }
 
 /* Transparent background for bottom control bar */
 #controls {
-    -fx-background-color: rgba(64, 63, 63, 0.7);
+    -fx-background-color: rgba(0, 0, 0, 0.767);
     /* Semi-transparent dark color */
     -fx-padding: 10px;
 }
@@ -76,8 +76,12 @@
 #lessonsButton:hover,
 #studioButton:hover,
 #playButton:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-color: rgba(11, 1, 1, 0.5);
     /* Light transparent hover effect */
+}
+
+#lessonsButton:hover{
+    -fx-background-color: rgba(11, 1, 1, 0.5);
 }
 
 /* Label text transparency for the buttons */
@@ -89,10 +93,3 @@
     -fx-font-size: 12px;
 }
 
-#homeButton:hover,
-#lessonsButton:hover,
-#studioButton:hover,
-#songsButton:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.2);
-    /* Light transparent hover effect */
-}

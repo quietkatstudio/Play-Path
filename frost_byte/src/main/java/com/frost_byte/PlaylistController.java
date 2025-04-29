@@ -63,7 +63,8 @@ public class PlaylistController implements Initializable {
 
         ArrayList<Song> songArrayList = DataLoader.getSongs();
         for (Song song : songArrayList) {
-            songTitleArrList.add(song.getTitle());
+            //songTitleArrList.add(song.getTitle());
+            songTitleArrList.add(song.getTitle()+"\n"+song.getArtist()+"\n -------------------------------------------");
 
         }
 
@@ -74,7 +75,7 @@ public class PlaylistController implements Initializable {
 
         myListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                currentSong = SongList.getInstance().getSongByTitle(newValue);
+                currentSong = SongList.getInstance().getSongByTitle(newValue.split("\n")[0]);
                 showSongPlayer(currentSong);
                 // playSong(currentSong);
                 System.out.println("Selected song: " + newValue);

@@ -78,12 +78,7 @@ public class HomeController {
             primaryController.showClasses(); // or show specific class screen
     }
 
-    /** Top-right Settings button */
-    @FXML private void showSettingsScreen() {
-        if (primaryController != null) {
-            primaryController.showSettings();
-        }
-    }
+    
 
     //does not work
     // public void openSongPage(Song selectedSong) {

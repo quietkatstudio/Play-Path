@@ -90,6 +90,8 @@ public class PrimaryController {
         }
     }
 
+    
+
     private void setTitleFromScreen(String screen) {
         switch (screen) {
             case "home.fxml":
