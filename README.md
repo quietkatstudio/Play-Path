@@ -8,3 +8,6 @@ https://jp-grimes.github.io/PlayPath_prototype/
 
 Prototype demo video:
 https://youtu.be/vaMp5s_zF9A
+
+GUI App Demo Video:
+https://youtu.be/ERFNHTjegHk?si=LWisT6ShekNz8TVU
