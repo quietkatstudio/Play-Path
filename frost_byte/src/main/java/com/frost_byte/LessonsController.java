@@ -38,8 +38,8 @@ public class LessonsController implements Initializable {
 
     // @FXML
     // private void showSongPlayer(Song currentSong) {
-    //     if (primaryController != null)
-    //         primaryController.showSongPlayer(currentSong);
+    // if (primaryController != null)
+    // primaryController.showSongPlayer(currentSong);
     // }
 
     private ArrayList<String> LessonTitleArrList = new ArrayList<String>();
@@ -53,9 +53,10 @@ public class LessonsController implements Initializable {
     // private TextField songSearch;
 
     // private void playSong(Song currentSong) {
-    //     if (currentSong != null) {
-    //         SongList.getInstance().playSong(currentSong); // Play the selected song using SongList
-    //     }
+    // if (currentSong != null) {
+    // SongList.getInstance().playSong(currentSong); // Play the selected song using
+    // SongList
+    // }
     // }
 
     @Override
@@ -63,20 +64,18 @@ public class LessonsController implements Initializable {
 
         ArrayList<Lesson> lessonArrayList = DataLoader.getLessons();
         for (Lesson lesson : lessonArrayList) {
-            //songTitleArrList.add(song.getTitle());
+            // songTitleArrList.add(song.getTitle());
             LessonTitleArrList.add(lesson.getTitle());
 
         }
 
         listViewLessons.getItems().addAll(LessonTitleArrList);
-        currentLesson = LessonList.getInstance().getLessonByTitle("Hot Cross Buns");
-        System.out.println(currentLesson.getTitle());
-        // playSong(currentSong);
+        System.out.println(listViewLessons);
 
         listViewLessons.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                currentLesson = LessonList.getInstance().getLessonByTitle(newValue.split("\n")[0]);
-                //showSongPlayer(currentLesson);
+                currentLesson = LessonList.getInstance().getLessonByTitle(newValue);
+                // showSongPlayer(currentLesson);
                 // playSong(currentSong);
                 System.out.println("Selected lesson: " + newValue);
             }

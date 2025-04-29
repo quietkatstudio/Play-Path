@@ -90,8 +90,6 @@ public class PrimaryController {
         }
     }
 
-    
-
     private void setTitleFromScreen(String screen) {
         switch (screen) {
             case "home.fxml":
@@ -140,6 +138,12 @@ public class PrimaryController {
             if (fxmlFile.equals("settings.fxml")) {
                 SettingsController settingsController = loader.getController();
                 settingsController.setPrimaryController(this);
+            }
+
+            // If we loaded SettingsController, link it too
+            if (fxmlFile.equals("lessons.fxml")) {
+                LessonsController lessonsController = loader.getController();
+                lessonsController.setPrimaryController(this);
             }
 
         } catch (IOException e) {

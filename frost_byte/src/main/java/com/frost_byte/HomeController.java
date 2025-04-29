@@ -43,7 +43,6 @@ public class HomeController {
     @FXML
     private Button settingsButton;
 
-
     ArrayList<Song> songList = new ArrayList<>();
 
     public void saveSongs(ArrayList<Song> songslist) {
@@ -78,26 +77,25 @@ public class HomeController {
             primaryController.showClasses(); // or show specific class screen
     }
 
-    
-
-    //does not work
+    // does not work
     // public void openSongPage(Song selectedSong) {
-    //     try {
-    //         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/frost_byte/song.fxml"));
-    //         Parent root = loader.load();
+    // try {
+    // FXMLLoader loader = new
+    // FXMLLoader(getClass().getResource("/com/frost_byte/song.fxml"));
+    // Parent root = loader.load();
 
-    //         // Pass the selected song to the SongController
-    //         SongController controller = loader.getController();
-    //         controller.setSong(selectedSong);
+    // // Pass the selected song to the SongController
+    // SongController controller = loader.getController();
+    // controller.setSong(selectedSong);
 
-    //         // Update the scene
-    //         Scene scene = new Scene(root);
-    //         Stage stage = (Stage) contentPane.getScene().getWindow();
-    //         stage.setScene(scene);
-    //         stage.show();
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
+    // // Update the scene
+    // Scene scene = new Scene(root);
+    // Stage stage = (Stage) contentPane.getScene().getWindow();
+    // stage.setScene(scene);
+    // stage.show();
+    // } catch (IOException e) {
+    // e.printStackTrace();
+    // }
     // }
 
     public void handleLogout() {
