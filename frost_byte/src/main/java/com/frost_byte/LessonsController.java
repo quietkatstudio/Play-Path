@@ -63,18 +63,20 @@ public class LessonsController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         ArrayList<Lesson> lessonArrayList = DataLoader.getLessons();
+        System.out.println("unfilled Lesson arraylist \\n");
+        System.out.println(lessonArrayList.get(0).getTitle());
+
         for (Lesson lesson : lessonArrayList) {
             // songTitleArrList.add(song.getTitle());
-            LessonTitleArrList.add(lesson.getTitle());
-
+            LessonTitleArrList.add(lesson.getTitle() + "\n -------------------------------------------");
+            System.out.println("Added: " + lesson.getTitle());
         }
 
         listViewLessons.getItems().addAll(LessonTitleArrList);
-        System.out.println(listViewLessons);
 
         listViewLessons.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                currentLesson = LessonList.getInstance().getLessonByTitle(newValue);
+                currentLesson = LessonList.getInstance().getLessonByTitle(newValue.split("\n")[0]);
                 // showSongPlayer(currentLesson);
                 // playSong(currentSong);
                 System.out.println("Selected lesson: " + newValue);

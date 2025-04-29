@@ -45,7 +45,7 @@ public class LessonList {
      * @param song        the song associated with the lesson
      */
     public void addLesson(String title, String description, String content, ArrayList<Flashcard> flashcards,
-            Song song) {
+            String song) {
         // Create a new lesson with the provided details
         Lesson newLesson = new Lesson(UUID.randomUUID(), title, description, content, flashcards, null, song);
         lessons.add(newLesson);
@@ -70,7 +70,6 @@ public class LessonList {
     public ArrayList<Lesson> getLessons() {
         return lessons;
     }
-
 
     public Lesson getLessonByTitle(String title) {
         for (Lesson lesson : lessons) {

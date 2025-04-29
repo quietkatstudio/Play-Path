@@ -80,11 +80,13 @@ public class DataLoader extends DataConstants {
     }
 
     private static Lesson parseLessonJSON(JSONObject jsonLesson) {
+        // Parse basic fields
         UUID id = UUID.fromString((String) jsonLesson.get("id"));
         String title = (String) jsonLesson.get("title");
         String description = (String) jsonLesson.get("description");
         String content = (String) jsonLesson.get("content");
 
+        // Parse flashcards
         ArrayList<Flashcard> flashcards = new ArrayList<>();
         JSONArray flashcardsArray = (JSONArray) jsonLesson.get("flashcards");
         for (int i = 0; i < flashcardsArray.size(); i++) {
@@ -94,6 +96,7 @@ public class DataLoader extends DataConstants {
             flashcards.add(new Flashcard(term, definition));
         }
 
+        // Parse quiz
         JSONObject quizJSON = (JSONObject) jsonLesson.get("quiz");
         String question = (String) quizJSON.get("question");
         JSONArray optionsArray = (JSONArray) quizJSON.get("options");
@@ -104,9 +107,10 @@ public class DataLoader extends DataConstants {
         String answer = (String) quizJSON.get("answer");
         Quiz quiz = new Quiz(question, options, answer);
 
-        JSONObject songJSON = (JSONObject) jsonLesson.get("song");
-        Song song = parseSongJSON(songJSON);
+        // Parse song (now a String)
+        String song = (String) jsonLesson.get("song");
 
+        // Return a new Lesson object with all parsed data
         return new Lesson(id, title, description, content, flashcards, quiz, song);
     }
 
@@ -196,6 +200,13 @@ public class DataLoader extends DataConstants {
         for (Song song : songs) {
             System.out.println(song.getTitle());
         }
+
+        System.out.println("Loading Lessons >>>");
+        ArrayList<Lesson> lessons = DataLoader.getLessons();
+        for (Lesson lesson : lessons) {
+            System.out.println(lesson.getTitle());
+        }
+
     }
 
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -10,20 +12,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.Label?>
 
-<StackPane fx:id="StackPane"
-           fx:controller="com.frost_byte.SettingsController"
-           prefHeight="626.0" prefWidth="367.0"
-           stylesheets="@settings.css"
-           xmlns="http://javafx.com/javafx/23.0.1"
-           xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="StackPane" prefHeight="626.0" prefWidth="367.0" stylesheets="@settings.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.SettingsController">
   <children>
     <!-- Background -->
     <Pane>
       <ImageView fitHeight="626.0" fitWidth="367.0" preserveRatio="false">
         <image>
-          <Image url="@../../images/backgroundcropped.png"/>
+          <Image url="@../../images/backgroundcropped.png" />
         </image>
       </ImageView>
     </Pane>
@@ -31,106 +27,65 @@
     <!-- Form -->
     <VBox prefHeight="626.0" prefWidth="339.0">
       <children>
-        <!-- Logo -->
-        <HBox prefHeight="115.0">
-          <children>
-            <Separator opacity="0.0" prefWidth="99"/>
-            <ImageView fitHeight="169.0" fitWidth="187.0">
-              <image><Image url="@../../images/playpathlogo.png"/></image>
-            </ImageView>
-          </children>
-        </HBox>
-        <!-- Title -->
-        <HBox prefHeight="35.0">
-          <children>
-            <Separator opacity="0.0" prefWidth="75"/>
-            <Separator prefWidth="84"/>
-            <Label text="Settings">
-              <font><Font size="14.0"/></font>
-            </Label>
-            <Separator prefWidth="86"/>
-          </children>
-        </HBox>
 
         <!-- Section: Change Username -->
-        <Label text="Change Username" style="-fx-font-weight: bold;"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="367.0" text="Change Username" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
         <HBox prefHeight="60.0">
           <children>
-            <Separator opacity="0.0" prefWidth="30"/>
-            <TextField fx:id="oldUsernameField1" promptText="Current Username" prefWidth="140"/>
-            <PasswordField fx:id="oldPasswordField1" promptText="Current Password" prefWidth="140"/>
-            <Separator opacity="0.0" prefWidth="30"/>
+            <Separator opacity="0.0" prefWidth="30" />
+            <TextField fx:id="oldUsernameField1" prefWidth="140" promptText="Current Username" />
+            <PasswordField fx:id="oldPasswordField1" prefWidth="140" promptText="Current Password" />
+            <Separator opacity="0.0" prefWidth="30" />
           </children>
         </HBox>
         <HBox prefHeight="60.0">
           <children>
-            <Separator opacity="0.0" prefWidth="30"/>
-            <TextField fx:id="newUsernameField" promptText="New Username" prefWidth="280"/>
-            <Separator opacity="0.0" prefWidth="30"/>
+            <Separator opacity="0.0" prefWidth="30" />
+            <TextField fx:id="newUsernameField" prefHeight="33.0" prefWidth="244.0" promptText="New Username" />
+            <Button fx:id="changeUsernameButton" onAction="#handleChangeUsername" prefHeight="31.0" prefWidth="76.0" text="Apply" />
           </children>
         </HBox>
-        <HBox prefHeight="43.0">
-          <children>
-            <Separator opacity="0.0" prefWidth="115"/>
-            <Button fx:id="changeUsernameButton" onAction="#handleChangeUsername" text="Apply"/>
-            <Separator opacity="0.0" prefWidth="115"/>
-          </children>
-        </HBox>
-        <Separator />
 
         <!-- Section: Change Password -->
-        <Label text="Change Password" style="-fx-font-weight: bold;"/>
-        <HBox prefHeight="60.0">
+        <Label alignment="CENTER" prefHeight="18.0" prefWidth="374.0" text="Change Password">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+        <HBox alignment="CENTER" prefHeight="60.0">
           <children>
-            <Separator opacity="0.0" prefWidth="30"/>
-            <TextField fx:id="usernameField2" promptText="Username" prefWidth="140"/>
-            <PasswordField fx:id="oldPasswordField2" promptText="Current Password" prefWidth="140"/>
-            <Separator opacity="0.0" prefWidth="30"/>
+            <TextField fx:id="usernameField2" prefWidth="140" promptText="Username" />
+            <PasswordField fx:id="oldPasswordField2" prefWidth="140" promptText="Current Password" />
           </children>
         </HBox>
-        <HBox prefHeight="60.0">
+        <HBox alignment="CENTER" prefHeight="60.0">
           <children>
-            <Separator opacity="0.0" prefWidth="30"/>
-            <PasswordField fx:id="newPasswordField" promptText="New Password" prefWidth="280"/>
-            <Separator opacity="0.0" prefWidth="30"/>
+            <PasswordField fx:id="newPasswordField" prefWidth="280" promptText="New Password" />
+            <Button fx:id="changePasswordButton" onAction="#handleChangePassword" text="Apply" />
           </children>
         </HBox>
-        <HBox prefHeight="43.0">
-          <children>
-            <Separator opacity="0.0" prefWidth="115"/>
-            <Button fx:id="changePasswordButton" onAction="#handleChangePassword" text="Apply"/>
-            <Separator opacity="0.0" prefWidth="115"/>
-          </children>
-        </HBox>
-        <Separator />
 
         <!-- Section: Delete Account -->
-        <Label text="Delete Account" style="-fx-font-weight: bold; -fx-text-fill: red;"/>
-        <HBox prefHeight="60.0">
+        <Label alignment="CENTER" prefHeight="18.0" prefWidth="368.0" text="Delete Account">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+        <HBox alignment="CENTER" prefHeight="60.0">
           <children>
-            <Separator opacity="0.0" prefWidth="30"/>
-            <TextField fx:id="usernameField3" promptText="Username" prefWidth="140"/>
-            <PasswordField fx:id="passwordField3" promptText="Password" prefWidth="140"/>
-            <Separator opacity="0.0" prefWidth="30"/>
+            <TextField fx:id="usernameField3" prefWidth="140" promptText="Username" />
+            <PasswordField fx:id="passwordField3" prefWidth="140" promptText="Password" />
           </children>
         </HBox>
-        <HBox prefHeight="43.0">
+        <HBox alignment="CENTER" prefHeight="43.0">
           <children>
-            <Separator opacity="0.0" prefWidth="115"/>
-            <Button fx:id="deleteAccountButton" onAction="#handleDeleteAccount" text="Delete"/>
-            <Separator opacity="0.0" prefWidth="115"/>
+            <Button fx:id="deleteAccountButton" alignment="CENTER" onAction="#handleDeleteAccount" text="Delete" />
           </children>
         </HBox>
-        <Separator />
 
         <!-- Back Button -->
-        <HBox prefHeight="43.0">
-          <children>
-            <Separator opacity="0.0" prefWidth="115"/>
-            <Button fx:id="backButton" onAction="#handleBack" text="Back"/>
-            <Separator opacity="0.0" prefWidth="115"/>
-          </children>
-        </HBox>
+        <HBox alignment="CENTER" prefHeight="43.0" />
       </children>
     </VBox>
   </children>

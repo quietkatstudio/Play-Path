@@ -14,7 +14,7 @@ public class Lesson {
     private String content;
     private ArrayList<Flashcard> flashcards;
     private Quiz quiz;
-    private Song song;
+    private String song;
     private int currentFlashcardIndex;
 
     /**
@@ -28,7 +28,7 @@ public class Lesson {
      * @param song
      */
     public Lesson(UUID id, String title, String description, String content, ArrayList<Flashcard> flashcards, Quiz quiz,
-            Song song) {
+            String song) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -49,7 +49,7 @@ public class Lesson {
      * @param song        the song played during lesson
      */
     public Lesson(String title, String description, String content, ArrayList<Flashcard> flashcards, Quiz quiz,
-            Song song) {
+            String song) {
         this.id = UUID.randomUUID();
         this.title = title;
         this.description = description;
@@ -98,43 +98,40 @@ public class Lesson {
     public ArrayList<Flashcard> getFlashcards() {
         return this.flashcards;
     }
-    public boolean hasNext(){
-        while(currentFlashcardIndex < flashcards.size() && (flashcards.get(currentFlashcardIndex)!= null)){
+
+    public boolean hasNext() {
+        while (currentFlashcardIndex < flashcards.size() && (flashcards.get(currentFlashcardIndex) != null)) {
             currentFlashcardIndex++;
         }
         return false;
     }
-    public Flashcard nextFlashCard(){
-        //currentFlashcardIndex++;
+
+    public Flashcard nextFlashCard() {
+        // currentFlashcardIndex++;
         return flashcards.get(currentFlashcardIndex++);
     }
 
-    /*public boolean hasNext(){
-       
-        while((position < flights.size()) && (flights.get(position) != null)){
-            if((flights.get(position).sameLoc(from, to))){
-                return true;
-            }
-            position++;
-        }
-        return false;
-    }
-
-    /**
+    /*
+     * public boolean hasNext(){
+     * 
+     * while((position < flights.size()) && (flights.get(position) != null)){
+     * if((flights.get(position).sameLoc(from, to))){
+     * return true;
+     * }
+     * position++;
+     * }
+     * return false;
+     * }
+     * 
+     * /**
      * returns the next flight that matches the specific route
+     * 
      * @return the next matching flight
-     
-    public Flight next(){
-        return flights.get(position++);
-    }
-    */
-
-
-
-
-
-
-
+     * 
+     * public Flight next(){
+     * return flights.get(position++);
+     * }
+     */
 
     /**
      * 
@@ -147,7 +144,7 @@ public class Lesson {
     /**
      * Returns the song
      */
-    public Song getSong() {
+    public String getSong() {
         return this.song;
     }
 }
