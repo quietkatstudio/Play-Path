@@ -8,6 +8,7 @@ import java.util.UUID;
  * and save lessons.
  */
 public class LessonList {
+    private static LessonList instance; // Singleton instance
     private static LessonList lessonList = new LessonList();
     private ArrayList<Lesson> lessons = new ArrayList<>();
 
@@ -28,7 +29,10 @@ public class LessonList {
      * @return the LessonList instance
      */
     public static LessonList getInstance() {
-        return lessonList;
+        if (instance == null) {
+            instance = new LessonList();
+        }
+        return instance;
     }
 
     /**
@@ -65,5 +69,15 @@ public class LessonList {
      */
     public ArrayList<Lesson> getLessons() {
         return lessons;
+    }
+
+
+    public Lesson getLessonByTitle(String title) {
+        for (Lesson lesson : lessons) {
+            if (lesson.getTitle().equalsIgnoreCase(title)) {
+                return lesson;
+            }
+        }
+        return null;
     }
 }

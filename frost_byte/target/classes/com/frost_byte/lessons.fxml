@@ -1,21 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.frost_byte.ProfileController"
-      alignment="CENTER" spacing="20.0">
-
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="337.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frost_byte.PlaylistController">
    <children>
-      <Label text="This is the Lessons View" />
-      <Label text="You can add lessons info here." />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ListView fx:id="listViewLessons" opacity="0.94" prefHeight="440.0" prefWidth="327.0" stylesheets="@playlist.css" />
+         </children>
+      </VBox>
    </children>
-
    <padding>
-      <Insets top="20" right="20" bottom="20" left="20"/>
+      <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
    </padding>
-
-</VBox>
+</StackPane>
