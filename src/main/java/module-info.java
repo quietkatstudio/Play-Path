@@ -7,7 +7,7 @@ module com.frost_byte{
     requires jfugue;
     //requires org.jfugue;
     requires java.desktop;
-
+    requires com.google.gson;
     opens com.frost_byte to javafx.fxml;
     exports com.frost_byte;
 

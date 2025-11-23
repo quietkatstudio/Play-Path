@@ -1,12 +1,14 @@
 package com.model;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * The DataWriter class is responsible for converting Users, Songs, and Lessons
@@ -57,10 +59,17 @@ public class DataWriter extends DataConstants {
     }
 
     private static void writeToFile(String filename, JSONArray array) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter file = new FileWriter(filename)) {
-            file.write(array.toJSONString());
-            file.write(System.lineSeparator());
-            file.flush();
+            file.write(gson.toJson(array));
+
+            
+
+
+
+            // file.write(array.toJSONString());
+            // file.write(System.lineSeparator());
+            // file.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
