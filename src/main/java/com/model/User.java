@@ -15,6 +15,8 @@ public class User {
     private String password;
     private boolean isTeacher;
 
+
+    //Constructors
     /**
      * 
      * @param userName
@@ -56,89 +58,32 @@ public class User {
         this.password = password;
     }
 
-    /**
-     * 
-     * @param user
-     * @return
-     */
-    private boolean isTeacher(User user) {
-        return true;
-    }
+   
+    // Getters
+    public String getUserName() { return this.userName;}
+    public String getLastName() { return this.lastName;}
+    public String getEmail() {return this.email; }
+    public String getFirstName() {return this.firstName;}
+    public UUID getID() {return this.id;}
+    public String getPassword() {return this.password;}
+    public boolean getIsTeacher() {return this.isTeacher; }
 
-    /**
-     * 
-     */
-    private void register() {
+    // Setters
+    public void setUserName(String userName) {this.userName = userName;}
+    public void setFirstName(String firstName) {this.firstName = firstName;}
+    public void setLastName(String lastName) {this.lastName = lastName;}
+    public void setEmail(String email) {this.email = email;}
+    public void setPassword(String password) {this.password = password;}
+    public void setIsTeadher(boolean isTeacher){this.isTeacher = isTeacher;}
 
-    }
-
-    /**
-     * 
-     */
-    private void login() {
-
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public String getUserName() {
-        return this.userName;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public String getEmail() {
-        return this.email;
-    }
-
-    /**
-     * 
-     */
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-
-    /**
-     * 
-     * @return
-     */
-    public UUID getID() {
-        return this.id;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public String getPassword() {
-        return this.password;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public boolean getIsTeacher() {
-        return this.isTeacher;
-    }
-
+   
     /**
      * 
      */
     public String toString(){
-        return "username: "+ userName +"\n"+ ", first name: " +"\n"+ firstName + ", last name: " +"\n"+ lastName + ", password: " +"\n"+ password;
+        return "username: "+ userName +
+        ", first name: " + firstName +
+        ", last name: " + lastName +
+        ", password: " + password;
     }
 }

@@ -1,6 +1,5 @@
 package com.model;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 
 //import javax.sound.midi.Track;
@@ -8,16 +7,19 @@ import java.util.concurrent.TimeUnit;
 //import org.jfugue.pattern.Pattern;
 //import org.jfugue.player.Player;
 /**
- * This class is
+ * This class manages the music application logic
  * @author Frost Byte
  */
 public class MusicApplication {
-    private User user;
-    private Song song;
-    private SongList track;
-    private ArrayList<Song> songs;
-    private ChooseInstrument instrument;
-    private UserList users;
+    //----------------------------
+    //fields
+    //----------------------------
+    private User user;                      //current logged in user
+    private Song song;                      //singleton song list
+    private SongList track;                 //not used yet
+    private ArrayList<Song> songs;          //not used yet
+    private ChooseInstrument instrument;    //not userd yet
+  
 
     /**
      * Constructs a new MusicApplication instance
@@ -27,7 +29,7 @@ public class MusicApplication {
     }
 
     /**
-     * Authenticates a user by verifying their username and password
+     * User Authentication
      * @param userName the user's username
      * @param password the user's password
      * @return true if login is successful, false otherwise
@@ -41,6 +43,17 @@ public class MusicApplication {
 
     }
 
+
+    /**
+     * Logs out the current user and saves user data
+     * @return true after saving the users data
+     */
+    public boolean logout() {
+        UserList.getInstance().saveUsers();
+        return true;
+    }
+
+
     
      /**
      * Registers a new user in the system
@@ -51,28 +64,54 @@ public class MusicApplication {
      * @param password the user's password
      * @param isTeacher true if they are a teacher, false if a student
      */
-    public void register(String userName, String firstName, String lastName, String email, String password,
+    public boolean register(String userName, String firstName, String lastName, String email, String password,
             Boolean isTeacher) {
 
+        if (!isValidEmail(email)) {
+            return false;
+        }
+        if (UserList.getInstance().userExist(userName)){
+            return false;
+        }
         UserList.getInstance().addUser(userName, firstName, lastName, email, password, isTeacher);
+        UserList.getInstance().saveUsers();
+        return true;    
     }
 
-    /**
-     * Retrieves the first name of a given user
-     * @param username the user's username
-     * @return the user's first name
-     */
-    public String getFirstName(String username) {
-        return UserList.getInstance().getUser(username).getFirstName();
+
+    //----------------------------
+    // User Info / Updates
+    //----------------------------
+
+    public boolean changePassword(String username, String newPassword){
+        User user = UserList.getInstance().getUser(username);
+        if(user != null) {
+            user.setPassword(newPassword);
+            UserList.getInstance().saveUsers();
+            return true;
+        }
+        return false;
     }
-    /**
-     * Logs out the current user and saves user data
-     * @return true after saving the users data
-     */
-    public boolean logout() {
-        UserList.getInstance().saveUsers();
-        return true;
+
+
+    public boolean changeUserName(String username, String newPassword){
+        User user = UserList.getInstance().getUser(username);
+        if(user != null) {
+            return UserList.getInstance().updateUser(user, username, user.getEmail());
+        }
+        return false;//if user does not exist return false
     }
+
+
+    public boolean changeEmail(String username, String newEmail){
+        User user = UserList.getInstance().getUser(username);
+        if(user != null) {
+            return UserList.getInstance().updateUser(user, user.getUserName(), newEmail);
+        }
+        return false;//if user does not exist return false
+    }
+
+
 
     /**
      * Retrieves a user object by their username
@@ -84,6 +123,23 @@ public class MusicApplication {
 
     }
 
+   
+    public User getCurrentUser() {
+        return user;
+
+    }
+
+    /**
+     * Retrieves the first name of a given user
+     * @param username the user's username
+     * @return the user's first name
+     */
+    public String getFirstName(String username) {
+        return UserList.getInstance().getUser(username).getFirstName();
+    }
+    
+
+
      /**
      * This method checks to see if a username is already taken
      * 
@@ -91,11 +147,15 @@ public class MusicApplication {
      * @return True (Available), False (Unavailable)
      */
     public boolean availableUsername(String userName) {
-        boolean userExist = UserList.getInstance().userExist(userName);
-        return userExist;
+        return !UserList.getInstance().userExist(userName);
+        
     }
 
-    /**
+    //----------------------------
+    // Song Management
+    //----------------------------
+
+     /**
      * Retrieves a song by its title
      * @param title the songs title
      * @return the song object if found, null otherwise
@@ -105,7 +165,7 @@ public class MusicApplication {
         return track.getSongByTitle(title);
     }
 
-    /**
+     /**
      * 
      * @param artist
      * @return
@@ -115,7 +175,7 @@ public class MusicApplication {
         return display;
     }
 
-    /**
+     /**
      * 
      * @return
      */
@@ -131,10 +191,7 @@ public class MusicApplication {
         track.playSong(song);
     }
 
-   
-   
-
-    /**
+     /**
      * 
      * @param song
      * @return
@@ -143,45 +200,32 @@ public class MusicApplication {
         return song;
     }
 
-    /**
-     * 
-     */
-    public void clear() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
+
+   
+    //----------------------------
+    // Helpers
+    //----------------------------
 
     /**
-     * waits 0 milleseconds
+     * This method checks if the email is valid format
+     * @param email the email to check
+     * @return True (correct), False (need to fix format)
      */
-    public void sleep() {
-        try {
-            TimeUnit.MILLISECONDS.sleep(0);//1000
-        } catch (Exception e) {
-            System.out.println("Timmer error");
-        }
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return email != null && email.matches(emailRegex);
     }
 
-    /**
-     * waits 0 milleseconds
-     */
-    public void longSleep() {
-        try {
-            TimeUnit.MILLISECONDS.sleep(0);//3000
-        } catch (Exception e) {
-            System.out.println("Timmer error");
-        }
-    }
+   
 
-    /**
-     * Waits 0 milleseconds
-     */
-    public void shortSleep() {
-        try {
-            TimeUnit.MILLISECONDS.sleep(0); //20
-        } catch (Exception e) {
-            System.out.println("Timmer error");
-        }
-    }
+   
+
+   
+   
+
+   
+    
+
+    
 
 }

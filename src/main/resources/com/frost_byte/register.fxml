@@ -31,7 +31,7 @@
                 <Insets top="100.0" />
             </padding>
             <children>
-                <Label text="Create New Account" textFill="WHITE">
+                <Label text="Create New Account" textFill="BLACK">
                     <font>
                         <Font size="20.0" />
                     </font>

@@ -38,13 +38,24 @@ public class UserList {
     public boolean userExist(String username) {
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
-            if (user.getUserName().equals(username)) {
-                return false;
+            if (user.getUserName().equalsIgnoreCase(username)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
+     public boolean emailExist(String email) {
+        for (int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+            if (user.getEmail().equalsIgnoreCase(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+   
+   
     public boolean login(String username, String password) {
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
@@ -88,6 +99,20 @@ public class UserList {
         }
         return null;
     }
+
+    public boolean updateUser(User user, String newUserName, String newEmail){
+        if(!user.getUserName().equalsIgnoreCase(newUserName) && userExist(newUserName)){
+            return false;
+        }
+        if (!user.getEmail().equalsIgnoreCase(newEmail) && emailExist(newEmail)){
+            return false;
+        }
+        user.setUserName(newUserName);
+        user.setEmail(newEmail);
+        saveUsers();
+        return true;
+    }
+
 
     /**
      * This method saves the user list to the data writer

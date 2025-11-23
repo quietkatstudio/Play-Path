@@ -51,4 +51,9 @@ public class LoginController {
     private void switchToRegister() throws IOException {
         App.setRoot("register");
     }
+
+    @FXML
+    private void switchToForgotPassword() throws IOException {
+        App.setRoot("forgot_password");
+    }
 }

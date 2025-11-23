@@ -35,12 +35,14 @@ public class RegisterController {
      */
     @FXML
     private void handleRegister() {
-        String username = usernameText.getText();
-        String password = passwordText.getText();
-        String confirmPassword = confirmPasswordText.getText();
-        String firstName = firstNameText.getText();
-        String lastName = lastNameText.getText();
-        String email = emailText.getText();
+        errorLabel.setText("");
+
+        String username = usernameText.getText().trim();
+        String password = passwordText.getText().trim();
+        String confirmPassword = confirmPasswordText.getText().trim();
+        String firstName = firstNameText.getText().trim();
+        String lastName = lastNameText.getText().trim();
+        String email = emailText.getText().trim();
         boolean isTeacher = isTeacherCheck != null && isTeacherCheck.isSelected();
         
         // Basic validation
@@ -60,16 +62,24 @@ public class RegisterController {
         
         // The facade's availableUsername is likely meant to return TRUE if the user EXISTS.
         // Let's assume the facade's availableUsername is TRUE if the user exists (unavailable).
-        if (facade.availableUsername(username)) {
-             errorLabel.setText("Error: This username is already taken.");
-             return;
+       
+        // if (facade.availableUsername(username)) {
+        //      errorLabel.setText("Error: This username is already taken.");
+        //      return;
+        // }
+        boolean success = facade.register(username, firstName, lastName, email, password, isTeacher);
+
+        if (!success) {
+            errorLabel.setText("Error: Invalid email or username already exists.");
+            return;
         }
-        
+
         // Register the user
-        facade.register(username, firstName, lastName, email, password, isTeacher);
+        //facade.register(username, firstName, lastName, email, password, isTeacher);
 
         // Success message and transition back to login
-        Alert alert = new Alert(AlertType.INFORMATION);
+        
+            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Registration Successful");
         alert.setHeaderText(null);
         alert.setContentText("Your account has been created. Please log in.");
@@ -80,6 +90,8 @@ public class RegisterController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        
     }
 
     /**
