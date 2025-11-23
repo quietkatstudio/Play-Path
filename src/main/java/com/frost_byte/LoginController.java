@@ -2,16 +2,13 @@ package com.frost_byte;
 
 import java.io.IOException;
 
-import com.model.UserList;
+import com.model.MusicApplication;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class LoginController {
 
@@ -21,6 +18,8 @@ public class LoginController {
     private TextField usernameText;
     @FXML
     private PasswordField passwordText;
+
+    private MusicApplication facade = new MusicApplication();
 
     public void setPrimaryController(PrimaryController controller) {
         this.primary = controller;
@@ -32,7 +31,7 @@ public class LoginController {
         String username = usernameText.getText();
         String password = passwordText.getText();
 
-        if (UserList.getInstance().login(username, password)) {
+        if (facade.login(username, password)) {
             try {
                 App.setRoot("primary");
             } catch (IOException e) {
@@ -46,5 +45,10 @@ public class LoginController {
             alert.setContentText("The username or password you entered is incorrect.\n Please press OK to try again.");
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    private void switchToRegister() throws IOException {
+        App.setRoot("register");
     }
 }

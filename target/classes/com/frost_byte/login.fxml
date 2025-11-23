@@ -83,7 +83,7 @@
                <HBox prefHeight="100.0" prefWidth="200.0">
                    <children>
                        <Separator opacity="0.0" prefHeight="31.0" prefWidth="73.0" />
-                       <Button fx:id="regButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" text="Register" />
+                       <Button fx:id="regButton" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="30.0" prefWidth="81.0" text="Register" />
                        <Separator opacity="0.0" prefHeight="31.0" prefWidth="3.0" />
                        <Button fx:id="passButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" text="Forgot Password?" />
                    </children>
