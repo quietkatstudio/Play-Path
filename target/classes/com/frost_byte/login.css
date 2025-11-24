@@ -3,7 +3,8 @@
 }
 
 #loginButton {
-    -fx-background-color: #403f3f
+    -fx-background-color: #403f3f;
+    -fx-text-fill: white;
 }
 
 #passButton {
@@ -18,6 +19,13 @@
     -fx-border-color: rgba(255, 255, 255, 0.4);
     ;
     -fx-border-radius: 5px;
+}
+
+.button {
+     -fx-background-color: #bed8d7;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-radius: 5px;
+    -fx-text-fill: black;
 }
 
 .text-field,

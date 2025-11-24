@@ -17,6 +17,27 @@
     -fx-border-radius: 5px;
     -fx-text-fill: black;
 }
+.button {
+     -fx-background-color: #bed8d7;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-radius: 5px;
+    -fx-text-fill: black;
+}
+
+/* 
+ <!-- Register Button -->
+                    <Button mnemonicParsing="false" onAction="#handleRegister" prefHeight="30.0" prefWidth="258.0" text="Register" styleClass="login-button">
+                        <VBox.margin>
+                            <Insets top="10.0" />
+                        </VBox.margin>
+                    </Button>
+                    
+                    <!-- Back to Login Button -->
+                    <Button mnemonicParsing="false" onAction="#switchToLogin" prefHeight="30.0" prefWidth="258.0" text="Back to Login" styleClass="register-button" />
+ */
+
+
+
 
 /* Generic form fields (TextField & PasswordField) */
 .text-field,
