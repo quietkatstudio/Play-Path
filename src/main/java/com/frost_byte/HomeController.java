@@ -3,9 +3,7 @@ package com.frost_byte;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.model.DataWriter;
 import com.model.Song;
-import com.model.UserList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class HomeController {
 
@@ -71,8 +68,8 @@ public class HomeController {
 
     @FXML
     private void showClasses() {
-        if (primaryController != null)
-            primaryController.showClasses(); // or show specific class screen
+       // if (primaryController != null)
+           // primaryController.showClasses(); // or show specific class screen
     }
 
     public void openSongPage(Song selectedSong) {
@@ -86,9 +83,9 @@ public class HomeController {
 
             // Update the scene
             Scene scene = new Scene(root);
-            Stage stage = (Stage) songButton.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+            // Stage stage = (Stage) songButton.getScene().getWindow();
+            // stage.setScene(scene);
+            // stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -97,8 +94,8 @@ public class HomeController {
     public void handleLogout() {
 
         try {
-            DataWriter.saveSongs(songList);
-            App.setRoot("primary");
+           // DataWriter.saveSongs(songList);
+            App.setRoot("login");
         } catch (IOException e) {
             e.printStackTrace();
         }
