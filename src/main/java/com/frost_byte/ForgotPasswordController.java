@@ -1,56 +1,111 @@
 package com.frost_byte;
 
-import com.model.MusicApplication;
 import java.io.IOException;
+
+import com.model.MusicApplication;
+import com.model.User;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-/**
- * Controller for the forgot_password.fxml view.
- * Handles the logic for initiating password recovery.
- */
 public class ForgotPasswordController {
 
-    @FXML private TextField emailText;
-    @FXML private Label errorLabel;
+   private MusicApplication facade = new MusicApplication();
 
-    private MusicApplication facade = new MusicApplication();
+   @FXML
+   private TextField usernameText;
 
-    /**
-     * Attempts to send a password recovery link to the user's email.
-     */
-    @FXML
-    private void handleSendRecoveryLink() {
-        String email = emailText.getText();
-        
-        if (email.isEmpty() || !email.contains("@")) {
-            errorLabel.setText("Error: Please enter a valid email address.");
+   @FXML
+   private Label securityQuestionLabel;
+
+   @FXML
+   private TextField answerText;
+
+   @FXML
+   private PasswordField newPasswordText;
+
+   @FXML
+   private Button submitButton;
+
+   @FXML
+   private Label errorLabel;
+
+   @FXML
+   private User currentUser;
+
+   @FXML
+   private void handleUsernameNext(){
+        String username = usernameText.getText().trim();
+        if(username.isEmpty()){
+            errorLabel.setText("Please enter your username.");
             return;
         }
+        currentUser = facade.getUserByUsername(username);
+        if(currentUser == null){
 
-        // NOTE: This relies on the MusicApplication facade having a sendRecoveryLink method.
-        boolean success = facade.sendRecoveryLink(email);
+            errorLabel.setText("username not found");
+            return;
+        }
+   }
 
-        if (success) {
-             Alert alert = new Alert(AlertType.INFORMATION);
-             alert.setTitle("Recovery Sent");
-             alert.setHeaderText(null);
-             alert.setContentText("If an account exists for that email, recovery instructions have been sent.");
-             alert.showAndWait();
-        } else {
-             // For testing purposes, we use errorLabel. In a final app, this might be a generic message.
-             errorLabel.setText("Error processing request. Please try again.");
+   @FXML
+   private void handleSubmitNewPassword(){
+    if(currentUser == null){
+        errorLabel.setText("please enter your username first.");
+        return;
+    }
+    String answer = answerText.getText().trim();
+    String newPassword = newPasswordText.getText();
+
+    if(answer.isEmpty() || newPassword.isEmpty()){
+        errorLabel.setText("please answer the question and enter a new password");
+        return;
+    }
+    if (currentUser.checkSecurityAnswer(answer)){
+        currentUser.setPassword(newPassword);
+        facade.updateUser(currentUser);
+
+        Alert alert = new Alert(AlertType.INFORMATION);
+
+        alert.setTitle("password reset successful");
+        alert.setHeaderText(null);
+        alert.setContentText("your password has been updated. you can now login");
+        alert.showAndWait();
+
+        try {
+            App.setRoot("login");
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }else{
+        errorLabel.setText("incorrect answer. try again.");
+    }
+
+   }
+    @FXML
+    private void handleSubmitAnswer(){
+        String username = usernameText.getText();
+        String answer = answerText.getText();
+        User user = facade.getUserByUsername(username);
+        if(user == null){
+            errorLabel.setText("username not found");
+            return;
+        }
+        if(user.getSecurityQuestion().equalsIgnoreCase(answer)){
+            errorLabel.setText("incorrect answer");
         }
     }
 
-    /**
-     * Switches the view back to the login screen.
-     */
     @FXML
     private void switchToLogin() throws IOException {
-        App.setRoot("login");
+        App.setRoot("login"); // make sure this matches your login FXML filename
     }
 }

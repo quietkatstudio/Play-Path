@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -26,6 +27,9 @@ public class RegisterController {
     @FXML private PasswordField confirmPasswordText;
     @FXML private Label errorLabel;
     @FXML private CheckBox isTeacherCheck; // Assuming you might have a teacher/student option
+    //@FXML private TextField securityQuestionText;   changed to a drop down
+    @FXML private ComboBox<String> securityQuestionCombo;
+    @FXML private TextField securityAnswerText;
 
     // Instance of the application logic facade
     private MusicApplication facade = new MusicApplication();
@@ -44,6 +48,8 @@ public class RegisterController {
         String lastName = lastNameText.getText().trim();
         String email = emailText.getText().trim();
         boolean isTeacher = isTeacherCheck != null && isTeacherCheck.isSelected();
+        String securityQuestion = securityQuestionCombo.getValue();
+        String securityAnswer = securityAnswerText.getText().trim();
         
         // Basic validation
         if (!password.equals(confirmPassword)) {
@@ -67,7 +73,7 @@ public class RegisterController {
         //      errorLabel.setText("Error: This username is already taken.");
         //      return;
         // }
-        boolean success = facade.register(username, firstName, lastName, email, password, isTeacher);
+        boolean success = facade.register(username, firstName, lastName, email, password, isTeacher, securityQuestion, securityAnswer);
 
         if (!success) {
             errorLabel.setText("Error: Invalid email or username already exists.");
@@ -101,5 +107,18 @@ public class RegisterController {
     @FXML
     private void switchToLogin() throws IOException {
         App.setRoot("login");
+    }
+
+    
+
+    @FXML
+    public void initialize() {
+        securityQuestionCombo.getItems().addAll(
+            "What city were you born in?",
+            "What is your mother's maiden name?",
+            "What was the name of your first pet?",
+            "What is your favorite color?",
+            "What was the name of your first school?"
+        );
     }
 }

@@ -77,8 +77,13 @@ public class UserList {
      * @param password  the users password
      */
     public void addUser(String userName, String firstName, String lastName, String email, String password,
-            boolean isTeacher) {
-        User newUser = new User(userName, firstName, lastName, email, password, isTeacher);
+                        boolean isTeacher, String securityQuestion, String securityAnswer) {
+
+        User newUser = new User(userName, firstName, lastName, email, password, isTeacher,securityQuestion,  securityAnswer);
+        
+        newUser.setSecurityQuestion(securityQuestion);
+        newUser.setSecurityAnswer(securityAnswer);
+
         users.add(newUser);
         // saveUsers();
 

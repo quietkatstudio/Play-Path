@@ -84,6 +84,8 @@ public class DataWriter extends DataConstants {
         userJson.put(USER_EMAIL, user.getEmail());
         userJson.put(USER_PASSWORD, user.getPassword());
         userJson.put(USER_ACCOUNT_TYPE, user.getIsTeacher());
+        userJson.put(USER_SECURITY_QUESTION, user.getSecurityQuestion());
+        userJson.put(USER_SECURITY_ANSWER, user.getSecurityAnswer());
         return userJson;
     }
 

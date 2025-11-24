@@ -1,0 +1,70 @@
+/* Background */
+#StackPane {
+    -fx-background-color: #bed8d7;
+}
+
+/* Register Button */
+#regButton {
+    -fx-background-color: #403f3f;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+
+/* Back to Login Button */
+#loginButton {
+    -fx-background-color: #bed8d7;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-radius: 5px;
+    -fx-text-fill: black;
+}
+
+/* Generic form fields (TextField & PasswordField) */
+.text-field,
+.password-field {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-background-radius: 5px;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-radius: 5px;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+}
+
+.text-field:focused,
+.password-field:focused {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ComboBox – Styled to match text fields */
+.combo-box {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-background-radius: 5px;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}
+
+.combo-box .label {
+    -fx-text-fill: white;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: white;
+}
+
+.combo-box:focused {
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Error Label */
+#errorLabel {
+    -fx-text-fill: #ff4d4d;
+}

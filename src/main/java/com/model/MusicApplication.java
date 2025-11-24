@@ -2,6 +2,7 @@ package com.model;
 import java.util.ArrayList;
 
 
+
 //import javax.sound.midi.Track;
 
 //import org.jfugue.pattern.Pattern;
@@ -19,6 +20,8 @@ public class MusicApplication {
     private SongList track;                 //not used yet
     private ArrayList<Song> songs;          //not used yet
     private ChooseInstrument instrument;    //not userd yet
+    private UserList users;
+    
   
 
     /**
@@ -65,7 +68,7 @@ public class MusicApplication {
      * @param isTeacher true if they are a teacher, false if a student
      */
     public boolean register(String userName, String firstName, String lastName, String email, String password,
-            Boolean isTeacher) {
+            Boolean isTeacher, String securityQuestion, String securityAnswer) {
 
         if (!isValidEmail(email)) {
             return false;
@@ -73,7 +76,7 @@ public class MusicApplication {
         if (UserList.getInstance().userExist(userName)){
             return false;
         }
-        UserList.getInstance().addUser(userName, firstName, lastName, email, password, isTeacher);
+        UserList.getInstance().addUser(userName, firstName, lastName, email, password, isTeacher, securityQuestion, securityAnswer);
         UserList.getInstance().saveUsers();
         return true;    
     }
@@ -82,6 +85,21 @@ public class MusicApplication {
     //----------------------------
     // User Info / Updates
     //----------------------------
+
+    // public boolean forgotPassword(String username){
+    //     User user = UserList.getInstance().getUser(username);
+    //     if (user == null){
+    //         return false;
+    //     }
+
+    //     String tempPassword = UUID.randomUUID().toString().substring(0, 8);
+    //     user.setPassword(tempPassword);
+        
+    //     UserList.getInstance().saveUsers();
+    //     EmailSender.sendEmail(user.getEmail(), "Password Reset", "Your new password is: " + tempPassword);
+    //     return true;
+    // }
+
 
     public boolean changePassword(String username, String newPassword){
         User user = UserList.getInstance().getUser(username);
@@ -150,6 +168,21 @@ public class MusicApplication {
         return !UserList.getInstance().userExist(userName);
         
     }
+
+    
+
+    public User getUserByUsername(String username){
+    return UserList.getInstance().getUser(username);
+}
+
+
+    public void updateUser(User user){
+       
+        UserList.getInstance().saveUsers();
+    }
+
+
+
 
     //----------------------------
     // Song Management

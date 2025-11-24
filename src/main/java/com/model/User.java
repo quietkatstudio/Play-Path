@@ -14,6 +14,8 @@ public class User {
     private String email;
     private String password;
     private boolean isTeacher;
+    private String securityQuestion;
+    private String securityAnswer;
 
 
     //Constructors
@@ -26,7 +28,7 @@ public class User {
      * @param password
      * @param isTeacher
      */
-    public User(String userName, String firstName, String lastName, String email, String password, boolean isTeacher) {
+    public User(String userName, String firstName, String lastName, String email, String password, boolean isTeacher, String securityQuestion, String securityAnswer) {
         this.id = UUID.randomUUID();
         this.userName = userName;
         this.firstName = firstName;
@@ -34,6 +36,8 @@ public class User {
         this.email = email;
         this.isTeacher = isTeacher;
         this.password = password;
+        this.securityQuestion = securityQuestion;
+        this.securityAnswer = securityAnswer;
     }
 
 
@@ -48,7 +52,7 @@ public class User {
      * @param isTeacher
      */
     public User(UUID id, String userName, String firstName, String lastName, String email, String password,
-            boolean isTeacher) {
+            boolean isTeacher, String securityQuestion, String securityAnswer) {
         this.id = id;
         this.userName = userName;
         this.firstName = firstName;
@@ -56,6 +60,8 @@ public class User {
         this.email = email;
         this.isTeacher = isTeacher;
         this.password = password;
+        this.securityAnswer = securityAnswer;
+        this.securityQuestion =securityQuestion;
     }
 
    
@@ -67,6 +73,8 @@ public class User {
     public UUID getID() {return this.id;}
     public String getPassword() {return this.password;}
     public boolean getIsTeacher() {return this.isTeacher; }
+    public String getSecurityQuestion(){ return this.securityQuestion;}
+    public String getSecurityAnswer(){ return this.securityAnswer;}
 
     // Setters
     public void setUserName(String userName) {this.userName = userName;}
@@ -75,7 +83,16 @@ public class User {
     public void setEmail(String email) {this.email = email;}
     public void setPassword(String password) {this.password = password;}
     public void setIsTeadher(boolean isTeacher){this.isTeacher = isTeacher;}
+    public void setSecurityQuestion(String question){this.securityQuestion = question;}
+    public void setSecurityAnswer(String answer){this.securityAnswer = answer;}
 
+
+    public boolean checkSecurityAnswer(String answer){
+        if(this.securityAnswer == null) {
+            return false;
+        }
+        return this.securityAnswer.equalsIgnoreCase(answer.trim());
+    }
    
     /**
      * 

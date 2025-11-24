@@ -10,6 +10,8 @@ public abstract class DataConstants {
   protected static final String USER_EMAIL = "email";
   protected static final String USER_ACCOUNT_TYPE = "isTeacher";
   protected static final String USER_PASSWORD = "password";
+  protected static final String USER_SECURITY_QUESTION = "securityQuestion";
+  protected static final String USER_SECURITY_ANSWER = "securityAnswer";
 
   // Lesson JSON constants
   protected static final String LESSON_FILE_NAME = "json/lessons.json";
