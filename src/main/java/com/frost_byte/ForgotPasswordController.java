@@ -6,8 +6,6 @@ import com.model.MusicApplication;
 import com.model.User;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -15,97 +13,113 @@ import javafx.scene.control.TextField;
 
 public class ForgotPasswordController {
 
-   private MusicApplication facade = new MusicApplication();
+    private MusicApplication facade = new MusicApplication();
 
-   @FXML
-   private TextField usernameText;
+    @FXML
+    private TextField usernameText;
 
-   @FXML
-   private Label securityQuestionLabel;
+    @FXML
+    private Label securityQuestionLabel;
 
-   @FXML
-   private TextField answerText;
+    @FXML
+    private TextField answerText;
 
-   @FXML
-   private PasswordField newPasswordText;
+    @FXML
+    private PasswordField newPasswordText;
 
-   @FXML
-   private Button submitButton;
+    @FXML
+    private Button submitButton;
 
-   @FXML
-   private Label errorLabel;
+    @FXML
+    private Button submitNewPasswordButton;
 
-   @FXML
-   private User currentUser;
+    @FXML
+    private Label errorLabel;
 
-   @FXML
-   private void handleUsernameNext(){
+    private User currentUser;
+
+    @FXML
+    private void initialize() {
+        // Only username visible at first
+        securityQuestionLabel.setVisible(false);
+        answerText.setVisible(false);
+        submitButton.setVisible(false);
+        newPasswordText.setVisible(false);
+        submitNewPasswordButton.setVisible(false);
+
+        usernameText.setOnAction(e -> handleUsernameNext());
+    }
+
+    @FXML
+    private void handleUsernameNext() {
         String username = usernameText.getText().trim();
-        if(username.isEmpty()){
+        if (username.isEmpty()) {
             errorLabel.setText("Please enter your username.");
             return;
         }
-        currentUser = facade.getUserByUsername(username);
-        if(currentUser == null){
 
-            errorLabel.setText("username not found");
+        currentUser = facade.getUserByUsername(username);
+        if (currentUser == null) {
+            errorLabel.setText("Username not found.");
             return;
         }
-   }
 
-   @FXML
-   private void handleSubmitNewPassword(){
-    if(currentUser == null){
-        errorLabel.setText("please enter your username first.");
-        return;
+        // Show security question and answer input
+        securityQuestionLabel.setText(currentUser.getSecurityQuestion());
+        securityQuestionLabel.setVisible(true);
+        answerText.setVisible(true);
+        submitButton.setVisible(true);
+        errorLabel.setText("");
     }
-    String answer = answerText.getText().trim();
-    String newPassword = newPasswordText.getText();
 
-    if(answer.isEmpty() || newPassword.isEmpty()){
-        errorLabel.setText("please answer the question and enter a new password");
-        return;
+    @FXML
+    private void handleSubmitAnswer() {
+        if (currentUser == null) {
+            errorLabel.setText("Please enter your username first.");
+            return;
+        }
+
+        String answer = answerText.getText().trim();
+        if (answer.isEmpty()) {
+            errorLabel.setText("Please enter your answer.");
+            return;
+        }
+
+        if (currentUser.checkSecurityAnswer(answer)) {
+            errorLabel.setText("Correct answer! You may now enter a new password.");
+            newPasswordText.setVisible(true);
+            submitNewPasswordButton.setVisible(true);
+        } else {
+            errorLabel.setText("Incorrect answer. Try again.");
+        }
     }
-    if (currentUser.checkSecurityAnswer(answer)){
+
+    @FXML
+    private void handleSubmitNewPassword() {
+        if (currentUser == null) {
+            errorLabel.setText("Please complete the security question first.");
+            return;
+        }
+
+        String newPassword = newPasswordText.getText().trim();
+        if (newPassword.isEmpty()) {
+            errorLabel.setText("Please enter a new password.");
+            return;
+        }
+
         currentUser.setPassword(newPassword);
         facade.updateUser(currentUser);
-
-        Alert alert = new Alert(AlertType.INFORMATION);
-
-        alert.setTitle("password reset successful");
-        alert.setHeaderText(null);
-        alert.setContentText("your password has been updated. you can now login");
-        alert.showAndWait();
+        errorLabel.setText("Password updated successfully!");
 
         try {
             App.setRoot("login");
-            
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-
-    }else{
-        errorLabel.setText("incorrect answer. try again.");
-    }
-
-   }
-    @FXML
-    private void handleSubmitAnswer(){
-        String username = usernameText.getText();
-        String answer = answerText.getText();
-        User user = facade.getUserByUsername(username);
-        if(user == null){
-            errorLabel.setText("username not found");
-            return;
-        }
-        if(user.getSecurityQuestion().equalsIgnoreCase(answer)){
-            errorLabel.setText("incorrect answer");
         }
     }
 
     @FXML
     private void switchToLogin() throws IOException {
-        App.setRoot("login"); // make sure this matches your login FXML filename
+        App.setRoot("login");
     }
 }
